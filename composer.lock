@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "f7f3f1cfdcadc147644d7fd57b7b4de96e5c60ea"
+                "reference": "2bb1ea439129b834e17df639ad6db1ab49367fe8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/f7f3f1cfdcadc147644d7fd57b7b4de96e5c60ea",
-                "reference": "f7f3f1cfdcadc147644d7fd57b7b4de96e5c60ea",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/2bb1ea439129b834e17df639ad6db1ab49367fe8",
+                "reference": "2bb1ea439129b834e17df639ad6db1ab49367fe8",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-04-11 17:56:32"
+            "time": "2016-04-11 18:06:08"
         },
         {
             "name": "pckg/frontend",
