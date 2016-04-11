@@ -2,5 +2,12 @@
 
 return [
     'resources' => [],
-    'apps'      => [],
+    'apps'      => [
+        'impero' => [
+            'host' => [
+                'impero.pckg-app',
+                'impero.foobar.si',
+            ],
+        ],
+    ],
 ];
