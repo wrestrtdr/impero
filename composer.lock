@@ -257,12 +257,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "684eab1624a66a4c37762c747c88a7f8664c65bf"
+                "reference": "172d1bb0cf1b5cb8dec8385028a8d0219523d0a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/684eab1624a66a4c37762c747c88a7f8664c65bf",
-                "reference": "684eab1624a66a4c37762c747c88a7f8664c65bf",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/172d1bb0cf1b5cb8dec8385028a8d0219523d0a9",
+                "reference": "172d1bb0cf1b5cb8dec8385028a8d0219523d0a9",
                 "shasum": ""
             },
             "require": {
@@ -299,7 +299,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-06 16:46:55"
+            "time": "2016-04-11 16:42:15"
         },
         {
             "name": "kraksoft/colorbox",
@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "0c9c6830f32e8a4213aead6afbadc12e666107f1"
+                "reference": "f7f3f1cfdcadc147644d7fd57b7b4de96e5c60ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/0c9c6830f32e8a4213aead6afbadc12e666107f1",
-                "reference": "0c9c6830f32e8a4213aead6afbadc12e666107f1",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/f7f3f1cfdcadc147644d7fd57b7b4de96e5c60ea",
+                "reference": "f7f3f1cfdcadc147644d7fd57b7b4de96e5c60ea",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-04-06 18:07:14"
+            "time": "2016-04-11 17:56:32"
         },
         {
             "name": "pckg/frontend",
@@ -1173,12 +1173,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/htmlbuilder.git",
-                "reference": "1f96cdbfb6d38f15a644155bf01b30b6ed2e6886"
+                "reference": "41eff36cd41c47ff83dd841551177fab3c59b251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/1f96cdbfb6d38f15a644155bf01b30b6ed2e6886",
-                "reference": "1f96cdbfb6d38f15a644155bf01b30b6ed2e6886",
+                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/41eff36cd41c47ff83dd841551177fab3c59b251",
+                "reference": "41eff36cd41c47ff83dd841551177fab3c59b251",
                 "shasum": ""
             },
             "require": {
@@ -1210,7 +1210,7 @@
             ],
             "description": "Build advanced forms in PHP with datasources, decorators, handlers and validators",
             "homepage": "https://bitbucket.org/lfw/htmlbuilder",
-            "time": "2016-04-10 20:14:14"
+            "time": "2016-04-11 17:56:56"
         },
         {
             "name": "pckg/import",
@@ -1289,12 +1289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "f3cff2888f6b02b9c2fabdcf8586adf7841082e8"
+                "reference": "75c6b0b6c9bce7a67542f3e218287e99c3f15919"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/f3cff2888f6b02b9c2fabdcf8586adf7841082e8",
-                "reference": "f3cff2888f6b02b9c2fabdcf8586adf7841082e8",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/75c6b0b6c9bce7a67542f3e218287e99c3f15919",
+                "reference": "75c6b0b6c9bce7a67542f3e218287e99c3f15919",
                 "shasum": ""
             },
             "require": {
@@ -1319,7 +1319,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-04-05 13:42:59"
+            "time": "2016-04-11 17:57:18"
         },
         {
             "name": "pckg/payment",
