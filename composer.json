@@ -1,0 +1,23 @@
+{
+  "name": "pckg/skeleton",
+  "description": "Directory structure, required files and suggestions for LFW",
+  "homepage": "https://github.com/pckg/skeleton",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bojan Rajh",
+      "email": "schtr4jh@schtr4jh.net"
+    }
+  ],
+  "require": {
+    "pckg/backend": "dev-master"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "": [
+        "src/"
+      ]
+    }
+  }
+}
