@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "f03fdfddc1e7092f1cf140cada6767fc9a10602c"
+                "reference": "8dd515fc6aaebad14b532ab784662aa8797b80df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/f03fdfddc1e7092f1cf140cada6767fc9a10602c",
-                "reference": "f03fdfddc1e7092f1cf140cada6767fc9a10602c",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/8dd515fc6aaebad14b532ab784662aa8797b80df",
+                "reference": "8dd515fc6aaebad14b532ab784662aa8797b80df",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-04-12 14:49:57"
+            "time": "2016-04-12 15:12:03"
         },
         {
             "name": "pckg/frontend",
@@ -1289,12 +1289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "c81152a96ccc62a1aeaa9b516125a5cc59eabbb6"
+                "reference": "c373737a5591a05e355b038e6e315075a73f7456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/c81152a96ccc62a1aeaa9b516125a5cc59eabbb6",
-                "reference": "c81152a96ccc62a1aeaa9b516125a5cc59eabbb6",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/c373737a5591a05e355b038e6e315075a73f7456",
+                "reference": "c373737a5591a05e355b038e6e315075a73f7456",
                 "shasum": ""
             },
             "require": {
@@ -1319,7 +1319,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-04-12 14:50:33"
+            "time": "2016-04-12 15:12:15"
         },
         {
             "name": "pckg/payment",
