@@ -9,13 +9,6 @@ use Pckg\Framework\Application\Website;
 class Impero extends Website
 {
 
-    public function run()
-    {
-        parent::run();
-        
-        $migration = new \Impero\Apache\Migration\CreateSiteTable();
-    }
-
     public function providers()
     {
         return [
