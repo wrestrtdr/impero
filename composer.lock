@@ -1685,12 +1685,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "9405f7a18d2c086806ea79c265a1ea563f170f3b"
+                "reference": "59c57f4d982026f19a8748473020a5ab9b65a9aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/9405f7a18d2c086806ea79c265a1ea563f170f3b",
-                "reference": "9405f7a18d2c086806ea79c265a1ea563f170f3b",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/59c57f4d982026f19a8748473020a5ab9b65a9aa",
+                "reference": "59c57f4d982026f19a8748473020a5ab9b65a9aa",
                 "shasum": ""
             },
             "require": {
@@ -1740,7 +1740,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-04-01 08:39:52"
+            "time": "2016-04-12 18:27:47"
         },
         {
             "name": "twbs/bootstrap",
