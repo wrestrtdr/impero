@@ -205,16 +205,16 @@
         },
         {
             "name": "fortawesome/font-awesome",
-            "version": "v4.5.0",
+            "version": "v4.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "fddd2c240452e6c8990c4ef75e0265b455aa7968"
+                "reference": "6535013c330e801ecf0b23c437865a7fb344486d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/fddd2c240452e6c8990c4ef75e0265b455aa7968",
-                "reference": "fddd2c240452e6c8990c4ef75e0265b455aa7968",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/6535013c330e801ecf0b23c437865a7fb344486d",
+                "reference": "6535013c330e801ecf0b23c437865a7fb344486d",
                 "shasum": ""
             },
             "require-dev": {
@@ -249,7 +249,7 @@
                 "font",
                 "icon"
             ],
-            "time": "2015-11-30 17:28:02"
+            "time": "2016-04-12 14:51:54"
         },
         {
             "name": "fzaninotto/faker",
@@ -257,12 +257,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "172d1bb0cf1b5cb8dec8385028a8d0219523d0a9"
+                "reference": "1c33e894fbbad6cf65bd42871719cd33227ed6a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/172d1bb0cf1b5cb8dec8385028a8d0219523d0a9",
-                "reference": "172d1bb0cf1b5cb8dec8385028a8d0219523d0a9",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1c33e894fbbad6cf65bd42871719cd33227ed6a7",
+                "reference": "1c33e894fbbad6cf65bd42871719cd33227ed6a7",
                 "shasum": ""
             },
             "require": {
@@ -299,7 +299,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-11 16:42:15"
+            "time": "2016-04-13 06:45:05"
         },
         {
             "name": "kraksoft/colorbox",
@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "592ab9a858cdd9be99fe13a40e296e3a217f1467"
+                "reference": "971280d872783e33aa00b825c9236e07ebf0d72d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/592ab9a858cdd9be99fe13a40e296e3a217f1467",
-                "reference": "592ab9a858cdd9be99fe13a40e296e3a217f1467",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/971280d872783e33aa00b825c9236e07ebf0d72d",
+                "reference": "971280d872783e33aa00b825c9236e07ebf0d72d",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-04-12 20:02:56"
+            "time": "2016-04-13 14:33:27"
         },
         {
             "name": "pckg/frontend",
@@ -1636,12 +1636,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "aa3a53dcf26e97de6ce5080dd4908a9f800edf55"
+                "reference": "1574f3451b40fa9bbae518ef71d19a56f409cac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/aa3a53dcf26e97de6ce5080dd4908a9f800edf55",
-                "reference": "aa3a53dcf26e97de6ce5080dd4908a9f800edf55",
+                "url": "https://api.github.com/repos/symfony/process/zipball/1574f3451b40fa9bbae518ef71d19a56f409cac0",
+                "reference": "1574f3451b40fa9bbae518ef71d19a56f409cac0",
                 "shasum": ""
             },
             "require": {
@@ -1677,7 +1677,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-04 10:18:36"
+            "time": "2016-04-12 19:11:33"
         },
         {
             "name": "symfony/var-dumper",
@@ -1748,12 +1748,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "7e09021fc3dcf64e6c63c1ebec5e848f98191219"
+                "reference": "63253aba88016adb7be9a9fc4565db7ca71b59bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7e09021fc3dcf64e6c63c1ebec5e848f98191219",
-                "reference": "7e09021fc3dcf64e6c63c1ebec5e848f98191219",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/63253aba88016adb7be9a9fc4565db7ca71b59bb",
+                "reference": "63253aba88016adb7be9a9fc4565db7ca71b59bb",
                 "shasum": ""
             },
             "replace": {
@@ -1791,7 +1791,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-04-11 06:23:45"
+            "time": "2016-04-13 00:01:36"
         },
         {
             "name": "twig/twig",
