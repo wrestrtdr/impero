@@ -31,8 +31,7 @@ class Apache
     public function postAddAction(SiteForm $siteForm, SiteRecord $siteRecord)
     {
         $siteForm->useRecordDatasource()
-            ->setRecord($siteRecord)
-            ->populate();
+            ->setRecord($siteRecord);
 
         $siteRecord->user_id = $this->auth()->getUser()->id;
 
@@ -46,8 +45,7 @@ class Apache
     public function getEditAction(SiteForm $siteForm, SiteRecord $siteRecord)
     {
         $siteForm->useRecordDatasource()
-            ->setRecord($siteRecord)
-            ->populate();
+            ->setRecord($siteRecord);
 
         return view('edit', [
             'siteForm' => $siteForm,
