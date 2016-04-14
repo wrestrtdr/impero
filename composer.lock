@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "bf0912b095025146db18376b17ccb2d050e993ef"
+                "reference": "c8c0a42bf23f666bfa75b0b50958b4b10cf73cce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/bf0912b095025146db18376b17ccb2d050e993ef",
-                "reference": "bf0912b095025146db18376b17ccb2d050e993ef",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/c8c0a42bf23f666bfa75b0b50958b4b10cf73cce",
+                "reference": "c8c0a42bf23f666bfa75b0b50958b4b10cf73cce",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-04-14 08:50:38"
+            "time": "2016-04-14 15:28:22"
         },
         {
             "name": "pckg/frontend",
@@ -1517,12 +1517,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "902185ebdfbd09b01974cb1f3cb65c64e6c701d1"
+                "reference": "4d18e4f2f164f18b52794f14d58e4fb40d85f167"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/902185ebdfbd09b01974cb1f3cb65c64e6c701d1",
-                "reference": "902185ebdfbd09b01974cb1f3cb65c64e6c701d1",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4d18e4f2f164f18b52794f14d58e4fb40d85f167",
+                "reference": "4d18e4f2f164f18b52794f14d58e4fb40d85f167",
                 "shasum": ""
             },
             "require": {
@@ -1569,7 +1569,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-16 17:16:29"
+            "time": "2016-04-12 18:27:47"
         },
         {
             "name": "symfony/polyfill-mbstring",
