@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "e6eaafe797f42aa37b86289a40351ba20fb5b64a"
+                "reference": "e987857b485b38a1fea42bfa5e7d900382cf299e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/e6eaafe797f42aa37b86289a40351ba20fb5b64a",
-                "reference": "e6eaafe797f42aa37b86289a40351ba20fb5b64a",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/e987857b485b38a1fea42bfa5e7d900382cf299e",
+                "reference": "e987857b485b38a1fea42bfa5e7d900382cf299e",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-04-14 21:26:06"
+            "time": "2016-04-15 08:56:41"
         },
         {
             "name": "pckg/frontend",
@@ -1748,12 +1748,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "63253aba88016adb7be9a9fc4565db7ca71b59bb"
+                "reference": "2c240b9f27895cf65540a12f992ae75620324e28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/63253aba88016adb7be9a9fc4565db7ca71b59bb",
-                "reference": "63253aba88016adb7be9a9fc4565db7ca71b59bb",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/2c240b9f27895cf65540a12f992ae75620324e28",
+                "reference": "2c240b9f27895cf65540a12f992ae75620324e28",
                 "shasum": ""
             },
             "replace": {
@@ -1791,7 +1791,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-04-13 00:01:36"
+            "time": "2016-04-14 22:56:20"
         },
         {
             "name": "twig/twig",
