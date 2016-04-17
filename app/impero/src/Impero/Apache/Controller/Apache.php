@@ -3,7 +3,7 @@
 use Impero\Apache\Entity\Sites;
 use Impero\Apache\Form\Site as SiteForm;
 use Impero\Apache\Record\Site as SiteRecord;
-use Pckg\Database\Helper\Traits;
+use Pckg\Framework\Helper\Traits;
 use Pckg\Framework\Response;
 
 class Apache

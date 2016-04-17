@@ -15,17 +15,17 @@ class Config extends Provider
     {
         return [
             'url' => [
-                'apache'             => [
+                '/apache'             => [
                     'controller' => Apache::class,
-                    'action'     => 'index',
+                    'view'       => 'index',
                 ],
-                'apache/add'         => [
+                '/apache/add'         => [
                     'controller' => Apache::class,
-                    'action'     => 'add',
+                    'view'       => 'add',
                 ],
-                'apache/edit/[site]' => [
+                '/apache/edit/[site]' => [
                     'controller' => Apache::class,
-                    'action'     => 'edit',
+                    'view'       => 'edit',
                     'resolvers'  => [
                         'site' => SiteResolver::class,
                     ],
