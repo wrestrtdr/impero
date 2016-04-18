@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "e987857b485b38a1fea42bfa5e7d900382cf299e"
+                "reference": "e40bee93ad07fa89b19ba31bb2d2b785aeea0a93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/e987857b485b38a1fea42bfa5e7d900382cf299e",
-                "reference": "e987857b485b38a1fea42bfa5e7d900382cf299e",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/e40bee93ad07fa89b19ba31bb2d2b785aeea0a93",
+                "reference": "e40bee93ad07fa89b19ba31bb2d2b785aeea0a93",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-04-15 08:56:41"
+            "time": "2016-04-16 06:40:46"
         },
         {
             "name": "pckg/frontend",
@@ -1289,12 +1289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "c373737a5591a05e355b038e6e315075a73f7456"
+                "reference": "1560378410d75a71de9d90b1cc668a7746dd5d95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/c373737a5591a05e355b038e6e315075a73f7456",
-                "reference": "c373737a5591a05e355b038e6e315075a73f7456",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/1560378410d75a71de9d90b1cc668a7746dd5d95",
+                "reference": "1560378410d75a71de9d90b1cc668a7746dd5d95",
                 "shasum": ""
             },
             "require": {
@@ -1319,7 +1319,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-04-12 15:12:15"
+            "time": "2016-04-17 18:55:42"
         },
         {
             "name": "pckg/payment",
@@ -1748,12 +1748,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "2c240b9f27895cf65540a12f992ae75620324e28"
+                "reference": "795d2208b882e194e6059a1639e056e020d64072"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/2c240b9f27895cf65540a12f992ae75620324e28",
-                "reference": "2c240b9f27895cf65540a12f992ae75620324e28",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/795d2208b882e194e6059a1639e056e020d64072",
+                "reference": "795d2208b882e194e6059a1639e056e020d64072",
                 "shasum": ""
             },
             "replace": {
@@ -1791,7 +1791,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-04-14 22:56:20"
+            "time": "2016-04-15 19:11:23"
         },
         {
             "name": "twig/twig",
