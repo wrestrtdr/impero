@@ -7,6 +7,7 @@ use Impero\Apache\Controller\Apache;
 use Impero\Apache\Record\Site;
 use Impero\Apache\Record\Site\Resolver as SiteResolver;
 use Pckg\Framework\Provider;
+use Weblab\Generic\Middleware\EncapsulateResponse;
 
 class Config extends Provider
 {
@@ -14,23 +15,25 @@ class Config extends Provider
     public function routes()
     {
         return [
-            'url' => [
+            'url' => array_merge_array([
+                'controller' => Apache::class,
+                'afterwares' => [
+                    EncapsulateResponse::class,
+                ],
+            ], [
                 '/apache'             => [
-                    'controller' => Apache::class,
-                    'view'       => 'index',
+                    'view' => 'index',
                 ],
                 '/apache/add'         => [
-                    'controller' => Apache::class,
-                    'view'       => 'add',
+                    'view' => 'add',
                 ],
                 '/apache/edit/[site]' => [
-                    'controller' => Apache::class,
-                    'view'       => 'edit',
-                    'resolvers'  => [
+                    'view'      => 'edit',
+                    'resolvers' => [
                         'site' => SiteResolver::class,
                     ],
                 ],
-            ],
+            ]),
         ];
     }
 

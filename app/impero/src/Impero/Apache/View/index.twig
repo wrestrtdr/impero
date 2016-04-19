@@ -1,1 +1,15 @@
 List sites
+<table>
+    <thead>
+        <tr>
+            <th>Server name</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for site in sites %}
+    <tr>
+        <td>{{ site.server_name }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

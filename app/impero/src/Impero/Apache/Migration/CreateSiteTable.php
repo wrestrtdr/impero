@@ -7,7 +7,7 @@ class CreateSiteTable extends Migration
 
     public function up()
     {
-        $siteTable = $this->table('site');
+        $siteTable = $this->table('sites');
 
         $siteTable->id('id');
         $siteTable->integer('user_id')->references('users', 'id');

@@ -38,10 +38,6 @@ class Apache
         return $this->response()->redirect();
     }
 
-    /**
-     * @param SiteForm   $siteForm Automatically bound without requirement
-     * @param SiteRecord $siteRecord Resolved ;-)
-     */
     public function getEditAction(SiteForm $siteForm, SiteRecord $siteRecord)
     {
         $siteForm->useRecordDatasource()

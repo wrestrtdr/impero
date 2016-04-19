@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{ _seoManager | raw }}
+
+    {{ _metaManager | raw }}
+
+    {{ _assetManager.getMeta(['css', 'js'], ['libraries', 'main']) | raw }}
+
+    {{ _assetManager.getGoogleFonts() | raw }}
+</head>
+<body>
+
+{% block content %}{{ content | raw }}{% endblock %}
+
+{{ _assetManager.getMeta(['css', 'js'], ['footer']) | raw }}
+
+</body>
+</html>
