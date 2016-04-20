@@ -11,7 +11,9 @@
 </head>
 <body>
 
-{% block content %}{{ content | raw }}{% endblock %}
+<div class="container">
+    {% block content %}{{ content | raw }}{% endblock %}
+</div>
 
 {{ _assetManager.getMeta(['css', 'js'], ['footer']) | raw }}
 

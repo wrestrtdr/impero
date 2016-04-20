@@ -40,8 +40,9 @@ class Apache
 
     public function getEditAction(SiteForm $siteForm, SiteRecord $siteRecord)
     {
-        $siteForm->useRecordDatasource()
-            ->setRecord($siteRecord);
+        $siteForm->useRecordDatasource();
+        $siteForm->setRecord($siteRecord);
+        $siteForm->initFields();
 
         return view('edit', [
             'siteForm' => $siteForm,

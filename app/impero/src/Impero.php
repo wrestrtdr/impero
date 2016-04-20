@@ -6,6 +6,7 @@ use Impero\Ftp\Provider\Config as FtpProvider;
 use Impero\Mysql\Provider\Config as MysqlProvider;
 use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
+use Weblab\Generic\Middleware\EncapsulateResponse;
 use Weblab\Generic\Provider\Config as GenericProvider;
 
 class Impero extends Provider
@@ -23,9 +24,11 @@ class Impero extends Provider
         ];
     }
 
-    public function layouts()
+    public function afterwares()
     {
-        return [];
+        return [
+            EncapsulateResponse::class,
+        ];
     }
 
 }

@@ -40,33 +40,22 @@ class Resolver implements ResolverInterface
         $this->response = $response;
     }
 
-    /**
-     * @T00D00 - parameter from router (let's say it's 'zobnascetka-si-schtr4jh-3') should already be passed to resolve method.
-     * We should also know which class are we resolving (Record\Site::class)
-     */
     public function resolve($class)
     {
-        if ($class != Site::class) {
-            /**
-             * Other resolver should resolve this.
-             */
-            return;
-        }
         if (!$id = $this->router->get('site')) {
-            /**
-             * How should we handle this?
-             */
             $this->response->bad('Site parameter is missing ...');
         }
 
-        /**
-         * We should resolve parameter or throw exception.
-         */
         return $this->sites->where('id', $id)
-            ->userIsAuthorized()
+            //->userIsAuthorized()
             ->oneOrFail(function () {
                 $this->response->unauthorized('Site not found');
             });
+    }
+
+    public function parametrize($record)
+    {
+        return $record->id;
     }
 
 }

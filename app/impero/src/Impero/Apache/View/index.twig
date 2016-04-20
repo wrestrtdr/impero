@@ -3,12 +3,14 @@ List sites
     <thead>
         <tr>
             <th>Server name</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
     {% for site in sites %}
     <tr>
         <td>{{ site.server_name }}</td>
+        <td><a href="{{ site.edit_url }}">Edit</a></td>
     </tr>
     {% endfor %}
     </tbody>

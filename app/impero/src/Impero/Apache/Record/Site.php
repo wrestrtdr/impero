@@ -8,6 +8,11 @@ class Site extends Record
 
     protected $entity = Sites::class;
 
+    public function getEditUrl()
+    {
+        return url('apache.edit', ['site' => $this]);
+    }
+
     public function getUserPath()
     {
         return '/www/' . $this->user->username . '/';

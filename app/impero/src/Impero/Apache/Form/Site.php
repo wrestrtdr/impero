@@ -1,8 +1,9 @@
 <?php namespace Impero\Apache\Form;
 
+use Pckg\Htmlbuilder\Decorator\Method\Bootstrap;
 use Pckg\Htmlbuilder\Element\Form;
 
-class Site extends Form
+class Site extends Form\Bootstrap
 {
 
     public function initFields()
@@ -10,9 +11,9 @@ class Site extends Form
         $this->addHidden('id');
 
         $this->addText('server_name')
-            ->setLabel('Server name (URL)')
+            ->setLabel('Server name (URL)')/*
             ->required()
-            ->unique();
+            ->unique()*/;
 
         $this->addText('server_alias')
             ->setLabel('Server aliases:');
@@ -21,6 +22,7 @@ class Site extends Form
             ->setLabel('Document root:');
 
         $this->addSelect('ssl')
+            ->setLabel('SSL')
             ->setPlaceholder('Select SSL method')
             ->addOptions([
                 ''            => 'Disabled (default)',
@@ -41,16 +43,16 @@ class Site extends Form
     private function addSslFileFields()
     {
         $this->addFile('ssl_certificate_key')
-            ->setLabel('*.crt')
+            ->setLabel('*.crt')/*
             ->extensions(['crt'])
             ->requiredWhen('ssl', 'file')
-            ->enabledWhen('ssl', 'file');
+            ->enabledWhen('ssl', 'file')*/;
 
         $this->addFile('ssl_certificate_key_file')
-            ->setLabel('*.key')
+            ->setLabel('*.key')/*
             ->extensions(['key'])
             ->requiredWhen('ssl', 'file')
-            ->enabledWhen('ssl', 'file');
+            ->enabledWhen('ssl', 'file')*/;
     }
 
     private function addSslLetsencrypt()
