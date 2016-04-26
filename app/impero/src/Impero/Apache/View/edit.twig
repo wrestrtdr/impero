@@ -1,3 +1,9 @@
-Edit site
+{% extends 'Weblab/Generic/View/panel.twig' %}
 
-{{ siteForm | raw }}
+{% block title %}
+    Edit site
+{% endblock %}
+
+{% block content %}
+    {{ siteForm | raw }}
+{% endblock %}

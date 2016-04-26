@@ -2,8 +2,9 @@
 
 use Pckg\Htmlbuilder\Decorator\Method\Bootstrap;
 use Pckg\Htmlbuilder\Element\Form;
+use Pckg\Htmlbuilder\Element\Form\ResolvesOnRequest;
 
-class Site extends Form\Bootstrap
+class Site extends Form\Bootstrap implements ResolvesOnRequest
 {
 
     public function initFields()

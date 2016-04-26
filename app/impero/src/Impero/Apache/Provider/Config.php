@@ -17,15 +17,23 @@ class Config extends Provider
             'url' => array_merge_array([
                 'controller' => Apache::class,
             ], [
-                '/apache'             => [
+                '/apache'               => [
+                    'name' => 'apache.list',
                     'view' => 'index',
                 ],
-                '/apache/add'         => [
+                '/apache/add'           => [
                     'view' => 'add',
                 ],
-                '/apache/edit/[site]' => [
+                '/apache/edit/[site]'   => [
                     'name'      => 'apache.edit',
                     'view'      => 'edit',
+                    'resolvers' => [
+                        'site' => SiteResolver::class,
+                    ],
+                ],
+                '/apache/delete/[site]' => [
+                    'name'      => 'apache.delete',
+                    'view'      => 'delete',
                     'resolvers' => [
                         'site' => SiteResolver::class,
                     ],
