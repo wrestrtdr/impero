@@ -559,12 +559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/lfw/generic.git",
-                "reference": "75613f7b51e310bb00090d49f6e98635c655f40c"
+                "reference": "305f283cf010a2615c008329fa037046ca20d170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/lfw/generic/get/75613f7b51e310bb00090d49f6e98635c655f40c.zip",
-                "reference": "75613f7b51e310bb00090d49f6e98635c655f40c",
+                "url": "https://bitbucket.org/lfw/generic/get/305f283cf010a2615c008329fa037046ca20d170.zip",
+                "reference": "305f283cf010a2615c008329fa037046ca20d170",
                 "shasum": ""
             },
             "require": {
@@ -589,7 +589,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://bitbucket.org/lfw/generic",
-            "time": "2016-04-20 13:09:44"
+            "time": "2016-04-26 14:37:37"
         },
         {
             "name": "lfw/menu",
