@@ -1,6 +1,5 @@
 <?php namespace Impero\Apache\Form;
 
-use Pckg\Htmlbuilder\Decorator\Method\Bootstrap;
 use Pckg\Htmlbuilder\Element\Form;
 use Pckg\Htmlbuilder\Element\Form\ResolvesOnRequest;
 
@@ -14,7 +13,8 @@ class Site extends Form\Bootstrap implements ResolvesOnRequest
         $this->addText('server_name')
             ->setLabel('Server name (URL)')/*
             ->required()
-            ->unique()*/;
+            ->unique()*/
+        ;
 
         $this->addText('server_alias')
             ->setLabel('Server aliases:');
@@ -47,13 +47,15 @@ class Site extends Form\Bootstrap implements ResolvesOnRequest
             ->setLabel('*.crt')/*
             ->extensions(['crt'])
             ->requiredWhen('ssl', 'file')
-            ->enabledWhen('ssl', 'file')*/;
+            ->enabledWhen('ssl', 'file')*/
+        ;
 
         $this->addFile('ssl_certificate_key_file')
             ->setLabel('*.key')/*
             ->extensions(['key'])
             ->requiredWhen('ssl', 'file')
-            ->enabledWhen('ssl', 'file')*/;
+            ->enabledWhen('ssl', 'file')*/
+        ;
     }
 
     private function addSslLetsencrypt()
@@ -66,7 +68,7 @@ class Site extends Form\Bootstrap implements ResolvesOnRequest
     {
         $this->addCheckbox('error_log')
             ->setLabel('Error log');
-        
+
         $this->addCheckbox('access_log')
             ->setLabel('Access log');
     }
