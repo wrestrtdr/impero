@@ -791,12 +791,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "cacbfcd6f842a2a68154a2138638df6ad1649c9a"
+                "reference": "f37dcb76c73584a8eb18bb9305c28046bb66d5d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/cacbfcd6f842a2a68154a2138638df6ad1649c9a",
-                "reference": "cacbfcd6f842a2a68154a2138638df6ad1649c9a",
+                "url": "https://api.github.com/repos/pckg/database/zipball/f37dcb76c73584a8eb18bb9305c28046bb66d5d1",
+                "reference": "f37dcb76c73584a8eb18bb9305c28046bb66d5d1",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +824,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-04 15:14:01"
+            "time": "2016-04-30 19:50:25"
         },
         {
             "name": "pckg/dynamic",
@@ -868,12 +868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "6b3f3ab2c18dbf529332165d30e347d2a8c23306"
+                "reference": "23b46ffb9ec665ab77d31c3cd255ce08036700d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/6b3f3ab2c18dbf529332165d30e347d2a8c23306",
-                "reference": "6b3f3ab2c18dbf529332165d30e347d2a8c23306",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/23b46ffb9ec665ab77d31c3cd255ce08036700d4",
+                "reference": "23b46ffb9ec665ab77d31c3cd255ce08036700d4",
                 "shasum": ""
             },
             "require": {
@@ -907,7 +907,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-04 15:14:44"
+            "time": "2016-04-30 19:51:04"
         },
         {
             "name": "pckg/frontend",
@@ -1208,12 +1208,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "866a58a578b6f8798fae7d6cbd2fde7a5bc9460a"
+                "reference": "cef469bf23fbea8d18fde4534b29ba3fadab139d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/866a58a578b6f8798fae7d6cbd2fde7a5bc9460a",
-                "reference": "866a58a578b6f8798fae7d6cbd2fde7a5bc9460a",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/cef469bf23fbea8d18fde4534b29ba3fadab139d",
+                "reference": "cef469bf23fbea8d18fde4534b29ba3fadab139d",
                 "shasum": ""
             },
             "require": {
@@ -1238,7 +1238,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-05-03 15:09:16"
+            "time": "2016-04-30 19:50:45"
         },
         {
             "name": "pckg/payment",
