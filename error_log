@@ -133,3 +133,7 @@
 [Sat Apr 30 20:51:23.388047 2016] [rewrite:warn] [pid 6257] AH00665: RewriteCond: NoCase option for non-regex pattern '-f' is not supported and will be ignored. (/home/schtr4jh/dev/BitBucket/schtr4jh/impero/.htaccess:9)
 [Sat Apr 30 20:51:23.395015 2016] [rewrite:warn] [pid 6254] AH00665: RewriteCond: NoCase option for non-regex pattern '-f' is not supported and will be ignored. (/home/schtr4jh/dev/BitBucket/schtr4jh/impero/.htaccess:9)
 [Sat Apr 30 20:51:23.571151 2016] [rewrite:warn] [pid 6257] AH00665: RewriteCond: NoCase option for non-regex pattern '-f' is not supported and will be ignored. (/home/schtr4jh/dev/BitBucket/schtr4jh/impero/.htaccess:9)
+[Sat Apr 30 22:53:52.252085 2016] [rewrite:warn] [pid 6085] AH00665: RewriteCond: NoCase option for non-regex pattern '-f' is not supported and will be ignored. (/home/schtr4jh/dev/BitBucket/schtr4jh/impero/.htaccess:9)
+[Sat Apr 30 22:53:54.998909 2016] [rewrite:warn] [pid 6085] AH00665: RewriteCond: NoCase option for non-regex pattern '-f' is not supported and will be ignored. (/home/schtr4jh/dev/BitBucket/schtr4jh/impero/.htaccess:9)
+[Sat Apr 30 22:53:55.005980 2016] [rewrite:warn] [pid 6259] AH00665: RewriteCond: NoCase option for non-regex pattern '-f' is not supported and will be ignored. (/home/schtr4jh/dev/BitBucket/schtr4jh/impero/.htaccess:9)
+[Sat Apr 30 22:53:55.203155 2016] [rewrite:warn] [pid 6259] AH00665: RewriteCond: NoCase option for non-regex pattern '-f' is not supported and will be ignored. (/home/schtr4jh/dev/BitBucket/schtr4jh/impero/.htaccess:9)
