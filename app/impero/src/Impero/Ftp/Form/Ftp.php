@@ -1,8 +1,9 @@
 <?php namespace Impero\Ftp\Form;
 
-use Pckg\Htmlbuilder\Element\Form;
+use Pckg\Htmlbuilder\Element\Form\Bootstrap;
+use Pckg\Htmlbuilder\Element\Form\ResolvesOnRequest;
 
-class Ftp extends Form
+class Ftp extends Bootstrap implements ResolvesOnRequest
 {
 
     public function initFields()
@@ -10,13 +11,15 @@ class Ftp extends Form
         $this->addHidden('id');
 
         $this->addText('username')
-            ->setLabel('Username:')
+            ->setLabel('Username:')/*
             ->required()
-            ->unique();
+            ->unique()*/
+        ;
 
         $this->addPassword('password')
-            ->setLabel('Password:')
-            ->required();
+            ->setLabel('Password:')/*
+            ->required()*/
+        ;
 
         $this->addText('path')
             ->setLabel('Path:');

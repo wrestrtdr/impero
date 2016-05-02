@@ -9,7 +9,7 @@ class CreateSiteTable extends Migration
     {
         $siteTable = $this->table('sites');
 
-        $siteTable->id('id');
+        $siteTable->id();
         $siteTable->integer('user_id')->references('users', 'id');
 
         $siteTable->varchar('server_name', 128)->required();

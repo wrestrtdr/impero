@@ -27,23 +27,34 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/dev.php/apache">Domains</a></li>
-                <li><a href="/dev.php/apache">Sites</a></li>
-                <li><a href="/dev.php/mysql">Databases</a></li>
-                <li><a href="/dev.php/ftp">FTP</a></li>
-                <li><a href="/dev.php/mail">Mail</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Domains <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="/dev.php/apache">Sites</a></li>
+                        <li><a href="/dev.php/dns">DNS</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">Apache status</a></li>
+                        <li><a href="#">DNS status</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FTP <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/dev.php/ftp">FTP accounts</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">FTP status</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MySQL <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/dev.php/mysql/database">Databases</a></li>
+                        <li><a href="/dev.php/mysql/user">Users</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Database status</a></li>
+                    </ul>
+                </li>
+                <li><a href="/dev.php/mail">Mail</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

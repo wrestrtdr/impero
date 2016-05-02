@@ -1,9 +1,9 @@
 {% extends 'Weblab/Generic/View/panel.twig' %}
 
 {% block title %}
-    Edit site
+    {{ formalize.getTitle() }}
 {% endblock %}
 
 {% block content %}
-    {{ siteForm | raw }}
+    {{ form | raw }}
 {% endblock %}

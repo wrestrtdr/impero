@@ -3,11 +3,13 @@
 use Impero\Apache\Entity\Sites;
 use Impero\Apache\Form\Site as SiteForm;
 use Impero\Apache\Record\Site as SiteRecord;
+use Impero\Maestro\Helper\Maestro;
 use Pckg\Framework\Controller;
-use Pckg\Framework\Response;
 
 class Apache extends Controller
 {
+
+    use Maestro;
 
     /**
      * List all available sites.
@@ -17,9 +19,7 @@ class Apache extends Controller
      */
     public function getIndexAction(Sites $sites)
     {
-        return view('index', [
-            'sites' => $sites->all(),
-        ]);
+        return $this->tabelize($sites, ['server_name'], 'Sites');
     }
 
     /**
@@ -40,9 +40,7 @@ class Apache extends Controller
         /**
          * Then we simply display form.
          */
-        return view('add', [
-            'siteForm' => $siteForm,
-        ]);
+        return $this->formalize($siteForm, $siteRecord, 'Add site');
     }
 
     /**
@@ -95,9 +93,7 @@ class Apache extends Controller
         /**
          * Then we simply display form.
          */
-        return view('edit', [
-            'siteForm' => $siteForm,
-        ]);
+        return $this->formalize($siteForm, $siteRecord, 'Edit site');
     }
 
     /**
@@ -128,7 +124,7 @@ class Apache extends Controller
      * @param SiteRecord $siteRecord
      * @return $this
      */
-    public function deleteDeleteAction(SiteRecord $siteRecord)
+    public function getDeleteAction(SiteRecord $siteRecord)
     {
         /**
          * Delete record with one-liner.
@@ -138,7 +134,7 @@ class Apache extends Controller
         /**
          * Respond with useful data.
          */
-        return $this->response()->respondWithAjaxSuccessAndRedirectBack();
+        return $this->response()->respondWithSuccessRedirect();
     }
 
 }

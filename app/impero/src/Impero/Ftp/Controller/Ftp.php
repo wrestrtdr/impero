@@ -3,56 +3,138 @@
 use Impero\Ftp\Entity\Ftps;
 use Impero\Ftp\Form\Ftp as FtpForm;
 use Impero\Ftp\Record\Ftp as FtpRecord;
-use Pckg\Database\Helper\Traits;
+use Impero\Maestro\Helper\Maestro;
+use Pckg\Framework\Controller;
 
-class Ftp
+class Ftp extends Controller
 {
 
-    use Traits;
+    use Maestro;
 
+    /**
+     * List all available ftps.
+     *
+     * @param Ftps $ftps
+     * @return mixed
+     */
     public function getIndexAction(Ftps $ftps)
     {
-        return view('index', [
-            'ftps' => $ftps->all(),
-        ]);
+        return $this->tabelize($ftps, ['username'], 'Ftps');
     }
 
+    /**
+     * Show add form.
+     * Form is automatically filled with session data.
+     *
+     * @param FtpForm   $ftpForm
+     * @param FtpRecord $ftpRecord
+     * @return mixed
+     */
     public function getAddAction(FtpForm $ftpForm, FtpRecord $ftpRecord)
     {
-        $ftpForm->useRecordDatasource()
-            ->setRecord($ftpRecord);
+        /**
+         * We may have some default values.
+         */
+        $ftpForm->populateFromRecord($ftpRecord);
 
-        return view('add', [
-            'ftpForm' => $ftpForm,
-        ]);
+        /**
+         * Then we simply display form.
+         */
+        return $this->formalize($ftpForm, $ftpRecord, 'Add ftp');
     }
 
+    /**
+     * Save form data.
+     * Form is automatically filled with request data.
+     *
+     * @param FtpForm   $ftpForm
+     * @param FtpRecord $ftpRecord
+     * @return mixed
+     */
     public function postAddAction(FtpForm $ftpForm, FtpRecord $ftpRecord)
     {
-        $ftpForm->useRecordDatasource()
-            ->setRecord($ftpRecord);
+        /**
+         * Fill record with posted data.
+         */
+        $ftpForm->populateToRecord($ftpRecord);
 
-        $ftpRecord->user_id = $this->auth()->getUser()->id;
+        /**
+         * User ID may be set if admin added it.
+         */
+        $ftpRecord->setUserIdByAuthIfNotSet();
 
-        return $this->response()->redirect();
+        /**
+         * Simply save record.
+         */
+        $ftpRecord->save();
+
+        /**
+         * If ftp was added via ajax, we display some data and redirect url.
+         * Otherwise we redirect user to edit form.
+         */
+        return $this->response()->respondWithSuccessRedirect($ftpRecord->getEditUrl());
     }
 
+    /**
+     * Show edit form.
+     * Form is automatically filled with session data.
+     *
+     * @param FtpForm   $ftpForm
+     * @param FtpRecord $ftpRecord
+     * @return mixed
+     */
     public function getEditAction(FtpForm $ftpForm, FtpRecord $ftpRecord)
     {
-        $ftpForm->useRecordDatasource()
-            ->setRecord($ftpRecord);
+        /**
+         * Fill form with record data.
+         */
+        $ftpForm->populateFromRecord($ftpRecord);
 
-        return view('edit', [
-            'ftpForm' => $ftpForm,
-        ]);
+        /**
+         * Then we simply display form.
+         */
+        return $this->formalize($ftpForm, $ftpRecord, 'Edit ftp');
     }
 
+    /**
+     * Save form data.
+     * Form was automatically filled with request data.
+     *
+     * @param FtpForm   $ftpForm
+     * @param FtpRecord $ftpRecord
+     * @return $this
+     */
     public function postEditAction(FtpForm $ftpForm, FtpRecord $ftpRecord)
     {
-        $ftpForm->useRecordDatasource()
-            ->setRecord($ftpRecord);
+        /**
+         * Fill record with posted data.
+         */
+        $ftpForm->populateToRecordAndSave($ftpRecord);
 
-        return $this->response()->redirect();
+        /**
+         * If ftp was added via ajax, we display some data.
+         * Otherwise we redirect user to current page.
+         */
+        return $this->response()->respondWithSuccessRedirect($ftpRecord->getEditUrl());
+    }
+
+    /**
+     * Delete record.
+     *
+     * @param FtpRecord $ftpRecord
+     * @return $this
+     */
+    public function getDeleteAction(FtpRecord $ftpRecord)
+    {
+        /**
+         * Delete record with one-liner.
+         */
+        $ftpRecord->delete();
+
+        /**
+         * Respond with useful data.
+         */
+        return $this->response()->respondWithSuccessRedirect();
     }
 
 }

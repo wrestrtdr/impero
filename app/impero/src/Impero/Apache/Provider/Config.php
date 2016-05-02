@@ -14,31 +14,7 @@ class Config extends Provider
     public function routes()
     {
         return [
-            'url' => array_merge_array([
-                'controller' => Apache::class,
-            ], [
-                '/apache'               => [
-                    'name' => 'apache.list',
-                    'view' => 'index',
-                ],
-                '/apache/add'           => [
-                    'view' => 'add',
-                ],
-                '/apache/edit/[site]'   => [
-                    'name'      => 'apache.edit',
-                    'view'      => 'edit',
-                    'resolvers' => [
-                        'site' => SiteResolver::class,
-                    ],
-                ],
-                '/apache/delete/[site]' => [
-                    'name'      => 'apache.delete',
-                    'view'      => 'delete',
-                    'resolvers' => [
-                        'site' => SiteResolver::class,
-                    ],
-                ],
-            ]),
+            'url' => maestro_urls(Apache::class, 'apache', 'site', SiteResolver::class),
         ];
     }
 

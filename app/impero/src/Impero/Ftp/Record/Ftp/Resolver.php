@@ -44,16 +44,7 @@ class Resolver implements ResolverInterface
      */
     public function resolve($class)
     {
-        if ($class != Ftp::class) {
-            /**
-             * Other resolver should resolve this.
-             */
-            return;
-        }
         if (!$id = $this->router->get('ftp')) {
-            /**
-             * How should we handle this?
-             */
             $this->response->bad('Ftp parameter is missing ...');
         }
 
@@ -61,10 +52,15 @@ class Resolver implements ResolverInterface
          * We should resolve parameter or throw exception.
          */
         return $this->ftps->where('id', $id)
-            ->userIsAuthorized()
+            //->userIsAuthorized()
             ->oneOrFail(function () {
                 $this->response->unauthorized('Ftp account not found');
             });
+    }
+
+    public function parametrize($record)
+    {
+        return $record->id;
     }
 
 }

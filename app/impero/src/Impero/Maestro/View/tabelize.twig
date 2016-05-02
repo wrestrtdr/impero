@@ -1,0 +1,39 @@
+{% extends 'Weblab/Generic/View/list.twig' %}
+
+{% block title %}
+    {{ tabelize.getTitle() }}
+    <div class="btn-group btn-group-sm" role="group" aria-label="..." style="text-align: right;">
+        {% for action in tabelize.getEntityActions() %}
+            {% include 'tabelize/entityActions/' ~ action ~ '.twig' %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            {% for field in tabelize.getFields() %}
+                <th>{{ __('maestro.tabelize.label.' ~ field) }}</th>
+            {% endfor %}
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for record in tabelize.getRecords() %}
+            <tr>
+                {% for field in tabelize.getfields() %}
+                    <td>{{ record.get(field) }}</td>
+                {% endfor %}
+                <td>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                        {% for action in tabelize.getRecordActions() %}
+                            {% include 'tabelize/recordActions/' ~ action ~ '.twig' %}
+                        {% endfor %}
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

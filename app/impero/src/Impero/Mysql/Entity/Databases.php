@@ -1,13 +1,13 @@
-<?php namespace Impero\Ftp\Entity;
+<?php namespace Impero\Mysql\Entity;
 
-use Impero\Ftp\Record\Ftp;
 use Impero\Maestro\Service\Contract\Entity as MaestroEntity;
+use Impero\Mysql\Record\Database;
 use Pckg\Database\Entity;
 
-class Ftps extends Entity implements MaestroEntity
+class Databases extends Entity implements MaestroEntity
 {
 
-    protected $record = Ftp::class;
+    protected $record = Database::class;
 
     /**
      * Build edit url.
@@ -16,7 +16,7 @@ class Ftps extends Entity implements MaestroEntity
      */
     public function getAddUrl()
     {
-        return url('ftp.add');
+        return url('database.add');
     }
 
 }
