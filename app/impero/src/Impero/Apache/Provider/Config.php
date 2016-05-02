@@ -14,7 +14,7 @@ class Config extends Provider
     public function routes()
     {
         return [
-            'url' => maestro_urls(Apache::class, 'apache', 'site', SiteResolver::class),
+            'url' => maestro_urls(Apache::class, 'apache', 'site', SiteResolver::class, 'apache/sites'),
         ];
     }
 

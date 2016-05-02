@@ -12,7 +12,7 @@ class Config extends Provider
     public function routes()
     {
         return [
-            'url' => maestro_urls(Ftp::class, 'ftp', 'ftp', FtpResolver::class),
+            'url' => maestro_urls(Ftp::class, 'ftp', 'ftp', FtpResolver::class, 'ftp/accounts'),
         ];
     }
 
