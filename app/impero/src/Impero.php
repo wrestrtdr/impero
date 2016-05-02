@@ -3,6 +3,7 @@
 use Impero\Apache\Provider\Config as ApacheProvider;
 use Impero\Ftp\Provider\Config as FtpProvider;
 use Impero\Mysql\Provider\Config as MysqlProvider;
+use Pckg\Auth\Provider\Config as AuthProvider;
 use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
 use Weblab\Generic\Middleware\EncapsulateResponse;
@@ -17,6 +18,8 @@ class Impero extends Provider
             ApacheProvider::class,
             FtpProvider::class,
             MysqlProvider::class,
+            // authentication
+            AuthProvider::class,
             // generic!
             GenericProvider::class,
         ];
