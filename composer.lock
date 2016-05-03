@@ -439,58 +439,20 @@
             "time": "2016-02-07 17:40:57"
         },
         {
-            "name": "lfw/admin",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/lfw/admin.git",
-                "reference": "cea84be20f965eb040dd77ea8ca87b17ec0c340f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/lfw/admin/get/cea84be20f965eb040dd77ea8ca87b17ec0c340f.zip",
-                "reference": "cea84be20f965eb040dd77ea8ca87b17ec0c340f",
-                "shasum": ""
-            },
-            "require": {
-                "pckg/framework": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Weblab": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bojan Rajh",
-                    "email": "schtr4jh@schtr4jh.net"
-                }
-            ],
-            "description": "Simple admin interface built on top of LFW",
-            "homepage": "https://bitbucket.org/lfw/admin",
-            "time": "2016-05-03 15:19:47"
-        },
-        {
             "name": "lfw/generic",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/lfw/generic.git",
-                "reference": "305f283cf010a2615c008329fa037046ca20d170"
+                "reference": "abceeea9b0b2e9db8e5d921340369188777baeaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/lfw/generic/get/305f283cf010a2615c008329fa037046ca20d170.zip",
-                "reference": "305f283cf010a2615c008329fa037046ca20d170",
+                "url": "https://bitbucket.org/lfw/generic/get/abceeea9b0b2e9db8e5d921340369188777baeaf.zip",
+                "reference": "abceeea9b0b2e9db8e5d921340369188777baeaf",
                 "shasum": ""
             },
             "require": {
-                "lfw/admin": "dev-master",
                 "pckg/framework": "dev-master"
             },
             "type": "library",
@@ -511,7 +473,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://bitbucket.org/lfw/generic",
-            "time": "2016-04-26 14:37:37"
+            "time": "2016-05-03 15:20:24"
         },
         {
             "name": "lfw/menu",
