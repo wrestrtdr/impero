@@ -860,26 +860,63 @@
             "time": "2016-04-22 03:29:29"
         },
         {
+            "name": "pckg/auth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/auth.git",
+                "reference": "49c221a5a53fb3a717ff8c569045ca3739a0dd8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/49c221a5a53fb3a717ff8c569045ca3739a0dd8e",
+                "reference": "49c221a5a53fb3a717ff8c569045ca3739a0dd8e",
+                "shasum": ""
+            },
+            "require": {
+                "facebook/php-sdk-v4": "dev-master",
+                "pckg/framework": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pckg": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Database, Twitter, Facebook and Google+ authentication",
+            "homepage": "https://github.com/pckg/auth",
+            "time": "2016-05-02 19:50:09"
+        },
+        {
             "name": "pckg/backend",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/backend.git",
-                "reference": "41be2f0fef7310f63b060549b2d9853ac49decac"
+                "reference": "d9ea8d37fbe0a06ccf87def398522352bcbba2b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/backend/zipball/41be2f0fef7310f63b060549b2d9853ac49decac",
-                "reference": "41be2f0fef7310f63b060549b2d9853ac49decac",
+                "url": "https://api.github.com/repos/pckg/backend/zipball/d9ea8d37fbe0a06ccf87def398522352bcbba2b6",
+                "reference": "d9ea8d37fbe0a06ccf87def398522352bcbba2b6",
                 "shasum": ""
             },
             "require": {
                 "lfw/admin": "dev-master",
-                "lfw/auth": "dev-master",
                 "lfw/dynamic": "dev-master",
                 "lfw/generic": "dev-master",
                 "lfw/menu": "dev-master",
-                "lfw/user": "dev-master",
+                "pckg/auth": "dev-master",
                 "pckg/framework": "dev-master",
                 "pckg/frontend": "dev-master",
                 "pckg/import": "dev-master",
@@ -906,7 +943,7 @@
             ],
             "description": "Useful backend libraries",
             "homepage": "https://github.com/pckg/backend",
-            "time": "2016-04-06 13:18:18"
+            "time": "2016-05-02 19:52:58"
         },
         {
             "name": "pckg/collection",

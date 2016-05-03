@@ -1,1 +1,1 @@
-["Impero\\Apache\\Migration\\CreateSiteTable","Impero\\Ftp\\Migration\\CreateFtpTable","Impero\\Mysql\\Migration\\CreateDatabaseTable","Impero\\Mysql\\Migration\\CreateUserTable"]
+["Impero\\Apache\\Migration\\CreateSiteTable","Impero\\Ftp\\Migration\\CreateFtpTable","Impero\\Mysql\\Migration\\CreateDatabaseTable","Impero\\Mysql\\Migration\\CreateUserTable","Pckg\\Auth\\Migration\\CreateAuthTables"]
