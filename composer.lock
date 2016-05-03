@@ -444,16 +444,15 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/lfw/admin.git",
-                "reference": "20adf9c5061d0a1c1e7d7e4e92db18f7f2b48540"
+                "reference": "cea84be20f965eb040dd77ea8ca87b17ec0c340f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/lfw/admin/get/20adf9c5061d0a1c1e7d7e4e92db18f7f2b48540.zip",
-                "reference": "20adf9c5061d0a1c1e7d7e4e92db18f7f2b48540",
+                "url": "https://bitbucket.org/lfw/admin/get/cea84be20f965eb040dd77ea8ca87b17ec0c340f.zip",
+                "reference": "cea84be20f965eb040dd77ea8ca87b17ec0c340f",
                 "shasum": ""
             },
             "require": {
-                "lfw/auth": "dev-master",
                 "pckg/framework": "dev-master"
             },
             "type": "library",
@@ -474,46 +473,7 @@
             ],
             "description": "Simple admin interface built on top of LFW",
             "homepage": "https://bitbucket.org/lfw/admin",
-            "time": "2016-03-19 00:00:25"
-        },
-        {
-            "name": "lfw/auth",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/lfw/auth.git",
-                "reference": "b0afef15d964f88ae615c92afea84f0ee38a8d25"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/lfw/auth/get/b0afef15d964f88ae615c92afea84f0ee38a8d25.zip",
-                "reference": "b0afef15d964f88ae615c92afea84f0ee38a8d25",
-                "shasum": ""
-            },
-            "require": {
-                "facebook/php-sdk-v4": "dev-master",
-                "lfw/user": "dev-master",
-                "pckg/framework": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Weblab": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bojan Rajh",
-                    "email": "schtr4jh@schtr4jh.net"
-                }
-            ],
-            "description": "Database, Twitter, Facebook and Google+ authentication",
-            "homepage": "https://bitbucket.org/lfw/auth",
-            "time": "2016-04-26 14:37:18"
+            "time": "2016-05-03 15:19:47"
         },
         {
             "name": "lfw/generic",
@@ -589,43 +549,6 @@
             "description": "All types of menus for website",
             "homepage": "https://bitbucket.org/lfw/menu",
             "time": "2016-02-07 22:03:59"
-        },
-        {
-            "name": "lfw/user",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/lfw/user.git",
-                "reference": "f345a5f5ae6ffcecb658606d108114e5f5d9f912"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/lfw/user/get/f345a5f5ae6ffcecb658606d108114e5f5d9f912.zip",
-                "reference": "f345a5f5ae6ffcecb658606d108114e5f5d9f912",
-                "shasum": ""
-            },
-            "require": {
-                "pckg/framework": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Weblab": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bojan Rajh",
-                    "email": "schtr4jh@schtr4jh.net"
-                }
-            ],
-            "description": "Basic user packet",
-            "homepage": "https://bitbucket.org/lfw/users",
-            "time": "2015-08-27 23:22:59"
         },
         {
             "name": "mailchimp/mailchimp",
@@ -1058,12 +981,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "600a79831ee5a540dd2f80e51777fb4a867f0da3"
+                "reference": "a90ab90fec63ef95370f55406336da16dd37093b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/600a79831ee5a540dd2f80e51777fb4a867f0da3",
-                "reference": "600a79831ee5a540dd2f80e51777fb4a867f0da3",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/a90ab90fec63ef95370f55406336da16dd37093b",
+                "reference": "a90ab90fec63ef95370f55406336da16dd37093b",
                 "shasum": ""
             },
             "require": {
@@ -1097,7 +1020,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-02 19:33:46"
+            "time": "2016-05-03 15:18:48"
         },
         {
             "name": "pckg/frontend",
