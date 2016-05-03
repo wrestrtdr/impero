@@ -7,8 +7,8 @@ use Pckg\Auth\Provider\Config as AuthProvider;
 use Pckg\Dynamic\Provider\Config as DynamicProvider;
 use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
-use Weblab\Generic\Middleware\EncapsulateResponse;
-use Weblab\Generic\Provider\Config as GenericProvider;
+use Pckg\Generic\Middleware\EncapsulateResponse;
+use Pckg\Generic\Provider\Config as GenericProvider;
 
 class Impero extends Provider
 {

@@ -439,80 +439,6 @@
             "time": "2016-02-07 17:40:57"
         },
         {
-            "name": "lfw/generic",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/lfw/generic.git",
-                "reference": "abceeea9b0b2e9db8e5d921340369188777baeaf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/lfw/generic/get/abceeea9b0b2e9db8e5d921340369188777baeaf.zip",
-                "reference": "abceeea9b0b2e9db8e5d921340369188777baeaf",
-                "shasum": ""
-            },
-            "require": {
-                "pckg/framework": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Weblab": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bojan Rajh",
-                    "email": "schtr4jh@schtr4jh.net"
-                }
-            ],
-            "description": "Generic frontend",
-            "homepage": "https://bitbucket.org/lfw/generic",
-            "time": "2016-05-03 15:20:24"
-        },
-        {
-            "name": "lfw/menu",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/lfw/menu.git",
-                "reference": "0e90cdd66d92b115fce8f8b80eeab3d5a24370a4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/lfw/menu/get/0e90cdd66d92b115fce8f8b80eeab3d5a24370a4.zip",
-                "reference": "0e90cdd66d92b115fce8f8b80eeab3d5a24370a4",
-                "shasum": ""
-            },
-            "require": {
-                "pckg/framework": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Weblab": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bojan Rajh",
-                    "email": "schtr4jh@schtr4jh.net"
-                }
-            ],
-            "description": "All types of menus for website",
-            "homepage": "https://bitbucket.org/lfw/menu",
-            "time": "2016-02-07 22:03:59"
-        },
-        {
             "name": "mailchimp/mailchimp",
             "version": "2.0.6",
             "source": {
@@ -750,21 +676,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/backend.git",
-                "reference": "a3c5e5d802756c8445405eeb7af23d0f111f1705"
+                "reference": "fba7fd1ca25eb5cd30db4df94655e4ba9e03c814"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/backend/zipball/a3c5e5d802756c8445405eeb7af23d0f111f1705",
-                "reference": "a3c5e5d802756c8445405eeb7af23d0f111f1705",
+                "url": "https://api.github.com/repos/pckg/backend/zipball/fba7fd1ca25eb5cd30db4df94655e4ba9e03c814",
+                "reference": "fba7fd1ca25eb5cd30db4df94655e4ba9e03c814",
                 "shasum": ""
             },
             "require": {
-                "lfw/generic": "dev-master",
-                "lfw/menu": "dev-master",
                 "pckg/auth": "dev-master",
                 "pckg/dynamic": "dev-master",
                 "pckg/framework": "dev-master",
                 "pckg/frontend": "dev-master",
+                "pckg/generic": "dev-master",
                 "pckg/import": "dev-master",
                 "pckg/maestro": "dev-master",
                 "pckg/migrator": "dev-master",
@@ -790,7 +715,7 @@
             ],
             "description": "Useful backend libraries",
             "homepage": "https://github.com/pckg/backend",
-            "time": "2016-05-03 15:09:29"
+            "time": "2016-05-03 15:28:17"
         },
         {
             "name": "pckg/collection",
@@ -1029,6 +954,43 @@
             "description": "Useful frontend libraries",
             "homepage": "https://github.com/pckg/frontend",
             "time": "2016-04-05 13:40:27"
+        },
+        {
+            "name": "pckg/generic",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/generic.git",
+                "reference": "8b91a329a8be179fa46bb4b8a4939e726ba1ba18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/8b91a329a8be179fa46bb4b8a4939e726ba1ba18",
+                "reference": "8b91a329a8be179fa46bb4b8a4939e726ba1ba18",
+                "shasum": ""
+            },
+            "require": {
+                "pckg/framework": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pckg": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Generic frontend",
+            "homepage": "https://github.com/pckg/generic",
+            "time": "2016-05-03 15:26:46"
         },
         {
             "name": "pckg/helpers-js",
