@@ -3,7 +3,7 @@
 use Impero\Mysql\Entity\Databases;
 use Impero\Mysql\Form\Database as DatabaseForm;
 use Impero\Mysql\Record\Database as DatabaseRecord;
-use Impero\Maestro\Helper\Maestro;
+use Pckg\Maestro\Helper\Maestro;
 use Pckg\Framework\Controller;
 
 class Database extends Controller

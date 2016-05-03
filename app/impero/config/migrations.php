@@ -5,6 +5,7 @@ use Impero\Ftp\Migration\CreateFtpTable;
 use Impero\Mysql\Migration\CreateDatabaseTable;
 use Impero\Mysql\Migration\CreateUserTable;
 use Pckg\Auth\Migration\CreateAuthTables;
+use Pckg\Dynamic\Migration\CreateDynamicTables;
 
 return [
     CreateAuthTables::class,
@@ -12,4 +13,5 @@ return [
     CreateFtpTable::class,
     CreateDatabaseTable::class,
     CreateUserTable::class,
+    CreateDynamicTables::class,
 ];

@@ -1,7 +1,7 @@
 <?php namespace Impero\Ftp\Entity;
 
 use Impero\Ftp\Record\Ftp;
-use Impero\Maestro\Service\Contract\Entity as MaestroEntity;
+use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 use Pckg\Database\Entity;
 
 class Ftps extends Entity implements MaestroEntity

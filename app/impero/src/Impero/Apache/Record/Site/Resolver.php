@@ -2,12 +2,12 @@
 
 use Impero\Apache\Entity\Sites;
 use Impero\Apache\Record\Site;
+use Pckg\Auth\Service\Auth;
 use Pckg\Concept\Reflect;
 use Pckg\Concept\Reflect\Resolver as ResolverInterface;
 use Pckg\Database\Record;
 use Pckg\Framework\Response;
 use Pckg\Framework\Router;
-use Weblab\Auth\Service\Auth;
 
 class Resolver implements ResolverInterface
 {

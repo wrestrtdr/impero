@@ -1,6 +1,6 @@
 <?php namespace Impero\Mysql\Record;
 
-use Impero\Maestro\Service\Contract\Record as MaestroRecord;
+use Pckg\Maestro\Service\Contract\Record as MaestroRecord;
 use Impero\Mysql\Entity\Databases;
 use Pckg\Database\Record;
 

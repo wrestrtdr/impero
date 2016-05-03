@@ -3,7 +3,7 @@
 use Impero\Ftp\Entity\Ftps;
 use Impero\Ftp\Form\Ftp as FtpForm;
 use Impero\Ftp\Record\Ftp as FtpRecord;
-use Impero\Maestro\Helper\Maestro;
+use Pckg\Maestro\Helper\Maestro;
 use Pckg\Framework\Controller;
 
 class Ftp extends Controller

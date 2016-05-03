@@ -3,7 +3,7 @@
 use Impero\Apache\Entity\Sites;
 use Impero\Apache\Form\Site as SiteForm;
 use Impero\Apache\Record\Site as SiteRecord;
-use Impero\Maestro\Helper\Maestro;
+use Pckg\Maestro\Helper\Maestro;
 use Pckg\Framework\Controller;
 
 class Apache extends Controller

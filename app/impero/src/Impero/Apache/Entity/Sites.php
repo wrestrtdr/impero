@@ -1,7 +1,7 @@
 <?php namespace Impero\Apache\Entity;
 
 use Impero\Apache\Record\Site;
-use Impero\Maestro\Service\Contract\Entity as MaestroEntity;
+use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 use Pckg\Database\Entity;
 use Weblab\Auth\Service\Auth;
 

@@ -1,6 +1,6 @@
 <?php namespace Impero\Mysql\Entity;
 
-use Impero\Maestro\Service\Contract\Entity as MaestroEntity;
+use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 use Impero\Mysql\Record\Database;
 use Pckg\Database\Entity;
 

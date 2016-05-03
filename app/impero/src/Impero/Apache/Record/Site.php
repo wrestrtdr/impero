@@ -1,7 +1,7 @@
 <?php namespace Impero\Apache\Record;
 
 use Impero\Apache\Entity\Sites;
-use Impero\Maestro\Service\Contract\Record as MaestroRecord;
+use Pckg\Maestro\Service\Contract\Record as MaestroRecord;
 use Pckg\Database\Record;
 
 class Site extends Record implements MaestroRecord

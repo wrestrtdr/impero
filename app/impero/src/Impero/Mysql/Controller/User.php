@@ -1,6 +1,6 @@
 <?php namespace Impero\Mysql\Controller;
 
-use Impero\Maestro\Helper\Maestro;
+use Pckg\Maestro\Helper\Maestro;
 use Impero\Mysql\Entity\Users;
 use Impero\Mysql\Form\User as UserForm;
 use Impero\Mysql\Record\User as UserRecord;
