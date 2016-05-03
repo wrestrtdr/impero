@@ -257,12 +257,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "123a68ff806be726d92e7db49eed3f36c881f099"
+                "reference": "120198f907231348a29cbcb362ec4d41ea22c1dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/123a68ff806be726d92e7db49eed3f36c881f099",
-                "reference": "123a68ff806be726d92e7db49eed3f36c881f099",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/120198f907231348a29cbcb362ec4d41ea22c1dc",
+                "reference": "120198f907231348a29cbcb362ec4d41ea22c1dc",
                 "shasum": ""
             },
             "require": {
@@ -299,7 +299,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-29 12:42:00"
+            "time": "2016-05-02 21:13:20"
         },
         {
             "name": "kraksoft/colorbox",
@@ -514,44 +514,6 @@
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://bitbucket.org/lfw/auth",
             "time": "2016-04-26 14:37:18"
-        },
-        {
-            "name": "lfw/dynamic",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/lfw/dynamic.git",
-                "reference": "4dcb1e275cb149161319d9eb909fe02cd5af1fd9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/lfw/dynamic/get/4dcb1e275cb149161319d9eb909fe02cd5af1fd9.zip",
-                "reference": "4dcb1e275cb149161319d9eb909fe02cd5af1fd9",
-                "shasum": ""
-            },
-            "require": {
-                "lfw/admin": "dev-master",
-                "pckg/framework": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Weblab": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bojan Rajh",
-                    "email": "schtr4jh@schtr4jh.net"
-                }
-            ],
-            "description": "Dynamic backend",
-            "homepage": "https://bitbucket.org/lfw/dynamic",
-            "time": "2016-01-18 15:40:46"
         },
         {
             "name": "lfw/generic",
@@ -903,20 +865,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/backend.git",
-                "reference": "d9ea8d37fbe0a06ccf87def398522352bcbba2b6"
+                "reference": "53bbc7f15d45b106ef18e5acf92c9cd09ff19652"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/backend/zipball/d9ea8d37fbe0a06ccf87def398522352bcbba2b6",
-                "reference": "d9ea8d37fbe0a06ccf87def398522352bcbba2b6",
+                "url": "https://api.github.com/repos/pckg/backend/zipball/53bbc7f15d45b106ef18e5acf92c9cd09ff19652",
+                "reference": "53bbc7f15d45b106ef18e5acf92c9cd09ff19652",
                 "shasum": ""
             },
             "require": {
                 "lfw/admin": "dev-master",
-                "lfw/dynamic": "dev-master",
                 "lfw/generic": "dev-master",
                 "lfw/menu": "dev-master",
                 "pckg/auth": "dev-master",
+                "pckg/dynamic": "dev-master",
                 "pckg/framework": "dev-master",
                 "pckg/frontend": "dev-master",
                 "pckg/import": "dev-master",
@@ -943,7 +905,7 @@
             ],
             "description": "Useful backend libraries",
             "homepage": "https://github.com/pckg/backend",
-            "time": "2016-05-02 19:52:58"
+            "time": "2016-05-02 20:55:41"
         },
         {
             "name": "pckg/collection",
@@ -1053,6 +1015,42 @@
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
             "time": "2016-05-02 19:33:25"
+        },
+        {
+            "name": "pckg/dynamic",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/dynamic.git",
+                "reference": "bf3f83294f7e111b3c113864d0ab424fa34abeea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/bf3f83294f7e111b3c113864d0ab424fa34abeea",
+                "reference": "bf3f83294f7e111b3c113864d0ab424fa34abeea",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Dynamic tables",
+            "homepage": "https://github.com/pckg/dynamic",
+            "time": "2016-05-02 20:54:19"
         },
         {
             "name": "pckg/framework",
