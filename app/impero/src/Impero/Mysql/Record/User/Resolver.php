@@ -6,7 +6,7 @@ use Pckg\Concept\Reflect\Resolver as ResolverInterface;
 use Pckg\Database\Record;
 use Pckg\Framework\Response;
 use Pckg\Framework\Router;
-use Weblab\Auth\Service\Auth;
+use Pckg\Auth\Service\Auth;
 
 class Resolver implements ResolverInterface
 {

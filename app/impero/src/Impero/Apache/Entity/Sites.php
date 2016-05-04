@@ -3,7 +3,7 @@
 use Impero\Apache\Record\Site;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 use Pckg\Database\Entity;
-use Weblab\Auth\Service\Auth;
+use Pckg\Auth\Service\Auth;
 
 class Sites extends Entity implements MaestroEntity
 {
