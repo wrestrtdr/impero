@@ -94,12 +94,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "f950a24a569fcec956d915894110bb1ce43b7656"
+                "reference": "a76ab009315bc5b56de4a70c6fa67540096f0ab5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/f950a24a569fcec956d915894110bb1ce43b7656",
-                "reference": "f950a24a569fcec956d915894110bb1ce43b7656",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/a76ab009315bc5b56de4a70c6fa67540096f0ab5",
+                "reference": "a76ab009315bc5b56de4a70c6fa67540096f0ab5",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +141,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-02-26 14:49:24"
+            "time": "2016-05-03 16:40:01"
         },
         {
             "name": "filp/whoops",
@@ -791,12 +791,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "8827382152a828748680aae3390ce3f4195f0915"
+                "reference": "cacbfcd6f842a2a68154a2138638df6ad1649c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/8827382152a828748680aae3390ce3f4195f0915",
-                "reference": "8827382152a828748680aae3390ce3f4195f0915",
+                "url": "https://api.github.com/repos/pckg/database/zipball/cacbfcd6f842a2a68154a2138638df6ad1649c9a",
+                "reference": "cacbfcd6f842a2a68154a2138638df6ad1649c9a",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +824,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-03 15:08:55"
+            "time": "2016-05-04 15:14:01"
         },
         {
             "name": "pckg/dynamic",
@@ -832,12 +832,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "55e46ac50a9f604fd9afce9510cc2492d314984b"
+                "reference": "939f975043c30fd823b83d3313a558ea1377100c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/55e46ac50a9f604fd9afce9510cc2492d314984b",
-                "reference": "55e46ac50a9f604fd9afce9510cc2492d314984b",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/939f975043c30fd823b83d3313a558ea1377100c",
+                "reference": "939f975043c30fd823b83d3313a558ea1377100c",
                 "shasum": ""
             },
             "type": "library",
@@ -860,7 +860,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-03 15:10:36"
+            "time": "2016-05-04 15:14:22"
         },
         {
             "name": "pckg/framework",
@@ -868,12 +868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "a90ab90fec63ef95370f55406336da16dd37093b"
+                "reference": "6b3f3ab2c18dbf529332165d30e347d2a8c23306"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/a90ab90fec63ef95370f55406336da16dd37093b",
-                "reference": "a90ab90fec63ef95370f55406336da16dd37093b",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/6b3f3ab2c18dbf529332165d30e347d2a8c23306",
+                "reference": "6b3f3ab2c18dbf529332165d30e347d2a8c23306",
                 "shasum": ""
             },
             "require": {
@@ -907,7 +907,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-03 15:18:48"
+            "time": "2016-05-04 15:14:44"
         },
         {
             "name": "pckg/frontend",
@@ -1135,12 +1135,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "575f7b305a58dfea8a8eea6cd81d1560c14e0c7f"
+                "reference": "16a4982fc4564215620f5b8441dfd0ab0b9eb158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/575f7b305a58dfea8a8eea6cd81d1560c14e0c7f",
-                "reference": "575f7b305a58dfea8a8eea6cd81d1560c14e0c7f",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/16a4982fc4564215620f5b8441dfd0ab0b9eb158",
+                "reference": "16a4982fc4564215620f5b8441dfd0ab0b9eb158",
                 "shasum": ""
             },
             "type": "library",
@@ -1163,7 +1163,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-05-03 15:05:05"
+            "time": "2016-05-04 15:15:17"
         },
         {
             "name": "pckg/manager",
@@ -1171,12 +1171,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/manager.git",
-                "reference": "51f858fb01d6d6113860e720268a15a6b3d53484"
+                "reference": "94f844b60ba5dd9f4d81ba3fae7e2e202548fd76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/manager/zipball/51f858fb01d6d6113860e720268a15a6b3d53484",
-                "reference": "51f858fb01d6d6113860e720268a15a6b3d53484",
+                "url": "https://api.github.com/repos/pckg/manager/zipball/94f844b60ba5dd9f4d81ba3fae7e2e202548fd76",
+                "reference": "94f844b60ba5dd9f4d81ba3fae7e2e202548fd76",
                 "shasum": ""
             },
             "require": {
@@ -1200,7 +1200,7 @@
             ],
             "description": "SEO, meta and asset manager",
             "homepage": "https://github.com/pckg/manager",
-            "time": "2016-04-03 10:56:08"
+            "time": "2016-05-04 15:15:35"
         },
         {
             "name": "pckg/migrator",
@@ -1427,12 +1427,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "c8fc338326817cf79b60840a802b019aa6a8588f"
+                "reference": "eac900eacbefd68a29fa1f183590568cb5f6ffd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/c8fc338326817cf79b60840a802b019aa6a8588f",
-                "reference": "c8fc338326817cf79b60840a802b019aa6a8588f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/eac900eacbefd68a29fa1f183590568cb5f6ffd5",
+                "reference": "eac900eacbefd68a29fa1f183590568cb5f6ffd5",
                 "shasum": ""
             },
             "require": {
@@ -1479,7 +1479,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-28 09:49:00"
+            "time": "2016-05-03 18:48:46"
         },
         {
             "name": "symfony/polyfill-mbstring",
