@@ -19,7 +19,7 @@ class Apache extends Controller
      */
     public function getIndexAction(Sites $sites)
     {
-        return $this->tabelize($sites, ['server_name'], 'Sites');
+        return $this->tabelize($sites, ['server_name', 'server_alias'], 'Sites');
     }
 
     /**

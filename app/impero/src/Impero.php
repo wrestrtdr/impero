@@ -19,11 +19,8 @@ class Impero extends Provider
             ApacheProvider::class,
             FtpProvider::class,
             MysqlProvider::class,
-            // admin?
             DynamicProvider::class,
-            // authentication
             AuthProvider::class,
-            // generic!
             GenericProvider::class,
         ];
     }
@@ -45,6 +42,7 @@ function maestro_urls($class, $slug, $record, $resolver, $alterslug = null)
 
     return array_merge_array([
         'controller' => $class,
+        '',
     ], [
         '/' . $alterslug                               => [
             'name' => $slug . '.list',
