@@ -1208,12 +1208,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "38ed31396a6caaae47ce95c3cd1b47122d93c03a"
+                "reference": "470e9a39b9a1119ec5756c28f29bc67d1cd09165"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/38ed31396a6caaae47ce95c3cd1b47122d93c03a",
-                "reference": "38ed31396a6caaae47ce95c3cd1b47122d93c03a",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/470e9a39b9a1119ec5756c28f29bc67d1cd09165",
+                "reference": "470e9a39b9a1119ec5756c28f29bc67d1cd09165",
                 "shasum": ""
             },
             "require": {
@@ -1238,7 +1238,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-05-06 11:33:30"
+            "time": "2016-05-09 13:08:51"
         },
         {
             "name": "pckg/payment",
