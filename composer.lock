@@ -1056,12 +1056,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/htmlbuilder.git",
-                "reference": "bd53513debc1fc6689c688980e8b564fa41ed174"
+                "reference": "f1ecd86c5aee173108b57e7df131fb3ed7dee8d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/bd53513debc1fc6689c688980e8b564fa41ed174",
-                "reference": "bd53513debc1fc6689c688980e8b564fa41ed174",
+                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/f1ecd86c5aee173108b57e7df131fb3ed7dee8d9",
+                "reference": "f1ecd86c5aee173108b57e7df131fb3ed7dee8d9",
                 "shasum": ""
             },
             "require": {
@@ -1093,7 +1093,7 @@
             ],
             "description": "Build advanced forms in PHP with datasources, decorators, handlers and validators",
             "homepage": "https://bitbucket.org/lfw/htmlbuilder",
-            "time": "2016-05-02 19:34:06"
+            "time": "2016-05-15 11:11:34"
         },
         {
             "name": "pckg/import",
