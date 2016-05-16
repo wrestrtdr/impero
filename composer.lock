@@ -831,12 +831,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "c795fabca68d79a9b73aa392fa88571b9d52ae25"
+                "reference": "0ecf7cec360bd5faed23b3a725a4cd0f947ef639"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/c795fabca68d79a9b73aa392fa88571b9d52ae25",
-                "reference": "c795fabca68d79a9b73aa392fa88571b9d52ae25",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/0ecf7cec360bd5faed23b3a725a4cd0f947ef639",
+                "reference": "0ecf7cec360bd5faed23b3a725a4cd0f947ef639",
                 "shasum": ""
             },
             "type": "library",
@@ -859,7 +859,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-16 11:01:49"
+            "time": "2016-05-16 14:48:17"
         },
         {
             "name": "pckg/framework",
@@ -1134,12 +1134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "bf35706ecc0d65220d60dc25f09ef8f94ab336f3"
+                "reference": "3e32ce887a5d831b71035e2e803ee82af6d15810"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/bf35706ecc0d65220d60dc25f09ef8f94ab336f3",
-                "reference": "bf35706ecc0d65220d60dc25f09ef8f94ab336f3",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/3e32ce887a5d831b71035e2e803ee82af6d15810",
+                "reference": "3e32ce887a5d831b71035e2e803ee82af6d15810",
                 "shasum": ""
             },
             "type": "library",
@@ -1162,7 +1162,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-05-16 11:02:22"
+            "time": "2016-05-16 14:48:27"
         },
         {
             "name": "pckg/manager",
