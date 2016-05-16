@@ -26,51 +26,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Domains <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/dev.php/apache/sites">Sites</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FTP <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/dev.php/ftp/accounts">FTP accounts</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MySQL <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/dev.php/mysql/databases">Databases</a></li>
-                        <li><a href="/dev.php/mysql/users">Users</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Status <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/dev.php/status/mysql">MySQL</a></li>
-                        <li><a href="/dev.php/status/apache">Users</a></li>
-                        <li><a href="/dev.php/status/ftp">FTP</a></li>
-                        <li><a href="/dev.php/status/usage">Usage</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Generic <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/dev.php/admin/generic/actions">Actions</a></li>
-                        <li><a href="/dev.php/admin/generic/layouts">Layouts</a></li>
-                        <li><a href="/dev.php/admin/generic/routes">Routes</a></li>
-                        <li><a href="/dev.php/admin/generic/variables">Variables</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dynamic <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/dev.php/dynamic/tables/list/7">Tables</a></li>
-                    </ul>
-                </li>
-            </ul>
+            {{ _menuService.build('admin') | raw }}
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logged in as {{ _auth.user('email') }} <span class="caret"></span></a>
