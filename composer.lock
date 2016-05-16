@@ -831,12 +831,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "3cc4da67fc807641390aefbc2cdbfa59df3c5fb9"
+                "reference": "2387d96f1fd3dd1b7a79201745cef80971866ed5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/3cc4da67fc807641390aefbc2cdbfa59df3c5fb9",
-                "reference": "3cc4da67fc807641390aefbc2cdbfa59df3c5fb9",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/2387d96f1fd3dd1b7a79201745cef80971866ed5",
+                "reference": "2387d96f1fd3dd1b7a79201745cef80971866ed5",
                 "shasum": ""
             },
             "type": "library",
@@ -859,7 +859,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-15 06:17:05"
+            "time": "2016-05-16 09:50:42"
         },
         {
             "name": "pckg/framework",
@@ -867,12 +867,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "236222e6ab215cace5466e6d3a9e659b54e1a2c7"
+                "reference": "8d4e86d2153d62300ecbdb217d1bc846e6f84ff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/236222e6ab215cace5466e6d3a9e659b54e1a2c7",
-                "reference": "236222e6ab215cace5466e6d3a9e659b54e1a2c7",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/8d4e86d2153d62300ecbdb217d1bc846e6f84ff0",
+                "reference": "8d4e86d2153d62300ecbdb217d1bc846e6f84ff0",
                 "shasum": ""
             },
             "require": {
@@ -906,7 +906,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-16 08:32:36"
+            "time": "2016-05-16 09:50:30"
         },
         {
             "name": "pckg/frontend",
@@ -1134,12 +1134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "dfdab8d834ea500cfe8d46c83df3d08c604f777e"
+                "reference": "057990c60f91948f10a8ebbcd4b29930d1de59da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/dfdab8d834ea500cfe8d46c83df3d08c604f777e",
-                "reference": "dfdab8d834ea500cfe8d46c83df3d08c604f777e",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/057990c60f91948f10a8ebbcd4b29930d1de59da",
+                "reference": "057990c60f91948f10a8ebbcd4b29930d1de59da",
                 "shasum": ""
             },
             "type": "library",
@@ -1162,7 +1162,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-05-15 06:23:30"
+            "time": "2016-05-16 09:51:20"
         },
         {
             "name": "pckg/manager",
@@ -1207,12 +1207,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "470e9a39b9a1119ec5756c28f29bc67d1cd09165"
+                "reference": "93c1ddcaad53dc00e38773847911d80ff8a7052b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/470e9a39b9a1119ec5756c28f29bc67d1cd09165",
-                "reference": "470e9a39b9a1119ec5756c28f29bc67d1cd09165",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/93c1ddcaad53dc00e38773847911d80ff8a7052b",
+                "reference": "93c1ddcaad53dc00e38773847911d80ff8a7052b",
                 "shasum": ""
             },
             "require": {
@@ -1237,7 +1237,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-05-09 13:08:51"
+            "time": "2016-05-16 09:51:01"
         },
         {
             "name": "pckg/payment",
