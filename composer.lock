@@ -722,12 +722,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "56d260b79d25630061d05776105c0e7d32eb5cf7"
+                "reference": "8578e113dc39e28a000171fbb3f02cca874194c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/56d260b79d25630061d05776105c0e7d32eb5cf7",
-                "reference": "56d260b79d25630061d05776105c0e7d32eb5cf7",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/8578e113dc39e28a000171fbb3f02cca874194c3",
+                "reference": "8578e113dc39e28a000171fbb3f02cca874194c3",
                 "shasum": ""
             },
             "type": "library",
@@ -748,7 +748,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-05-06 11:28:40"
+            "time": "2016-05-16 08:31:23"
         },
         {
             "name": "pckg/concept",
@@ -790,12 +790,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "dddee7e4b64d6f863e1011883e3cb590f061da88"
+                "reference": "416be2fe646545d1deacac9895c20b6dd7de5721"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/dddee7e4b64d6f863e1011883e3cb590f061da88",
-                "reference": "dddee7e4b64d6f863e1011883e3cb590f061da88",
+                "url": "https://api.github.com/repos/pckg/database/zipball/416be2fe646545d1deacac9895c20b6dd7de5721",
+                "reference": "416be2fe646545d1deacac9895c20b6dd7de5721",
                 "shasum": ""
             },
             "require": {
@@ -823,7 +823,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-15 06:16:43"
+            "time": "2016-05-16 08:31:54"
         },
         {
             "name": "pckg/dynamic",
