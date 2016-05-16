@@ -585,23 +585,22 @@
         },
         {
             "name": "paypal/rest-api-sdk-php",
-            "version": "1.7.2",
+            "version": "v1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
-                "reference": "d3031fc35f4f4b0034a22a6e7174ae063f3a4b22"
+                "reference": "06837d290c4906578cfd92786412dff330a1429c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/d3031fc35f4f4b0034a22a6e7174ae063f3a4b22",
-                "reference": "d3031fc35f4f4b0034a22a6e7174ae063f3a4b22",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/06837d290c4906578cfd92786412dff330a1429c",
+                "reference": "06837d290c4906578cfd92786412dff330a1429c",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
-                "php": ">=5.3.0",
-                "psr/log": "1.0.0"
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*"
@@ -630,7 +629,7 @@
                 "rest",
                 "sdk"
             ],
-            "time": "2016-05-13 18:25:38"
+            "time": "2016-01-20 17:45:52"
         },
         {
             "name": "pckg/auth",
@@ -915,12 +914,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/frontend.git",
-                "reference": "3031506de519bfd590f98112bec76db6cce42320"
+                "reference": "2f5cdd937efdcb3cb653cd640279a99b907c6b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/frontend/zipball/3031506de519bfd590f98112bec76db6cce42320",
-                "reference": "3031506de519bfd590f98112bec76db6cce42320",
+                "url": "https://api.github.com/repos/pckg/frontend/zipball/2f5cdd937efdcb3cb653cd640279a99b907c6b9d",
+                "reference": "2f5cdd937efdcb3cb653cd640279a99b907c6b9d",
                 "shasum": ""
             },
             "require": {
@@ -930,7 +929,7 @@
                 "kraksoft/colorbox": "1.*",
                 "pckg/helpers-js": "dev-master",
                 "pckg/helpers-less": "dev-master",
-                "twbs/bootstrap": "4.*",
+                "twbs/bootstrap": "3.*",
                 "zurb/foundation": "6.*"
             },
             "type": "library",
@@ -953,7 +952,7 @@
             ],
             "description": "Useful frontend libraries",
             "homepage": "https://github.com/pckg/frontend",
-            "time": "2016-05-15 06:16:29"
+            "time": "2016-05-15 06:55:28"
         },
         {
             "name": "pckg/generic",
@@ -1288,22 +1287,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d8e60a5619fff77f9669da8997697443ef1a1d7e",
+                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1317,12 +1324,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-01-06 21:40:42"
         },
         {
             "name": "robloach/component-installer",
@@ -1654,16 +1662,16 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v4.0.0-alpha.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "48938155eb24b4ccdde09426066869504c6dab3c"
+                "reference": "795d2208b882e194e6059a1639e056e020d64072"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/48938155eb24b4ccdde09426066869504c6dab3c",
-                "reference": "48938155eb24b4ccdde09426066869504c6dab3c",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/795d2208b882e194e6059a1639e056e020d64072",
+                "reference": "795d2208b882e194e6059a1639e056e020d64072",
                 "shasum": ""
             },
             "replace": {
@@ -1696,12 +1704,12 @@
                 "css",
                 "framework",
                 "front-end",
+                "less",
                 "mobile-first",
                 "responsive",
-                "sass",
                 "web"
             ],
-            "time": "2015-12-08 17:51:50"
+            "time": "2016-04-15 19:11:23"
         },
         {
             "name": "twig/twig",
