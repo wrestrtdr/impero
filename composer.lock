@@ -867,12 +867,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "f0e78aeddd4cede666130751299bc5df724ecf4a"
+                "reference": "236222e6ab215cace5466e6d3a9e659b54e1a2c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/f0e78aeddd4cede666130751299bc5df724ecf4a",
-                "reference": "f0e78aeddd4cede666130751299bc5df724ecf4a",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/236222e6ab215cace5466e6d3a9e659b54e1a2c7",
+                "reference": "236222e6ab215cace5466e6d3a9e659b54e1a2c7",
                 "shasum": ""
             },
             "require": {
@@ -906,7 +906,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-15 02:45:44"
+            "time": "2016-05-16 08:32:36"
         },
         {
             "name": "pckg/frontend",
@@ -960,12 +960,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "9df8b12e2c876dd5876ad51906c267cc45c393e7"
+                "reference": "01f4827590065b8a448552b9dd2f83fae7eda783"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/9df8b12e2c876dd5876ad51906c267cc45c393e7",
-                "reference": "9df8b12e2c876dd5876ad51906c267cc45c393e7",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/01f4827590065b8a448552b9dd2f83fae7eda783",
+                "reference": "01f4827590065b8a448552b9dd2f83fae7eda783",
                 "shasum": ""
             },
             "require": {
@@ -989,7 +989,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-05-07 00:59:47"
+            "time": "2016-05-16 08:32:50"
         },
         {
             "name": "pckg/helpers-js",
