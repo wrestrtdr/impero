@@ -8,6 +8,8 @@
     {{ _assetManager.getMeta(['css', 'js'], ['libraries', 'main']) | raw }}
 
     {{ _assetManager.getGoogleFonts() | raw }}
+
+    <script src="https://use.fontawesome.com/90d4cc6ef0.js"></script>
 </head>
 <body>
 
@@ -47,6 +49,15 @@
 </div>
 
 {{ _assetManager.getMeta(['css', 'js'], ['footer']) | raw }}
+
+{% if _debugBar %}
+    {# temp, we need to execute this before render in PHP #}
+    {% set renderer = _debugBar.getJavascriptRenderer() %}
+    {% set renderHead = renderer.renderHead() %}
+    {% set render = renderer.render() %}
+    {{ renderHead | raw }}
+    {{ render | raw }}
+{% endif %}
 
 </body>
 </html>
