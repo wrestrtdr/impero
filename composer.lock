@@ -867,12 +867,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "25841a4bf0e76cc8daf026d75ea8fce16c25f046"
+                "reference": "29bc587f6345d3919c32e1c994a13fd3e337f5ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/25841a4bf0e76cc8daf026d75ea8fce16c25f046",
-                "reference": "25841a4bf0e76cc8daf026d75ea8fce16c25f046",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/29bc587f6345d3919c32e1c994a13fd3e337f5ea",
+                "reference": "29bc587f6345d3919c32e1c994a13fd3e337f5ea",
                 "shasum": ""
             },
             "require": {
@@ -906,7 +906,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-17 08:56:48"
+            "time": "2016-05-17 15:53:59"
         },
         {
             "name": "pckg/frontend",
@@ -1134,12 +1134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "81f8a12f17cd872a3c8eac539faf8695a68628dd"
+                "reference": "5b85e79e16720c5b175e086d327c8bd5314f7b7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/81f8a12f17cd872a3c8eac539faf8695a68628dd",
-                "reference": "81f8a12f17cd872a3c8eac539faf8695a68628dd",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/5b85e79e16720c5b175e086d327c8bd5314f7b7a",
+                "reference": "5b85e79e16720c5b175e086d327c8bd5314f7b7a",
                 "shasum": ""
             },
             "type": "library",
@@ -1162,7 +1162,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-05-17 08:58:09"
+            "time": "2016-05-17 15:54:45"
         },
         {
             "name": "pckg/manager",
