@@ -9,6 +9,7 @@ use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
 use Pckg\Generic\Provider\Config as GenericProvider;
+use Pckg\Manager\Provider\Config as ManagerProvider;
 
 class Impero extends Provider
 {
@@ -16,6 +17,7 @@ class Impero extends Provider
     public function providers()
     {
         return [
+            ManagerProvider::class,
             ApacheProvider::class,
             FtpProvider::class,
             MysqlProvider::class,
