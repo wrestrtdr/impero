@@ -89,6 +89,26 @@
             "time": "2016-02-24 08:16:25"
         },
         {
+            "name": "dimsemenov/magnific-popup",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dimsemenov/Magnific-Popup.git",
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dimsemenov/Magnific-Popup/zipball/6b7a8088783cbce01034414c1fd2d8e1889093ae",
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Light and responsive lightbox script with focus on performance.",
+            "homepage": "http://dimsemenov.com/plugins/magnific-popup/",
+            "time": "2016-02-20 09:06:30"
+        },
+        {
             "name": "facebook/php-sdk-v4",
             "version": "dev-master",
             "source": {
@@ -914,17 +934,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/frontend.git",
-                "reference": "2f5cdd937efdcb3cb653cd640279a99b907c6b9d"
+                "reference": "df0b6472f0e1723ebd8c6eab94a8eb75de543ff2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/frontend/zipball/2f5cdd937efdcb3cb653cd640279a99b907c6b9d",
-                "reference": "2f5cdd937efdcb3cb653cd640279a99b907c6b9d",
+                "url": "https://api.github.com/repos/pckg/frontend/zipball/df0b6472f0e1723ebd8c6eab94a8eb75de543ff2",
+                "reference": "df0b6472f0e1723ebd8c6eab94a8eb75de543ff2",
                 "shasum": ""
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "1.*",
                 "components/jquery": "2.*",
+                "dimsemenov/magnific-popup": "dev-master",
                 "fortawesome/font-awesome": "4.*",
                 "kraksoft/colorbox": "1.*",
                 "pckg/helpers-js": "dev-master",
@@ -952,7 +973,7 @@
             ],
             "description": "Useful frontend libraries",
             "homepage": "https://github.com/pckg/frontend",
-            "time": "2016-05-15 06:55:28"
+            "time": "2016-05-16 11:23:32"
         },
         {
             "name": "pckg/generic",

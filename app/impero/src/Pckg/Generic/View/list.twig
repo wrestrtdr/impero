@@ -1,5 +1,6 @@
 <div class="panel panel-default">
     {% if block('title') %}<div class="panel-heading">{% block title %}{% endblock %}</div>{% endif %}
     {% if block('content') %}<div class="panel-body">{% block content %}{% endblock %}</div>{% endif %}
+    {% if block('afterContent') %}{% block afterContent %}{% endblock %}{% endif %}
     {% if block('footer') %}<div class="panel-footer">{% block footer %}{% endblock %}</div>{% endif %}
 </div>
