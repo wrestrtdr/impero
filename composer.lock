@@ -851,12 +851,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "7f5de57ae25b52b632f0d8feeaa8f9e113f02817"
+                "reference": "b99e78f34db63c0ba244f2a9c251e45767dbbb86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/7f5de57ae25b52b632f0d8feeaa8f9e113f02817",
-                "reference": "7f5de57ae25b52b632f0d8feeaa8f9e113f02817",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/b99e78f34db63c0ba244f2a9c251e45767dbbb86",
+                "reference": "b99e78f34db63c0ba244f2a9c251e45767dbbb86",
                 "shasum": ""
             },
             "type": "library",
@@ -879,7 +879,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-18 08:13:20"
+            "time": "2016-05-18 11:53:38"
         },
         {
             "name": "pckg/framework",
@@ -1191,12 +1191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/manager.git",
-                "reference": "d1cdfc355ba74a7a1d30ed5ed9c542ae9ab15b31"
+                "reference": "1003bfdb0f0bbde1c563c4cfa3385eb3c6c28eef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/manager/zipball/d1cdfc355ba74a7a1d30ed5ed9c542ae9ab15b31",
-                "reference": "d1cdfc355ba74a7a1d30ed5ed9c542ae9ab15b31",
+                "url": "https://api.github.com/repos/pckg/manager/zipball/1003bfdb0f0bbde1c563c4cfa3385eb3c6c28eef",
+                "reference": "1003bfdb0f0bbde1c563c4cfa3385eb3c6c28eef",
                 "shasum": ""
             },
             "require": {
@@ -1220,7 +1220,7 @@
             ],
             "description": "SEO, meta and asset manager",
             "homepage": "https://github.com/pckg/manager",
-            "time": "2016-05-17 09:00:42"
+            "time": "2016-05-18 08:36:24"
         },
         {
             "name": "pckg/migrator",
