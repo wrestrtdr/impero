@@ -657,12 +657,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "fcfde97ef260f7808d210924fab3d413577465b4"
+                "reference": "924ec639810caf70852d0c3d1c1ee69c9c4ded3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/fcfde97ef260f7808d210924fab3d413577465b4",
-                "reference": "fcfde97ef260f7808d210924fab3d413577465b4",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/924ec639810caf70852d0c3d1c1ee69c9c4ded3b",
+                "reference": "924ec639810caf70852d0c3d1c1ee69c9c4ded3b",
                 "shasum": ""
             },
             "require": {
@@ -687,7 +687,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-05-06 11:28:22"
+            "time": "2016-05-18 12:59:12"
         },
         {
             "name": "pckg/backend",
@@ -887,12 +887,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "29bc587f6345d3919c32e1c994a13fd3e337f5ea"
+                "reference": "10716288d11db4f32040ec44b48aff6a5c0a8220"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/29bc587f6345d3919c32e1c994a13fd3e337f5ea",
-                "reference": "29bc587f6345d3919c32e1c994a13fd3e337f5ea",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/10716288d11db4f32040ec44b48aff6a5c0a8220",
+                "reference": "10716288d11db4f32040ec44b48aff6a5c0a8220",
                 "shasum": ""
             },
             "require": {
@@ -926,7 +926,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-17 15:53:59"
+            "time": "2016-05-18 12:58:58"
         },
         {
             "name": "pckg/frontend",
@@ -1191,12 +1191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/manager.git",
-                "reference": "1003bfdb0f0bbde1c563c4cfa3385eb3c6c28eef"
+                "reference": "f98286f580b6120dce3ae6fbff1801c97d34ead6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/manager/zipball/1003bfdb0f0bbde1c563c4cfa3385eb3c6c28eef",
-                "reference": "1003bfdb0f0bbde1c563c4cfa3385eb3c6c28eef",
+                "url": "https://api.github.com/repos/pckg/manager/zipball/f98286f580b6120dce3ae6fbff1801c97d34ead6",
+                "reference": "f98286f580b6120dce3ae6fbff1801c97d34ead6",
                 "shasum": ""
             },
             "require": {
@@ -1220,7 +1220,7 @@
             ],
             "description": "SEO, meta and asset manager",
             "homepage": "https://github.com/pckg/manager",
-            "time": "2016-05-18 08:36:24"
+            "time": "2016-05-18 11:53:58"
         },
         {
             "name": "pckg/migrator",
