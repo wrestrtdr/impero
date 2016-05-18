@@ -1191,12 +1191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/manager.git",
-                "reference": "f98286f580b6120dce3ae6fbff1801c97d34ead6"
+                "reference": "1bed7c169c5f6780091f5d281749e4788b5c9f12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/manager/zipball/f98286f580b6120dce3ae6fbff1801c97d34ead6",
-                "reference": "f98286f580b6120dce3ae6fbff1801c97d34ead6",
+                "url": "https://api.github.com/repos/pckg/manager/zipball/1bed7c169c5f6780091f5d281749e4788b5c9f12",
+                "reference": "1bed7c169c5f6780091f5d281749e4788b5c9f12",
                 "shasum": ""
             },
             "require": {
@@ -1220,7 +1220,7 @@
             ],
             "description": "SEO, meta and asset manager",
             "homepage": "https://github.com/pckg/manager",
-            "time": "2016-05-18 11:53:58"
+            "time": "2016-05-18 14:58:04"
         },
         {
             "name": "pckg/migrator",
