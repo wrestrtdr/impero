@@ -657,12 +657,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "924ec639810caf70852d0c3d1c1ee69c9c4ded3b"
+                "reference": "7971dc3f7436e92e618987d33a13bbc0d0ec71b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/924ec639810caf70852d0c3d1c1ee69c9c4ded3b",
-                "reference": "924ec639810caf70852d0c3d1c1ee69c9c4ded3b",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/7971dc3f7436e92e618987d33a13bbc0d0ec71b5",
+                "reference": "7971dc3f7436e92e618987d33a13bbc0d0ec71b5",
                 "shasum": ""
             },
             "require": {
@@ -687,7 +687,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-05-18 12:59:12"
+            "time": "2016-05-18 14:57:12"
         },
         {
             "name": "pckg/backend",
@@ -887,12 +887,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "10716288d11db4f32040ec44b48aff6a5c0a8220"
+                "reference": "e8d56bd3b0b115cf8184be2015835a8fca1dbb01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/10716288d11db4f32040ec44b48aff6a5c0a8220",
-                "reference": "10716288d11db4f32040ec44b48aff6a5c0a8220",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/e8d56bd3b0b115cf8184be2015835a8fca1dbb01",
+                "reference": "e8d56bd3b0b115cf8184be2015835a8fca1dbb01",
                 "shasum": ""
             },
             "require": {
@@ -926,7 +926,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-18 12:58:58"
+            "time": "2016-05-18 14:57:33"
         },
         {
             "name": "pckg/frontend",
@@ -981,12 +981,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "01f4827590065b8a448552b9dd2f83fae7eda783"
+                "reference": "d20e2708b332e61a014015fc4f037fd9bb2b8b4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/01f4827590065b8a448552b9dd2f83fae7eda783",
-                "reference": "01f4827590065b8a448552b9dd2f83fae7eda783",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/d20e2708b332e61a014015fc4f037fd9bb2b8b4e",
+                "reference": "d20e2708b332e61a014015fc4f037fd9bb2b8b4e",
                 "shasum": ""
             },
             "require": {
@@ -1010,7 +1010,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-05-16 08:32:50"
+            "time": "2016-05-18 14:57:43"
         },
         {
             "name": "pckg/helpers-js",
@@ -1516,12 +1516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "6bab34bbffa5f5ac079fdc4a68e143f158e87b7d"
+                "reference": "dff51f72b0706335131b00a7f49606168c582594"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6bab34bbffa5f5ac079fdc4a68e143f158e87b7d",
-                "reference": "6bab34bbffa5f5ac079fdc4a68e143f158e87b7d",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594",
                 "shasum": ""
             },
             "require": {
@@ -1533,7 +1533,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -1567,7 +1567,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-04-15 07:04:29"
+            "time": "2016-05-18 14:26:46"
         },
         {
             "name": "symfony/process",
