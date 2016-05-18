@@ -229,12 +229,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "97412d13845d680ab6fbc6fe5d933eec033fd696"
+                "reference": "8e241f209faa1dd2182c9fdc9c352d8806504a4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/97412d13845d680ab6fbc6fe5d933eec033fd696",
-                "reference": "97412d13845d680ab6fbc6fe5d933eec033fd696",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/8e241f209faa1dd2182c9fdc9c352d8806504a4e",
+                "reference": "8e241f209faa1dd2182c9fdc9c352d8806504a4e",
                 "shasum": ""
             },
             "require-dev": {
@@ -269,7 +269,7 @@
                 "font",
                 "icon"
             ],
-            "time": "2016-05-05 16:56:57"
+            "time": "2016-05-13 15:42:25"
         },
         {
             "name": "fzaninotto/faker",
@@ -851,12 +851,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "9f2079ae3decb6e726eeaabf750335f16cdb9b9d"
+                "reference": "7f5de57ae25b52b632f0d8feeaa8f9e113f02817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/9f2079ae3decb6e726eeaabf750335f16cdb9b9d",
-                "reference": "9f2079ae3decb6e726eeaabf750335f16cdb9b9d",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/7f5de57ae25b52b632f0d8feeaa8f9e113f02817",
+                "reference": "7f5de57ae25b52b632f0d8feeaa8f9e113f02817",
                 "shasum": ""
             },
             "type": "library",
@@ -879,7 +879,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-17 08:56:18"
+            "time": "2016-05-18 08:13:20"
         },
         {
             "name": "pckg/framework",
@@ -1155,12 +1155,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "5b85e79e16720c5b175e086d327c8bd5314f7b7a"
+                "reference": "4f1c693131077a49d429d6c160aeca22182c69ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/5b85e79e16720c5b175e086d327c8bd5314f7b7a",
-                "reference": "5b85e79e16720c5b175e086d327c8bd5314f7b7a",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/4f1c693131077a49d429d6c160aeca22182c69ca",
+                "reference": "4f1c693131077a49d429d6c160aeca22182c69ca",
                 "shasum": ""
             },
             "type": "library",
@@ -1183,7 +1183,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-05-17 15:54:45"
+            "time": "2016-05-18 08:14:39"
         },
         {
             "name": "pckg/manager",
