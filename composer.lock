@@ -853,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "2d6752a89e9ea37199be48abeee64ddf54ee5225"
+                "reference": "77e6f67d14b26856fb64185a91d4586b723702cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/2d6752a89e9ea37199be48abeee64ddf54ee5225",
-                "reference": "2d6752a89e9ea37199be48abeee64ddf54ee5225",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/77e6f67d14b26856fb64185a91d4586b723702cb",
+                "reference": "77e6f67d14b26856fb64185a91d4586b723702cb",
                 "shasum": ""
             },
             "type": "library",
@@ -881,7 +881,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-19 11:54:44"
+            "time": "2016-05-19 14:17:12"
         },
         {
             "name": "pckg/framework",
@@ -1078,12 +1078,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/htmlbuilder.git",
-                "reference": "73afff9a5787498346c51af1694cec5aae178874"
+                "reference": "6100bc871278d08112b47570f4bb78844cd890ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/73afff9a5787498346c51af1694cec5aae178874",
-                "reference": "73afff9a5787498346c51af1694cec5aae178874",
+                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/6100bc871278d08112b47570f4bb78844cd890ab",
+                "reference": "6100bc871278d08112b47570f4bb78844cd890ab",
                 "shasum": ""
             },
             "require": {
@@ -1115,7 +1115,7 @@
             ],
             "description": "Build advanced forms in PHP with datasources, decorators, handlers and validators",
             "homepage": "https://bitbucket.org/lfw/htmlbuilder",
-            "time": "2016-05-19 11:16:25"
+            "time": "2016-05-19 14:17:21"
         },
         {
             "name": "pckg/import",
