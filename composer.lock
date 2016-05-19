@@ -853,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "ac078f8a42ae982435e7f0227c0f76e22ae2c7c2"
+                "reference": "2d6752a89e9ea37199be48abeee64ddf54ee5225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/ac078f8a42ae982435e7f0227c0f76e22ae2c7c2",
-                "reference": "ac078f8a42ae982435e7f0227c0f76e22ae2c7c2",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/2d6752a89e9ea37199be48abeee64ddf54ee5225",
+                "reference": "2d6752a89e9ea37199be48abeee64ddf54ee5225",
                 "shasum": ""
             },
             "type": "library",
@@ -881,7 +881,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-18 22:24:05"
+            "time": "2016-05-19 11:54:44"
         },
         {
             "name": "pckg/framework",
@@ -889,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "f02d029b202394b1757d675f297746026e003d5d"
+                "reference": "6a11f71aaff291fc712dc68d0c15af710fae95ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/f02d029b202394b1757d675f297746026e003d5d",
-                "reference": "f02d029b202394b1757d675f297746026e003d5d",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/6a11f71aaff291fc712dc68d0c15af710fae95ff",
+                "reference": "6a11f71aaff291fc712dc68d0c15af710fae95ff",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +928,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-19 11:15:31"
+            "time": "2016-05-19 11:54:56"
         },
         {
             "name": "pckg/frontend",
