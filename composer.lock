@@ -114,17 +114,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "38fd7187a6704d3ab14ded2f3a534ac4ee6f3481"
+                "reference": "c60fba1fe1de62db1e0776d32fc2fb778189459c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/38fd7187a6704d3ab14ded2f3a534ac4ee6f3481",
-                "reference": "38fd7187a6704d3ab14ded2f3a534ac4ee6f3481",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/c60fba1fe1de62db1e0776d32fc2fb778189459c",
+                "reference": "c60fba1fe1de62db1e0776d32fc2fb778189459c",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.4.0"
+                "php": "^5.4|^7.0"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "~5.0",
@@ -143,7 +142,10 @@
             "autoload": {
                 "psr-4": {
                     "Facebook\\": "src/Facebook/"
-                }
+                },
+                "files": [
+                    "src/Facebook/polyfills.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -161,7 +163,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-05-13 17:28:30"
+            "time": "2016-05-18 22:04:36"
         },
         {
             "name": "filp/whoops",
@@ -851,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "b99e78f34db63c0ba244f2a9c251e45767dbbb86"
+                "reference": "ac078f8a42ae982435e7f0227c0f76e22ae2c7c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/b99e78f34db63c0ba244f2a9c251e45767dbbb86",
-                "reference": "b99e78f34db63c0ba244f2a9c251e45767dbbb86",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/ac078f8a42ae982435e7f0227c0f76e22ae2c7c2",
+                "reference": "ac078f8a42ae982435e7f0227c0f76e22ae2c7c2",
                 "shasum": ""
             },
             "type": "library",
@@ -879,7 +881,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-18 11:53:38"
+            "time": "2016-05-18 22:24:05"
         },
         {
             "name": "pckg/framework",
@@ -887,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "e8d56bd3b0b115cf8184be2015835a8fca1dbb01"
+                "reference": "f02d029b202394b1757d675f297746026e003d5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/e8d56bd3b0b115cf8184be2015835a8fca1dbb01",
-                "reference": "e8d56bd3b0b115cf8184be2015835a8fca1dbb01",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/f02d029b202394b1757d675f297746026e003d5d",
+                "reference": "f02d029b202394b1757d675f297746026e003d5d",
                 "shasum": ""
             },
             "require": {
@@ -926,7 +928,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-18 14:57:33"
+            "time": "2016-05-19 11:15:31"
         },
         {
             "name": "pckg/frontend",
@@ -1076,12 +1078,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/htmlbuilder.git",
-                "reference": "854f3e520c14a9d46e4c962fc5b8c0f375158341"
+                "reference": "73afff9a5787498346c51af1694cec5aae178874"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/854f3e520c14a9d46e4c962fc5b8c0f375158341",
-                "reference": "854f3e520c14a9d46e4c962fc5b8c0f375158341",
+                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/73afff9a5787498346c51af1694cec5aae178874",
+                "reference": "73afff9a5787498346c51af1694cec5aae178874",
                 "shasum": ""
             },
             "require": {
@@ -1113,7 +1115,7 @@
             ],
             "description": "Build advanced forms in PHP with datasources, decorators, handlers and validators",
             "homepage": "https://bitbucket.org/lfw/htmlbuilder",
-            "time": "2016-05-16 11:02:11"
+            "time": "2016-05-19 11:16:25"
         },
         {
             "name": "pckg/import",
@@ -1155,12 +1157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "4f1c693131077a49d429d6c160aeca22182c69ca"
+                "reference": "f0b7e194fd0997926361d8ec5549b95cc8485821"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/4f1c693131077a49d429d6c160aeca22182c69ca",
-                "reference": "4f1c693131077a49d429d6c160aeca22182c69ca",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/f0b7e194fd0997926361d8ec5549b95cc8485821",
+                "reference": "f0b7e194fd0997926361d8ec5549b95cc8485821",
                 "shasum": ""
             },
             "type": "library",
@@ -1183,7 +1185,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-05-18 08:14:39"
+            "time": "2016-05-18 22:25:22"
         },
         {
             "name": "pckg/manager",
