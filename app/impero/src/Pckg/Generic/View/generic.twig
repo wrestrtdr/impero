@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{ _seoManager | raw }}
-
-    {{ _metaManager | raw }}
-
-    {{ _assetManager.getMeta(['css', 'js'], ['libraries', 'main']) | raw }}
-
-    {{ _assetManager.getGoogleFonts() | raw }}
-
-    {{ _assetManager.getExternals() | raw }}
+    {% include '_head.twig' %}
 </head>
 <body>
 
