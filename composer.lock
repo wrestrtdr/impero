@@ -114,12 +114,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "c60fba1fe1de62db1e0776d32fc2fb778189459c"
+                "reference": "4afdee893a652167244ce999e753866c43c360fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/c60fba1fe1de62db1e0776d32fc2fb778189459c",
-                "reference": "c60fba1fe1de62db1e0776d32fc2fb778189459c",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/4afdee893a652167244ce999e753866c43c360fe",
+                "reference": "4afdee893a652167244ce999e753866c43c360fe",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +163,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-05-18 22:04:36"
+            "time": "2016-05-20 14:19:54"
         },
         {
             "name": "filp/whoops",
@@ -812,12 +812,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "416be2fe646545d1deacac9895c20b6dd7de5721"
+                "reference": "584718514ad792fb3a87001e45aefabe2e334f59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/416be2fe646545d1deacac9895c20b6dd7de5721",
-                "reference": "416be2fe646545d1deacac9895c20b6dd7de5721",
+                "url": "https://api.github.com/repos/pckg/database/zipball/584718514ad792fb3a87001e45aefabe2e334f59",
+                "reference": "584718514ad792fb3a87001e45aefabe2e334f59",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +845,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-16 08:31:54"
+            "time": "2016-05-20 15:14:03"
         },
         {
             "name": "pckg/dynamic",
@@ -853,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "918c6981e4c77a1b8f776d514922804e42062aa4"
+                "reference": "c65fb1acc0a0b40cbeae90ace1a5e8303ba98ebc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/918c6981e4c77a1b8f776d514922804e42062aa4",
-                "reference": "918c6981e4c77a1b8f776d514922804e42062aa4",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/c65fb1acc0a0b40cbeae90ace1a5e8303ba98ebc",
+                "reference": "c65fb1acc0a0b40cbeae90ace1a5e8303ba98ebc",
                 "shasum": ""
             },
             "type": "library",
@@ -881,7 +881,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-20 10:39:38"
+            "time": "2016-05-20 15:14:15"
         },
         {
             "name": "pckg/framework",
