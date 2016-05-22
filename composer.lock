@@ -659,12 +659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "7971dc3f7436e92e618987d33a13bbc0d0ec71b5"
+                "reference": "967c298a48aaf2588fa5d1cadc9543f040a1759d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/7971dc3f7436e92e618987d33a13bbc0d0ec71b5",
-                "reference": "7971dc3f7436e92e618987d33a13bbc0d0ec71b5",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/967c298a48aaf2588fa5d1cadc9543f040a1759d",
+                "reference": "967c298a48aaf2588fa5d1cadc9543f040a1759d",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-05-18 14:57:12"
+            "time": "2016-05-22 21:15:20"
         },
         {
             "name": "pckg/backend",
@@ -744,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "8578e113dc39e28a000171fbb3f02cca874194c3"
+                "reference": "f6e054841190d6aa6cddc402771506d717582d07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/8578e113dc39e28a000171fbb3f02cca874194c3",
-                "reference": "8578e113dc39e28a000171fbb3f02cca874194c3",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/f6e054841190d6aa6cddc402771506d717582d07",
+                "reference": "f6e054841190d6aa6cddc402771506d717582d07",
                 "shasum": ""
             },
             "type": "library",
@@ -770,7 +770,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-05-16 08:31:23"
+            "time": "2016-05-22 21:15:33"
         },
         {
             "name": "pckg/concept",
@@ -812,12 +812,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "584718514ad792fb3a87001e45aefabe2e334f59"
+                "reference": "d2ab8a42d1f01eef4741d1b275a597ed046d4534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/584718514ad792fb3a87001e45aefabe2e334f59",
-                "reference": "584718514ad792fb3a87001e45aefabe2e334f59",
+                "url": "https://api.github.com/repos/pckg/database/zipball/d2ab8a42d1f01eef4741d1b275a597ed046d4534",
+                "reference": "d2ab8a42d1f01eef4741d1b275a597ed046d4534",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +845,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-20 15:14:03"
+            "time": "2016-05-22 21:15:50"
         },
         {
             "name": "pckg/dynamic",
@@ -853,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "c65fb1acc0a0b40cbeae90ace1a5e8303ba98ebc"
+                "reference": "bc15917265bf7adc7f8b54f59682617b9ad6c899"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/c65fb1acc0a0b40cbeae90ace1a5e8303ba98ebc",
-                "reference": "c65fb1acc0a0b40cbeae90ace1a5e8303ba98ebc",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/bc15917265bf7adc7f8b54f59682617b9ad6c899",
+                "reference": "bc15917265bf7adc7f8b54f59682617b9ad6c899",
                 "shasum": ""
             },
             "type": "library",
@@ -881,7 +881,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-20 15:14:15"
+            "time": "2016-05-22 16:45:57"
         },
         {
             "name": "pckg/framework",
