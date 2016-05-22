@@ -114,12 +114,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "4afdee893a652167244ce999e753866c43c360fe"
+                "reference": "f9e3ae3fa861dae1272952b45ed0f888c7d791f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/4afdee893a652167244ce999e753866c43c360fe",
-                "reference": "4afdee893a652167244ce999e753866c43c360fe",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/f9e3ae3fa861dae1272952b45ed0f888c7d791f3",
+                "reference": "f9e3ae3fa861dae1272952b45ed0f888c7d791f3",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +163,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-05-20 14:19:54"
+            "time": "2016-05-21 20:02:33"
         },
         {
             "name": "filp/whoops",
@@ -1357,32 +1357,27 @@
         },
         {
             "name": "robloach/component-installer",
-            "version": "0.0.13-alpha2",
+            "version": "0.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "0d02d950266f18124da929980588a0858755aa6d"
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/0d02d950266f18124da929980588a0858755aa6d",
-                "reference": "0d02d950266f18124da929980588a0858755aa6d",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "1.0.0",
                 "kriswallsmith/assetic": "1.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "composer/composer": "1.*",
-                "phpunit/phpunit": "4.*"
+                "composer/composer": "1.*"
             },
             "type": "composer-installer",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
                 "class": "ComponentInstaller\\Installer"
             },
             "autoload": {
@@ -1397,11 +1392,12 @@
             "authors": [
                 {
                     "name": "Rob Loach",
+                    "email": "robloach@gmail.com",
                     "homepage": "http://robloach.net"
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2015-05-05 12:40:13"
+            "time": "2013-08-31 23:46:48"
         },
         {
             "name": "rollbar/rollbar",
