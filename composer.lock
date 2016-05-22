@@ -853,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "bc15917265bf7adc7f8b54f59682617b9ad6c899"
+                "reference": "f74a50efa258ecd20ef64af38d5fbd04535a92d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/bc15917265bf7adc7f8b54f59682617b9ad6c899",
-                "reference": "bc15917265bf7adc7f8b54f59682617b9ad6c899",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/f74a50efa258ecd20ef64af38d5fbd04535a92d1",
+                "reference": "f74a50efa258ecd20ef64af38d5fbd04535a92d1",
                 "shasum": ""
             },
             "type": "library",
@@ -881,7 +881,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-22 16:45:57"
+            "time": "2016-05-22 21:16:02"
         },
         {
             "name": "pckg/framework",
@@ -983,12 +983,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "a2984417aeb86047defd64f0dc339aa75fd779f8"
+                "reference": "b52726cdbf98a658e1127c92d108a68045323208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/a2984417aeb86047defd64f0dc339aa75fd779f8",
-                "reference": "a2984417aeb86047defd64f0dc339aa75fd779f8",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/b52726cdbf98a658e1127c92d108a68045323208",
+                "reference": "b52726cdbf98a658e1127c92d108a68045323208",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1012,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-05-20 15:15:01"
+            "time": "2016-05-22 21:16:17"
         },
         {
             "name": "pckg/helpers-js",
