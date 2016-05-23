@@ -18,13 +18,14 @@
             <a class="navbar-brand" href="#">Impero</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+        {% if _user.isLoggedIn() %}
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             {{ _menuService.build('admin') | raw }}
 
             {{ _pluginService.make('Pckg\\Auth\\Controller\\Auth', 'getUserHeader') | raw }}
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+        {% endif %}
+    </div>
 </nav>
 
 <div class="container-fluid">
