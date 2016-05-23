@@ -18,7 +18,7 @@
             <a class="navbar-brand" href="#">Impero</a>
         </div>
 
-        {% if _user.isLoggedIn() %}
+        {% if _auth.isLoggedIn() %}
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             {{ _menuService.build('admin') | raw }}
 
