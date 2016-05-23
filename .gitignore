@@ -20,6 +20,12 @@ cache/*/*
 # LOGS
 logs
 
+# ENV
+app/*/config/env.php
+app/*/config/env.example.php
+config/env.php
+config/env.example.php
+
 # DEV -.-
 sublime
 .idea

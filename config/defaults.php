@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'ap'           => null,
-    'domain'       => null,
-    'title'        => null,
-    'protocol'     => 'http',
-    'security'     => [
+    'app'      => null,
+    'domain'   => null,
+    'title'    => null,
+    'protocol' => 'http',
+    'security' => [
         'hash'   => 'njbtlnroq4f27myupt5rqnf3kbm2ccb2rvb3egwl5e3ua',
         'dbhash' => '7mc0pyl80adssdfgc60tz0rbdihpd4gipfxkbhj1yas',
     ],
-    'twig'         => [
+    'twig'     => [
         'cache'   => # requires composer doctrine/cache
             [
                 'driver' => 'Cache\Lib\Doctrine\Common\Cache\PhpFileCache',

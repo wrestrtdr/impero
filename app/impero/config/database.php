@@ -3,7 +3,7 @@
 return [
     'default'   => [
         'driver'  => 'mysql',
-        'host'    => 'oxygenium.schtr4jh.net',
+        'host'    => '127.0.0.1',
         'user'    => 'pckg_impero',
         'pass'    => 'pckg_impero',
         'db'      => 'pckg_impero',
