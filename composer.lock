@@ -889,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "eaeb1ba0f913e76bf627dad61212c7f9bb1a843d"
+                "reference": "6dee497e9bcaf5f9c32354504ea0bec366441831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/eaeb1ba0f913e76bf627dad61212c7f9bb1a843d",
-                "reference": "eaeb1ba0f913e76bf627dad61212c7f9bb1a843d",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/6dee497e9bcaf5f9c32354504ea0bec366441831",
+                "reference": "6dee497e9bcaf5f9c32354504ea0bec366441831",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +928,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-23 12:58:55"
+            "time": "2016-05-23 13:13:52"
         },
         {
             "name": "pckg/frontend",
@@ -1357,27 +1357,32 @@
         },
         {
             "name": "robloach/component-installer",
-            "version": "0.0.12",
+            "version": "0.0.13-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
+                "reference": "0d02d950266f18124da929980588a0858755aa6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/0d02d950266f18124da929980588a0858755aa6d",
+                "reference": "0d02d950266f18124da929980588a0858755aa6d",
                 "shasum": ""
             },
             "require": {
+                "composer-plugin-api": "1.0.0",
                 "kriswallsmith/assetic": "1.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "composer/composer": "1.*"
+                "composer/composer": "1.*",
+                "phpunit/phpunit": "4.*"
             },
             "type": "composer-installer",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
                 "class": "ComponentInstaller\\Installer"
             },
             "autoload": {
@@ -1392,12 +1397,11 @@
             "authors": [
                 {
                     "name": "Rob Loach",
-                    "email": "robloach@gmail.com",
                     "homepage": "http://robloach.net"
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2013-08-31 23:46:48"
+            "time": "2015-05-05 12:40:13"
         },
         {
             "name": "rollbar/rollbar",
