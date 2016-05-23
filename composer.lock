@@ -659,12 +659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "967c298a48aaf2588fa5d1cadc9543f040a1759d"
+                "reference": "0d59b6e0a76b443d56706615f054c97de94e4d76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/967c298a48aaf2588fa5d1cadc9543f040a1759d",
-                "reference": "967c298a48aaf2588fa5d1cadc9543f040a1759d",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/0d59b6e0a76b443d56706615f054c97de94e4d76",
+                "reference": "0d59b6e0a76b443d56706615f054c97de94e4d76",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-05-22 21:15:20"
+            "time": "2016-05-23 16:18:26"
         },
         {
             "name": "pckg/backend",
@@ -778,12 +778,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/concept.git",
-                "reference": "c9aae7ee86c3b58fbdf8d41b7db81ee48ca93077"
+                "reference": "b9612a75a27a77f7d20a3583c26474e011924371"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/concept/zipball/c9aae7ee86c3b58fbdf8d41b7db81ee48ca93077",
-                "reference": "c9aae7ee86c3b58fbdf8d41b7db81ee48ca93077",
+                "url": "https://api.github.com/repos/pckg/concept/zipball/b9612a75a27a77f7d20a3583c26474e011924371",
+                "reference": "b9612a75a27a77f7d20a3583c26474e011924371",
                 "shasum": ""
             },
             "type": "library",
@@ -804,7 +804,7 @@
             ],
             "description": "Few concepts",
             "homepage": "https://github.com/pckg/concept",
-            "time": "2016-05-07 00:58:31"
+            "time": "2016-05-23 16:18:44"
         },
         {
             "name": "pckg/database",
@@ -812,12 +812,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "d2ab8a42d1f01eef4741d1b275a597ed046d4534"
+                "reference": "3c3ef69ea23cd285c966cab98d624cf81bae1ff5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/d2ab8a42d1f01eef4741d1b275a597ed046d4534",
-                "reference": "d2ab8a42d1f01eef4741d1b275a597ed046d4534",
+                "url": "https://api.github.com/repos/pckg/database/zipball/3c3ef69ea23cd285c966cab98d624cf81bae1ff5",
+                "reference": "3c3ef69ea23cd285c966cab98d624cf81bae1ff5",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +845,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-22 21:15:50"
+            "time": "2016-05-23 16:18:57"
         },
         {
             "name": "pckg/dynamic",
@@ -853,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "f74a50efa258ecd20ef64af38d5fbd04535a92d1"
+                "reference": "03ca1bca0f61fe19eb5638216d4414e06bb64cda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/f74a50efa258ecd20ef64af38d5fbd04535a92d1",
-                "reference": "f74a50efa258ecd20ef64af38d5fbd04535a92d1",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/03ca1bca0f61fe19eb5638216d4414e06bb64cda",
+                "reference": "03ca1bca0f61fe19eb5638216d4414e06bb64cda",
                 "shasum": ""
             },
             "type": "library",
@@ -881,7 +881,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-05-22 21:16:02"
+            "time": "2016-05-23 16:19:11"
         },
         {
             "name": "pckg/framework",
@@ -889,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "6dee497e9bcaf5f9c32354504ea0bec366441831"
+                "reference": "b4a11258ca0fa6fbfaee88e5d2ed53c5c33e3f83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/6dee497e9bcaf5f9c32354504ea0bec366441831",
-                "reference": "6dee497e9bcaf5f9c32354504ea0bec366441831",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/b4a11258ca0fa6fbfaee88e5d2ed53c5c33e3f83",
+                "reference": "b4a11258ca0fa6fbfaee88e5d2ed53c5c33e3f83",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +928,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-23 13:13:52"
+            "time": "2016-05-23 16:19:28"
         },
         {
             "name": "pckg/frontend",
@@ -983,12 +983,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "b52726cdbf98a658e1127c92d108a68045323208"
+                "reference": "cbebebc514f99d5f50b4d5f96774f6253ba203d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/b52726cdbf98a658e1127c92d108a68045323208",
-                "reference": "b52726cdbf98a658e1127c92d108a68045323208",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/cbebebc514f99d5f50b4d5f96774f6253ba203d7",
+                "reference": "cbebebc514f99d5f50b4d5f96774f6253ba203d7",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1012,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-05-22 21:16:17"
+            "time": "2016-05-23 16:19:40"
         },
         {
             "name": "pckg/helpers-js",
@@ -1357,32 +1357,27 @@
         },
         {
             "name": "robloach/component-installer",
-            "version": "0.0.13-alpha2",
+            "version": "0.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "0d02d950266f18124da929980588a0858755aa6d"
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/0d02d950266f18124da929980588a0858755aa6d",
-                "reference": "0d02d950266f18124da929980588a0858755aa6d",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "1.0.0",
                 "kriswallsmith/assetic": "1.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "composer/composer": "1.*",
-                "phpunit/phpunit": "4.*"
+                "composer/composer": "1.*"
             },
             "type": "composer-installer",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
                 "class": "ComponentInstaller\\Installer"
             },
             "autoload": {
@@ -1397,11 +1392,12 @@
             "authors": [
                 {
                     "name": "Rob Loach",
+                    "email": "robloach@gmail.com",
                     "homepage": "http://robloach.net"
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2015-05-05 12:40:13"
+            "time": "2013-08-31 23:46:48"
         },
         {
             "name": "rollbar/rollbar",
