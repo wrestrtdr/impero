@@ -7,7 +7,12 @@ return [
             'host' => [
                 'impero.pckg-app',
                 'impero.foobar.si',
-                'impero.gonparty.eu.foobar.si',
+            ],
+        ],
+        'queue'  => [
+            'host' => [
+                'queue.pckg-app',
+                'queue.foobar.si',
             ],
         ],
     ],
