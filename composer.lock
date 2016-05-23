@@ -1157,12 +1157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "f0b7e194fd0997926361d8ec5549b95cc8485821"
+                "reference": "f4a2605b3e8c7308e930e99e05c6e28b8460061a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/f0b7e194fd0997926361d8ec5549b95cc8485821",
-                "reference": "f0b7e194fd0997926361d8ec5549b95cc8485821",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/f4a2605b3e8c7308e930e99e05c6e28b8460061a",
+                "reference": "f4a2605b3e8c7308e930e99e05c6e28b8460061a",
                 "shasum": ""
             },
             "type": "library",
@@ -1185,7 +1185,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-05-18 22:25:22"
+            "time": "2016-05-22 21:27:04"
         },
         {
             "name": "pckg/manager",
@@ -1357,27 +1357,32 @@
         },
         {
             "name": "robloach/component-installer",
-            "version": "0.0.12",
+            "version": "0.0.13-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
+                "reference": "0d02d950266f18124da929980588a0858755aa6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/0d02d950266f18124da929980588a0858755aa6d",
+                "reference": "0d02d950266f18124da929980588a0858755aa6d",
                 "shasum": ""
             },
             "require": {
+                "composer-plugin-api": "1.0.0",
                 "kriswallsmith/assetic": "1.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "composer/composer": "1.*"
+                "composer/composer": "1.*",
+                "phpunit/phpunit": "4.*"
             },
             "type": "composer-installer",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
                 "class": "ComponentInstaller\\Installer"
             },
             "autoload": {
@@ -1392,12 +1397,11 @@
             "authors": [
                 {
                     "name": "Rob Loach",
-                    "email": "robloach@gmail.com",
                     "homepage": "http://robloach.net"
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2013-08-31 23:46:48"
+            "time": "2015-05-05 12:40:13"
         },
         {
             "name": "rollbar/rollbar",
