@@ -697,12 +697,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/backend.git",
-                "reference": "fba7fd1ca25eb5cd30db4df94655e4ba9e03c814"
+                "reference": "34195da41b02f5274150be0e8e17ba4b603063e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/backend/zipball/fba7fd1ca25eb5cd30db4df94655e4ba9e03c814",
-                "reference": "fba7fd1ca25eb5cd30db4df94655e4ba9e03c814",
+                "url": "https://api.github.com/repos/pckg/backend/zipball/34195da41b02f5274150be0e8e17ba4b603063e4",
+                "reference": "34195da41b02f5274150be0e8e17ba4b603063e4",
                 "shasum": ""
             },
             "require": {
@@ -714,7 +714,8 @@
                 "pckg/import": "dev-master",
                 "pckg/maestro": "dev-master",
                 "pckg/migrator": "dev-master",
-                "pckg/payment": "dev-master"
+                "pckg/payment": "dev-master",
+                "pckg/queue": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -736,7 +737,7 @@
             ],
             "description": "Useful backend libraries",
             "homepage": "https://github.com/pckg/backend",
-            "time": "2016-05-03 15:28:17"
+            "time": "2016-05-24 10:36:09"
         },
         {
             "name": "pckg/collection",
@@ -744,12 +745,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "f6e054841190d6aa6cddc402771506d717582d07"
+                "reference": "1d11833b66849f25857c4be89e745ab4014589e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/f6e054841190d6aa6cddc402771506d717582d07",
-                "reference": "f6e054841190d6aa6cddc402771506d717582d07",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/1d11833b66849f25857c4be89e745ab4014589e2",
+                "reference": "1d11833b66849f25857c4be89e745ab4014589e2",
                 "shasum": ""
             },
             "type": "library",
@@ -770,7 +771,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-05-22 21:15:33"
+            "time": "2016-05-24 10:36:35"
         },
         {
             "name": "pckg/concept",
@@ -812,12 +813,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "36b5957f86e6783141e907bc9387194d435254d9"
+                "reference": "09d77368bd54b1d03a9f0aa4b18995b2c88ff5f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/36b5957f86e6783141e907bc9387194d435254d9",
-                "reference": "36b5957f86e6783141e907bc9387194d435254d9",
+                "url": "https://api.github.com/repos/pckg/database/zipball/09d77368bd54b1d03a9f0aa4b18995b2c88ff5f1",
+                "reference": "09d77368bd54b1d03a9f0aa4b18995b2c88ff5f1",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +846,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-23 21:06:39"
+            "time": "2016-05-24 10:36:57"
         },
         {
             "name": "pckg/dynamic",
@@ -889,12 +890,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "7cedc4416773e7d4f226e91a450fca2a02abcccf"
+                "reference": "c9e79dd67be67c5eaf9f922a6f2f6c7e9c03095f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/7cedc4416773e7d4f226e91a450fca2a02abcccf",
-                "reference": "7cedc4416773e7d4f226e91a450fca2a02abcccf",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/c9e79dd67be67c5eaf9f922a6f2f6c7e9c03095f",
+                "reference": "c9e79dd67be67c5eaf9f922a6f2f6c7e9c03095f",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +929,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-23 21:07:01"
+            "time": "2016-05-24 10:37:19"
         },
         {
             "name": "pckg/frontend",
@@ -1309,6 +1310,42 @@
             "time": "2016-04-05 13:50:02"
         },
         {
+            "name": "pckg/queue",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/queue.git",
+                "reference": "bd1ec83522ac7b2a8a71244eec34d78d5a52e4c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/bd1ec83522ac7b2a8a71244eec34d78d5a52e4c0",
+                "reference": "bd1ec83522ac7b2a8a71244eec34d78d5a52e4c0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Queue",
+            "homepage": "https://github.com/pckg/queue",
+            "time": "2016-05-24 10:34:11"
+        },
+        {
             "name": "psr/log",
             "version": "dev-master",
             "source": {
@@ -1458,12 +1495,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "8b60330aaef91db2a7252c7fc1ac8141c4cf6ce9"
+                "reference": "a36608e520274fdb8defd5ad3762ee149621e4e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8b60330aaef91db2a7252c7fc1ac8141c4cf6ce9",
-                "reference": "8b60330aaef91db2a7252c7fc1ac8141c4cf6ce9",
+                "url": "https://api.github.com/repos/symfony/console/zipball/a36608e520274fdb8defd5ad3762ee149621e4e7",
+                "reference": "a36608e520274fdb8defd5ad3762ee149621e4e7",
                 "shasum": ""
             },
             "require": {
@@ -1510,7 +1547,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-13 18:13:23"
+            "time": "2016-05-24 10:07:02"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1626,12 +1663,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "b5ad0aeeba7cfe1fad3f3c944eaa344c2280a821"
+                "reference": "59a088a460f7f142f6ecce5b2f0dddf8493d49d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/b5ad0aeeba7cfe1fad3f3c944eaa344c2280a821",
-                "reference": "b5ad0aeeba7cfe1fad3f3c944eaa344c2280a821",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/59a088a460f7f142f6ecce5b2f0dddf8493d49d6",
+                "reference": "59a088a460f7f142f6ecce5b2f0dddf8493d49d6",
                 "shasum": ""
             },
             "require": {
@@ -1681,7 +1718,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-05-13 18:13:23"
+            "time": "2016-05-24 10:07:02"
         },
         {
             "name": "twbs/bootstrap",
