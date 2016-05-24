@@ -30,4 +30,27 @@ class Queue extends Entity
         return $this->where('execute_at', date('Y-m-d H:i:s'), '<');
     }
 
+    public function waiting()
+    {
+        return $this->where('execute_at', date('Y-m-d H:i:s'), '<')
+            ->where('started_at', null);
+    }
+
+    /**
+     * @param $status
+     * @return $this
+     *
+     * Statuses:
+     *  - created - queue was added, waiting for execution in future
+     *  - started - queue was started, waiting for execution
+     *  - running - queue is running, waiting for result
+     *  - failed - queue failed, waiting for retry
+     *  - failed_permanently - queue failed
+     *  - finished - queue was successfully finished
+     */
+    public function status($status)
+    {
+        return $this->where('status', $status);
+    }
+
 }

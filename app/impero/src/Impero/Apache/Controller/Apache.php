@@ -68,6 +68,8 @@ class Apache extends Controller
          */
         $siteRecord->save();
 
+        queue()->create('apache:restart');
+
         /**
          * If site was added via ajax, we display some data and redirect url.
          * Otherwise we redirect user to edit form.
@@ -110,6 +112,8 @@ class Apache extends Controller
          * Fill record with posted data.
          */
         $siteForm->populateToRecordAndSave($siteRecord);
+
+        queue()->create('apache:restart');
 
         /**
          * If site was added via ajax, we display some data.
