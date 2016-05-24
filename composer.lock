@@ -607,22 +607,23 @@
         },
         {
             "name": "paypal/rest-api-sdk-php",
-            "version": "v1.6.4",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
-                "reference": "06837d290c4906578cfd92786412dff330a1429c"
+                "reference": "d3031fc35f4f4b0034a22a6e7174ae063f3a4b22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/06837d290c4906578cfd92786412dff330a1429c",
-                "reference": "06837d290c4906578cfd92786412dff330a1429c",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/d3031fc35f4f4b0034a22a6e7174ae063f3a4b22",
+                "reference": "d3031fc35f4f4b0034a22a6e7174ae063f3a4b22",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "psr/log": "1.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*"
@@ -651,7 +652,7 @@
                 "rest",
                 "sdk"
             ],
-            "time": "2016-01-20 17:45:52"
+            "time": "2016-05-13 18:25:38"
         },
         {
             "name": "pckg/auth",
@@ -1315,12 +1316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "bd1ec83522ac7b2a8a71244eec34d78d5a52e4c0"
+                "reference": "80509bd083ad9b648a262c86cefc7c73ebb1b96f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/bd1ec83522ac7b2a8a71244eec34d78d5a52e4c0",
-                "reference": "bd1ec83522ac7b2a8a71244eec34d78d5a52e4c0",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/80509bd083ad9b648a262c86cefc7c73ebb1b96f",
+                "reference": "80509bd083ad9b648a262c86cefc7c73ebb1b96f",
                 "shasum": ""
             },
             "type": "library",
@@ -1343,34 +1344,26 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-05-24 10:34:11"
+            "time": "2016-05-24 11:58:29"
         },
         {
             "name": "psr/log",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e"
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d8e60a5619fff77f9669da8997697443ef1a1d7e",
-                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
-            "require": {
-                "php": ">=5.3.0"
-            },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
-                "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
+                "psr-0": {
+                    "Psr\\Log\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1384,13 +1377,12 @@
                 }
             ],
             "description": "Common interface for logging libraries",
-            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-01-06 21:40:42"
+            "time": "2012-12-21 11:40:51"
         },
         {
             "name": "robloach/component-installer",
