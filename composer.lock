@@ -114,12 +114,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "f9e3ae3fa861dae1272952b45ed0f888c7d791f3"
+                "reference": "5d1a9f128bfbe44b1a6521d8740bc3f3649c6d79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/f9e3ae3fa861dae1272952b45ed0f888c7d791f3",
-                "reference": "f9e3ae3fa861dae1272952b45ed0f888c7d791f3",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/5d1a9f128bfbe44b1a6521d8740bc3f3649c6d79",
+                "reference": "5d1a9f128bfbe44b1a6521d8740bc3f3649c6d79",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +163,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-05-21 20:02:33"
+            "time": "2016-05-23 22:10:37"
         },
         {
             "name": "filp/whoops",
@@ -812,12 +812,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "2d804c2270de3740d11b59091ae18c34d818d786"
+                "reference": "36b5957f86e6783141e907bc9387194d435254d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/2d804c2270de3740d11b59091ae18c34d818d786",
-                "reference": "2d804c2270de3740d11b59091ae18c34d818d786",
+                "url": "https://api.github.com/repos/pckg/database/zipball/36b5957f86e6783141e907bc9387194d435254d9",
+                "reference": "36b5957f86e6783141e907bc9387194d435254d9",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +845,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-23 19:51:34"
+            "time": "2016-05-23 21:06:39"
         },
         {
             "name": "pckg/dynamic",
@@ -889,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "b4a11258ca0fa6fbfaee88e5d2ed53c5c33e3f83"
+                "reference": "7cedc4416773e7d4f226e91a450fca2a02abcccf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/b4a11258ca0fa6fbfaee88e5d2ed53c5c33e3f83",
-                "reference": "b4a11258ca0fa6fbfaee88e5d2ed53c5c33e3f83",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/7cedc4416773e7d4f226e91a450fca2a02abcccf",
+                "reference": "7cedc4416773e7d4f226e91a450fca2a02abcccf",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +928,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-23 16:19:28"
+            "time": "2016-05-23 21:07:01"
         },
         {
             "name": "pckg/frontend",
@@ -983,12 +983,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "cbebebc514f99d5f50b4d5f96774f6253ba203d7"
+                "reference": "3c374de604807906ee2e4120a3d14cc22e8afd55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/cbebebc514f99d5f50b4d5f96774f6253ba203d7",
-                "reference": "cbebebc514f99d5f50b4d5f96774f6253ba203d7",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/3c374de604807906ee2e4120a3d14cc22e8afd55",
+                "reference": "3c374de604807906ee2e4120a3d14cc22e8afd55",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1012,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-05-23 16:19:40"
+            "time": "2016-05-23 21:07:25"
         },
         {
             "name": "pckg/helpers-js",
@@ -1230,12 +1230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "93c1ddcaad53dc00e38773847911d80ff8a7052b"
+                "reference": "2f3530abe7196fcebf4b8c2e1eeae81189f7f699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/93c1ddcaad53dc00e38773847911d80ff8a7052b",
-                "reference": "93c1ddcaad53dc00e38773847911d80ff8a7052b",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/2f3530abe7196fcebf4b8c2e1eeae81189f7f699",
+                "reference": "2f3530abe7196fcebf4b8c2e1eeae81189f7f699",
                 "shasum": ""
             },
             "require": {
@@ -1260,7 +1260,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-05-16 09:51:01"
+            "time": "2016-05-23 21:07:45"
         },
         {
             "name": "pckg/payment",
@@ -1357,27 +1357,32 @@
         },
         {
             "name": "robloach/component-installer",
-            "version": "0.0.12",
+            "version": "0.0.13-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
+                "reference": "0d02d950266f18124da929980588a0858755aa6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/0d02d950266f18124da929980588a0858755aa6d",
+                "reference": "0d02d950266f18124da929980588a0858755aa6d",
                 "shasum": ""
             },
             "require": {
+                "composer-plugin-api": "1.0.0",
                 "kriswallsmith/assetic": "1.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "composer/composer": "1.*"
+                "composer/composer": "1.*",
+                "phpunit/phpunit": "4.*"
             },
             "type": "composer-installer",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
                 "class": "ComponentInstaller\\Installer"
             },
             "autoload": {
@@ -1392,12 +1397,11 @@
             "authors": [
                 {
                     "name": "Rob Loach",
-                    "email": "robloach@gmail.com",
                     "homepage": "http://robloach.net"
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2013-08-31 23:46:48"
+            "time": "2015-05-05 12:40:13"
         },
         {
             "name": "rollbar/rollbar",
