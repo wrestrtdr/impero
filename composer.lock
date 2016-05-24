@@ -114,12 +114,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "5d1a9f128bfbe44b1a6521d8740bc3f3649c6d79"
+                "reference": "6104ac724365036874ef2271b9d2aa1518f9d82d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/5d1a9f128bfbe44b1a6521d8740bc3f3649c6d79",
-                "reference": "5d1a9f128bfbe44b1a6521d8740bc3f3649c6d79",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/6104ac724365036874ef2271b9d2aa1518f9d82d",
+                "reference": "6104ac724365036874ef2271b9d2aa1518f9d82d",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +163,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-05-23 22:10:37"
+            "time": "2016-05-24 14:24:01"
         },
         {
             "name": "filp/whoops",
