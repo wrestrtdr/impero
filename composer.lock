@@ -48,16 +48,16 @@
         },
         {
             "name": "components/jquery",
-            "version": "2.2.1",
+            "version": "2.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
-                "reference": "7894addbce3c4de6f82449610e6f8e168b49e9b0"
+                "reference": "981036fcb56668433a7eb0d1e71190324b4574df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/7894addbce3c4de6f82449610e6f8e168b49e9b0",
-                "reference": "7894addbce3c4de6f82449610e6f8e168b49e9b0",
+                "url": "https://api.github.com/repos/components/jquery/zipball/981036fcb56668433a7eb0d1e71190324b4574df",
+                "reference": "981036fcb56668433a7eb0d1e71190324b4574df",
                 "shasum": ""
             },
             "type": "component",
@@ -86,7 +86,7 @@
             ],
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
-            "time": "2016-02-24 08:16:25"
+            "time": "2016-05-25 06:43:59"
         },
         {
             "name": "dimsemenov/magnific-popup",
@@ -1232,12 +1232,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "2f3530abe7196fcebf4b8c2e1eeae81189f7f699"
+                "reference": "f741c6db277baeabd1a46abd202ac6dfcc11e158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/2f3530abe7196fcebf4b8c2e1eeae81189f7f699",
-                "reference": "2f3530abe7196fcebf4b8c2e1eeae81189f7f699",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/f741c6db277baeabd1a46abd202ac6dfcc11e158",
+                "reference": "f741c6db277baeabd1a46abd202ac6dfcc11e158",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1262,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-05-23 21:07:45"
+            "time": "2016-05-24 20:55:49"
         },
         {
             "name": "pckg/payment",
@@ -1316,12 +1316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "80509bd083ad9b648a262c86cefc7c73ebb1b96f"
+                "reference": "815dfbb6fa3178c09c1c4f6ee5c51c1a603afd05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/80509bd083ad9b648a262c86cefc7c73ebb1b96f",
-                "reference": "80509bd083ad9b648a262c86cefc7c73ebb1b96f",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/815dfbb6fa3178c09c1c4f6ee5c51c1a603afd05",
+                "reference": "815dfbb6fa3178c09c1c4f6ee5c51c1a603afd05",
                 "shasum": ""
             },
             "type": "library",
@@ -1344,7 +1344,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-05-24 11:58:29"
+            "time": "2016-05-24 20:54:13"
         },
         {
             "name": "psr/log",
@@ -1386,27 +1386,32 @@
         },
         {
             "name": "robloach/component-installer",
-            "version": "0.0.12",
+            "version": "0.0.13-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
+                "reference": "0d02d950266f18124da929980588a0858755aa6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
-                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/0d02d950266f18124da929980588a0858755aa6d",
+                "reference": "0d02d950266f18124da929980588a0858755aa6d",
                 "shasum": ""
             },
             "require": {
+                "composer-plugin-api": "1.0.0",
                 "kriswallsmith/assetic": "1.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "composer/composer": "1.*"
+                "composer/composer": "1.*",
+                "phpunit/phpunit": "4.*"
             },
             "type": "composer-installer",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
                 "class": "ComponentInstaller\\Installer"
             },
             "autoload": {
@@ -1421,12 +1426,11 @@
             "authors": [
                 {
                     "name": "Rob Loach",
-                    "email": "robloach@gmail.com",
                     "homepage": "http://robloach.net"
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2013-08-31 23:46:48"
+            "time": "2015-05-05 12:40:13"
         },
         {
             "name": "rollbar/rollbar",
@@ -1651,12 +1655,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "59a088a460f7f142f6ecce5b2f0dddf8493d49d6"
+                "reference": "64c842d6f254dd3f4327bd09b6ae574af3242bb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/59a088a460f7f142f6ecce5b2f0dddf8493d49d6",
-                "reference": "59a088a460f7f142f6ecce5b2f0dddf8493d49d6",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/64c842d6f254dd3f4327bd09b6ae574af3242bb6",
+                "reference": "64c842d6f254dd3f4327bd09b6ae574af3242bb6",
                 "shasum": ""
             },
             "require": {
@@ -1706,7 +1710,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-05-24 10:07:02"
+            "time": "2016-05-25 08:18:05"
         },
         {
             "name": "twbs/bootstrap",
