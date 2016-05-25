@@ -7,3 +7,40 @@
 {{ _assetManager.getGoogleFonts() | raw }}
 
 {{ _assetManager.getExternals() | raw }}
+
+<script type="text/javascript">
+    
+    var data = data || {};
+    var http = {
+
+        formToData: function (vueElement, keys) {
+            var data = {};
+
+            $.each(keys, function (i, key) {
+                data[key] = vueElement.form[key];
+            });
+
+            return data;
+        },
+
+        submitForm: function (vueElement, fields) {
+            var data = http.formToData(vueElement, fields);
+            var $form = $(vueElement.$el);
+            var url = $form.attr('action');
+
+            $.post(url, data, function (data) {
+
+            }, 'JSON');
+        },
+
+        getJSON: function (url, whenDone) {
+            $.ajax({
+                url: url,
+                dataType: 'JSON'
+            }).done(function (data) {
+                whenDone(data);
+            });
+        }
+
+    };
+</script>
