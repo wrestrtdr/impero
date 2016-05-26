@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "60b680ed3acf078648358fccad6f907d4a24541f"
+                "reference": "f2a545bda4db9a2f4afef5a35c283a5a311e5e55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/60b680ed3acf078648358fccad6f907d4a24541f",
-                "reference": "60b680ed3acf078648358fccad6f907d4a24541f",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/f2a545bda4db9a2f4afef5a35c283a5a311e5e55",
+                "reference": "f2a545bda4db9a2f4afef5a35c283a5a311e5e55",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1014,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-05-25 23:01:32"
+            "time": "2016-05-26 10:26:05"
         },
         {
             "name": "pckg/helpers-js",
