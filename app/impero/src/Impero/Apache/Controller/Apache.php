@@ -68,7 +68,7 @@ class Apache extends Controller
          */
         $siteRecord->save();
 
-        queue()->create('apache:restart');
+        queue()->create('apache:restart')->makeUniqueInFuture();
 
         /**
          * If site was added via ajax, we display some data and redirect url.
@@ -113,7 +113,7 @@ class Apache extends Controller
          */
         $siteForm->populateToRecordAndSave($siteRecord);
 
-        queue()->create('apache:restart');
+        queue()->create('apache:restart')->makeUniqueInFuture();
 
         /**
          * If site was added via ajax, we display some data.

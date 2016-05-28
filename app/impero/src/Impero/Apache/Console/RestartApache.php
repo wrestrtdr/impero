@@ -14,7 +14,7 @@ class RestartApache extends Command
     public function handle()
     {
         $this->output('Requesting apache restart.');
-        touch('/tmp/impero_restart_apache');
+        touch('/tmp/impero_apache_graceful');
         $this->output('Apache restart requested.');
     }
 
