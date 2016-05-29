@@ -746,12 +746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "66d3a056f8e6cc98b8d8ac38831a47be6dc276a7"
+                "reference": "67b71099acba8c513a54e56cd1378b77b6080b55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/66d3a056f8e6cc98b8d8ac38831a47be6dc276a7",
-                "reference": "66d3a056f8e6cc98b8d8ac38831a47be6dc276a7",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/67b71099acba8c513a54e56cd1378b77b6080b55",
+                "reference": "67b71099acba8c513a54e56cd1378b77b6080b55",
                 "shasum": ""
             },
             "type": "library",
@@ -772,7 +772,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-05-25 21:24:19"
+            "time": "2016-05-29 18:06:41"
         },
         {
             "name": "pckg/concept",
@@ -814,12 +814,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "d94ab0e31ad3d7481c3f40c9c70a90b890f7f6b9"
+                "reference": "f07efec14201e1a289456027c89664dcbb0ca6c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/d94ab0e31ad3d7481c3f40c9c70a90b890f7f6b9",
-                "reference": "d94ab0e31ad3d7481c3f40c9c70a90b890f7f6b9",
+                "url": "https://api.github.com/repos/pckg/database/zipball/f07efec14201e1a289456027c89664dcbb0ca6c8",
+                "reference": "f07efec14201e1a289456027c89664dcbb0ca6c8",
                 "shasum": ""
             },
             "require": {
@@ -847,7 +847,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-05-28 23:31:20"
+            "time": "2016-05-29 18:07:04"
         },
         {
             "name": "pckg/dynamic",
@@ -891,12 +891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "ce2bf8395d0131339c0c083f1d8838d3e481b98a"
+                "reference": "eca90eb09d8bdfc3fc6a9d19e905f41adc4a09cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/ce2bf8395d0131339c0c083f1d8838d3e481b98a",
-                "reference": "ce2bf8395d0131339c0c083f1d8838d3e481b98a",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/eca90eb09d8bdfc3fc6a9d19e905f41adc4a09cd",
+                "reference": "eca90eb09d8bdfc3fc6a9d19e905f41adc4a09cd",
                 "shasum": ""
             },
             "require": {
@@ -930,7 +930,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-05-29 10:20:33"
+            "time": "2016-05-29 18:07:28"
         },
         {
             "name": "pckg/frontend",
@@ -985,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "444066452484b2aaaa5288371d1e7da9889778a2"
+                "reference": "1190ea53ad8c5902f3e6aa59c99933353457bfc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/444066452484b2aaaa5288371d1e7da9889778a2",
-                "reference": "444066452484b2aaaa5288371d1e7da9889778a2",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/1190ea53ad8c5902f3e6aa59c99933353457bfc8",
+                "reference": "1190ea53ad8c5902f3e6aa59c99933353457bfc8",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1014,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-05-29 10:21:04"
+            "time": "2016-05-29 18:07:46"
         },
         {
             "name": "pckg/helpers-js",
@@ -1316,12 +1316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "f59d5a933be7c37c0cb6a0e5d2ceb96b3819bc6d"
+                "reference": "8ade30a1bf6ba19e389e6a5323bdcc5021b4fde9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/f59d5a933be7c37c0cb6a0e5d2ceb96b3819bc6d",
-                "reference": "f59d5a933be7c37c0cb6a0e5d2ceb96b3819bc6d",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/8ade30a1bf6ba19e389e6a5323bdcc5021b4fde9",
+                "reference": "8ade30a1bf6ba19e389e6a5323bdcc5021b4fde9",
                 "shasum": ""
             },
             "type": "library",
@@ -1344,7 +1344,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-05-29 10:22:06"
+            "time": "2016-05-29 18:08:09"
         },
         {
             "name": "psr/log",
