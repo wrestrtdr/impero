@@ -1,15 +1,9 @@
 <?php
 
-use Impero\Apache\Provider\Config as ApacheProvider;
-use Impero\Ftp\Provider\Config as FtpProvider;
-use Impero\Mysql\Provider\Config as MysqlProvider;
-use Pckg\Auth\Provider\Config as AuthProvider;
-use Pckg\Dynamic\Provider\Config as DynamicProvider;
+use Impero\Impero\Provider\Config as ImperoProvider;
 use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
-use Pckg\Generic\Provider\Config as GenericProvider;
-use Pckg\Manager\Provider\Config as ManagerProvider;
 
 class Impero extends Provider
 {
@@ -17,13 +11,7 @@ class Impero extends Provider
     public function providers()
     {
         return [
-            ManagerProvider::class,
-            ApacheProvider::class,
-            FtpProvider::class,
-            MysqlProvider::class,
-            DynamicProvider::class,
-            AuthProvider::class,
-            GenericProvider::class,
+            ImperoProvider::class
         ];
     }
 

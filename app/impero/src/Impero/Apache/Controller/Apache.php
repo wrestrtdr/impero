@@ -15,6 +15,7 @@ class Apache extends Controller
      * List all available sites.
      *
      * @param Sites $sites
+     *
      * @return mixed
      */
     public function getIndexAction(Sites $sites)
@@ -28,6 +29,7 @@ class Apache extends Controller
      *
      * @param SiteForm   $siteForm
      * @param SiteRecord $siteRecord
+     *
      * @return mixed
      */
     public function getAddAction(SiteForm $siteForm, SiteRecord $siteRecord)
@@ -49,6 +51,7 @@ class Apache extends Controller
      *
      * @param SiteForm   $siteForm
      * @param SiteRecord $siteRecord
+     *
      * @return mixed
      */
     public function postAddAction(SiteForm $siteForm, SiteRecord $siteRecord)
@@ -68,6 +71,7 @@ class Apache extends Controller
          */
         $siteRecord->save();
 
+        queue()->create('apache:dump')->makeUniqueInFuture();
         queue()->create('apache:restart')->makeUniqueInFuture();
 
         /**
@@ -83,6 +87,7 @@ class Apache extends Controller
      *
      * @param SiteForm   $siteForm
      * @param SiteRecord $siteRecord
+     *
      * @return mixed
      */
     public function getEditAction(SiteForm $siteForm, SiteRecord $siteRecord)
@@ -104,6 +109,7 @@ class Apache extends Controller
      *
      * @param SiteForm   $siteForm
      * @param SiteRecord $siteRecord
+     *
      * @return $this
      */
     public function postEditAction(SiteForm $siteForm, SiteRecord $siteRecord)
@@ -113,6 +119,7 @@ class Apache extends Controller
          */
         $siteForm->populateToRecordAndSave($siteRecord);
 
+        queue()->create('apache:dump')->makeUniqueInFuture();
         queue()->create('apache:restart')->makeUniqueInFuture();
 
         /**
@@ -126,6 +133,7 @@ class Apache extends Controller
      * Delete record.
      *
      * @param SiteRecord $siteRecord
+     *
      * @return $this
      */
     public function getDeleteAction(SiteRecord $siteRecord)

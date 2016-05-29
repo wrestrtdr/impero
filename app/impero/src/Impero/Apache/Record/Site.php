@@ -71,7 +71,7 @@ class Site extends Record implements MaestroRecord
     public function getBasicDirectives()
     {
         $directives = [
-            'ServerName ' . $this->name,
+            'ServerName ' . $this->server_name,
             'DocumentRoot ' . $this->document_root,
         ];
 
@@ -94,9 +94,7 @@ class Site extends Record implements MaestroRecord
     {
         $directives = $this->getBasicDirectives();
 
-        return '<VirtualHost *:80>
-    ' . implode("\t", $directives) . '
-</VirtualHost>';
+        return '<VirtualHost *:80>' . "\n\t" . implode("\n\t", $directives) . "\n" . '</VirtualHost>';
     }
 
     public function getSecureVirtualhost()

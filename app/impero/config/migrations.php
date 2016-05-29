@@ -1,5 +1,6 @@
 <?php
 
+use Impero\Apache\Migration\AlterUserTable;
 use Impero\Apache\Migration\CreateSiteTable;
 use Impero\Ftp\Migration\CreateFtpTable;
 use Impero\Mysql\Migration\CreateDatabaseTable;
@@ -16,4 +17,5 @@ return [
     CreateUserTable::class,
     CreateDynamicTables::class,
     CreateGenericTables::class,
+    AlterUserTable::class,
 ];

@@ -1,6 +1,8 @@
 <?php namespace Impero\Apache\Console;
 
-use Symfony\Component\Console\Command\Command;
+use Impero\Apache\Entity\Sites;
+use Impero\Apache\Record\Site;
+use Pckg\Framework\Console\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -9,13 +11,27 @@ class DumpVirtualhosts extends Command
 
     protected function configure()
     {
-        $this->setName('apache:dumpvirtualhosts')
+        $this->setName('apache:dump')
             ->setDescription('Dump all virtualhosts');
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    public function handle(Sites $sites)
     {
-        die("DumpVirtualhosts::execute");
+        $this->output('Building virtualhosts');
+        $sites = $sites->all();
+        $virtualhosts = [];
+        $sites->each(function (Site $site) use (&$virtualhosts) {
+            $virtualhosts[] = $site->getInsecureVirtualhost();
+            $virtualhosts[] = $site->getSecureVirtualhost();
+        });
+
+        $virtualhosts = implode("\n\n", $virtualhosts);
+
+        $this->output('Dumping virtualhosts');
+
+        file_put_contents(path('storage') . 'impero' . path('ds') . 'virtualhosts.conf', $virtualhosts);
+
+        $this->output('Virtualhosts were dumped, waiting for apache graceful');
     }
 
 }

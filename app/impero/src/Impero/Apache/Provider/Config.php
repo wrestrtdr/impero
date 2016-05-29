@@ -6,6 +6,7 @@ use Impero\Apache\Console\RestartApache;
 use Impero\Apache\Controller\Apache;
 use Impero\Apache\Record\Site;
 use Impero\Apache\Record\Site\Resolver as SiteResolver;
+use Impero\Controller\Impero;
 use Pckg\Framework\Provider;
 
 class Config extends Provider

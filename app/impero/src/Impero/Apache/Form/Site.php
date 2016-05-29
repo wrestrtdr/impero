@@ -11,20 +11,23 @@ class Site extends Form\Bootstrap implements ResolvesOnRequest
         $this->addHidden('id');
 
         $this->addText('server_name')
-            ->setLabel('Server name (URL)')/*
-            ->required()
-            ->unique()*/
-        ;
+            ->setLabel('Server name (URL)')
+            ->setPrefix('http(s)://');
 
         $this->addText('server_alias')
-            ->setLabel('Server aliases:');
+            ->setLabel('Server aliases:')
+            ->setHelp('<p>Separated by spaces</p>');
 
         $this->addText('document_root')
-            ->setLabel('Document root:');
+            ->setLabel('Document root:')
+            ->setPrefix('/www/' . auth()->user('username') . '/')
+            ->setHelp('<p>Directory will be automatically created, if non existent.</p>')
+            ->setSuffix('/htdocs/');
 
         $this->addSelect('ssl')
             ->setLabel('SSL')
             ->setPlaceholder('Select SSL method')
+            ->setHelp('<p>By default, we disabled SSL.</p><p>You can enable it by uploading cerficates or choosing LetsEncrypt FREE alternative.</p>')
             ->addOptions([
                 ''            => 'Disabled (default)',
                 'file'        => 'File',
@@ -34,7 +37,8 @@ class Site extends Form\Bootstrap implements ResolvesOnRequest
         $this->addSslLetsencrypt();
         $this->addLogFields();
 
-        $this->addCheckbox('enabled');
+        $this->addCheckbox('enabled')
+            ->setLabel('Site is enabled');
 
         $this->addSubmit();
 
@@ -67,9 +71,11 @@ class Site extends Form\Bootstrap implements ResolvesOnRequest
     private function addLogFields()
     {
         $this->addCheckbox('error_log')
+            ->setHelp('<p>Check this option if you want to log errors.</p>')
             ->setLabel('Error log');
 
         $this->addCheckbox('access_log')
+            ->setHelp('<p>Check this option if you want to log access to site.</p>')
             ->setLabel('Access log');
     }
 
