@@ -21,8 +21,7 @@ class DumpVirtualhosts extends Command
         $sites = $sites->all();
         $virtualhosts = [];
         $sites->each(function (Site $site) use (&$virtualhosts) {
-            $virtualhosts[] = $site->getInsecureVirtualhost();
-            $virtualhosts[] = $site->getSecureVirtualhost();
+            $virtualhosts[] = $site->getVirtualhost();
         });
 
         $virtualhosts = implode("\n\n", $virtualhosts);

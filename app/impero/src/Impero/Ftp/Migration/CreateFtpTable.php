@@ -7,12 +7,12 @@ class CreateFtpTable extends Migration
 
     public function up()
     {
-        $siteTable = $this->table('ftps');
+        $ftpTable = $this->table('ftps');
 
-        $siteTable->varchar('username', 128)->required();
-        $siteTable->varchar('password', 255)->required();
-        $siteTable->varchar('path', 255)->required();
-        $siteTable->integer('user_id')->references('users');
+        $ftpTable->varchar('username', 128)->required();
+        $ftpTable->varchar('password', 255)->required();
+        $ftpTable->varchar('path', 255)->required();
+        $ftpTable->integer('user_id')->references('users');
 
         $this->save();
     }

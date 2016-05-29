@@ -38,4 +38,14 @@ class Ftp extends Record implements MaestroRecord
         return $this;
     }
 
+    public function getFullPath()
+    {
+        return '/www/' . $this->user->username . '/' . $this->path;
+    }
+
+    public function getFullUsername()
+    {
+        return $this->username . '@' . $this->user->email;
+    }
+
 }

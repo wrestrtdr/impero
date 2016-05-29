@@ -68,11 +68,16 @@ class Site extends Record implements MaestroRecord
         return $this->getInsecureVirtualhost() . $this->getSecureVirtualhost();
     }
 
+    public function getFullDocumentRoot()
+    {
+        return '/www/USER/' . $this->document_root . '/htdocs/';
+    }
+
     public function getBasicDirectives()
     {
         $directives = [
             'ServerName ' . $this->server_name,
-            'DocumentRoot ' . $this->document_root,
+            'DocumentRoot ' . $this->getHtdocsPath(),
         ];
 
         if ($this->server_alias) {

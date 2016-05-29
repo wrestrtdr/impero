@@ -20,7 +20,7 @@ class Site extends Form\Bootstrap implements ResolvesOnRequest
 
         $this->addText('document_root')
             ->setLabel('Document root:')
-            ->setPrefix('/www/' . auth()->user('username') . '/')
+            ->setPrefix('/www/{username}/')
             ->setHelp('<p>Directory will be automatically created, if non existent.</p>')
             ->setSuffix('/htdocs/');
 

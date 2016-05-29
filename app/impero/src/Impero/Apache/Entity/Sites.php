@@ -1,6 +1,7 @@
 <?php namespace Impero\Apache\Entity;
 
 use Impero\Apache\Record\Site;
+use Pckg\Auth\Entity\Users;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 use Pckg\Database\Entity;
 use Pckg\Auth\Service\Auth;
@@ -18,6 +19,14 @@ class Sites extends Entity implements MaestroEntity
     public function getAddUrl()
     {
         return url('apache.add');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(Users::class)
+            ->foreignKey('user_id')
+            ->primaryKey('id')
+            ->fill('user', 'sites');
     }
 
     public function scopeUserIsAuthorized()
