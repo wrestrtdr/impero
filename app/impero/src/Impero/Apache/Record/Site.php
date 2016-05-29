@@ -101,8 +101,6 @@ class Site extends Record implements MaestroRecord
 
         $return = '<VirtualHost *:80>' . "\n\t" . implode("\n\t", $directives) . "\n" . '</VirtualHost>';
 
-        dd($return);
-
         return $return;
     }
 
