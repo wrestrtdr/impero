@@ -938,12 +938,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/frontend.git",
-                "reference": "df0b6472f0e1723ebd8c6eab94a8eb75de543ff2"
+                "reference": "170ee31ac2c76510c32339a10bc0c6f0c310b4e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/frontend/zipball/df0b6472f0e1723ebd8c6eab94a8eb75de543ff2",
-                "reference": "df0b6472f0e1723ebd8c6eab94a8eb75de543ff2",
+                "url": "https://api.github.com/repos/pckg/frontend/zipball/170ee31ac2c76510c32339a10bc0c6f0c310b4e4",
+                "reference": "170ee31ac2c76510c32339a10bc0c6f0c310b4e4",
                 "shasum": ""
             },
             "require": {
@@ -977,7 +977,7 @@
             ],
             "description": "Useful frontend libraries",
             "homepage": "https://github.com/pckg/frontend",
-            "time": "2016-05-16 11:23:32"
+            "time": "2016-05-28 18:16:10"
         },
         {
             "name": "pckg/generic",
