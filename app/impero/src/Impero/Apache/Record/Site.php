@@ -99,11 +99,16 @@ class Site extends Record implements MaestroRecord
     {
         $directives = $this->getBasicDirectives();
 
-        return '<VirtualHost *:80>' . "\n\t" . implode("\n\t", $directives) . "\n" . '</VirtualHost>';
+        $return = '<VirtualHost *:80>' . "\n\t" . implode("\n\t", $directives) . "\n" . '</VirtualHost>';
+
+        dd($return);
+
+        return $return;
     }
 
     public function getSecureVirtualhost()
     {
+        return;
         if (!$this->ssl) {
             return;
         }
