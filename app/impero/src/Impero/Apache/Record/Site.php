@@ -45,7 +45,7 @@ class Site extends Record implements MaestroRecord
 
     public function getDomainPath()
     {
-        return $this->getUserPath() . $this->path . '/';
+        return $this->getUserPath() . $this->document_root . '/';
     }
 
     public function getLogPath()
