@@ -65,7 +65,7 @@ class Site extends Record implements MaestroRecord
 
     public function getVirtualhost()
     {
-        return $this->getInsecureVirtualhost() . $this->getSecureVirtualhost();
+        return $this->getInsecureVirtualhost() . "\n\n" . $this->getSecureVirtualhost();
     }
 
     public function getFullDocumentRoot()
