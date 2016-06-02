@@ -106,7 +106,6 @@ class Site extends Record implements MaestroRecord
 
     public function getSecureVirtualhost()
     {
-        return;
         if (!$this->ssl) {
             return;
         }
