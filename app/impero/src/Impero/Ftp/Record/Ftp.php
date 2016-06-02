@@ -45,7 +45,7 @@ class Ftp extends Record implements MaestroRecord
 
     public function getFullUsername()
     {
-        return $this->username . '@' . $this->user->email;
+        return $this->username . substr($this->user->email, strpos($this->user->email, '@'));
     }
 
 }
