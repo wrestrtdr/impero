@@ -117,7 +117,7 @@ class Site extends Record implements MaestroRecord
         $directives[] = 'SSLCertificateChainFile ' . $this->getSslPath() . $this->ssl_certificate_chain_file;
 
         return '<VirtualHost *:443>
-    ' . implode("\t", $directives) . '
+    ' . implode("\n\t", $directives) . '
 </VirtualHost>';
     }
 
