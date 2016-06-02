@@ -16,7 +16,7 @@ www/uploads/*
 
 # CACHE
 cache/*/*
-storage/
+storage/**
 
 # LOGS
 logs
