@@ -15,14 +15,17 @@ class Orders extends Controller
     use Maestro;
 
     public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
-        $all = $orders->withAppartment()->withCheckin()->withPeople()->withOrdersUsers(
-            function($ordersUsers) {
-                $ordersUsers->withPacket();
-            }
-        )
-            ->withOffer()
-            ->withUser()
-            ->all();
+        $all = $orders->withAppartment()
+                      ->withCheckin()
+                      ->withPeople()
+                      ->withOrdersUsers(
+                          function($ordersUsers) {
+                              $ordersUsers->withPacket();
+                          }
+                      )
+                      ->withOffer()
+                      ->withUser()
+                      ->all();
 
         $groupedBy = $all->groupBy(
             function($order) {
