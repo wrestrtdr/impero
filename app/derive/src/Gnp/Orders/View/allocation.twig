@@ -1,0 +1,123 @@
+{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'attributesModal'} %}
+    {% block header %}
+        Change attributes
+    {% endblock %}
+    {% block body %}
+        <p v-if="loading.attributes">Loading attributes ...</p>
+        {{ attributesForm | raw }}
+        <hr/>
+        <h2>Grouped orders</h2>
+        {% verbatim %}
+        <p v-if="loading.similarOrders">Loading similarOrders ...</p>
+        <div v-if="similarOrders.length">
+            <ul v-if="!loading.similarOrders">
+                    <li v-for="order in similarOrders" track-by="id">
+                    {{ order.num }}
+                    <a href="#" v-on:click.prevent="remove($index)">Remove ...</a>
+                </li>
+            </ul>
+        </div>
+        <h2>Non-allocated orders <input type="text" v-model="nonAllocatedSearch" /></h2>
+        <p v-if="loading.nonAllocatedOrders">Loading non-allocated orders ...</p>
+        <ul v-if="!loading.nonAllocatedOrders">
+            <li v-for="order in nonAllocatedOrders | filterBy nonAllocatedSearch" track-by="id">
+                {{ order.num }}
+                <a href="#" v-on:click.prevent="add($index)">Add ...</a>
+            </li>
+        </ul>
+        {% endverbatim %}
+    {% endblock %}
+{% endembed %}
+
+<script type="text/javascript">
+    var orderAttributes = new Vue({
+        el: '.container',
+        data: function () {
+            return {
+                similarOrders: [],
+                nonAllocatedOrders: [],
+
+                appartment: null,
+                checkin: null,
+                people: null,
+
+                nonAllocatedSearch: null,
+
+                loading: {
+                    nonAllocatedOrders: false,
+                    similarOrders: false,
+                    attributes: false
+                }
+            };
+        },
+        methods: {
+            openAttributesPopup: function (url, id) {
+                this.appartment = id;
+
+                this.fetchAttributes(url);
+
+                $('#attributesModal').modal('show');
+            },
+
+            fetchApartmentData: function () {
+                this.fetchSimilarOrders();
+                this.fetchNonAllocatedOrders();
+            },
+
+            fetchAttributes: function (url) {
+                this.loading.nonAllocatedOrders = true;
+                this.loading.similarOrders = true;
+                this.loading.attributes = true;
+
+                http.getJSON(url, function (data) {
+                    this.appartment = data.appartment;
+                    this.checkin = data.checkin;
+                    this.people = data.people;
+                    this.loading.attributes = false;
+                    this.fetchApartmentData();
+                }.bind(this));
+            },
+
+            fetchNonAllocatedOrders: function () {
+                this.loading.nonAllocatedOrders = true;
+                http.getJSON('/dev.php/orders/allocation/non-allocated', function (data) {
+                    this.loading.nonAllocatedOrders = false;
+                    this.nonAllocatedOrders = data.nonAllocatedOrders;
+                }.bind(this));
+            },
+
+            fetchSimilarOrders: function () {
+                this.loading.similarOrders = true;
+                http.getJSON('/dev.php/orders/allocation/similar/' + this.appartment, function (data) {
+                    this.loading.similarOrders = false;
+                    this.similarOrders = data.similarOrders;
+                }.bind(this));
+            },
+
+            saveAppartment: function () {
+                http.post('/dev.php/orders/allocation/save', {
+                    appartment: this.appartment,
+                    checkin: this.checkin,
+                    people: this.people,
+                    orders: this.similarOrders.map(function (order) {
+                        return order.id;
+                    }),
+                }, function () {
+                    alert("saved!");
+                });
+            },
+
+            remove: function (index) {
+                console.log('removing ' + this.similarOrders[index].num);
+                this.nonAllocatedOrders.push(this.similarOrders[index]);
+                this.similarOrders.$remove(this.similarOrders[index]);
+            },
+
+            add: function (index) {
+                console.log('adding ' + this.nonAllocatedOrders[index].num);
+                this.similarOrders.push(this.nonAllocatedOrders[index]);
+                this.nonAllocatedOrders.$remove(this.nonAllocatedOrders[index]);
+            }
+        }
+    });
+</script>

@@ -2,7 +2,7 @@
 
 return [
     'resources' => [],
-    'apps' => [
+    'apps'      => [
         'impero' => [
             'host' => [
                 'impero.pckg-app',
@@ -10,7 +10,7 @@ return [
                 'bob.pckg.impero',
             ],
         ],
-        'queue' => [
+        'queue'  => [
             'host' => [
                 'queue.pckg-app',
                 'queue.foobar.si',
@@ -22,6 +22,7 @@ return [
                 'derive.pckg-app',
                 'derive.foobar.si',
                 'bob.pckg.derive',
+                'bob.gonparty', // temp
             ],
         ],
     ],

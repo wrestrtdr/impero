@@ -1,0 +1,54 @@
+<?php namespace Gnp\Orders\Provider;
+
+use Gnp\Orders\Controller\Orders;
+use Gnp\Orders\Resolver\Orders as OrdersResolver;
+use Pckg\Framework\Provider;
+
+class Config extends Provider
+{
+
+    public function routes() {
+        return [
+            'url' => [
+                '/orders'                                    => [
+                    'controller' => Orders::class,
+                    'view'       => 'group',
+                    'name'       => 'derive.orders.group',
+                ],
+                '/orders/allocation/[order]'                 => [
+                    'controller' => Orders::class,
+                    'view'       => 'allocation',
+                    'name'       => 'derive.orders.allocation.get',
+                    'resolvers'  => [
+                        'order' => OrdersResolver::class,
+                    ],
+                ],
+                '/orders/allocation/attributes/[appartment]' => [
+                    'controller' => Orders::class,
+                    'view'       => 'allocationAttributes',
+                    'name'       => 'derive.orders.allocation.attributes',
+                ],
+                '/orders/allocation/non-allocated'           => [
+                    'controller' => Orders::class,
+                    'view'       => 'allocationNonAllocated',
+                    'name'       => 'derive.orders.allocation.nonallocated',
+                ],
+                '/orders/allocation/similar/[appartment]'    => [
+                    'controller' => Orders::class,
+                    'view'       => 'allocationSimilar',
+                    'name'       => 'derive.orders.allocation.similar',
+                ],
+                '/orders/allocation/save'    => [
+                    'controller' => Orders::class,
+                    'view'       => 'save',
+                    'name'       => 'derive.orders.allocation.save',
+                ],
+            ],
+        ];
+    }
+
+    public function paths() {
+        return $this->getViewPaths();
+    }
+
+}
