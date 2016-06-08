@@ -746,12 +746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "0412bd6ea389230464d0e5324def9a20dbe685b7"
+                "reference": "0815aa733149507f067a96e5e6a913dcd6902672"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/0412bd6ea389230464d0e5324def9a20dbe685b7",
-                "reference": "0412bd6ea389230464d0e5324def9a20dbe685b7",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/0815aa733149507f067a96e5e6a913dcd6902672",
+                "reference": "0815aa733149507f067a96e5e6a913dcd6902672",
                 "shasum": ""
             },
             "type": "library",
@@ -772,7 +772,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-06-07 14:17:20"
+            "time": "2016-06-08 08:30:02"
         },
         {
             "name": "pckg/concept",
@@ -780,12 +780,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/concept.git",
-                "reference": "b9612a75a27a77f7d20a3583c26474e011924371"
+                "reference": "35fd2e33ff4e26152ba687e735212e3074f45677"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/concept/zipball/b9612a75a27a77f7d20a3583c26474e011924371",
-                "reference": "b9612a75a27a77f7d20a3583c26474e011924371",
+                "url": "https://api.github.com/repos/pckg/concept/zipball/35fd2e33ff4e26152ba687e735212e3074f45677",
+                "reference": "35fd2e33ff4e26152ba687e735212e3074f45677",
                 "shasum": ""
             },
             "type": "library",
@@ -806,7 +806,7 @@
             ],
             "description": "Few concepts",
             "homepage": "https://github.com/pckg/concept",
-            "time": "2016-05-23 16:18:44"
+            "time": "2016-06-08 08:30:23"
         },
         {
             "name": "pckg/database",
@@ -814,12 +814,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "0ed629c0895e96b5b138343168425538d77a7641"
+                "reference": "56c7929b4d5baa10ed659c6418d40c3c1d13f78b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/0ed629c0895e96b5b138343168425538d77a7641",
-                "reference": "0ed629c0895e96b5b138343168425538d77a7641",
+                "url": "https://api.github.com/repos/pckg/database/zipball/56c7929b4d5baa10ed659c6418d40c3c1d13f78b",
+                "reference": "56c7929b4d5baa10ed659c6418d40c3c1d13f78b",
                 "shasum": ""
             },
             "require": {
@@ -847,7 +847,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-07 14:18:02"
+            "time": "2016-06-08 08:30:37"
         },
         {
             "name": "pckg/dynamic",
@@ -1714,12 +1714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "fcdec36bddfdefaf960a1fb71dab1c8a6a1e01bf"
+                "reference": "7c86bc9664ddc3a1965fe91d7a0db97eb9348448"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fcdec36bddfdefaf960a1fb71dab1c8a6a1e01bf",
-                "reference": "fcdec36bddfdefaf960a1fb71dab1c8a6a1e01bf",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7c86bc9664ddc3a1965fe91d7a0db97eb9348448",
+                "reference": "7c86bc9664ddc3a1965fe91d7a0db97eb9348448",
                 "shasum": ""
             },
             "replace": {
@@ -1757,7 +1757,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-06-05 22:00:37"
+            "time": "2016-06-08 06:50:38"
         },
         {
             "name": "twig/twig",
