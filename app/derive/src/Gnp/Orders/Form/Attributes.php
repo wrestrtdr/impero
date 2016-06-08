@@ -20,7 +20,8 @@ class Attributes extends Bootstrap
              ->setAttribute('v-model', 'people');
 
         $this->addButton('Save appartment')
-            ->setAttribute('v-on:click.prevent', 'saveAppartment');
+            ->setAttribute('v-on:click.prevent', 'saveAppartment')
+            ->setValue('Save attributes to grouped orders');
     }
 
 }

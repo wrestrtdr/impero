@@ -5,10 +5,11 @@
     {% block body %}
         <p v-if="loading.attributes">Loading attributes ...</p>
         {{ attributesForm | raw }}
-        <hr/>
-        <h2>Grouped orders</h2>
+        <br/>
+        <br/>
+        <h2>Grouped orders ({{ similarOrders.length }})</h2>
         {% verbatim %}
-        <p v-if="loading.similarOrders">Loading similarOrders ...</p>
+        <p v-if="loading.similarOrders">Loading similar orders ...</p>
         <table v-if="!loading.similarOrders && similarOrders.length" class="table table-condensed table-hover table-striped">
             <tr><th>number (id)</th><th>payee</th><th>packets</th><th></th></tr>
             <tr v-for="order in similarOrders" track-by="id">
@@ -22,11 +23,11 @@
                 </td>
             </tr>
         </table>
-        <h2>Non-allocated orders <input type="text" v-model="nonAllocatedSearch" /></h2>
+        <h2>Non-allocated orders ({{ nonAllocatedOrders.length }})<input type="text" v-model="nonAllocatedSearch" /></h2>
         <p v-if="loading.nonAllocatedOrders">Loading non-allocated orders ...</p>
         <table v-if="!loading.nonAllocatedOrders && nonAllocatedOrders.length" class="table table-condensed table-hover table-striped">
             <tr><th>number (id)</th><th>payee</th><th>packets</th><th></th></tr>
-            <tr v-for="order in nonAllocatedOrders" track-by="id">
+            <tr v-for="order in nonAllocatedOrders | filterBy nonAllocatedSearch" track-by="id">
                 <td>{{ order.num }} ({{ order.id }})</td>
                 <td>{{ order.user.name }} {{ order.user.surname }}<br />{{ order.user.email }}</td>
                 <td>

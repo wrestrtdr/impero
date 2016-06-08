@@ -37,7 +37,7 @@ class Orders extends Entity implements MaestroEntity
         return $this->hasOne(OrdersTags::class)
                     ->foreignKey('order_id')
                     ->primaryKey('id')
-                    ->addCondition('type = \'appartment\'')
+                    ->where('type', 'appartment')
                     ->fill('appartment');
     }
 
@@ -45,7 +45,7 @@ class Orders extends Entity implements MaestroEntity
         return $this->hasOne(OrdersTags::class)
                     ->foreignKey('order_id')
                     ->primaryKey('id')
-                    ->addCondition('type = \'checkin\'')
+                    ->where('type', 'checkin')
                     ->fill('checkin');
     }
 
@@ -53,7 +53,7 @@ class Orders extends Entity implements MaestroEntity
         return $this->hasOne(OrdersTags::class)
                     ->foreignKey('order_id')
                     ->primaryKey('id')
-                    ->addCondition('type = \'people\'')
+                    ->where('type', 'people')
                     ->fill('people');
     }
 
@@ -67,6 +67,12 @@ class Orders extends Entity implements MaestroEntity
 
     public function payed() {
         return $this->where('dt_payed');
+    }
+
+    public function packets() {
+        return $this->hasMany(Packets::class)
+                    ->over(OrdersUsers::class)
+                    ->fill('packets');
     }
 
 }
