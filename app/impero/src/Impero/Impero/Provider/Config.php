@@ -1,5 +1,6 @@
 <?php namespace Impero\Impero\Provider;
 
+use Impero\Git\Provider\Config as GitProvider;
 use Impero\Impero\Controller\Impero;
 use Pckg\Framework\Provider;
 use Impero\Apache\Provider\Config as ApacheProvider;
@@ -20,6 +21,7 @@ class Config extends Provider
             ApacheProvider::class,
             FtpProvider::class,
             MysqlProvider::class,
+            GitProvider::class,
             DynamicProvider::class,
             AuthProvider::class,
             GenericProvider::class,
