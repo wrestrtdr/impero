@@ -660,12 +660,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "0d59b6e0a76b443d56706615f054c97de94e4d76"
+                "reference": "ebaeed3c7189ca59be9987a67527d3393035320e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/0d59b6e0a76b443d56706615f054c97de94e4d76",
-                "reference": "0d59b6e0a76b443d56706615f054c97de94e4d76",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/ebaeed3c7189ca59be9987a67527d3393035320e",
+                "reference": "ebaeed3c7189ca59be9987a67527d3393035320e",
                 "shasum": ""
             },
             "require": {
@@ -690,7 +690,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-05-23 16:18:26"
+            "time": "2016-06-08 13:55:30"
         },
         {
             "name": "pckg/backend",
@@ -814,12 +814,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "56c7929b4d5baa10ed659c6418d40c3c1d13f78b"
+                "reference": "e2288248cb066f52c32d6e9d4f1c095dc0c80870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/56c7929b4d5baa10ed659c6418d40c3c1d13f78b",
-                "reference": "56c7929b4d5baa10ed659c6418d40c3c1d13f78b",
+                "url": "https://api.github.com/repos/pckg/database/zipball/e2288248cb066f52c32d6e9d4f1c095dc0c80870",
+                "reference": "e2288248cb066f52c32d6e9d4f1c095dc0c80870",
                 "shasum": ""
             },
             "require": {
@@ -847,7 +847,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-08 08:30:37"
+            "time": "2016-06-08 11:20:24"
         },
         {
             "name": "pckg/dynamic",
@@ -855,12 +855,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "96b466bfbe01a6f3b3d69bfd1e190fc928d53b07"
+                "reference": "aa63592e2c4be0de5110066a9a38df0230749335"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/96b466bfbe01a6f3b3d69bfd1e190fc928d53b07",
-                "reference": "96b466bfbe01a6f3b3d69bfd1e190fc928d53b07",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/aa63592e2c4be0de5110066a9a38df0230749335",
+                "reference": "aa63592e2c4be0de5110066a9a38df0230749335",
                 "shasum": ""
             },
             "type": "library",
@@ -883,7 +883,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-07 14:18:19"
+            "time": "2016-06-08 11:20:46"
         },
         {
             "name": "pckg/framework",
@@ -1483,12 +1483,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "28a2b0787182f4fd1f19c7599b6c2c95296ae616"
+                "reference": "9f05df7a4bd86e528faa1962be17b1c9487aca5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/28a2b0787182f4fd1f19c7599b6c2c95296ae616",
-                "reference": "28a2b0787182f4fd1f19c7599b6c2c95296ae616",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9f05df7a4bd86e528faa1962be17b1c9487aca5a",
+                "reference": "9f05df7a4bd86e528faa1962be17b1c9487aca5a",
                 "shasum": ""
             },
             "require": {
@@ -1535,7 +1535,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-06 15:09:02"
+            "time": "2016-06-08 12:40:41"
         },
         {
             "name": "symfony/polyfill-mbstring",
