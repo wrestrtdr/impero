@@ -6,6 +6,7 @@ use Gnp\Orders\Form\Attributes;
 use Gnp\Orders\Record\Order;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
+use Pckg\Database\Relation\BelongsTo;
 use Pckg\Framework\Controller;
 use Pckg\Maestro\Helper\Maestro;
 
@@ -25,6 +26,8 @@ class Orders extends Controller
                       )
                       ->withOffer()
                       ->withUser()
+                      ->confirmed()
+                      ->payed()
                       ->all();
 
         $groupedBy = $all->groupBy(
@@ -72,8 +75,8 @@ class Orders extends Controller
                                        $user->email . '<br />' .
                                        $user->phone;
                             },
-                            'packets' => function($order) {
-
+                            'packets' => function(Order $order) {
+                                return $order->getPacketsSummary();
                             },
                         ]
                     ) . view('allocation', ['attributesForm' => $attributesForm]);
@@ -95,6 +98,12 @@ class Orders extends Controller
         return [
             'nonAllocatedOrders' => (new OrdersEntity())
                 ->where('id', new Raw('SELECT order_id FROM orders_tags'), 'NOT IN')
+                ->withUser()
+                ->withOrdersUsers(function($relation){
+                    $relation->confirmed()->withGroupedPackets();
+                })
+                ->confirmed()
+                ->payed()
                 ->all(),
         ];
     }
@@ -104,7 +113,12 @@ class Orders extends Controller
             'similarOrders' => (new OrdersTags())
                 ->where('type', 'appartment')
                 ->where('value', $appartment)
-                ->withOrder()
+                ->withOrder(function(BelongsTo $relation){
+                    $relation->withUser();
+                    $relation->withOrdersUsers(function($relation){
+                        $relation->confirmed()->withGroupedPackets();
+                    });
+                })
                 ->all()
                 ->each(
                     function($ordersTag) {
@@ -132,10 +146,10 @@ class Orders extends Controller
             }
         );
 
-        /*$orders = (new OrdersTags())->where('value', $appartment)
-            ->where('type', 'appartment')
-            ->where('id', $orderIds, 'NOT IN')
-            ->delete();*/
+        $orders = (new OrdersTags())->where('value', $appartment)
+                                    ->where('type', 'appartment')
+                                    ->where('order_id', $orderIds, 'NOT IN')
+                                    ->delete();
 
         return $this->response()->respondWithAjaxSuccess();
     }

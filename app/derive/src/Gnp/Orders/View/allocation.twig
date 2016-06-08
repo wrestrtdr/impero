@@ -9,22 +9,34 @@
         <h2>Grouped orders</h2>
         {% verbatim %}
         <p v-if="loading.similarOrders">Loading similarOrders ...</p>
-        <div v-if="similarOrders.length">
-            <ul v-if="!loading.similarOrders">
-                    <li v-for="order in similarOrders" track-by="id">
-                    {{ order.num }}
-                    <a href="#" v-on:click.prevent="remove($index)">Remove ...</a>
-                </li>
-            </ul>
-        </div>
+        <table v-if="!loading.similarOrders && similarOrders.length" class="table table-condensed table-hover table-striped">
+            <tr><th>number (id)</th><th>payee</th><th>packets</th><th></th></tr>
+            <tr v-for="order in similarOrders" track-by="id">
+                <td>{{ order.num }} ({{ order.id }})</td>
+                <td>{{ order.user.name }} {{ order.user.surname }}<br />{{ order.user.email }}</td>
+                <td>
+                    {{ order.packetsSummary }}
+                </td>
+                <td>
+                    <a href="#" v-on:click.prevent="remove($index)" class="btn btn-danger btn-sm">Remove</a>
+                </td>
+            </tr>
+        </table>
         <h2>Non-allocated orders <input type="text" v-model="nonAllocatedSearch" /></h2>
         <p v-if="loading.nonAllocatedOrders">Loading non-allocated orders ...</p>
-        <ul v-if="!loading.nonAllocatedOrders">
-            <li v-for="order in nonAllocatedOrders | filterBy nonAllocatedSearch" track-by="id">
-                {{ order.num }}
-                <a href="#" v-on:click.prevent="add($index)">Add ...</a>
-            </li>
-        </ul>
+        <table v-if="!loading.nonAllocatedOrders && nonAllocatedOrders.length" class="table table-condensed table-hover table-striped">
+            <tr><th>number (id)</th><th>payee</th><th>packets</th><th></th></tr>
+            <tr v-for="order in nonAllocatedOrders" track-by="id">
+                <td>{{ order.num }} ({{ order.id }})</td>
+                <td>{{ order.user.name }} {{ order.user.surname }}<br />{{ order.user.email }}</td>
+                <td>
+                    {{ order.packetsSummary }}
+                </td>
+                <td>
+                    <a href="#" v-on:click.prevent="add($index)" class="btn btn-success btn-sm">Add</a>
+                </td>
+            </tr>
+        </table>
         {% endverbatim %}
     {% endblock %}
 {% endembed %}

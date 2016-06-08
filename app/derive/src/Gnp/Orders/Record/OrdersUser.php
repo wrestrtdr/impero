@@ -9,4 +9,6 @@ class OrdersUser extends Record
 
     protected $entity = OrdersUsers::class;
 
+    protected $toArray = ['groupedPackets'];
+
 }

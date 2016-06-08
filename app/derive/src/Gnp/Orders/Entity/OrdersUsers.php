@@ -25,4 +25,15 @@ class OrdersUsers extends Entity
                     ->fill('packet');
     }
 
+    public function groupedPackets() {
+        return $this->packet()
+                    ->fill('groupedPackets')
+                    ->groupBy('packets.id')
+                    ->addSelect(['total' => 'COUNT(id)']);
+    }
+
+    public function confirmed() {
+        return $this->where('dt_confirmed');
+    }
+
 }

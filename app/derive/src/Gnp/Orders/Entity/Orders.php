@@ -61,4 +61,12 @@ class Orders extends Entity implements MaestroEntity
         return '#';
     }
 
+    public function confirmed() {
+        return $this->where('dt_confirmed');
+    }
+
+    public function payed() {
+        return $this->where('dt_payed');
+    }
+
 }
