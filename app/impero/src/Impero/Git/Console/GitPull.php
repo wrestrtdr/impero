@@ -1,23 +1,26 @@
 <?php namespace Impero\Git\Console;
 
 use Pckg\Framework\Console\Command;
+use Symfony\Component\Console\Input\InputOption;
 
 class GitPull extends Command
 {
 
     protected function configure() {
         $this->setName('git:pull')
-             ->setDescription('Pull latest changes from GIT repository');
+             ->setDescription('Pull latest changes from GIT repository')
+            ->addOption('data', null, InputOption::VALUE_REQUIRED);
     }
 
     public function handle() {
         $this->output('Pulling changes.');
+        $data = json_decode($this->option('data'));
 
-        /*$this->exec(
+        $this->exec(
             [
-                'git pull --ff',
+                'cd ' . $data->dir . ' && git pull --ff',
             ]
-        );*/
+        );
 
         $this->output('Changes pulled.');
     }
