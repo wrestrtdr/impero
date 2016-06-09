@@ -814,12 +814,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "e2288248cb066f52c32d6e9d4f1c095dc0c80870"
+                "reference": "16195afe2273a18f167d64ee1b94cf42f55cef43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/e2288248cb066f52c32d6e9d4f1c095dc0c80870",
-                "reference": "e2288248cb066f52c32d6e9d4f1c095dc0c80870",
+                "url": "https://api.github.com/repos/pckg/database/zipball/16195afe2273a18f167d64ee1b94cf42f55cef43",
+                "reference": "16195afe2273a18f167d64ee1b94cf42f55cef43",
                 "shasum": ""
             },
             "require": {
@@ -847,7 +847,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-08 11:20:24"
+            "time": "2016-06-09 16:59:45"
         },
         {
             "name": "pckg/dynamic",
