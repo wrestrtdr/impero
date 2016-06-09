@@ -47,29 +47,10 @@ class Order extends Record
     }
 
     public function getPacketsSummary() {
-        $packets = $this->ordersUsers->each(function($ordersUser){
-            return $ordersUser->packet;
-        }, true)->removeEmpty()->keyBy('id');
+        $packets = $this->packets->removeEmpty()->groupBy('id');
 
-        $quantities = [];
-        foreach ($this->ordersUsers as $ordersUser) {
-            if (!$packets->keyExists($ordersUser->packet_id)) {
-                continue;
-            }
-
-            $packet = $packets->getKey($ordersUser->packet_id);
-
-            if (!isset($quantities[$packet->id])) {
-                $quantities[$packet->id] = 1;
-
-            } else {
-                $quantities[$packet->id]++;
-
-            }
-        }
-
-        return implode('<br />', array_map(function($packet) use ($quantities) {
-            return $quantities[$packet->id] . 'x ' . $packet->title;
+        return implode("<br />", array_map(function($packetGroup){
+            return count($packetGroup) . 'x ' . $packetGroup[0]->title;
         }, $packets->all()));
     }
 

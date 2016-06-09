@@ -2,6 +2,7 @@
 
 use Gnp\Orders\Record\Order;
 use Pckg\Database\Entity;
+use Pckg\Database\Relation\HasAndBelongsTo;
 use Pckg\Database\Repository;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 
@@ -69,10 +70,25 @@ class Orders extends Entity implements MaestroEntity
         return $this->where('dt_payed');
     }
 
+    /**
+     * @return HasAndBelongsTo
+     */
     public function packets() {
-        return $this->hasMany(Packets::class)
+        return $this->hasAndBelongsTo(Packets::class)
                     ->over(OrdersUsers::class)
+                    ->leftForeignKey('order_id')
+                    ->rightForeignKey('packet_id')
+                    ->leftPrimaryKey('id')
+                    ->rightPrimaryKey('id')
                     ->fill('packets');
+    }
+
+    public function confirmedPackets() {
+        $relation = $this->packets();
+
+        $relation->getMiddleEntity()->where('dt_confirmed');
+
+        return $relation;
     }
 
 }

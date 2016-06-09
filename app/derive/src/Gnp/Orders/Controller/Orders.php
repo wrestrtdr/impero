@@ -16,19 +16,17 @@ class Orders extends Controller
     use Maestro;
 
     public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
-        $all = $orders->withAppartment()
-                      ->withCheckin()
-                      ->withPeople()
-                      ->withOrdersUsers(
-                          function($ordersUsers) {
-                              $ordersUsers->withPacket();
-                          }
-                      )
-                      ->withOffer()
-                      ->withUser()
-                      ->confirmed()
-                      ->payed()
-                      ->all();
+        $all = measure('Getting orders', function() use ($orders){
+            return $orders->withAppartment()
+                          ->withCheckin()
+                          ->withPeople()
+                          ->withConfirmedPackets()
+                          ->withOffer()
+                          ->withUser()
+                          ->confirmed()
+                          ->payed()
+                          ->all();
+        });
 
         $groupedBy = $all->groupBy(
             function($order) {
@@ -99,9 +97,7 @@ class Orders extends Controller
             'nonAllocatedOrders' => (new OrdersEntity())
                 ->where('id', new Raw('SELECT order_id FROM orders_tags'), 'NOT IN')
                 ->withUser()
-                ->withOrdersUsers(function($relation){
-                    $relation->confirmed()->withGroupedPackets();
-                })
+                ->withConfirmedPackets()
                 ->confirmed()
                 ->payed()
                 ->all(),
@@ -115,9 +111,7 @@ class Orders extends Controller
                 ->where('value', $appartment)
                 ->withOrder(function(BelongsTo $relation){
                     $relation->withUser();
-                    $relation->withOrdersUsers(function($relation){
-                        $relation->confirmed()->withGroupedPackets();
-                    });
+                    $relation->withConfirmedPackets();
                 })
                 ->all()
                 ->each(
