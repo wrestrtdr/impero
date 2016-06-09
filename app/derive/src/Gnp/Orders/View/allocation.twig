@@ -74,6 +74,7 @@
 
             fetchApartmentData: function () {
                 this.fetchSimilarOrders();
+                if (this.nonAllocatedOrders.length == 0)
                 this.fetchNonAllocatedOrders();
             },
 
