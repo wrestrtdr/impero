@@ -746,12 +746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "0815aa733149507f067a96e5e6a913dcd6902672"
+                "reference": "5848e585a72dca897b1f04debf23bdb89fe20411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/0815aa733149507f067a96e5e6a913dcd6902672",
-                "reference": "0815aa733149507f067a96e5e6a913dcd6902672",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/5848e585a72dca897b1f04debf23bdb89fe20411",
+                "reference": "5848e585a72dca897b1f04debf23bdb89fe20411",
                 "shasum": ""
             },
             "type": "library",
@@ -772,7 +772,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-06-08 08:30:02"
+            "time": "2016-06-09 16:01:24"
         },
         {
             "name": "pckg/concept",
@@ -1765,12 +1765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "a2400a8dd132f52da697ebd1e3177b68b1232a0f"
+                "reference": "e9ce4607d46cbe80207aa87eaee21999c595d566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a2400a8dd132f52da697ebd1e3177b68b1232a0f",
-                "reference": "a2400a8dd132f52da697ebd1e3177b68b1232a0f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e9ce4607d46cbe80207aa87eaee21999c595d566",
+                "reference": "e9ce4607d46cbe80207aa87eaee21999c595d566",
                 "shasum": ""
             },
             "require": {
@@ -1818,7 +1818,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-30 09:17:27"
+            "time": "2016-06-08 15:42:12"
         },
         {
             "name": "zurb/foundation",

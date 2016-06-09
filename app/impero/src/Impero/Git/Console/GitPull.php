@@ -19,6 +19,8 @@ class GitPull extends Command
         $this->exec(
             [
                 'cd ' . $data->dir . ' && git pull --ff',
+                'cd ' . $data->dir . ' && git submodule update',
+                'cd ' . $data->dir . ' && composer install',
             ]
         );
 
