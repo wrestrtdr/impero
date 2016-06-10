@@ -16,17 +16,20 @@ class Orders extends Controller
     use Maestro;
 
     public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
-        $all = measure('Getting orders', function() use ($orders){
-            return $orders->withAppartment()
-                          ->withCheckin()
-                          ->withPeople()
-                          ->withConfirmedPackets()
-                          ->withOffer()
-                          ->withUser()
-                          ->confirmed()
-                          ->payed()
-                          ->all();
-        });
+        $all = measure(
+            'Getting orders',
+            function() use ($orders) {
+                return $orders->withAppartment()
+                              ->withCheckin()
+                              ->withPeople()
+                              ->withConfirmedPackets()
+                              ->withOffer()
+                              ->withUser()
+                              ->confirmed()
+                              ->payed()
+                              ->all();
+            }
+        );
 
         $groupedBy = $all->groupBy(
             function($order) {
@@ -109,10 +112,12 @@ class Orders extends Controller
             'similarOrders' => (new OrdersTags())
                 ->where('type', 'appartment')
                 ->where('value', $appartment)
-                ->withOrder(function(BelongsTo $relation){
-                    $relation->withUser();
-                    $relation->withConfirmedPackets();
-                })
+                ->withOrder(
+                    function(BelongsTo $relation) {
+                        $relation->withUser();
+                        $relation->withConfirmedPackets();
+                    }
+                )
                 ->all()
                 ->each(
                     function($ordersTag) {
