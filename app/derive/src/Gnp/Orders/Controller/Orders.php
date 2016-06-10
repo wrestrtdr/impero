@@ -25,6 +25,7 @@ class Orders extends Controller
                               ->withConfirmedPackets()
                               ->withOffer()
                               ->withUser()
+                              ->joinActiveOffer()
                               ->confirmed()
                               ->payed()
                               ->all();
@@ -101,6 +102,7 @@ class Orders extends Controller
                 ->where('id', new Raw('SELECT order_id FROM orders_tags'), 'NOT IN')
                 ->withUser()
                 ->withConfirmedPackets()
+                ->joinActiveOffer()
                 ->confirmed()
                 ->payed()
                 ->all(),
@@ -116,6 +118,7 @@ class Orders extends Controller
                     function(BelongsTo $relation) {
                         $relation->withUser();
                         $relation->withConfirmedPackets();
+                        $relation->joinActiveOffer();
                     }
                 )
                 ->all()

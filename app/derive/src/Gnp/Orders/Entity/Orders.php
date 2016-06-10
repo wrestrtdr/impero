@@ -21,6 +21,12 @@ class Orders extends Entity implements MaestroEntity
                     ->fill('offer');
     }
 
+    public function activeOffer() {
+        return $this->offer()
+            ->where('offers.dt_published')
+            ->innerJoin();
+    }
+
     public function user() {
         return $this->hasOne(Users::class)
                     ->foreignKey('id')
