@@ -8,8 +8,7 @@ class Attributes extends Bootstrap
     public function initFields() {
         $this->addText('appartment')
              ->setLabel(__('appartment'))
-             ->setAttribute('v-model', 'appartment')
-             ->setAttribute('v-on:change.prevent', 'fetchApartmentData');
+             ->setAttribute('v-model', 'appartment');
 
         $this->addText('checkin')
              ->setLabel(__('checkin'))
@@ -19,9 +18,13 @@ class Attributes extends Bootstrap
              ->setLabel(__('people'))
              ->setAttribute('v-model', 'people');
 
-        $this->addButton('Save appartment')
-            ->setAttribute('v-on:click.prevent', 'saveAppartment')
-            ->setValue('Save attributes to grouped orders');
+        $this->addButton('Save data to grouped orders')
+             ->setAttribute('v-on:click.prevent', 'saveAppartment')
+             ->setValue('Save attributes to grouped orders');
+
+        $this->addButton('Update grouped orders')
+             ->setAttribute('v-on:click.prevent', 'fetchAppartmentData')
+             ->setValue('Update grouped orders');
     }
 
 }

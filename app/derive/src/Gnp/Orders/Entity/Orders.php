@@ -5,10 +5,13 @@ use Pckg\Database\Entity;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Relation\HasAndBelongsTo;
 use Pckg\Database\Repository;
+use Pckg\Dynamic\Entity\Snippet\EntityActions;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 
 class Orders extends Entity implements MaestroEntity
 {
+
+    use EntityActions;
 
     protected $record = Order::class;
 

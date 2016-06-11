@@ -7,7 +7,7 @@ use Pckg\Generic\Migration\CreateGenericTables;
 
 return [
     //CreateAuthTables::class,
-    //CreateDynamicTables::class,
+    CreateDynamicTables::class,
     //CreateGenericTables::class,
-    OrdersTags::class
+    OrdersTags::class,
 ];

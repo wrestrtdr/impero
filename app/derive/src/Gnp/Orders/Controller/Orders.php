@@ -51,6 +51,15 @@ class Orders extends Controller
         return $this->tabelize($orders, ['id'], 'Orders')
                     ->setRecords($groupedBy)
                     ->setGroupByLevels(2)
+                    ->setEntityActions(
+                        [
+                            /*'add',
+                            'filter',
+                            'sort',
+                            'group',
+                            'export',*/
+                        ]
+                    )
                     ->setRecordActions(
                         [
                             'attributes',

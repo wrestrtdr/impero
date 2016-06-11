@@ -72,7 +72,7 @@
                 $('#attributesModal').modal('show');
             },
 
-            fetchApartmentData: function () {
+            fetchAppartmentData: function () {
                 this.fetchSimilarOrders();
                 if (this.nonAllocatedOrders.length == 0)
                 this.fetchNonAllocatedOrders();
@@ -88,7 +88,7 @@
                     this.checkin = data.checkin;
                     this.people = data.people;
                     this.loading.attributes = false;
-                    this.fetchApartmentData();
+                    this.fetchAppartmentData();
                 }.bind(this));
             },
 
