@@ -23,8 +23,8 @@ class Orders extends Entity implements MaestroEntity
 
     public function activeOffer() {
         return $this->offer()
-            ->where('offers.dt_published')
-            ->innerJoin();
+                    ->where('offers.dt_published')
+                    ->innerJoin();
     }
 
     public function user() {
@@ -96,6 +96,14 @@ class Orders extends Entity implements MaestroEntity
         $relation->getMiddleEntity()->where('orders_users.dt_confirmed');
 
         return $relation;
+    }
+
+    public function forAllocation() {
+        return $this->payed()
+            ->confirmed()
+            ->withUser()
+            ->withConfirmedPackets()
+            ->where('offer_id', [17, 18, 19]);
     }
 
 }

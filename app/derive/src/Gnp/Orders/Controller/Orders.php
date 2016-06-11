@@ -22,12 +22,9 @@ class Orders extends Controller
                 return $orders->withAppartment()
                               ->withCheckin()
                               ->withPeople()
-                              ->withConfirmedPackets()
                               ->withOffer()
-                              ->withUser()
                               ->joinActiveOffer()
-                              ->confirmed()
-                              ->payed()
+                              ->forAllocation()
                               ->all();
             }
         );
@@ -100,11 +97,8 @@ class Orders extends Controller
         return [
             'nonAllocatedOrders' => (new OrdersEntity())
                 ->where('id', new Raw('SELECT order_id FROM orders_tags'), 'NOT IN')
-                ->withUser()
-                ->withConfirmedPackets()
                 ->joinActiveOffer()
-                ->confirmed()
-                ->payed()
+                ->forAllocation()
                 ->all(),
         ];
     }
