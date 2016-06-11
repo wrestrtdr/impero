@@ -53,11 +53,11 @@ class Orders extends Controller
                     ->setGroupByLevels(2)
                     ->setEntityActions(
                         [
-                            /*'add',
+                            'add',
                             'filter',
                             'sort',
                             'group',
-                            'export',*/
+                            'export',
                         ]
                     )
                     ->setRecordActions(

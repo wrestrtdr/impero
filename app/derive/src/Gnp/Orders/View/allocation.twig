@@ -122,13 +122,11 @@
             },
 
             remove: function (index) {
-                console.log('removing ' + this.similarOrders[index].num);
                 this.nonAllocatedOrders.push(this.similarOrders[index]);
                 this.similarOrders.$remove(this.similarOrders[index]);
             },
 
             add: function (index) {
-                console.log('adding ' + this.nonAllocatedOrders[index].num);
                 this.similarOrders.push(this.nonAllocatedOrders[index]);
                 this.nonAllocatedOrders.$remove(this.nonAllocatedOrders[index]);
             }
