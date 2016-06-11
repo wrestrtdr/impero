@@ -7,6 +7,11 @@ use Gnp\Orders\Record\Order;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Relation\BelongsTo;
+use Pckg\Dynamic\Entity\Tables;
+use Pckg\Dynamic\Record\TableView;
+use Pckg\Dynamic\Service\Filter as FilterService;
+use Pckg\Dynamic\Service\Order as OrderService;
+use Pckg\Dynamic\Service\Group as GroupService;
 use Pckg\Framework\Controller;
 use Pckg\Maestro\Helper\Maestro;
 
@@ -15,42 +20,65 @@ class Orders extends Controller
 
     use Maestro;
 
+    protected $filterService;
+
+    protected $orderService;
+
+    protected $groupService;
+
+    public function __construct(FilterService $filterService, OrderService $orderService, GroupService $groupService) {
+        $this->filterService = $filterService;
+        $this->orderService = $orderService;
+        $this->groupService = $groupService;
+    }
+
     public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
-        $all = measure(
-            'Getting orders',
-            function() use ($orders) {
-                return $orders->withAppartment()
-                              ->withCheckin()
-                              ->withPeople()
-                              ->withOffer()
-                              ->joinActiveOffer()
-                              ->forAllocation()
-                              ->all();
-            }
-        );
+        /**
+         * Set table.
+         */
+        $table = (new Tables())->where('entity', get_class($orders))->oneOrFail();
+        $this->filterService->setTable($table);
+        $this->orderService->setTable($table);
+        $this->groupService->setTable($table);
 
-        $groupedBy = $all->groupBy(
-            function($order) {
-                return $order->checkin ? 'Checkin: ' . $order->checkin->value : null;
-            }
-        )->each(
-            function($groupOrdes) {
-                $newGroup = (new Collection($groupOrdes))->groupBy(
-                    function($order) {
-                        return $order->appartment ? 'Appartment: ' . $order->appartment->value : null;
-                    }
-                );
+        /**
+         * Apply entity extension.
+         */
+        $this->filterService->applyOnEntity($orders);
+        $this->orderService->applyOnEntity($orders);
+        $this->groupService->applyOnEntity($orders);
 
-                return $newGroup;
-            },
-            true
-        );
+        $all = $orders->withAppartment()
+                      ->withCheckin()
+                      ->withPeople()
+                      ->withOffer()
+                      ->joinActiveOffer()
+                      ->forAllocation()
+                      ->all();
+        /**
+         * Apply collection extension.
+         */
+        $groupedBy = $this->groupService->applyOnCollection($all);
 
         $attributesForm->initFields();
 
+        $data = [
+            'filter' => $this->filterService->getAppliedFilters(1),
+            'group'  => $this->groupService->getAppliedGroups(1),
+            'order'  => $this->orderService->getAppliedOrders(1),
+        ];
+        $view = new TableView(
+            [
+                'dynamic_table_id' => 1,
+                'title'            => 'Testing view',
+                'settings'         => json_encode($data),
+            ]
+        );
+        //$view->save();
+
         return $this->tabelize($orders, ['id'], 'Orders')
                     ->setRecords($groupedBy)
-                    ->setGroupByLevels(2)
+                    ->setGroupByLevels(count($data['group']))
                     ->setEntityActions(
                         [
                             'add',
@@ -58,6 +86,7 @@ class Orders extends Controller
                             'sort',
                             'group',
                             'export',
+                            'view',
                         ]
                     )
                     ->setRecordActions(
