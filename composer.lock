@@ -512,17 +512,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "41d982b5cfe23df71f59bbb71395d71a35417de4"
+                "reference": "13fed3195b35788aa2809a0dc4faffddf7140357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/41d982b5cfe23df71f59bbb71395d71a35417de4",
-                "reference": "41d982b5cfe23df71f59bbb71395d71a35417de4",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/13fed3195b35788aa2809a0dc4faffddf7140357",
+                "reference": "13fed3195b35788aa2809a0dc4faffddf7140357",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0",
                 "psr/log": "^1.0",
+                "symfony/debug": "^2.6|^3.0",
                 "symfony/var-dumper": "^2.6|^3.0"
             },
             "require-dev": {
@@ -565,7 +566,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-06-02 05:33:24"
+            "time": "2016-06-11 12:22:24"
         },
         {
             "name": "paymill/paymill",
@@ -814,12 +815,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "ae7f6af43728ff458287023ca543fbe7d07f5205"
+                "reference": "d73e44c63b08228708d82323b7d50635e26fa938"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/ae7f6af43728ff458287023ca543fbe7d07f5205",
-                "reference": "ae7f6af43728ff458287023ca543fbe7d07f5205",
+                "url": "https://api.github.com/repos/pckg/database/zipball/d73e44c63b08228708d82323b7d50635e26fa938",
+                "reference": "d73e44c63b08228708d82323b7d50635e26fa938",
                 "shasum": ""
             },
             "require": {
@@ -847,7 +848,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-11 11:03:00"
+            "time": "2016-06-11 13:09:13"
         },
         {
             "name": "pckg/dynamic",
@@ -855,12 +856,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "872ab7ca32b14d73ef03b834c9415d86a0c914b2"
+                "reference": "1643137e5403579fe598f9491cc1115df7b7e5da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/872ab7ca32b14d73ef03b834c9415d86a0c914b2",
-                "reference": "872ab7ca32b14d73ef03b834c9415d86a0c914b2",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/1643137e5403579fe598f9491cc1115df7b7e5da",
+                "reference": "1643137e5403579fe598f9491cc1115df7b7e5da",
                 "shasum": ""
             },
             "type": "library",
@@ -883,7 +884,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-11 12:02:32"
+            "time": "2016-06-11 13:09:29"
         },
         {
             "name": "pckg/framework",
@@ -985,12 +986,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "1868da21acf1c8be2b46b2eeb9eed96a1bcc7df9"
+                "reference": "3b5174384e5d26837ce3b9000264d67091cf8b1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/1868da21acf1c8be2b46b2eeb9eed96a1bcc7df9",
-                "reference": "1868da21acf1c8be2b46b2eeb9eed96a1bcc7df9",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/3b5174384e5d26837ce3b9000264d67091cf8b1b",
+                "reference": "3b5174384e5d26837ce3b9000264d67091cf8b1b",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1015,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-06-07 14:19:43"
+            "time": "2016-06-11 13:09:44"
         },
         {
             "name": "pckg/helpers-js",
@@ -1536,6 +1537,63 @@
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
             "time": "2016-06-10 06:29:21"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/debug.git",
+                "reference": "7e874063d91a6b36cf39a65a86d34adc447f4d1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/7e874063d91a6b36cf39a65a86d34adc447f4d1b",
+                "reference": "7e874063d91a6b36cf39a65a86d34adc447f4d1b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "psr/log": "~1.0"
+            },
+            "conflict": {
+                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+            },
+            "require-dev": {
+                "symfony/class-loader": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Debug\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Debug Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-06-06 15:09:02"
         },
         {
             "name": "symfony/polyfill-mbstring",
