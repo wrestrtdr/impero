@@ -8,7 +8,6 @@ use Pckg\Collection;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Relation\BelongsTo;
 use Pckg\Dynamic\Entity\Tables;
-use Pckg\Dynamic\Record\TableView;
 use Pckg\Dynamic\Service\Filter as FilterService;
 use Pckg\Dynamic\Service\Sort as OrderService;
 use Pckg\Dynamic\Service\Group as GroupService;
@@ -36,7 +35,7 @@ class Orders extends Controller
         /**
          * Set table.
          */
-        $table = (new Tables())->where('entity', get_class($orders))->oneOrFail();
+        $table = (new Tables())->where('framework_entity', get_class($orders))->oneOrFail();
         $this->filterService->setTable($table);
         $this->sortService->setTable($table);
         $this->groupService->setTable($table);
@@ -52,13 +51,26 @@ class Orders extends Controller
                       ->withCheckin()
                       ->withPeople()
                       ->withOffer()
-                      ->joinActiveOffer()
-                      ->forAllocation()
+                      ->joinActiveOffer() // this needs to be solved by relation filter ...
+                      ->forAllocation() // here we need relation orders.orders_users.dt_confirmed
                       ->all();
         /**
          * Apply collection extension.
          */
-        $groupedBy = $this->groupService->applyOnCollection($all);
+        $groupedBy = $all->groupBy(
+            function($order) {
+                return $order->checkin ? 'Checkin: ' . $order->checkin->value : 'No checking point';
+            }
+        )->each(
+            function($groupOrders) {
+                return (new Collection($groupOrders))->groupBy(
+                    function($order) {
+                        return $order->appartment ? 'Appartment: ' . $order->appartment->value : 'No appartment';
+                    }
+                );
+            },
+            true
+        );
 
         $attributesForm->initFields();
 
@@ -70,7 +82,7 @@ class Orders extends Controller
 
         return $this->tabelize($orders, ['id'], 'Orders')
                     ->setRecords($groupedBy)
-                    ->setGroupByLevels(count($data['group']))
+                    ->setGroupByLevels(2)
                     ->setEntityActions(
                         [
                             'add',
