@@ -33,7 +33,7 @@ class Config extends Provider
                     'view'       => 'allocationNonAllocated',
                     'name'       => 'derive.orders.allocation.nonallocated',
                 ],
-                '/orders/allocation/similar/[appartment]'    => [
+                '/orders/allocation/similar'    => [
                     'controller' => Orders::class,
                     'view'       => 'allocationSimilar',
                     'name'       => 'derive.orders.allocation.similar',

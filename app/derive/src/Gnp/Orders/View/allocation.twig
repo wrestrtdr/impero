@@ -102,7 +102,9 @@
 
             fetchSimilarOrders: function () {
                 this.loading.similarOrders = true;
-                http.getJSON('/dev.php/orders/allocation/similar/' + this.appartment, function (data) {
+                http.post('/dev.php/orders/allocation/similar', {
+                    appartment: this.appartment
+                }, function (data) {
                     this.loading.similarOrders = false;
                     this.similarOrders = data.similarOrders;
                 }.bind(this));

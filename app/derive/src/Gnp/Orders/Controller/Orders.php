@@ -112,11 +112,11 @@ class Orders extends Controller
         ];
     }
 
-    public function getAllocationSimilarAction($appartment) {
+    public function postAllocationSimilarAction() {
         return [
             'similarOrders' => (new OrdersTags())
                 ->where('type', 'appartment')
-                ->where('value', $appartment)
+                ->where('value', $this->post()->get('appartment'))
                 ->withOrder(
                     function(BelongsTo $relation) {
                         $relation->withUser();
