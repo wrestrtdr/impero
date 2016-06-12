@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a92f9649391365204bf5c8c3d9b74de",
-    "content-hash": "45e82dffe6f6f4902e02705a6ed15f0b",
+    "hash": "5b44b1b5e1d7cae47fa6653c78fe6dd3",
+    "content-hash": "8347db84479a6a55df90bd2c92a878f2",
     "packages": [
         {
             "name": "bootstrap-select/bootstrap-select",
@@ -656,22 +656,6 @@
             "time": "2016-05-13 18:25:38"
         },
         {
-            "name": "pckg-tmp/vuejs",
-            "version": "dev-master",
-            "source": {
-                "type": "svn",
-                "url": "https://github.com/vuejs/vue.git",
-                "reference": "master"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/vuejs/vue/archive/dev.zip",
-                "reference": "master",
-                "shasum": null
-            },
-            "type": "library"
-        },
-        {
             "name": "pckg/auth",
             "version": "dev-master",
             "source": {
@@ -872,12 +856,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "1643137e5403579fe598f9491cc1115df7b7e5da"
+                "reference": "82e0a10059cf58bb89d5b13d392d1112f38a2cf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/1643137e5403579fe598f9491cc1115df7b7e5da",
-                "reference": "1643137e5403579fe598f9491cc1115df7b7e5da",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/82e0a10059cf58bb89d5b13d392d1112f38a2cf0",
+                "reference": "82e0a10059cf58bb89d5b13d392d1112f38a2cf0",
                 "shasum": ""
             },
             "type": "library",
@@ -900,7 +884,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-11 13:09:29"
+            "time": "2016-06-12 13:21:18"
         },
         {
             "name": "pckg/framework",
@@ -908,12 +892,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "236e64cc71fb4ae6a973ced44114fd1fce833fe9"
+                "reference": "d2c7f31c99f413f50dd3384a56e8e117e79f0914"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/236e64cc71fb4ae6a973ced44114fd1fce833fe9",
-                "reference": "236e64cc71fb4ae6a973ced44114fd1fce833fe9",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/d2c7f31c99f413f50dd3384a56e8e117e79f0914",
+                "reference": "d2c7f31c99f413f50dd3384a56e8e117e79f0914",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +931,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-06-07 14:18:47"
+            "time": "2016-06-12 13:21:47"
         },
         {
             "name": "pckg/frontend",
@@ -1176,12 +1160,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "e99cad944f791b5e3f18dddac909aee5efdc9d61"
+                "reference": "4b03321f294693137836bccdada67e419189e9ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/e99cad944f791b5e3f18dddac909aee5efdc9d61",
-                "reference": "e99cad944f791b5e3f18dddac909aee5efdc9d61",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/4b03321f294693137836bccdada67e419189e9ff",
+                "reference": "4b03321f294693137836bccdada67e419189e9ff",
                 "shasum": ""
             },
             "type": "library",
@@ -1204,7 +1188,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-10 12:44:19"
+            "time": "2016-06-11 19:50:34"
         },
         {
             "name": "pckg/manager",
@@ -1938,8 +1922,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "pckg/backend": 20,
-        "pckg-tmp/vuejs": 20
+        "pckg/backend": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
