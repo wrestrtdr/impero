@@ -22,13 +22,13 @@ class Orders extends Controller
 
     protected $filterService;
 
-    protected $orderService;
+    protected $sortService;
 
     protected $groupService;
 
-    public function __construct(FilterService $filterService, OrderService $orderService, GroupService $groupService) {
+    public function __construct(FilterService $filterService, OrderService $sortService, GroupService $groupService) {
         $this->filterService = $filterService;
-        $this->orderService = $orderService;
+        $this->sortService = $sortService;
         $this->groupService = $groupService;
     }
 
@@ -38,14 +38,14 @@ class Orders extends Controller
          */
         $table = (new Tables())->where('entity', get_class($orders))->oneOrFail();
         $this->filterService->setTable($table);
-        $this->orderService->setTable($table);
+        $this->sortService->setTable($table);
         $this->groupService->setTable($table);
 
         /**
          * Apply entity extension.
          */
         $this->filterService->applyOnEntity($orders);
-        $this->orderService->applyOnEntity($orders);
+        $this->sortService->applyOnEntity($orders);
         $this->groupService->applyOnEntity($orders);
 
         $all = $orders->withAppartment()
@@ -63,18 +63,10 @@ class Orders extends Controller
         $attributesForm->initFields();
 
         $data = [
-            'filter' => $this->filterService->getAppliedFilters(1),
-            'group'  => $this->groupService->getAppliedGroups(1),
-            'order'  => $this->orderService->getAppliedOrders(1),
+            'filter' => $this->filterService->getAppliedFilters(),
+            'group'  => $this->groupService->getAppliedGroups(),
+            'order'  => $this->sortService->getAppliedSorts(),
         ];
-        $view = new TableView(
-            [
-                'dynamic_table_id' => 1,
-                'title'            => 'Testing view',
-                'settings'         => json_encode($data),
-            ]
-        );
-        //$view->save();
 
         return $this->tabelize($orders, ['id'], 'Orders')
                     ->setRecords($groupedBy)
