@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5b44b1b5e1d7cae47fa6653c78fe6dd3",
-    "content-hash": "8347db84479a6a55df90bd2c92a878f2",
+    "hash": "4a92f9649391365204bf5c8c3d9b74de",
+    "content-hash": "45e82dffe6f6f4902e02705a6ed15f0b",
     "packages": [
         {
             "name": "bootstrap-select/bootstrap-select",
@@ -654,6 +654,22 @@
                 "sdk"
             ],
             "time": "2016-05-13 18:25:38"
+        },
+        {
+            "name": "pckg-tmp/vuejs",
+            "version": "dev-master",
+            "source": {
+                "type": "svn",
+                "url": "https://github.com/vuejs/vue.git",
+                "reference": "master"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/vuejs/vue/archive/dev.zip",
+                "reference": "master",
+                "shasum": null
+            },
+            "type": "library"
         },
         {
             "name": "pckg/auth",
@@ -1922,7 +1938,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "pckg/backend": 20
+        "pckg/backend": 20,
+        "pckg-tmp/vuejs": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

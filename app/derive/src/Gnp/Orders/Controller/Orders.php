@@ -10,7 +10,7 @@ use Pckg\Database\Relation\BelongsTo;
 use Pckg\Dynamic\Entity\Tables;
 use Pckg\Dynamic\Record\TableView;
 use Pckg\Dynamic\Service\Filter as FilterService;
-use Pckg\Dynamic\Service\Order as OrderService;
+use Pckg\Dynamic\Service\Sort as OrderService;
 use Pckg\Dynamic\Service\Group as GroupService;
 use Pckg\Framework\Controller;
 use Pckg\Maestro\Helper\Maestro;
