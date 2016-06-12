@@ -7,6 +7,10 @@ use Gnp\Orders\Record\Order;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Relation\BelongsTo;
+use Pckg\Dynamic\Entity\Tables;
+use Pckg\Dynamic\Service\Filter as FilterService;
+use Pckg\Dynamic\Service\Sort as OrderService;
+use Pckg\Dynamic\Service\Group as GroupService;
 use Pckg\Framework\Controller;
 use Pckg\Maestro\Helper\Maestro;
 
@@ -15,49 +19,78 @@ class Orders extends Controller
 
     use Maestro;
 
-    public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
-        $all = measure(
-            'Getting orders',
-            function() use ($orders) {
-                return $orders->withAppartment()
-                              ->withCheckin()
-                              ->withPeople()
-                              ->withOffer()
-                              ->joinActiveOffer()
-                              ->forAllocation()
-                              ->all();
-            }
-        );
+    protected $filterService;
 
+    protected $sortService;
+
+    protected $groupService;
+
+    public function __construct(FilterService $filterService, OrderService $sortService, GroupService $groupService) {
+        $this->filterService = $filterService;
+        $this->sortService = $sortService;
+        $this->groupService = $groupService;
+    }
+
+    public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
+        /**
+         * Set table.
+         */
+        $table = (new Tables())->where('framework_entity', get_class($orders))->oneOrFail();
+        $this->filterService->setTable($table);
+        $this->sortService->setTable($table);
+        $this->groupService->setTable($table);
+
+        /**
+         * Apply entity extension.
+         */
+        $this->filterService->applyOnEntity($orders);
+        $this->sortService->applyOnEntity($orders);
+        $this->groupService->applyOnEntity($orders);
+
+        $all = $orders->withAppartment()
+                      ->withCheckin()
+                      ->withPeople()
+                      ->withOffer()
+                      ->joinActiveOffer() // this needs to be solved by relation filter ...
+                      ->forAllocation() // here we need relation orders.orders_users.dt_confirmed
+                      ->all();
+        /**
+         * Apply collection extension.
+         */
         $groupedBy = $all->groupBy(
             function($order) {
-                return $order->checkin ? 'Checkin: ' . $order->checkin->value : null;
+                return $order->checkin ? 'Checkin: ' . $order->checkin->value : 'No checking point';
             }
         )->each(
-            function($groupOrdes) {
-                $newGroup = (new Collection($groupOrdes))->groupBy(
+            function($groupOrders) {
+                return (new Collection($groupOrders))->groupBy(
                     function($order) {
-                        return $order->appartment ? 'Appartment: ' . $order->appartment->value : null;
+                        return $order->appartment ? 'Appartment: ' . $order->appartment->value : 'No appartment';
                     }
                 );
-
-                return $newGroup;
             },
             true
         );
 
         $attributesForm->initFields();
 
+        $data = [
+            'filter' => $this->filterService->getAppliedFilters(),
+            'group'  => $this->groupService->getAppliedGroups(),
+            'order'  => $this->sortService->getAppliedSorts(),
+        ];
+
         return $this->tabelize($orders, ['id'], 'Orders')
                     ->setRecords($groupedBy)
                     ->setGroupByLevels(2)
                     ->setEntityActions(
                         [
-                            /*'add',
+                            'add',
                             'filter',
                             'sort',
                             'group',
-                            'export',*/
+                            'export',
+                            'view',
                         ]
                     )
                     ->setRecordActions(
