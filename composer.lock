@@ -1823,12 +1823,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e9ce4607d46cbe80207aa87eaee21999c595d566"
+                "reference": "9abbf273bdddd2e60a4765350f8a79894a716e59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e9ce4607d46cbe80207aa87eaee21999c595d566",
-                "reference": "e9ce4607d46cbe80207aa87eaee21999c595d566",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9abbf273bdddd2e60a4765350f8a79894a716e59",
+                "reference": "9abbf273bdddd2e60a4765350f8a79894a716e59",
                 "shasum": ""
             },
             "require": {
@@ -1876,7 +1876,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-06-08 15:42:12"
+            "time": "2016-06-13 09:11:51"
         },
         {
             "name": "zurb/foundation",
