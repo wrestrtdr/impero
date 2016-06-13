@@ -138,7 +138,7 @@ class Orders extends Controller
     public function getAllocationNonAllocatedAction() {
         return [
             'nonAllocatedOrders' => (new OrdersEntity())
-                ->where('id', new Raw('SELECT order_id FROM orders_tags'), 'NOT IN')
+                ->where('id', new Raw('SELECT order_id FROM orders_tags WHERE type = \'appartment\' AND `value`'), 'NOT IN')
                 ->joinActiveOffer()
                 ->forAllocation()
                 ->all(),
