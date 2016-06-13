@@ -59,13 +59,13 @@ class Orders extends Controller
          */
         $groupedBy = $all->groupBy(
             function($order) {
-                return $order->checkin ? 'Checkin: ' . $order->checkin->value : 'No checking point';
+                return $order->checkin && $order->checkin->value ? 'Checkin: ' . $order->checkin->value : 'No checking point';
             }
         )->each(
             function($groupOrders) {
                 return (new Collection($groupOrders))->groupBy(
                     function($order) {
-                        return $order->appartment ? 'Appartment: ' . $order->appartment->value : 'No appartment';
+                        return $order->appartment && $order->appartment->value ? 'Appartment: ' . $order->appartment->value : 'No appartment';
                     }
                 );
             },
