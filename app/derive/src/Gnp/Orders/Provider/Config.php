@@ -1,6 +1,7 @@
 <?php namespace Gnp\Orders\Provider;
 
 use Gnp\Orders\Console\GenerateVoucher;
+use Gnp\Orders\Console\SendVoucher;
 use Gnp\Orders\Controller\Orders;
 use Gnp\Orders\Controller\Vouchers;
 use Gnp\Orders\Resolver\Orders as OrdersResolver;
@@ -64,6 +65,7 @@ class Config extends Provider
     public function consoles() {
         return [
             GenerateVoucher::class,
+            SendVoucher::class,
         ];
     }
 

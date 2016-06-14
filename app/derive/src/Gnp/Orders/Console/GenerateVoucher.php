@@ -28,10 +28,14 @@ class GenerateVoucher extends Command
 
         foreach ($arrOrders as $i => $order) {
             $this->output('Generating voucher for order #' . $order->id);
-
             $order->generateVoucher();
-
             $this->output('Voucher for order #' . $order->id . ' generated');
+
+            if ($this->option('send')) {
+                $this->output('Sending voucher email for order #' . $order->id);
+                $order->generateVoucher();
+                $this->output('Voucher for email #' . $order->id . ' sent');
+            }
         }
     }
 

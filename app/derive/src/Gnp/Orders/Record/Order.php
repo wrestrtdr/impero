@@ -3,7 +3,9 @@
 use Gnp\Orders\Console\PhantomJsHtml;
 use Gnp\Orders\Entity\Orders;
 use JonnyW\PhantomJs\Client;
+use Pckg\Concept\Reflect;
 use Pckg\Database\Record;
+use Pckg\Mail\Service\Mail;
 
 class Order extends Record
 {
@@ -62,6 +64,21 @@ class Order extends Record
         );
     }
 
+    public function sendVoucher() {
+        $mailer = new Mail();
+
+        try {
+            $mailer->to('schtr4jh@schtr4jh.net')
+                   ->subject('Test subject čšžČŠŽ')
+                   ->body('<p><b>HTML</b> body čšžČŠŽ</p>')
+                   ->plainBody('Plain body')
+                   ->attach('storage/impero/virtualhosts.conf', 'application/pdf', 'Voucher #' . $this->id)
+                   ->send();
+        } catch (\Exception $e) {
+            dd(exception($e));
+        }
+    }
+
     public function generateVoucher() {
         /**
          * Make a request to frontend.
@@ -101,7 +118,11 @@ class Order extends Record
     }
 
     public function getVoucherId() {
-        return substr(config('security.hash') . sha1(sha1($this->id) . ' ' . sha1($this->user_id) . ' ' . sha1($this->offer_id)), 15, 10);
+        return substr(
+            config('security.hash') . sha1(sha1($this->id) . ' ' . sha1($this->user_id) . ' ' . sha1($this->offer_id)),
+            15,
+            10
+        );
     }
 
 }
