@@ -699,12 +699,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/backend.git",
-                "reference": "34195da41b02f5274150be0e8e17ba4b603063e4"
+                "reference": "4b9bfbbf52306b048c45cd03a67434e2e1099f1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/backend/zipball/34195da41b02f5274150be0e8e17ba4b603063e4",
-                "reference": "34195da41b02f5274150be0e8e17ba4b603063e4",
+                "url": "https://api.github.com/repos/pckg/backend/zipball/4b9bfbbf52306b048c45cd03a67434e2e1099f1e",
+                "reference": "4b9bfbbf52306b048c45cd03a67434e2e1099f1e",
                 "shasum": ""
             },
             "require": {
@@ -715,6 +715,7 @@
                 "pckg/generic": "dev-master",
                 "pckg/import": "dev-master",
                 "pckg/maestro": "dev-master",
+                "pckg/mail": "dev-master",
                 "pckg/migrator": "dev-master",
                 "pckg/payment": "dev-master",
                 "pckg/queue": "dev-master"
@@ -739,7 +740,7 @@
             ],
             "description": "Useful backend libraries",
             "homepage": "https://github.com/pckg/backend",
-            "time": "2016-05-24 10:36:09"
+            "time": "2016-06-14 10:14:55"
         },
         {
             "name": "pckg/collection",
@@ -1189,6 +1190,42 @@
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
             "time": "2016-06-11 19:50:34"
+        },
+        {
+            "name": "pckg/mail",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/mail.git",
+                "reference": "77e4bd7ad2283317885e67f59d6db508306b5a30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/mail/zipball/77e4bd7ad2283317885e67f59d6db508306b5a30",
+                "reference": "77e4bd7ad2283317885e67f59d6db508306b5a30",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Mail",
+            "homepage": "https://github.com/pckg/mail",
+            "time": "2016-06-14 10:14:03"
         },
         {
             "name": "pckg/manager",
