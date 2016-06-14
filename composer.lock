@@ -1399,12 +1399,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/mail.git",
-                "reference": "615714bca9905e213960bb86bffa9dd562abc66b"
+                "reference": "a611fc3fa1af9e4178265b6be70b2599b5855b44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/mail/zipball/615714bca9905e213960bb86bffa9dd562abc66b",
-                "reference": "615714bca9905e213960bb86bffa9dd562abc66b",
+                "url": "https://api.github.com/repos/pckg/mail/zipball/a611fc3fa1af9e4178265b6be70b2599b5855b44",
+                "reference": "a611fc3fa1af9e4178265b6be70b2599b5855b44",
                 "shasum": ""
             },
             "require": {
@@ -1430,7 +1430,7 @@
             ],
             "description": "Mail",
             "homepage": "https://github.com/pckg/mail",
-            "time": "2016-06-14 10:25:37"
+            "time": "2016-06-14 21:44:02"
         },
         {
             "name": "pckg/manager",
