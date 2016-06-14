@@ -1,6 +1,8 @@
 <?php namespace Gnp\Orders\Record;
 
+use Gnp\Orders\Console\PhantomJsHtml;
 use Gnp\Orders\Entity\Orders;
+use JonnyW\PhantomJs\Client;
 use Pckg\Database\Record;
 
 class Order extends Record
@@ -49,9 +51,57 @@ class Order extends Record
     public function getPacketsSummary() {
         $packets = $this->packets->removeEmpty()->groupBy('id');
 
-        return implode("<br />", array_map(function($packetGroup){
-            return count($packetGroup) . 'x ' . $packetGroup[0]->title;
-        }, $packets->all()));
+        return implode(
+            "<br />",
+            array_map(
+                function($packetGroup) {
+                    return count($packetGroup) . 'x ' . $packetGroup[0]->title;
+                },
+                $packets->all()
+            )
+        );
+    }
+
+    public function generateVoucher() {
+        /**
+         * Make a request to frontend.
+         */
+        $client = Client::getInstance();
+        $request = $client->getMessageFactory()->createPdfRequest(
+            url('derive.orders.voucher.getHtml', ['order' => $this], true),
+            'GET'
+        );
+
+        /**
+         * Save as ...
+         */
+        $request->setOutputFile(
+            path('storage') . 'derive' . path('ds') . 'voucher' . path('ds') . 'order-' . $this->id . '-' . date(
+                'YmdHis'
+            ) . '.pdf'
+
+        );
+
+        /**
+         * Set some settings.
+         */
+        $request->setFormat('A4');
+        $request->setOrientation('portrait');
+        $request->setMargin(null);
+
+        /**
+         * Create response.
+         **/
+        $response = $client->getMessageFactory()->createResponse();
+
+        /**
+         * Run everything.
+         */
+        $client->send($request, $response);
+    }
+
+    public function getVoucherId() {
+        return substr(config('security.hash') . sha1(sha1($this->id) . ' ' . sha1($this->user_id) . ' ' . sha1($this->offer_id)), 15, 10);
     }
 
 }

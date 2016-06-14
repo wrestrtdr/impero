@@ -1,0 +1,358 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Untitled Document</title>
+
+    <style>
+        @font-face {
+            font-family: 'nexa';
+            src: url('Nexa_Free_Bold-webfont.eot');
+            src: url('Nexa_Free_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+            url('Nexa_Free_Bold-webfont.woff2') format('woff2'),
+            url('Nexa_Free_Bold-webfont.woff') format('woff'),
+            url('Nexa_Free_Bold-webfont.ttf') format('truetype'),
+            url('Nexa_Free_Bold-webfont.svg#nexa_boldregular') format('svg');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'nexa';
+            src: url('NexaRustSans-Black-Free-webfont.woff2');
+            src: url('NexaRustSans-Black-Free-webfont.eot');
+            src: url('NexaRustSans-Black-Free-webfont.eot?#iefix') format('embedded-opentype'),
+            url('NexaRustSans-Black-Free-webfont.woff2') format('woff2'),
+            url('NexaRustSans-Black-Free-webfont.woff') format('woff'),
+            url('NexaRustSans-Black-Free-webfont.ttf') format('truetype'),
+            url('NexaRustSans-Black-Free-webfont.svg#nexa_rust_sansblack') format('svg');
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'nexa';
+            src: url('Nexa_Free_Light-webfont.woff2');
+            src: url('Nexa_Free_Light-webfont.eot');
+            src: url('Nexa_Free_Light-webfont.eot?#iefix') format('embedded-opentype'),
+            url('Nexa_Free_Light-webfont.woff2') format('woff2'),
+            url('Nexa_Free_Light-webfont.woff') format('woff'),
+            url('Nexa_Free_Light-webfont.ttf') format('truetype'),
+            url('Nexa_Free_Light-webfont.svg#nexa_lightregular') format('svg');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #FFF;
+            font-family: nexa;
+            font-weight: 300;
+            margin: 0;
+            zoom: 0.595;
+        }
+
+        b {
+            font-weight: bold;
+        }
+
+        /* general styling */
+        .gap {
+            margin-bottom: 30px;
+        }
+
+        .line-break {
+            background-color: #fabe45;
+            height: 7px;
+            width: 100%;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .link {
+            color: #074b7c;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+        }
+
+        .header img {
+            width: 100%;
+        }
+
+        .body {
+            margin: 15px 7%;
+        }
+
+        .body .left-column {
+            float: left;
+            margin-right: 10%;
+            width: 54%;
+        }
+
+        .basic-info {
+            font-size: 18px;
+        }
+
+        .basic-info p {
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .schedule {
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .schedule .title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-top: 17px;
+        }
+
+        .schedule .day-container {
+            clear: both;
+            margin-top: 10px;
+        }
+
+        .schedule .day {
+            font-size: 11px;
+            margin: 10px 0 0;
+            letter-spacing: 5px;
+        }
+
+        .schedule .description {
+            float: left;
+            margin-right: 4%;
+            width: 48%;
+        }
+
+        .schedule .time {
+            float: left;
+            width: 48%;
+        }
+
+        .schedule .time span {
+            font-weight: 300;
+        }
+
+        .small-info {
+            margin-top: 15px;
+        }
+
+        .body .right-column {
+            float: left;
+            width: 36%;
+        }
+
+        .voucher-id-box {
+            border: 7px solid #000;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 26px 0;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .voucher-id-box .vertical-title {
+            top: 40px;
+            font-size: 11px;
+            left: -58px;
+            position: absolute;
+            transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            transform-origin: left top 0;
+        }
+
+        .package {
+        }
+
+        .package .title {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 36px;
+            margin-top: 35px;
+        }
+
+        .package .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .phone-numbers {
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .phone-numbers .title {
+            float: left;
+            margin-right: 4%;
+            width: 34%;
+        }
+
+        .phone-numbers .title .line-break {
+            margin-bottom: 15px;
+        }
+
+        .phone-numbers .number .clear {
+            margin-bottom: 22px;
+        }
+
+        .phone-numbers .number {
+            float: left;
+            width: 62%;
+        }
+
+        .footer {
+            border-bottom: 7px solid #000;
+            border-top: 7px solid #000;
+            font-size: 36px;
+            margin-top: 30px;
+            padding: 25px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <!-- header image -->
+    <div class="header">
+        <img src="/app/derive/src/Gnp/Orders/View/voucher/voucher.jpg"/>
+    </div>
+    <div class="body">
+        <!-- left column -->
+        <div class="left-column">
+            <div class="basic-info">
+                <p><b>HARD ISLAND FESTIVAL 2015</b></p>
+                <p><b>5.-8. July 2016</b></p>
+                <p><b>Kalypso Klub, Zrce beach, Croatia</b></p>
+                <p>Issued by: <b>GoNParty</b></p>
+
+                <div class="gap"></div>
+
+                <p>Order No: <b>{{ order.num }}</b></p>
+                <p>Client Name: <b>{{ order.user.name ~ ' ' ~ order.user.surname }}</b></p>
+                <p>Price: <b>{{ order.price }} €</b></p>
+
+                <div class="gap"></div>
+            </div>
+
+            <div class="line-break"></div>
+
+            <div class="schedule">
+                <div class="title">FESTIVAL SCHEDULE</div>
+
+                <div class="day-container">
+                    <p class="day">TUESDAY</p>
+                    <div class="description">Festival</div>
+                    <div class="time">15 - 20 <span>and</span> 22 - 5</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="day-container">
+                    <p class="day">WEDNESDAY</p>
+                    <div class="description">Festival</div>
+                    <div class="time">15 - 20 <span>and</span> 22 - 5</div>
+                    <div class="clear"></div>
+                    <div class="description">Raw the boat</div>
+                    <div class="time">14 - 17:30</div>
+                    <div class="clear"></div>
+                    <div class="description">Dirty Workz Sunset Cruise</div>
+                    <div class="time">18 - 21:30</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="day-container">
+                    <p class="day">THURSDAY</p>
+                    <div class="description">Festival</div>
+                    <div class="time">15 - 20 <span>and</span> 22 - 5</div>
+                    <div class="clear"></div>
+                    <div class="description">KTRA Cruise</div>
+                    <div class="time">14 - 17:30</div>
+                    <div class="clear"></div>
+                    <div class="description">Hardcore Italia Pirate Cruise</div>
+                    <div class="time">18 - 21:30</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="day-container">
+                    <p class="day">FRIDAY</p>
+                    <div class="description">Festival</div>
+                    <div class="time">17 - end</div>
+                    <div class="clear"></div>
+                    <div class="description">Festival</div>
+                    <div class="time">Hard Island Cruise</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <!-- right column -->
+        <div class="right-column">
+            <div class="voucher-id-box">
+                <div class="vertical-title">VOUCHER ID</div>
+                <div class="code">{{ order.getVoucherId() }}</div>
+            </div>
+            {% for orderUser in order.ordersUsers %}
+                <div class="package">
+                    <div class="title">{{ orderUser.packet.title }}</div>
+                    <div class="subtitle">BOAT PARTY CANCELATION INSURANCE UPGRADE TO VIP</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+
+        <div class="left-column">
+            <div class="line-break"></div>
+
+            <div class="small-info">
+                <b>Minimum age:</b> Etiam ornare sagittis libero, sit amet tincidunt ante vehicula sed. Ut porttitor
+                gravida mi, eget pellentesque nibh tristique vitae. Nam sagittis eu metus eget ullamcorper.
+            </div>
+            <div class="small-info">
+                <b>Attention:</b> Etiam ornare sagittis libero, sit amet tincidunt ante vehicula sed. Ut porttitor
+                gravida mi, eget pellentesque nibh tristique vitae. Nam sagittis eu metus eget ullamcorper at <strong
+                        class="link">info@hardisland.com.</strong>
+            </div>
+            <div class="small-info">
+                <b>Terms and conditions:</b><br/> www.hardisland.com/tandc
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="small-info phone-numbers">
+                <div class="title">
+                    <div class="line-break"></div>
+                    Police
+                </div>
+                <div class="number">
+                    <div class="clear"></div>
+                    +386 54 200 185
+                </div>
+                <div class="clear"></div>
+                <div class="title">Ambulance</div>
+                <div class="number">+386 54 200 185</div>
+                <div class="clear"></div>
+                <div class="title">Info</div>
+                <div class="number">+386 54 200 185</div>
+                <div class="clear"></div>
+            </div>
+            <div class="small-info">
+                <b>Emergency info:</b> Etiam ornare sagittis libero, sit amet tincidunt ante vehicula sed. Ut porttitor
+                gravida mi, eget pellentesque nibh tristique vitae. Nam sagittis eu metus eget ullamcorper.
+            </div>
+        </div>
+
+        <udiv class="clear"></udiv>
+
+        <div class="footer">
+            READ ALL INFO: <b>WWW.HARDISLAND.COM/INFO</b>
+        </div>
+    </div>
+</body>
+</html>

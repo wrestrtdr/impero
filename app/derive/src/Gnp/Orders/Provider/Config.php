@@ -1,6 +1,8 @@
 <?php namespace Gnp\Orders\Provider;
 
+use Gnp\Orders\Console\GenerateVoucher;
 use Gnp\Orders\Controller\Orders;
+use Gnp\Orders\Controller\Vouchers;
 use Gnp\Orders\Resolver\Orders as OrdersResolver;
 use Pckg\Framework\Provider;
 
@@ -33,15 +35,23 @@ class Config extends Provider
                     'view'       => 'allocationNonAllocated',
                     'name'       => 'derive.orders.allocation.nonallocated',
                 ],
-                '/orders/allocation/similar'    => [
+                '/orders/allocation/similar'                 => [
                     'controller' => Orders::class,
                     'view'       => 'allocationSimilar',
                     'name'       => 'derive.orders.allocation.similar',
                 ],
-                '/orders/allocation/save'    => [
+                '/orders/allocation/save'                    => [
                     'controller' => Orders::class,
                     'view'       => 'save',
                     'name'       => 'derive.orders.allocation.save',
+                ],
+                '/orders/voucher/[order]'                    => [
+                    'controller' => Vouchers::class,
+                    'view'       => 'html',
+                    'name'       => 'derive.orders.voucher.getHtml',
+                    'resolvers'  => [
+                        'order' => OrdersResolver::class,
+                    ],
                 ],
             ],
         ];
@@ -49,6 +59,12 @@ class Config extends Provider
 
     public function paths() {
         return $this->getViewPaths();
+    }
+
+    public function consoles() {
+        return [
+            GenerateVoucher::class,
+        ];
     }
 
 }
