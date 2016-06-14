@@ -68,7 +68,8 @@ class Order extends Record
         $mailer = new Mail();
 
         try {
-            $mailer->to('schtr4jh@schtr4jh.net')
+            $mailer->from('test@schtr4jh.net')
+                   ->to('schtr4jh@schtr4jh.net')
                    ->subject('Test subject čšžČŠŽ')
                    ->body('<p><b>HTML</b> body čšžČŠŽ</p>')
                    ->plainBody('Plain body')
