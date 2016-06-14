@@ -1095,12 +1095,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "40a4413e3ea9fc5225db36eb405fbdb960c633e5"
+                "reference": "6fe2ec8e95be2a4bf9a9ec21adba216e9d61a4da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/40a4413e3ea9fc5225db36eb405fbdb960c633e5",
-                "reference": "40a4413e3ea9fc5225db36eb405fbdb960c633e5",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/6fe2ec8e95be2a4bf9a9ec21adba216e9d61a4da",
+                "reference": "6fe2ec8e95be2a4bf9a9ec21adba216e9d61a4da",
                 "shasum": ""
             },
             "require": {
@@ -1134,7 +1134,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-06-12 20:52:07"
+            "time": "2016-06-14 21:43:25"
         },
         {
             "name": "pckg/frontend",
@@ -1189,12 +1189,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "3b5174384e5d26837ce3b9000264d67091cf8b1b"
+                "reference": "20382c54aaa40100c850bdc317d0d6fee0fac156"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/3b5174384e5d26837ce3b9000264d67091cf8b1b",
-                "reference": "3b5174384e5d26837ce3b9000264d67091cf8b1b",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/20382c54aaa40100c850bdc317d0d6fee0fac156",
+                "reference": "20382c54aaa40100c850bdc317d0d6fee0fac156",
                 "shasum": ""
             },
             "require": {
@@ -1218,7 +1218,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-06-11 13:09:44"
+            "time": "2016-06-14 21:43:41"
         },
         {
             "name": "pckg/helpers-js",
@@ -1833,12 +1833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "250ef0204d4997138044f05e424ba0f8a57345ce"
+                "reference": "947273360c7107d0bdcd7bf8d245e6366a8d960a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/250ef0204d4997138044f05e424ba0f8a57345ce",
-                "reference": "250ef0204d4997138044f05e424ba0f8a57345ce",
+                "url": "https://api.github.com/repos/symfony/console/zipball/947273360c7107d0bdcd7bf8d245e6366a8d960a",
+                "reference": "947273360c7107d0bdcd7bf8d245e6366a8d960a",
                 "shasum": ""
             },
             "require": {
@@ -1885,7 +1885,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-10 06:29:21"
+            "time": "2016-06-14 11:18:32"
         },
         {
             "name": "symfony/debug",
