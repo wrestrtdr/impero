@@ -82,7 +82,7 @@ class Order extends Record
                    ->to('schtr4jh@schtr4jh.net', 'Bojan Rajh')
                    ->subject('Your VOUCHER for Hard Island Festival is here!')
                    ->body($template->autoparse())
-                //->attach('storage/impero/virtualhosts.conf', 'application/pdf', 'Voucher #' . $this->id)
+                   ->attach($this->getAbsoluteVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
                    ->send();
         } catch (\Exception $e) {
             dd(exception($e));
