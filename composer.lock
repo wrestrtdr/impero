@@ -1095,12 +1095,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "6fe2ec8e95be2a4bf9a9ec21adba216e9d61a4da"
+                "reference": "d2c397091897b31c09384042c58e73b2f8ea1c28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/6fe2ec8e95be2a4bf9a9ec21adba216e9d61a4da",
-                "reference": "6fe2ec8e95be2a4bf9a9ec21adba216e9d61a4da",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/d2c397091897b31c09384042c58e73b2f8ea1c28",
+                "reference": "d2c397091897b31c09384042c58e73b2f8ea1c28",
                 "shasum": ""
             },
             "require": {
@@ -1134,7 +1134,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-06-14 21:43:25"
+            "time": "2016-06-15 16:04:53"
         },
         {
             "name": "pckg/frontend",
@@ -1363,12 +1363,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "4b03321f294693137836bccdada67e419189e9ff"
+                "reference": "544b88a9357e9b0c90a084c48d6213c195be0259"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/4b03321f294693137836bccdada67e419189e9ff",
-                "reference": "4b03321f294693137836bccdada67e419189e9ff",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/544b88a9357e9b0c90a084c48d6213c195be0259",
+                "reference": "544b88a9357e9b0c90a084c48d6213c195be0259",
                 "shasum": ""
             },
             "type": "library",
@@ -1391,7 +1391,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-11 19:50:34"
+            "time": "2016-06-15 16:05:11"
         },
         {
             "name": "pckg/mail",
@@ -2118,12 +2118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "d9b69039bee46f0402f2ff67c0ee1fb55b655108"
+                "reference": "6be2b290df0f9001ca1b944d7f1f3b6619097d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d9b69039bee46f0402f2ff67c0ee1fb55b655108",
-                "reference": "d9b69039bee46f0402f2ff67c0ee1fb55b655108",
+                "url": "https://api.github.com/repos/symfony/process/zipball/6be2b290df0f9001ca1b944d7f1f3b6619097d3d",
+                "reference": "6be2b290df0f9001ca1b944d7f1f3b6619097d3d",
                 "shasum": ""
             },
             "require": {
@@ -2159,7 +2159,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-06 11:53:30"
+            "time": "2016-06-15 10:49:17"
         },
         {
             "name": "symfony/var-dumper",
