@@ -102,6 +102,7 @@ class Order extends Record
          * Make a request to frontend.
          */
         $client = Client::getInstance();
+        $client->getEngine()->setPath('/usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs');
         $request = $client->getMessageFactory()->createPdfRequest(
             url('derive.orders.voucher.getHtml', ['order' => $this], true),
             'GET'
@@ -110,9 +111,7 @@ class Order extends Record
         /**
          * Save as ...
          */
-        $filename = 'order-' . $this->id . '-' . date(
-                'YmdHis'
-            ) . '.pdf';
+        $filename = 'order-' . $this->id . '-' . date('YmdHis') . '.pdf';
         $request->setOutputFile(
             path('storage') . 'derive' . path('ds') . 'voucher' . path('ds') . $filename
 
