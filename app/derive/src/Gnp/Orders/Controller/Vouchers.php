@@ -97,6 +97,7 @@ class Vouchers extends Controller
                             'voucherId' => function(Order $order) {
                                 return $order->getVoucherId();
                             },
+                            'voucher_url',
                             'voucher_sent_at',
                         ]
                     ) . view('Gnp\Orders:vouchers');
