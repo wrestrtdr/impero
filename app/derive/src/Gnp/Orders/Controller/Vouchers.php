@@ -45,12 +45,9 @@ class Vouchers extends Controller
         $this->sortService->applyOnEntity($orders);
         $this->groupService->applyOnEntity($orders);
 
-        $all = $orders->withAppartment()
-                      ->withCheckin()
-                      ->withPeople()
-                      ->withOffer()
+        $all = $orders->withOffer()
                       ->joinActiveOffer()// this needs to be solved by relation filter ...
-                      ->forAllocation()// here we need relation orders.orders_users.dt_confirmed
+                      ->forVouchers()// here we need relation orders.orders_users.dt_confirmed
                       ->all();
 
         $groupedBy = $all->groupBy(

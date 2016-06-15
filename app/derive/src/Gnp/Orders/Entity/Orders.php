@@ -103,10 +103,18 @@ class Orders extends Entity implements MaestroEntity
 
     public function forAllocation() {
         return $this->payed()
-            ->confirmed()
-            ->withUser()
-            ->withConfirmedPackets()
-            ->where('offer_id', [17, 18, 19]);
+                    ->confirmed()
+                    ->withUser()
+                    ->withConfirmedPackets()
+                    ->where('offer_id', [17, 18, 19]);
+    }
+
+    public function forVouchers() {
+        return $this->payed()
+                    ->confirmed()
+                    ->withUser()
+                    ->withConfirmedPackets()
+                    ->where('offer_id', [14, 20, 17, 16, 18, 19, 21, 22, 23]);
     }
 
 }
