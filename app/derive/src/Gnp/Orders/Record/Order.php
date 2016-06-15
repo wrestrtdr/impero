@@ -75,17 +75,22 @@ class Order extends Record
     public function sendVoucher() {
         $mailer = new Mail();
 
+        $template = view('Gnp\Orders:voucherMail', ['order' => $this]);
+
         try {
             $mailer->from('bob@schtr4jh.net', 'Bojan @ Bob')
                    ->to('schtr4jh@schtr4jh.net', 'Bojan Rajh')
-                   ->subject('Test subject čšžČŠŽ')
-                   ->body('<p><b>HTML</b> body čšžČŠŽ</p>')
-                   ->plainBody('Plain body')
-                   ->attach('storage/impero/virtualhosts.conf', 'application/pdf', 'Voucher #' . $this->id)
+                   ->subject('Your VOUCHER for Hard Island Festival is here!')
+                   ->body($template->autoparse())
+                //->attach('storage/impero/virtualhosts.conf', 'application/pdf', 'Voucher #' . $this->id)
                    ->send();
         } catch (\Exception $e) {
             dd(exception($e));
         }
+    }
+
+    public function getAbsoluteVoucherUrl() {
+        return path('storage') . 'derive' . path('ds') . 'voucher' . path('ds') . $this->voucher_url;
     }
 
     public function generateVoucher() {
@@ -101,10 +106,11 @@ class Order extends Record
         /**
          * Save as ...
          */
-        $request->setOutputFile(
-            path('storage') . 'derive' . path('ds') . 'voucher' . path('ds') . 'order-' . $this->id . '-' . date(
+        $filename = 'order-' . $this->id . '-' . date(
                 'YmdHis'
-            ) . '.pdf'
+            ) . '.pdf';
+        $request->setOutputFile(
+            path('storage') . 'derive' . path('ds') . 'voucher' . path('ds') . $filename
 
         );
 
@@ -124,6 +130,9 @@ class Order extends Record
          * Run everything.
          */
         $client->send($request, $response);
+
+        $this->voucher_url = $filename;
+        $this->save();
     }
 
     public function getVoucherId() {

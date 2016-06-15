@@ -73,6 +73,7 @@ class Vouchers extends Controller
                             'generateVoucher',
                             'sendVoucher',
                             'previewVoucher',
+                            'downloadVoucher',
                         ]
                     )
                     ->setFields(
@@ -133,6 +134,13 @@ class Vouchers extends Controller
         );
 
         return $this->response()->respondWithAjaxSuccessAndRedirectBack();
+    }
+
+    public function getDownloadAction(Order $order) {
+        header("Content-type:application/pdf");
+        header("Content-Disposition:attachment;filename='voucher-hard-island-" . $order->id . "'");
+        readfile($order->getAbsoluteVoucherUrl());
+        die();
     }
 
 }
