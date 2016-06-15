@@ -1,6 +1,6 @@
 {% if record.voucher_url %}
 <div class="downloadVouvher">
-    <a type="button" class="btn btn-warning" href="{{ url('derive.orders.voucher.download', {'order': record}) }}"
-       title="{{ __('download_voucher') }}">Download voucher<i class="fa fa-pencil" aria-hidden="true"></i></a>
+    <a type="button" class="btn btn-success" href="{{ url('derive.orders.voucher.download', {'order': record}) }}"
+       title="{{ __('download_voucher') }}"><i class="fa fa-download" aria-hidden="true"></i></a>
 </div>
 {% endif %}
