@@ -82,7 +82,7 @@ class Order extends Record
                    ->to('schtr4jh@schtr4jh.net', 'Bojan Rajh')
                    ->subject('Your VOUCHER for Hard Island Festival is here!')
                    ->body($template->autoparse())
-                   ->attach($this->getAbsoluteVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
+                   ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
                    ->send();
         } catch (\Exception $e) {
             dd(exception($e));
@@ -91,6 +91,10 @@ class Order extends Record
 
     public function getAbsoluteVoucherUrl() {
         return path('storage') . 'derive' . path('ds') . 'voucher' . path('ds') . $this->voucher_url;
+    }
+
+    public function getRelativeVoucherUrl() {
+        return str_replace(path('root'), '', path('storage')) . 'derive' . path('ds') . 'voucher' . path('ds') . $this->voucher_url;
     }
 
     public function generateVoucher() {
