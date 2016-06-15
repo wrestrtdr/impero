@@ -3,6 +3,7 @@
 use Gnp\Orders\Console\PhantomJsHtml;
 use Gnp\Orders\Entity\Orders;
 use JonnyW\PhantomJs\Client;
+use Pckg\Collection;
 use Pckg\Concept\Reflect;
 use Pckg\Database\Record;
 use Pckg\Mail\Service\Mail;
@@ -40,7 +41,7 @@ class Order extends Record
         $attr = (
         new OrdersTag(
             [
-                'type'     => $type,
+                'type' => $type,
                 'order_id' => $this->id,
             ]
         )
@@ -60,6 +61,31 @@ class Order extends Record
                     return count($packetGroup) . 'x ' . $packetGroup[0]->title;
                 },
                 $packets->all()
+            )
+        );
+    }
+
+    public function getAdditionsSummary() {
+        $additions = new Collection();
+        $this->ordersUsers->each(
+            function(OrdersUser $orderUser) use ($additions) {
+                $orderUser->additions->each(
+                    function($addition) use ($additions) {
+                        $additions->push($addition->addition);
+                    }
+                );
+            }
+        );
+
+        $additions = $additions->groupBy('id');
+
+        return implode(
+            "<br />",
+            array_map(
+                function($additions) {
+                    return count($additions) . 'x ' . $additions[0]->title;
+                },
+                $additions->all()
             )
         );
     }
@@ -94,7 +120,9 @@ class Order extends Record
     }
 
     public function getRelativeVoucherUrl() {
-        return str_replace(path('root'), '', path('storage')) . 'derive' . path('ds') . 'voucher' . path('ds') . $this->voucher_url;
+        return str_replace(path('root'), '', path('storage')) . 'derive' . path('ds') . 'voucher' . path(
+            'ds'
+        ) . $this->voucher_url;
     }
 
     public function generateVoucher() {

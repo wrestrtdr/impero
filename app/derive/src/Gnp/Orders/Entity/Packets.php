@@ -17,7 +17,7 @@ class Packets extends Entity
                     ->primaryKey('id')
                     ->foreignKey('packet_id')
                     ->fill('voucherTab')
-                    ->where('picture');
+                    ->where('picture', null, 'IS NOT');
     }
 
 }

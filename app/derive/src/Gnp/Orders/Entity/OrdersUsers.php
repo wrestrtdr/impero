@@ -36,4 +36,14 @@ class OrdersUsers extends Entity
         return $this->where('dt_confirmed');
     }
 
+    public function additions() {
+        return $this->hasAndBelongsTo(PacketsAdditions::class)
+                    ->over(OrdersUsersAdditions::class)
+                    ->leftForeignKey('orders_user_id')
+                    ->rightForeignKey('addition_id')
+                    ->leftPrimaryKey('id')
+                    ->rightPrimaryKey('id')
+                    ->fill('additions');
+    }
+
 }

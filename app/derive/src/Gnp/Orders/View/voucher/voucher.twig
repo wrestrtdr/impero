@@ -220,6 +220,11 @@
             padding: 25px 0;
             text-align: center;
         }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 
@@ -299,12 +304,26 @@
                 <div class="vertical-title">VOUCHER ID</div>
                 <div class="code">{{ order.getVoucherId() }}</div>
             </div>
-            {% for orderUser in order.ordersUsers %}
+            <div class="package">
+                <div class="title">{{ order.getPacketsSummary() | raw }}</div>
+                <div class="subtitle">{{ order.getAdditionsSummary() | raw }}</div>
+            </div>
+            <br />
+            {% if order.appartment.value %}
                 <div class="package">
-                    <div class="title">{{ orderUser.packet.title | raw }}</div>
-                    <div class="subtitle">BOAT PARTY CANCELATION INSURANCE UPGRADE TO VIP</div>
+                    App: {{ order.appartment.value }}
                 </div>
-            {% endfor %}
+            {% endif %}
+            {% if order.checkin.value %}
+                <div class="package">
+                    People: {{ order.people.value }}
+                </div>
+            {% endif %}
+            {% if order.appartment.value%}
+                <div class="package">
+                    Checkin: {{ order.checkin.value }}
+                </div>
+            {% endif %}
         </div>
         <div class="clear"></div>
 
@@ -312,39 +331,39 @@
             <div class="line-break"></div>
 
             <div class="small-info">
-                <b>Minimum age:</b> Etiam ornare sagittis libero, sit amet tincidunt ante vehicula sed. Ut porttitor
-                gravida mi, eget pellentesque nibh tristique vitae. Nam sagittis eu metus eget ullamcorper.
+                <b>Minimum age:</b> The minimum age requirement for this event is 18+ with exception of everyone who will celebrate their 18th birthday in 2016, but not before Hard Island Festival.
             </div>
             <div class="small-info">
-                <b>Attention:</b> Etiam ornare sagittis libero, sit amet tincidunt ante vehicula sed. Ut porttitor
-                gravida mi, eget pellentesque nibh tristique vitae. Nam sagittis eu metus eget ullamcorper at <strong
+                <b>Attention:</b> Every voucher has an ID code unique to the client booking number. Do not try to copy this ticket, each combination can be used only once. Regarding questions write us at  <strong
                         class="link">info@hardisland.com.</strong>
             </div>
             <div class="small-info">
-                <b>Terms and conditions:</b><br/> www.hardisland.com/tandc
+                <b>Terms and conditions:</b><br/>
+                www.hardisland.com/tandc
             </div>
         </div>
         <div class="right-column">
             <div class="small-info phone-numbers">
                 <div class="title">
                     <div class="line-break"></div>
-                    Police
+                    General & Accommodation Info <br />(every day 10 am - 8 pm)
                 </div>
                 <div class="number">
                     <div class="clear"></div>
-                    +386 54 200 185
+                    +385 958 874 814
                 </div>
                 <div class="clear"></div>
-                <div class="title">Ambulance</div>
-                <div class="number">+386 54 200 185</div>
+                <div class="title">Assistance 24/7 <br />(urgent matters only)</div>
+                <div class="number">+385 911 614 624</div>
                 <div class="clear"></div>
-                <div class="title">Info</div>
-                <div class="number">+386 54 200 185</div>
+                <div class="title">Ambulance 24/7 <br />(medical emergency only)</div>
+                <div class="number">112</div>
                 <div class="clear"></div>
+                <p><b>PRINT YOUR VOUCHER</b> (or SAVE IT on your smartphone to quickly find it and open offline)!</p>
             </div>
             <div class="small-info">
-                <b>Emergency info:</b> Etiam ornare sagittis libero, sit amet tincidunt ante vehicula sed. Ut porttitor
-                gravida mi, eget pellentesque nibh tristique vitae. Nam sagittis eu metus eget ullamcorper.
+                <b>Frequently asked question</b><br />
+                www.hardisland.com/faq
             </div>
         </div>
 
@@ -355,15 +374,13 @@
         </div>
         <div class="clear"></div>
 
-        {% for ordersUser in order.ordersUsers %}
-            {% if ordersUser.packet.voucherTab %}
-                <div>
-                    {{ ordersUser.packet.voucherTab.title | raw }}
-                    {{ ordersUser.packet.voucherTab.content | raw }}
-                    {{ ordersUser.packet.voucherTab.picture | raw }}
-                </div>
-            {% endif %}
-        {% endfor %}
+        {% if order.ordersUsers.first().packet.voucherTab %}
+            <div>
+                {{ order.ordersUsers.first().packet.voucherTab.title | raw }}
+                {{ order.ordersUsers.first().packet.voucherTab.content | raw }}
+                <img src="http://hi.gonparty.eu/media/{{ order.ordersUsers.first().packet.voucherTab.picture | raw }}" />
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>
