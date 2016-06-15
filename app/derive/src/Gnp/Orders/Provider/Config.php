@@ -54,6 +54,21 @@ class Config extends Provider
                         'order' => OrdersResolver::class,
                     ],
                 ],
+                '/orders/vouchers'                           => [
+                    'controller' => Vouchers::class,
+                    'view'       => 'index',
+                    'name'       => 'derive.orders.vouchers',
+                ],
+                '/orders/voucher/generate/[orders]'         => [
+                    'controller' => Vouchers::class,
+                    'view'       => 'generate',
+                    'name'       => 'derive.orders.vouchers.generate',
+                ],
+                '/orders/voucher/send/[orders]'             => [
+                    'controller' => Vouchers::class,
+                    'view'       => 'send',
+                    'name'       => 'derive.orders.vouchers.send',
+                ],
             ],
         ];
     }

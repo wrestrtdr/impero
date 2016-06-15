@@ -64,6 +64,14 @@ class Order extends Record
         );
     }
 
+    public function queueSendVoucher() {
+        queue()->create('voucher:send --orders ' . $this->id);
+    }
+
+    public function queueGenerateVoucher() {
+        queue()->create('voucher:generate --orders ' . $this->id);
+    }
+
     public function sendVoucher() {
         $mailer = new Mail();
 

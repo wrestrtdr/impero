@@ -1,0 +1,66 @@
+{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'sendVouchersModal'} %}
+    {% block header %}
+        Send vouchers
+    {% endblock %}
+    {% block body %}
+        <p>Do you really want to send vouchers {{ '{{ ids }}' }}?</p>
+        <button class="btn btn-success" v-on:click.prevent="sendVouchers">Yes, send vouchers</button>
+    {% endblock %}
+{% endembed %}
+
+{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'generateVouchersModal'} %}
+    {% block header %}
+        Generate vouchers
+    {% endblock %}
+    {% block body %}
+        <p>Do you really want to generate vouchers {{ '{{ ids }}' }}?</p>
+        <button class="btn btn-success" v-on:click.prevent="generateVouchers">Yes, generate vouchers</button>
+    {% endblock %}
+{% endembed %}
+
+<script type="text/javascript">
+    var orderAttributes = new Vue({
+        el: '.container-fluid',
+        data: function () {
+            return {
+                ids: ''
+            };
+        },
+        methods: {
+            checkSendVoucher: function (id) {
+                if (typeof id === 'undefined') {
+                    ids = [];
+                    $('table.table input[type=checkbox]:checked').each(function () {
+                        ids.push($(this).data('id'));
+                    });
+                    this.ids = ids.join(',');
+                } else {
+                    this.ids = id;
+                }
+                $('#sendVouchersModal').modal('show');
+            },
+            sendVouchers: function () {
+                http.post('/dev.php/orders/voucher/send/' + this.ids, {}, function (json) {
+                    $('#sendVouchersModal').modal('hide');
+                });
+            },
+            checkGenerateVoucher: function (id) {
+                if (typeof id === 'undefined') {
+                    ids = [];
+                    $('table.table input[type=checkbox]:checked').each(function () {
+                        ids.push($(this).data('id'));
+                    });
+                    this.ids = ids.join(',');
+                } else {
+                    this.ids = id;
+                }
+                $('#generateVouchersModal').modal('show');
+            },
+            generateVouchers: function () {
+                http.post('/dev.php/orders/voucher/generate/' + this.ids, {}, function (json) {
+                    $('#generateVouchersModal').modal('hide');
+                });
+            }
+        }
+    });
+</script>

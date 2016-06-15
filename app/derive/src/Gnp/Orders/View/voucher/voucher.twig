@@ -301,7 +301,7 @@
             </div>
             {% for orderUser in order.ordersUsers %}
                 <div class="package">
-                    <div class="title">{{ orderUser.packet.title }}</div>
+                    <div class="title">{{ orderUser.packet.title | raw }}</div>
                     <div class="subtitle">BOAT PARTY CANCELATION INSURANCE UPGRADE TO VIP</div>
                 </div>
             {% endfor %}
@@ -348,11 +348,22 @@
             </div>
         </div>
 
-        <udiv class="clear"></udiv>
+        <div class="clear"></div>
 
         <div class="footer">
             READ ALL INFO: <b>WWW.HARDISLAND.COM/INFO</b>
         </div>
+        <div class="clear"></div>
+
+        {% for ordersUser in order.ordersUsers %}
+            {% if ordersUser.packet.voucherTab %}
+                <div>
+                    {{ ordersUser.packet.voucherTab.title | raw }}
+                    {{ ordersUser.packet.voucherTab.content | raw }}
+                    {{ ordersUser.packet.voucherTab.picture | raw }}
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 </body>
 </html>
