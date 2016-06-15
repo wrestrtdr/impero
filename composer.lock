@@ -1018,12 +1018,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "83d5a0d2785cae54ca26c056c4c7ea7d87ffb464"
+                "reference": "2ad56b503d75a559e75af22db1fe117b8cc4eda7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/83d5a0d2785cae54ca26c056c4c7ea7d87ffb464",
-                "reference": "83d5a0d2785cae54ca26c056c4c7ea7d87ffb464",
+                "url": "https://api.github.com/repos/pckg/database/zipball/2ad56b503d75a559e75af22db1fe117b8cc4eda7",
+                "reference": "2ad56b503d75a559e75af22db1fe117b8cc4eda7",
                 "shasum": ""
             },
             "require": {
@@ -1051,7 +1051,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-12 20:51:40"
+            "time": "2016-06-15 19:18:48"
         },
         {
             "name": "pckg/dynamic",
@@ -1833,12 +1833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "947273360c7107d0bdcd7bf8d245e6366a8d960a"
+                "reference": "11b00cad3b2bd8aef2b939d21e2e8f5051acf8c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/947273360c7107d0bdcd7bf8d245e6366a8d960a",
-                "reference": "947273360c7107d0bdcd7bf8d245e6366a8d960a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/11b00cad3b2bd8aef2b939d21e2e8f5051acf8c1",
+                "reference": "11b00cad3b2bd8aef2b939d21e2e8f5051acf8c1",
                 "shasum": ""
             },
             "require": {
@@ -1885,7 +1885,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-14 11:18:32"
+            "time": "2016-06-15 16:15:10"
         },
         {
             "name": "symfony/debug",
