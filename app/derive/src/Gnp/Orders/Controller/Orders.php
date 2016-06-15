@@ -82,7 +82,7 @@ class Orders extends Controller
 
         return $this->tabelize($orders, ['id'], 'Orders')
                     ->setRecords($groupedBy)
-                    ->setGroupByLevels(2)
+                    ->setGroupByLevels([0,1])
                     ->setEntityActions(
                         [
                             'add',
