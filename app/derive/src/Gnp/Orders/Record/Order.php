@@ -131,6 +131,7 @@ class Order extends Record
          */
         $client = Client::getInstance();
         $client->getEngine()->setPath('/usr/local/share/phantomjs-2.1.1-linux-i686/bin/phantomjs');
+        $client->getEngine()->debug(true);
         $request = $client->getMessageFactory()->createPdfRequest(
             url('derive.orders.voucher.getHtml', ['order' => $this], true),
             'GET'
