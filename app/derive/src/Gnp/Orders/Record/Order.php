@@ -112,15 +112,16 @@ class Order extends Record
         $mailer = new Mail();
 
         $template = view('Gnp\Orders:voucherMail', ['order' => $this]);
+        $body = $template->autoparse();
 
         try {
-            $sent = $mailer->from('bob@schtr4jh.net', 'Bojan @ Bob')
+            $sent = $mailer->from('info@hardisland.com', 'HardIsland')
                            ->to('mario.benic@gmail.com', 'Mario Benic')
                            ->to('schtr4jh@schtr4jh.net', 'Bojan Rajh')
                            ->to('mario@gonparty.eu', 'Mario Benic')
                            ->to('matija.gatalo@gmail.com', 'Matija Gatalo')
                            ->subject('Your VOUCHER for Hard Island ' . $this->offer->title)
-                           ->body($template->autoparse())
+                           ->body($body)
                            ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
                            ->send();
 
