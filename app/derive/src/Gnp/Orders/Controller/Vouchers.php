@@ -145,7 +145,7 @@ class Vouchers extends Controller
 
     public function getDownloadAction(Order $order) {
         header("Content-type:application/pdf");
-        header("Content-Disposition:attachment;filename='voucher-hard-island-" . $order->id . "'");
+        header("Content-Disposition:attachment;filename='Voucher #" . $order->id . ".pdf'");
         readfile($order->getAbsoluteVoucherUrl());
         die();
     }

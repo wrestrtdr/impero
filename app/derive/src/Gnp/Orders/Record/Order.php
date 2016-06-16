@@ -115,9 +115,8 @@ class Order extends Record
         $body = $template->autoparse();
 
         try {
-            die();
             $sent = $mailer->from('info@hardisland.com', 'HardIsland')
-                           ->to($user->email, $user->name . ' ' . $user->surname)
+                           ->to($this->user->email, $this->user->name . ' ' . $this->user->surname)
                            ->subject('Your VOUCHER for Hard Island ' . $this->offer->title)
                            ->body($body)
                            ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
