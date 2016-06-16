@@ -950,12 +950,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "03305d72b5a22be9a2ec9995fcd4682d4c7c8d2f"
+                "reference": "a34d4e1ef4bc8ded0bf1b3c1e16d90bb4a523c53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/03305d72b5a22be9a2ec9995fcd4682d4c7c8d2f",
-                "reference": "03305d72b5a22be9a2ec9995fcd4682d4c7c8d2f",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/a34d4e1ef4bc8ded0bf1b3c1e16d90bb4a523c53",
+                "reference": "a34d4e1ef4bc8ded0bf1b3c1e16d90bb4a523c53",
                 "shasum": ""
             },
             "type": "library",
@@ -976,7 +976,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-06-12 20:51:14"
+            "time": "2016-06-16 19:13:01"
         },
         {
             "name": "pckg/concept",
@@ -1559,12 +1559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "a54cf8494776f0a5785d84cc922bf7ef34410651"
+                "reference": "58e6b33c4fe7722bdd48f7cbbbf3a3eb2005dd11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/a54cf8494776f0a5785d84cc922bf7ef34410651",
-                "reference": "a54cf8494776f0a5785d84cc922bf7ef34410651",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/58e6b33c4fe7722bdd48f7cbbbf3a3eb2005dd11",
+                "reference": "58e6b33c4fe7722bdd48f7cbbbf3a3eb2005dd11",
                 "shasum": ""
             },
             "type": "library",
@@ -1587,7 +1587,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-06-16 12:03:04"
+            "time": "2016-06-16 19:33:04"
         },
         {
             "name": "psr/log",
@@ -2230,12 +2230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c13d6948f231c38e66242dfa4d7d8b4a180d8d45"
+                "reference": "7eaa2ba89227b2809ea89e6abf5636ecbf6c9a2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c13d6948f231c38e66242dfa4d7d8b4a180d8d45",
-                "reference": "c13d6948f231c38e66242dfa4d7d8b4a180d8d45",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/7eaa2ba89227b2809ea89e6abf5636ecbf6c9a2d",
+                "reference": "7eaa2ba89227b2809ea89e6abf5636ecbf6c9a2d",
                 "shasum": ""
             },
             "require": {
@@ -2271,7 +2271,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-16 08:34:19"
+            "time": "2016-06-16 19:29:32"
         },
         {
             "name": "twbs/bootstrap",
