@@ -6,20 +6,17 @@ components
 bower_components
 
 # WWW
-www/cache/css/*
-www/cache/js/*
-www/cache/img/*
-www/uploads/*
+www/cache/**
+www/media/**
 
 # GIT
 !**/.gitkeep
 
-# CACHE
-cache/*/*
+# STORAGE
 storage/**
 
 # LOGS
-logs
+logs/**
 
 # ENV
 app/*/config/env.php
