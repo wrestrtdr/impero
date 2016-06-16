@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "pckg/backend": "dev-master"
+    "pckg/backend": "dev-master",
+    "jonnyw/php-phantomjs": "4.*"
   },
   "minimum-stability": "dev",
   "autoload": {
