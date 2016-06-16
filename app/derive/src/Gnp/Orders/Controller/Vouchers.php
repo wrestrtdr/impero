@@ -94,6 +94,15 @@ class Vouchers extends Controller
                             'packets'   => function(Order $order) {
                                 return $order->getPacketsSummary();
                             },
+                            'app' => function(Order $order){
+                                return $order->appartment ? $order->appartment->value : '';
+                            },
+                            'people' => function(Order $order){
+                                return $order->people ? $order->people->value : '';
+                            },
+                            'checkin' => function(Order $order){
+                                return $order->checkin ? $order->checkin->value : '';
+                            },
                             'voucherId' => function(Order $order) {
                                 return $order->getVoucherId();
                             },
