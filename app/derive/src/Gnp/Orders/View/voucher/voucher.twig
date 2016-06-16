@@ -49,7 +49,7 @@
             font-weight: 300;
             margin: 0;
             zoom: 0.595;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         b {
@@ -88,7 +88,7 @@
         }
 
         .body {
-            margin: 15px 7%;
+            margin: 15px 50px;
         }
 
         .body .left-column {
@@ -144,7 +144,7 @@
         }
 
         .small-info {
-            margin-top: 15px;
+            margin-top: 5px;
         }
 
         .body .right-column {
@@ -189,13 +189,27 @@
         .phone-numbers {
             font-weight: bold;
             margin-top: 0;
+            float: right;
         }
 
         .phone-numbers .title {
-            display: inline-block;
-            width: 100%;
+            display: block;
+            float: left;
+            margin-top: 6px;
+        }
+        .phone-numbers .title:after {
+            content: '';
+            display: block;
+            clear: both;
             float: left;
         }
+        .phone-numbers .number:after {
+            content: '';
+            display: block;
+            clear: both;
+            float: left;
+        }
+
 
         .phone-numbers .title .line-break {
             margin-bottom: 15px;
@@ -206,11 +220,9 @@
         }
 
         .phone-numbers .number {
-            display: inline-block;
-            width: 100%;
-            float: left;
-            text-align: right;
-            margin: 0 0 12px 0;
+            display: block;
+            float: right;
+            margin-top: 6px;
         }
 
         .footer {
@@ -349,15 +361,16 @@
         </div>
         <div class="right-column">
             <div class="small-info phone-numbers">
-                <div class="title">
-                    <div class="line-break"></div>
-                    General & Accommodation Info <br />(every day 10 am - 8 pm)
-                </div>
+                <div class="line-break"></div>
+                <div class="title">General & Accommodation Info <br />(every day 10 am - 8 pm)</div>
                 <div class="number">+385 958 874 814</div>
+                <div class="clear"></div>
                 <div class="title">Assistance 24/7 <br />(urgent matters only)</div>
                 <div class="number">+385 911 614 624</div>
+                <div class="clear"></div>
                 <div class="title">Ambulance 24/7 <br />(medical emergency only)</div>
                 <div class="number">112</div>
+                <div class="clear"></div>
                 <p><b>PRINT YOUR VOUCHER</b> (or SAVE IT on your smartphone to quickly find it and open offline)!</p>
             </div>
         </div>
