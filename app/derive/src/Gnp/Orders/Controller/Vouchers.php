@@ -97,11 +97,11 @@ class Vouchers extends Controller
                             'app' => function(Order $order){
                                 return $order->appartment ? $order->appartment->value : '';
                             },
-                            'people' => function(Order $order){
-                                return $order->people ? $order->people->value : '';
-                            },
                             'checkin' => function(Order $order){
                                 return $order->checkin ? $order->checkin->value : '';
+                            },
+                            'people' => function(Order $order){
+                                return $order->people ? $order->people->value : '';
                             },
                             'voucherId' => function(Order $order) {
                                 return $order->getVoucherId();

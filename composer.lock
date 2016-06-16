@@ -1559,12 +1559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "008f64eafd33f9c8fd2bbb4b465eaf5b9fa1e642"
+                "reference": "405a8347fe87cd53ccddac970927b07847296c18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/008f64eafd33f9c8fd2bbb4b465eaf5b9fa1e642",
-                "reference": "008f64eafd33f9c8fd2bbb4b465eaf5b9fa1e642",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/405a8347fe87cd53ccddac970927b07847296c18",
+                "reference": "405a8347fe87cd53ccddac970927b07847296c18",
                 "shasum": ""
             },
             "type": "library",
@@ -1587,7 +1587,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-06-09 16:07:44"
+            "time": "2016-06-16 07:00:22"
         },
         {
             "name": "psr/log",
@@ -1833,12 +1833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "11b00cad3b2bd8aef2b939d21e2e8f5051acf8c1"
+                "reference": "e378374e21065c3ec2a230465a9f2e77ed4dc65c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/11b00cad3b2bd8aef2b939d21e2e8f5051acf8c1",
-                "reference": "11b00cad3b2bd8aef2b939d21e2e8f5051acf8c1",
+                "url": "https://api.github.com/repos/symfony/console/zipball/e378374e21065c3ec2a230465a9f2e77ed4dc65c",
+                "reference": "e378374e21065c3ec2a230465a9f2e77ed4dc65c",
                 "shasum": ""
             },
             "require": {
@@ -1885,7 +1885,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-15 16:15:10"
+            "time": "2016-06-16 06:25:44"
         },
         {
             "name": "symfony/debug",
