@@ -52,7 +52,14 @@ class Order extends Record
     }
 
     public function getPacketsSummary() {
-        $packets = $this->packets->removeEmpty()->groupBy('id');
+        $packets = new Collection();
+        $this->ordersUsers->each(
+            function(OrdersUser $orderUser) use ($packets) {
+                $packets->push($orderUser->packet);
+            }
+        );
+
+        $packets = $packets->groupBy('id');
 
         return implode(
             "<br />",
@@ -95,7 +102,10 @@ class Order extends Record
     }
 
     public function queueGenerateVoucher() {
-        queue()->create('voucher:generate --orders ' . $this->id)->makeTimeoutAfterLast('voucher:generate', '+2 seconds');
+        queue()->create('voucher:generate --orders ' . $this->id)->makeTimeoutAfterLast(
+            'voucher:generate',
+            '+2 seconds'
+        );
     }
 
     public function sendVoucher() {
@@ -105,11 +115,14 @@ class Order extends Record
 
         try {
             $sent = $mailer->from('bob@schtr4jh.net', 'Bojan @ Bob')
-                   ->to('schtr4jh@schtr4jh.net', 'Bojan Rajh')
-                   ->subject('Your VOUCHER for Hard Island Festival is here!')
-                   ->body($template->autoparse())
-                   ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
-                   ->send();
+                           ->to('mario.benic@gmail.com', 'Mario Benic')
+                           ->to('schtr4jh@schtr4jh.net', 'Bojan Rajh')
+                           ->to('mario@gonparty.eu', 'Mario Benic')
+                           ->to('matija.gatalo@gmail.com', 'Matija Gatalo')
+                           ->subject('Your VOUCHER for Hard Island ' . $this->offer->title)
+                           ->body($template->autoparse())
+                           ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
+                           ->send();
 
             if ($sent) {
                 $this->voucher_sent_at = date('Y-m-d H:i:s');

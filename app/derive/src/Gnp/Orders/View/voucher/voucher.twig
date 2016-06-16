@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Untitled Document</title>
+    <base href="/app/derive/src/Gnp/Orders/View/voucher/" target="_blank">
 
     <style>
         @font-face {
@@ -49,7 +50,7 @@
             font-weight: 300;
             margin: 0;
             zoom: 0.595;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         b {
@@ -160,6 +161,7 @@
             position: relative;
             text-align: center;
             width: 100%;
+            margin-bottom: 36px;
         }
 
         .voucher-id-box .vertical-title {
@@ -173,17 +175,21 @@
             transform-origin: left top 0;
         }
 
+        .attribute {
+            font-size: 16px;
+        }
+
         .package .title {
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 800;
-            line-height: 36px;
-            margin-top: 35px;
+            line-height: 24px;
+            margin-top: 12px;
         }
 
         .package .subtitle {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 12px;
         }
 
         .phone-numbers {
@@ -226,11 +232,11 @@
         }
 
         .footer {
-            border-bottom: 7px solid #000;
-            border-top: 7px solid #000;
-            font-size: 36px;
-            margin-top: 30px;
-            padding: 25px 0;
+            border-bottom: 5px solid #000;
+            border-top: 5px solid #000;
+            font-size: 20px;
+            margin-top: 20px;
+            padding: 12px 0;
             text-align: center;
         }
 
@@ -318,23 +324,26 @@
                 <div class="code">{{ order.getVoucherId() }}</div>
             </div>
             <div class="package">
+                <div class="title">{{ order.offer.title | raw }}</div>
+            </div>
+            <div class="package">
                 <div class="title">{{ order.getPacketsSummary() | raw }}</div>
                 <div class="subtitle">{{ order.getAdditionsSummary() | raw }}</div>
             </div>
             <br />
+            {% if order.appartment.value%}
+                <div class="attribute">
+                    Check-in: <br />{{ order.checkin.value }}
+                </div>
+            {% endif %}
             {% if order.appartment.value %}
-                <div class="package">
-                    App: {{ order.appartment.value }}
+                <div class="attribute">
+                    {{ order.appartment.value }}
                 </div>
             {% endif %}
             {% if order.checkin.value %}
-                <div class="package">
-                    People: {{ order.people.value }}
-                </div>
-            {% endif %}
-            {% if order.appartment.value%}
-                <div class="package">
-                    Checkin: {{ order.checkin.value }}
+                <div class="attribute">
+                    {{ order.people.value }}
                 </div>
             {% endif %}
         </div>
@@ -362,7 +371,7 @@
         <div class="right-column">
             <div class="small-info phone-numbers">
                 <div class="line-break"></div>
-                <div class="title">General & Accommodation Info <br />(every day 10 am - 8 pm)</div>
+                <div class="title">General & Accommodation<br />(every day 10 am - 8 pm)</div>
                 <div class="number">+385 958 874 814</div>
                 <div class="clear"></div>
                 <div class="title">Assistance 24/7 <br />(urgent matters only)</div>
@@ -376,11 +385,12 @@
         </div>
 
         <div class="clear"></div>
-        <div style="page-break-before:always; padding-bottom: 40px;"></div>
 
         <div class="footer">
-            READ ALL INFO: <b>WWW.HARDISLAND.COM/INFO</b>
+            READ ALL INFO: <b>WWW.HARDISLAND.COM/INFOBOOK</b><br />
         </div>
+        <div style="font-size: 15px; text-align: center; margin-top: 20px; ">PLEASE SCROLL DOWN AND READ INSTRUCTIONS ON THE NEXT PAGE</div>
+        <div style="page-break-before:always; padding-bottom: 40px;"></div>
         <div class="clear"></div>
 
         {% if order.ordersUsers.first().packet.voucherTab %}
