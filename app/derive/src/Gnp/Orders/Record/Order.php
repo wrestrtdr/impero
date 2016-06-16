@@ -119,7 +119,7 @@ class Order extends Record
                            ->to($this->user->email, $this->user->name . ' ' . $this->user->surname)
                            ->subject('Your VOUCHER for Hard Island ' . $this->offer->title)
                            ->body($body)
-                           ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
+                           ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id . '.pdf')
                            ->send();
 
             if ($sent) {
