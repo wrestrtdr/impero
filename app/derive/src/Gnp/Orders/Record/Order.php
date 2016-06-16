@@ -98,7 +98,7 @@ class Order extends Record
     }
 
     public function queueSendVoucher() {
-        queue()->create('voucher:send --orders ' . $this->id)->makeTimeoutAfterLast('voucher:send', '+10 seconds');
+        queue()->create('voucher:send --orders ' . $this->id)->makeTimeoutAfterLast('voucher:send', '+5 seconds');
     }
 
     public function queueGenerateVoucher() {
@@ -115,11 +115,9 @@ class Order extends Record
         $body = $template->autoparse();
 
         try {
+            die();
             $sent = $mailer->from('info@hardisland.com', 'HardIsland')
-                           ->to('mario.benic@gmail.com', 'Mario Benic')
-                           ->to('schtr4jh@schtr4jh.net', 'Bojan Rajh')
-                           ->to('mario@gonparty.eu', 'Mario Benic')
-                           ->to('matija.gatalo@gmail.com', 'Matija Gatalo')
+                           ->to($user->email, $user->name . ' ' . $user->surname)
                            ->subject('Your VOUCHER for Hard Island ' . $this->offer->title)
                            ->body($body)
                            ->attach($this->getRelativeVoucherUrl(), 'application/pdf', 'Voucher #' . $this->id)
@@ -127,6 +125,7 @@ class Order extends Record
 
             if ($sent) {
                 $this->voucher_sent_at = date('Y-m-d H:i:s');
+                $this->save();
             }
         } catch (\Exception $e) {
             dd(exception($e));
