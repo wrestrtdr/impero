@@ -91,11 +91,11 @@ class Order extends Record
     }
 
     public function queueSendVoucher() {
-        queue()->create('voucher:send --orders ' . $this->id)->makeTimeoutAfterLast('voucher:send', '10 seconds');
+        queue()->create('voucher:send --orders ' . $this->id)->makeTimeoutAfterLast('voucher:send', '+10 seconds');
     }
 
     public function queueGenerateVoucher() {
-        queue()->create('voucher:generate --orders ' . $this->id)->makeTimeoutAfterLast('voucher:send', '2 seconds');
+        queue()->create('voucher:generate --orders ' . $this->id)->makeTimeoutAfterLast('voucher:generate', '+2 seconds');
     }
 
     public function sendVoucher() {
