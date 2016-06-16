@@ -113,6 +113,7 @@ class Orders extends Entity implements MaestroEntity
     public function forVouchers() {
         return $this->payed()
                     ->confirmed()
+                    ->withOffer()
                     ->withCheckin()
                     ->withAppartment()
                     ->withPeople()
