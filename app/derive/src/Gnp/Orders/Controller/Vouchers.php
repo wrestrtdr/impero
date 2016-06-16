@@ -56,13 +56,15 @@ class Vouchers extends Controller
             }
         );
 
-        return $this->tabelize($orders, ['id'], 'Orders')
+        return $this->tabelize($orders, ['id'], 'Vouchers')
                     ->setRecords($groupedBy)
                     ->setGroupByLevels(1)
                     ->setEntityActions(
                         [
                             'generateVoucher',
                             'sendVoucher',
+                            'filter',
+                            'view',
                         ]
                     )
                     ->setRecordActions(
