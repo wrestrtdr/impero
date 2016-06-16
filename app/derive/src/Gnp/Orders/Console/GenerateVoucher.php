@@ -33,7 +33,7 @@ class GenerateVoucher extends Command
 
             if ($this->option('send')) {
                 $this->output('Sending voucher email for order #' . $order->id);
-                $order->generateVoucher();
+                $order->sendVoucher();
                 $this->output('Voucher for email #' . $order->id . ' sent');
             }
         }
