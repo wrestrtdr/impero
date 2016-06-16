@@ -4,6 +4,7 @@ use Gnp\Orders\Record\Order;
 use Pckg\Database\Entity;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Relation\HasAndBelongsTo;
+use Pckg\Database\Relation\HasMany;
 use Pckg\Database\Repository;
 use Pckg\Dynamic\Entity\Snippet\EntityActions;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
@@ -112,8 +113,16 @@ class Orders extends Entity implements MaestroEntity
     public function forVouchers() {
         return $this->payed()
                     ->confirmed()
+                    ->withCheckin()
+                    ->withAppartment()
+                    ->withPeople()
                     ->withUser()
                     ->withConfirmedPackets()
+                    ->withOrdersUsers(
+                        function(HasMany $ordersUsers) {
+                            $ordersUsers->withPacket();
+                        }
+                    )
                     ->where('offer_id', [14, 20, 17, 16, 18, 19, 21, 22, 23]);
     }
 
