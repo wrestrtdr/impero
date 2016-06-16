@@ -363,6 +363,7 @@
         </div>
 
         <div class="clear"></div>
+        <div style="page-break-before:always; padding-bottom: 40px;"></div>
 
         <div class="footer">
             READ ALL INFO: <b>WWW.HARDISLAND.COM/INFO</b>
@@ -370,7 +371,6 @@
         <div class="clear"></div>
 
         {% if order.ordersUsers.first().packet.voucherTab %}
-            <div style="page-break-before:always; padding-bottom: 40px;"></div>
             <div>
                 {{ order.ordersUsers.first().packet.voucherTab.title | raw }}
                 {{ order.ordersUsers.first().packet.voucherTab.content | raw }}
