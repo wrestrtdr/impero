@@ -115,7 +115,7 @@ class Orders extends Entity implements MaestroEntity
                     ->withUser()
                     ->withConfirmedPackets()
                     ->where('offer_id', [14, 20, 17, 16, 18, 19, 21, 22, 23])
-                    ->where('offer_id', [16]);
+                    ->where('offer_id', [14, 16]);
     }
 
 }
