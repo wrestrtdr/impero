@@ -1559,12 +1559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "0c9cbe11f1acc330c4d0fee903a9259fd321804a"
+                "reference": "a8274c5068e12b9cacfb538ccd534ae36f7dec40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/0c9cbe11f1acc330c4d0fee903a9259fd321804a",
-                "reference": "0c9cbe11f1acc330c4d0fee903a9259fd321804a",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/a8274c5068e12b9cacfb538ccd534ae36f7dec40",
+                "reference": "a8274c5068e12b9cacfb538ccd534ae36f7dec40",
                 "shasum": ""
             },
             "type": "library",
@@ -1587,7 +1587,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-06-16 08:23:32"
+            "time": "2016-06-16 11:14:14"
         },
         {
             "name": "psr/log",
