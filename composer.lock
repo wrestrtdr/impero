@@ -1364,12 +1364,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "27df1a60648e34251e6b38b676aa542cca7ab166"
+                "reference": "4ff19f3da9d1d848a8141ef55ecc2b31e99e3c5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/27df1a60648e34251e6b38b676aa542cca7ab166",
-                "reference": "27df1a60648e34251e6b38b676aa542cca7ab166",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/4ff19f3da9d1d848a8141ef55ecc2b31e99e3c5b",
+                "reference": "4ff19f3da9d1d848a8141ef55ecc2b31e99e3c5b",
                 "shasum": ""
             },
             "type": "library",
@@ -1392,7 +1392,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-17 13:00:51"
+            "time": "2016-06-17 14:31:26"
         },
         {
             "name": "pckg/mail",
