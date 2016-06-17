@@ -257,9 +257,9 @@
         <!-- left column -->
         <div class="left-column">
             <div class="basic-info">
-                <p><b>HARD ISLAND FESTIVAL 2015</b></p>
+                <p><b>HARD ISLAND FESTIVAL 2016</b></p>
                 <p><b>5.-8. July 2016</b></p>
-                <p><b>Kalypso Klub, Zrce beach, Croatia</b></p>
+                <p><b>Kalypso Club, Zrce beach, Croatia</b></p>
                 <p>Issued by: <b>GoNParty</b></p>
 
                 <div class="gap"></div>
@@ -331,7 +331,7 @@
                 <div class="subtitle">{{ order.getAdditionsSummary() | raw }}</div>
             </div>
             <br />
-            {% if order.appartment.value%}
+            {% if order.checkin.value %}
                 <div class="attribute">
                     Check-in: <br />{{ order.checkin.value }}
                 </div>
@@ -341,7 +341,7 @@
                     {{ order.appartment.value }}
                 </div>
             {% endif %}
-            {% if order.checkin.value %}
+            {% if order.people.value %}
                 <div class="attribute">
                     {{ order.people.value }}
                 </div>
