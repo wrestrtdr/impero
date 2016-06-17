@@ -331,9 +331,10 @@
                 <div class="subtitle">{{ order.getAdditionsSummary() | raw }}</div>
             </div>
             <br />
+            <b>Important booking information</b>
             {% if order.checkin.value %}
                 <div class="attribute">
-                    Check-in: <br />{{ order.checkin.value }}
+                    Check-in: {{ order.checkin.value }}
                 </div>
             {% endif %}
             {% if order.appartment.value %}
