@@ -1,4 +1,2 @@
-<div class="generateVoucher">
-    <a type="button" v-on:click.prevent="checkGenerateVoucher({{ record.id }})" class="btn btn-info" href="#"
+<a type="button" v-on:click.prevent="recordAction(record, 'checkGenerateVoucher')" class="btn btn-info" href="#"
        title="{{ __('generate_voucher') }}"><i class="fa fa-refresh" aria-hidden="true"></i></a>
-</div>

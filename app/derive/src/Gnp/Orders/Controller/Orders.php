@@ -4,15 +4,11 @@ use Gnp\Orders\Entity\Orders as OrdersEntity;
 use Gnp\Orders\Entity\OrdersTags;
 use Gnp\Orders\Form\Attributes;
 use Gnp\Orders\Record\Order;
-use Pckg\Auth\Service\Auth;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Relation\BelongsTo;
 use Pckg\Dynamic\Entity\Tables;
-use Pckg\Dynamic\Service\Filter as FilterService;
-use Pckg\Dynamic\Service\Sort as OrderService;
-use Pckg\Dynamic\Service\Group as GroupService;
-use Pckg\Framework\Config;
+use Pckg\Dynamic\Service\Dynamic;
 use Pckg\Framework\Controller;
 use Pckg\Maestro\Helper\Maestro;
 
@@ -21,16 +17,10 @@ class Orders extends Controller
 
     use Maestro;
 
-    protected $filterService;
+    protected $dynamicService;
 
-    protected $sortService;
-
-    protected $groupService;
-
-    public function __construct(FilterService $filterService, OrderService $sortService, GroupService $groupService) {
-        $this->filterService = $filterService;
-        $this->sortService = $sortService;
-        $this->groupService = $groupService;
+    public function __construct(Dynamic $dynamicService) {
+        $this->dynamicService = $dynamicService;
     }
 
     public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
@@ -38,23 +28,15 @@ class Orders extends Controller
          * Set table.
          */
         $table = (new Tables())->where('framework_entity', get_class($orders))->oneOrFail();
-        $this->filterService->setTable($table);
-        $this->sortService->setTable($table);
-        $this->groupService->setTable($table);
+        $this->dynamicService->setTable($table);
 
         /**
          * Apply entity extension.
          */
-        $this->filterService->applyOnEntity($orders);
-        $this->sortService->applyOnEntity($orders);
-        $this->groupService->applyOnEntity($orders);
+        $this->dynamicService->applyOnEntity($orders);
 
-        $all = $orders->withAppartment()
-                      ->withCheckin()
-                      ->withPeople()
-                      ->withOffer()
-                      ->joinActiveOffer() // this needs to be solved by relation filter ...
-                      ->forAllocation() // here we need relation orders.orders_users.dt_confirmed
+        $all = $orders->forOrders()
+                      ->forAllocation()// here we need relation orders.orders_users.dt_confirmed
                       ->all();
         /**
          * Apply collection extension.
@@ -76,53 +58,58 @@ class Orders extends Controller
 
         $attributesForm->initFields();
 
-        $data = [
-            'filter' => $this->filterService->getAppliedFilters(),
-            'group'  => $this->groupService->getAppliedGroups(),
-            'order'  => $this->sortService->getAppliedSorts(),
-        ];
+        $tabelize = $this->tabelize($orders, ['id'], 'Orders')
+                         ->setRecords($groupedBy)
+                         ->setPerPage(50)
+                         ->setPage(1)
+                         ->setTotal($all->total())
+                         ->setGroupByLevels([0, 1])
+                         ->setEntityActions(
+                             [
+                                 'add',
+                                 'filter',
+                                 'sort',
+                                 'group',
+                                 'export',
+                                 'view',
+                             ]
+                         )
+                         ->setRecordActions(
+                             [
+                                 'attributes',
+                             ]
+                         )
+                         ->setFields(
+                             [
+                                 'id',
+                                 'num',
+                                 'offer' => function($order) {
+                                     return $order->offer ? $order->offer->title : ' -- no offer -- ';
+                                 },
+                                 'payee' => function($order) {
+                                     $user = $order->user;
 
-        return $this->tabelize($orders, ['id'], 'Orders')
-                    ->setRecords($groupedBy)
-                    ->setGroupByLevels([0,1])
-                    ->setEntityActions(
-                        [
-                            'add',
-                            'filter',
-                            'sort',
-                            'group',
-                            'export',
-                            'view',
-                        ]
-                    )
-                    ->setRecordActions(
-                        [
-                            'attributes',
-                        ]
-                    )
-                    ->setFields(
-                        [
-                            'id',
-                            'num',
-                            'offer'   => function($order) {
-                                return $order->offer ? $order->offer->title : ' -- no offer -- ';
-                            },
-                            'payee'   => function($order) {
-                                $user = $order->user;
+                                     if (!$user) {
+                                         return ' -- no user -- ';
+                                     }
 
-                                if (!$user) {
-                                    return ' -- no user -- ';
-                                }
+                                     return $user->surname . ' ' . $user->name . "<br />" .
+                                            $user->email . '<br />' .
+                                            $user->phone;
+                                 },
+                                 'packets' => function(Order $order) {
+                                     return $order->getPacketsSummary();
+                                 },
+                             ]
+                         );
 
-                                return $user->surname . ' ' . $user->name . "<br />" .
-                                       $user->email . '<br />' .
-                                       $user->phone;
-                            },
-                            'packets' => function(Order $order) {
-                                return $order->getPacketsSummary();
-                            },
-                        ]
-                    ) . view('allocation', ['attributesForm' => $attributesForm]);
+        if ($this->request()->isAjax()) {
+            return [
+                'records' => $tabelize->transformRecords(),
+            ];
+        }
+
+        return $tabelize . view('allocation', ['attributesForm' => $attributesForm]);
     }
 
     public function getAllocationAction(Order $order) {
@@ -140,7 +127,11 @@ class Orders extends Controller
     public function getAllocationNonAllocatedAction() {
         return [
             'nonAllocatedOrders' => (new OrdersEntity())
-                ->where('id', new Raw('SELECT order_id FROM orders_tags WHERE type = \'appartment\' AND `value`'), 'NOT IN')
+                ->where(
+                    'id',
+                    new Raw('SELECT order_id FROM orders_tags WHERE type = \'appartment\' AND `value`'),
+                    'NOT IN'
+                )
                 ->joinActiveOffer()
                 ->forAllocation()
                 ->all(),

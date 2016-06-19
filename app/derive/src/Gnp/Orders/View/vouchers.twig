@@ -19,7 +19,8 @@
 {% endembed %}
 
 <script type="text/javascript">
-    var orderAttributes = new Vue({
+    new Vue({
+        parent: maestroTable,
         el: '.container-fluid',
         data: function () {
             return {
@@ -27,16 +28,9 @@
             };
         },
         methods: {
-            checkSendVoucher: function (id) {
-                if (typeof id === 'undefined') {
-                    ids = [];
-                    $('table.table input[type=checkbox]:checked').each(function () {
-                        ids.push($(this).data('id'));
-                    });
-                    this.ids = ids.join(',');
-                } else {
-                    this.ids = id;
-                }
+            checkSendVoucher: function (ids) {
+                this.ids = ids;
+
                 $('#sendVouchersModal').modal('show');
             },
             sendVouchers: function () {
@@ -44,16 +38,9 @@
                     $('#sendVouchersModal').modal('hide');
                 });
             },
-            checkGenerateVoucher: function (id) {
-                if (typeof id === 'undefined') {
-                    ids = [];
-                    $('table.table input[type=checkbox]:checked').each(function () {
-                        ids.push($(this).data('id'));
-                    });
-                    this.ids = ids.join(',');
-                } else {
-                    this.ids = id;
-                }
+            checkGenerateVoucher: function (ids) {
+                this.ids = ids;
+
                 $('#generateVouchersModal').modal('show');
             },
             generateVouchers: function () {
@@ -62,5 +49,21 @@
                 });
             }
         }
+    }).$on('record:checkGenerateVoucher', function (id) {
+        this.checkGenerateVoucher(id);
+
+        return true;
+    }).$on('entity:checkGenerateVoucher', function (ids) {
+        this.checkGenerateVoucher(ids.join(','));
+
+        return true;
+    }).$on('record:checkSendVoucher', function (id) {
+        this.checkSendVoucher(id);
+
+        return true;
+    }).$on('entity:checkSendVoucher', function (ids) {
+        this.checkSendVoucher(ids.join(','));
+
+        return true;
     });
 </script>

@@ -48,8 +48,8 @@ class Config extends Provider
                 ],
                 '/orders/voucher/[order]'                    => [
                     'controller' => Vouchers::class,
-                    'view'       => 'html',
-                    'name'       => 'derive.orders.voucher.getHtml',
+                    'view'       => 'preview',
+                    'name'       => 'derive.orders.voucher.preview',
                     'resolvers'  => [
                         'order' => OrdersResolver::class,
                     ],

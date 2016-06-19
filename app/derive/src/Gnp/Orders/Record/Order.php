@@ -1,6 +1,5 @@
 <?php namespace Gnp\Orders\Record;
 
-use Gnp\Orders\Console\PhantomJsHtml;
 use Gnp\Orders\Entity\Orders;
 use JonnyW\PhantomJs\Client;
 use Pckg\Collection;
@@ -23,6 +22,24 @@ class Order extends Record
         return '#';
     }
 
+    public function getDownloadVoucherUrl() {
+        return url(
+            'derive.orders.voucher.download',
+            [
+                'order' => $this,
+            ]
+        );
+    }
+
+    public function getPreviewVoucherUrl() {
+        return url(
+            'derive.orders.voucher.preview',
+            [
+                'order' => $this,
+            ]
+        );
+    }
+
     public function setAppartment($appartment) {
         $this->setTag('appartment', $appartment);
     }
@@ -41,7 +58,7 @@ class Order extends Record
         $attr = (
         new OrdersTag(
             [
-                'type' => $type,
+                'type'     => $type,
                 'order_id' => $this->id,
             ]
         )
@@ -149,7 +166,7 @@ class Order extends Record
         $client->getEngine()->setPath('/usr/local/bin/phantomjs');
         $client->getEngine()->debug(true);
         $request = $client->getMessageFactory()->createPdfRequest(
-            url('derive.orders.voucher.getHtml', ['order' => $this], true),
+            url('derive.orders.voucher.preview', ['order' => $this], true),
             'GET'
         );
 

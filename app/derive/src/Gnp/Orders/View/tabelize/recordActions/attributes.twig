@@ -1,3 +1,2 @@
-<div class="orderAttributes">
-    <a type="button" v-on:click.prevent="openAttributesPopup('{{ url('derive.orders.allocation.get', {'order': record}) }}, {{ record.id }}')" class="btn btn-warning" href="#" title="{{ __('edit_attributes') }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-</div>
+<a type="button" v-on:click.prevent="recordAction(record, 'openAttributesPopup')" class="btn btn-warning" href="#"
+   title="{{ __('edit_attributes') }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>

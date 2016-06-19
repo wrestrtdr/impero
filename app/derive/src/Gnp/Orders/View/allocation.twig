@@ -43,7 +43,8 @@
 {% endembed %}
 
 <script type="text/javascript">
-    var orderAttributes = new Vue({
+    new Vue({
+        parent: maestroTable,
         el: '.container-fluid',
         data: function () {
             return {
@@ -64,10 +65,10 @@
             };
         },
         methods: {
-            openAttributesPopup: function (url, id) {
+            openAttributesPopup: function (id) {
                 this.appartment = id;
 
-                this.fetchAttributes(url);
+                this.fetchAttributes('/dev.php/orders/allocation/attributes/' + id);
 
                 $('#attributesModal').modal('show');
             },
@@ -75,7 +76,7 @@
             fetchAppartmentData: function () {
                 this.fetchSimilarOrders();
                 if (this.nonAllocatedOrders.length == 0)
-                this.fetchNonAllocatedOrders();
+                    this.fetchNonAllocatedOrders();
             },
 
             fetchAttributes: function (url) {
@@ -133,5 +134,9 @@
                 this.nonAllocatedOrders.$remove(order);
             }
         }
+    }).$on('record:openAttributesPopup', function (id) {
+        this.openAttributesPopup(id);
+
+        return true;
     });
 </script>

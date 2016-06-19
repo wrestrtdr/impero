@@ -2,7 +2,7 @@
 
 use Gnp\Orders\Record\Order;
 use Pckg\Database\Entity;
-use Pckg\Database\Query\Raw;
+use Pckg\Database\Entity\Extension\Paginatable;
 use Pckg\Database\Relation\HasAndBelongsTo;
 use Pckg\Database\Relation\HasMany;
 use Pckg\Database\Repository;
@@ -12,7 +12,7 @@ use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 class Orders extends Entity implements MaestroEntity
 {
 
-    use EntityActions;
+    use EntityActions, Paginatable;
 
     protected $record = Order::class;
 
@@ -126,6 +126,13 @@ class Orders extends Entity implements MaestroEntity
                     )
                     ->where('offer_id', [14, 20, 17, 16, 18, 19, 21, 22, 23]);
         //->where('offer_id', [22, 16, 14]);
+    }
+
+    public function forOrders() {
+        return $this->withCheckin()
+                    ->withAppartment()
+                    ->withPeople()
+                    ->withOffer();
     }
 
 }

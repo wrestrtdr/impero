@@ -2,14 +2,11 @@
 
 use Gnp\Orders\Entity\Orders;
 use Gnp\Orders\Record\Order;
+use Pckg\Dynamic\Service\Dynamic;
 use Pckg\Framework\Controller;
 use Gnp\Orders\Entity\Orders as OrdersEntity;
-use Gnp\Orders\Form\Attributes;
 use Pckg\Collection;
 use Pckg\Dynamic\Entity\Tables;
-use Pckg\Dynamic\Service\Filter as FilterService;
-use Pckg\Dynamic\Service\Sort as OrderService;
-use Pckg\Dynamic\Service\Group as GroupService;
 use Pckg\Maestro\Helper\Maestro;
 
 class Vouchers extends Controller
@@ -17,16 +14,10 @@ class Vouchers extends Controller
 
     use Maestro;
 
-    protected $filterService;
+    protected $dynamicService;
 
-    protected $sortService;
-
-    protected $groupService;
-
-    public function __construct(FilterService $filterService, OrderService $sortService, GroupService $groupService) {
-        $this->filterService = $filterService;
-        $this->sortService = $sortService;
-        $this->groupService = $groupService;
+    public function __construct(Dynamic $dynamicService) {
+        $this->dynamicService = $dynamicService;
     }
 
     public function getIndexAction(OrdersEntity $orders) {
@@ -34,85 +25,103 @@ class Vouchers extends Controller
          * Set table.
          */
         $table = (new Tables())->where('framework_entity', get_class($orders))->oneOrFail();
-        $this->filterService->setTable($table);
-        $this->sortService->setTable($table);
-        $this->groupService->setTable($table);
+        $this->dynamicService->setTable($table);
 
         /**
          * Apply entity extension.
          */
-        $this->filterService->applyOnEntity($orders);
-        $this->sortService->applyOnEntity($orders);
-        $this->groupService->applyOnEntity($orders);
+        $this->dynamicService->applyOnEntity($orders);
 
-        $all = $orders->forVouchers()// here we need relation orders.orders_users.dt_confirmed
-                      ->all();
+        /**
+         * When limited and grouped, we need to order results by grouped field.
+         */
+        $orders->orderBy('offer_id DESC');
+
+        /**
+         * Get all records
+         */
+        $all = $orders->forVouchers()->all();
 
         $groupedBy = $all->groupBy(
             function(Order $order) {
+                /**
+                 * @T00D00
+                 * This would be faster if we group by offer_id and display title.
+                 */
                 return $order->offer->title;
             }
         );
 
-        return $this->tabelize($orders, ['id'], 'Vouchers')
-                    ->setRecords($groupedBy)
-                    ->setGroupByLevels(1)
-                    ->setEntityActions(
-                        [
-                            'generateVoucher',
-                            'sendVoucher',
-                            'filter',
-                            'view',
-                        ]
-                    )
-                    ->setRecordActions(
-                        [
-                            'generateVoucher',
-                            'sendVoucher',
-                            'previewVoucher',
-                            'downloadVoucher',
-                        ]
-                    )
-                    ->setFields(
-                        [
-                            'id',
-                            'num',
-                            'offer'     => function($order) {
-                                return $order->offer ? $order->offer->title : ' -- no offer -- ';
-                            },
-                            'payee'     => function($order) {
-                                $user = $order->user;
+        $tabelize = $this->tabelize($orders, ['id'], 'Vouchers')
+                         ->setRecords($groupedBy)
+                         ->setPerPage(50)
+                         ->setPage(1)
+                         ->setTotal($all->total())
+                         ->setGroupByLevels([1])
+                         ->setEntityActions(
+                             [
+                                 'generateVoucher',
+                                 'sendVoucher',
+                                 'filter',
+                                 'view',
+                             ]
+                         )
+                         ->setRecordActions(
+                             [
+                                 'generateVoucher',
+                                 'sendVoucher',
+                                 'previewVoucher',
+                                 'downloadVoucher',
+                             ]
+                         )
+                         ->setFields(
+                             [
+                                 'id',
+                                 'num',
+                                 'offer'     => function($order) {
+                                     return $order->offer ? $order->offer->title : ' -- no offer -- ';
+                                 },
+                                 'payee'     => function($order) {
+                                     $user = $order->user;
 
-                                if (!$user) {
-                                    return ' -- no user -- ';
-                                }
+                                     if (!$user) {
+                                         return ' -- no user -- ';
+                                     }
 
-                                return $user->surname . ' ' . $user->name . "<br />" .
-                                       $user->email . '<br />' .
-                                       $user->phone;
-                            },
-                            'packets'   => function(Order $order) {
-                                return $order->getPacketsSummary();
-                            },
-                            'app' => function(Order $order){
-                                return $order->appartment ? $order->appartment->value : '';
-                            },
-                            'checkin' => function(Order $order){
-                                return $order->checkin ? $order->checkin->value : '';
-                            },
-                            'people' => function(Order $order){
-                                return $order->people ? $order->people->value : '';
-                            },
-                            'voucherId' => function(Order $order) {
-                                return $order->getVoucherId();
-                            },
-                            'voucher_url',
-                            'voucher_sent_at',
-                        ]
-                    ) . view('Gnp\Orders:vouchers');
+                                     return $user->surname . ' ' . $user->name . "<br />" .
+                                            $user->email . '<br />' .
+                                            $user->phone;
+                                 },
+                                 'packets'   => function(Order $order) {
+                                     return $order->getPacketsSummary();
+                                 },
+                                 'app'       => function(Order $order) {
+                                     return $order->appartment ? $order->appartment->value : '';
+                                 },
+                                 'checkin'   => function(Order $order) {
+                                     return $order->checkin ? $order->checkin->value : '';
+                                 },
+                                 'people'    => function(Order $order) {
+                                     return $order->people ? $order->people->value : '';
+                                 },
+                                 'voucherId' => function(Order $order) {
+                                     return $order->getVoucherId();
+                                 },
+                                 'voucher_url',
+                                 'voucher_sent_at',
+                             ]
+                         );
+
+        if ($this->request()->isAjax()) {
+            return [
+                'records' => $tabelize->transformRecords(),
+            ];
+        }
+
+        return $tabelize . view('Gnp\Orders:vouchers');
     }
 
-    public function getHtmlAction(Order $order) {
+    public function getPreviewAction(Order $order) {
         return view(
             'voucher/voucher',
             [
