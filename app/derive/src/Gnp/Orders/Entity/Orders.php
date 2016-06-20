@@ -103,7 +103,12 @@ class Orders extends Entity implements MaestroEntity
         return $this->payed()
                     ->confirmed()
                     ->withUser()
-                    ->withConfirmedPackets();
+                    ->withOrdersUsers(
+                        function(HasMany $ordersUsers) {
+                            $ordersUsers->where('dt_confirmed');
+                            $ordersUsers->withPacket();
+                        }
+                    );
     }
 
     public function forVouchers() {
