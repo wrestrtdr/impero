@@ -40,6 +40,14 @@ class Order extends Record
         );
     }
 
+    public function getRebuyUrl() {
+        return $this->dt_confirmed || $this->dt_rejected || $this->dt_payed || $this->dt_canceled
+            ? null
+            : (config("defaults.protocol") . '://' . (config(
+                                                          "defaults.domain"
+                                                      ) ?? $_SERVER['HTTP_HOST']) . '/estimate/' . $this->hash);
+    }
+
     public function setAppartment($appartment) {
         $this->setTag('appartment', $appartment);
     }
