@@ -2,6 +2,7 @@
 
 use Gnp\Orders\Entity\Orders as OrdersEntity;
 use Pckg\Database\Relation\BelongsTo;
+use Pckg\Database\Relation\HasMany;
 use Pckg\Framework\Provider\RouteResolver;
 
 class Orders implements RouteResolver
@@ -13,6 +14,10 @@ class Orders implements RouteResolver
                                    ->withCheckin()
                                    ->withPeople()
                                    ->withOffer()
+                                    ->withOrdersUsers(function(HasMany $hasMany){
+                                        $hasMany->where('dt_confirmed');
+                                        $hasMany->withPacket();
+                                    })
                                    ->oneOrFail();
     }
 
