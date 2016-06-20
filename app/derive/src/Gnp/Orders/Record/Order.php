@@ -72,7 +72,9 @@ class Order extends Record
         $packets = new Collection();
         $this->ordersUsers->each(
             function(OrdersUser $orderUser) use ($packets) {
-                $packets->push($orderUser->packet);
+                if ($orderUser->dt_confirmed) {
+                    $packets->push($orderUser->packet);
+                }
             }
         );
 

@@ -99,6 +99,8 @@ class Orders extends Entity implements MaestroEntity
 
         $relation->getMiddleEntity()->where('orders_users.dt_confirmed');
 
+        $relation->fill('confirmedPackets');
+
         return $relation;
     }
 
@@ -118,9 +120,9 @@ class Orders extends Entity implements MaestroEntity
                     ->withAppartment()
                     ->withPeople()
                     ->withUser()
-                    ->withConfirmedPackets()
                     ->withOrdersUsers(
                         function(HasMany $ordersUsers) {
+                            $ordersUsers->where('dt_confirmed');
                             $ordersUsers->withPacket();
                         }
                     )
