@@ -951,12 +951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "a34d4e1ef4bc8ded0bf1b3c1e16d90bb4a523c53"
+                "reference": "91fc4b50eff705113ff3581d45885aeac99982db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/a34d4e1ef4bc8ded0bf1b3c1e16d90bb4a523c53",
-                "reference": "a34d4e1ef4bc8ded0bf1b3c1e16d90bb4a523c53",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/91fc4b50eff705113ff3581d45885aeac99982db",
+                "reference": "91fc4b50eff705113ff3581d45885aeac99982db",
                 "shasum": ""
             },
             "type": "library",
@@ -977,7 +977,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-06-16 19:13:01"
+            "time": "2016-06-19 22:39:26"
         },
         {
             "name": "pckg/concept",
@@ -1019,12 +1019,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "e2a2dc31e23564da27d2d84fcd9e979229232511"
+                "reference": "83a05cb3f195120a6ff905def744caef8163f944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/e2a2dc31e23564da27d2d84fcd9e979229232511",
-                "reference": "e2a2dc31e23564da27d2d84fcd9e979229232511",
+                "url": "https://api.github.com/repos/pckg/database/zipball/83a05cb3f195120a6ff905def744caef8163f944",
+                "reference": "83a05cb3f195120a6ff905def744caef8163f944",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1052,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-16 18:59:48"
+            "time": "2016-06-20 00:30:56"
         },
         {
             "name": "pckg/dynamic",
@@ -1060,12 +1060,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "7945d54f540268cd94bbaab53fad71ec9f874861"
+                "reference": "1077ae37d641f5a6c2b4294492881ddf125e5257"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/7945d54f540268cd94bbaab53fad71ec9f874861",
-                "reference": "7945d54f540268cd94bbaab53fad71ec9f874861",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/1077ae37d641f5a6c2b4294492881ddf125e5257",
+                "reference": "1077ae37d641f5a6c2b4294492881ddf125e5257",
                 "shasum": ""
             },
             "type": "library",
@@ -1088,7 +1088,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-16 18:59:34"
+            "time": "2016-06-20 00:31:09"
         },
         {
             "name": "pckg/framework",
@@ -1096,12 +1096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "d2c397091897b31c09384042c58e73b2f8ea1c28"
+                "reference": "06cfc21717a8919c23812d4b46af9efe4a3b5f0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/d2c397091897b31c09384042c58e73b2f8ea1c28",
-                "reference": "d2c397091897b31c09384042c58e73b2f8ea1c28",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/06cfc21717a8919c23812d4b46af9efe4a3b5f0d",
+                "reference": "06cfc21717a8919c23812d4b46af9efe4a3b5f0d",
                 "shasum": ""
             },
             "require": {
@@ -1135,7 +1135,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-06-15 16:04:53"
+            "time": "2016-06-19 22:40:08"
         },
         {
             "name": "pckg/frontend",
@@ -1364,12 +1364,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "4ff19f3da9d1d848a8141ef55ecc2b31e99e3c5b"
+                "reference": "9151e9b98481755dc935e8d70c7cb3412bccc405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/4ff19f3da9d1d848a8141ef55ecc2b31e99e3c5b",
-                "reference": "4ff19f3da9d1d848a8141ef55ecc2b31e99e3c5b",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/9151e9b98481755dc935e8d70c7cb3412bccc405",
+                "reference": "9151e9b98481755dc935e8d70c7cb3412bccc405",
                 "shasum": ""
             },
             "type": "library",
@@ -1392,7 +1392,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-17 14:31:26"
+            "time": "2016-06-20 00:31:33"
         },
         {
             "name": "pckg/mail",
@@ -1894,12 +1894,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "7e874063d91a6b36cf39a65a86d34adc447f4d1b"
+                "reference": "d1e2e0198b2ed559cc1b7a4124d06effbb039678"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/7e874063d91a6b36cf39a65a86d34adc447f4d1b",
-                "reference": "7e874063d91a6b36cf39a65a86d34adc447f4d1b",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/d1e2e0198b2ed559cc1b7a4124d06effbb039678",
+                "reference": "d1e2e0198b2ed559cc1b7a4124d06effbb039678",
                 "shasum": ""
             },
             "require": {
@@ -1943,7 +1943,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-06 15:09:02"
+            "time": "2016-06-18 20:40:40"
         },
         {
             "name": "symfony/dependency-injection",
