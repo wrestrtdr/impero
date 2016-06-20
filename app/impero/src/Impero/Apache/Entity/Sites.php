@@ -25,7 +25,6 @@ class Sites extends Entity implements MaestroEntity
     {
         return $this->belongsTo(Users::class)
             ->foreignKey('user_id')
-            ->primaryKey('id')
             ->fill('user', 'sites');
     }
 

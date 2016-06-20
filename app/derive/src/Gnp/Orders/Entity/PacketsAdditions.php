@@ -11,7 +11,6 @@ class PacketsAdditions extends Entity
     public function addition() {
         return $this->belongsTo(Additions::class)
                     ->foreignKey('addition_id')
-                    ->primaryKey('id')
                     ->fill('addition');
     }
 

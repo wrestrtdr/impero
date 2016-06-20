@@ -14,14 +14,12 @@ class OrdersUsers extends Entity
     public function order() {
         return $this->belongsTo(Orders::class)
                     ->foreignKey('order_id')
-                    ->primaryKey('id')
                     ->fill('order');
     }
 
     public function packet() {
         return $this->belongsTo(Packets::class)
                     ->foreignKey('packet_id')
-                    ->primaryKey('id')
                     ->fill('packet');
     }
 

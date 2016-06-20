@@ -14,7 +14,6 @@ class Packets extends Entity
 
     public function voucherTab() {
         return $this->hasOne(PacketsTabs::class)
-                    ->primaryKey('id')
                     ->foreignKey('packet_id')
                     ->fill('voucherTab')
                     ->where('picture', null, 'IS NOT');

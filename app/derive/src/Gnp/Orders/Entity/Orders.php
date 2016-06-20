@@ -21,7 +21,6 @@ class Orders extends Entity implements MaestroEntity
     public function offer() {
         return $this->belongsTo(Offers::class)
                     ->foreignKey('offer_id')
-                    ->primaryKey('id')
                     ->fill('offer');
     }
 
@@ -41,14 +40,12 @@ class Orders extends Entity implements MaestroEntity
     public function ordersUsers() {
         return $this->hasMany(OrdersUsers::class)
                     ->foreignKey('order_id')
-                    ->primaryKey('id')
                     ->fill('ordersUsers');
     }
 
     public function appartment() {
         return $this->hasOne(OrdersTags::class)
                     ->foreignKey('order_id')
-                    ->primaryKey('id')
                     ->where('type', 'appartment')
                     ->fill('appartment');
     }
@@ -56,7 +53,6 @@ class Orders extends Entity implements MaestroEntity
     public function checkin() {
         return $this->hasOne(OrdersTags::class)
                     ->foreignKey('order_id')
-                    ->primaryKey('id')
                     ->where('type', 'checkin')
                     ->fill('checkin');
     }
@@ -64,7 +60,6 @@ class Orders extends Entity implements MaestroEntity
     public function people() {
         return $this->hasOne(OrdersTags::class)
                     ->foreignKey('order_id')
-                    ->primaryKey('id')
                     ->where('type', 'people')
                     ->fill('people');
     }
@@ -108,8 +103,7 @@ class Orders extends Entity implements MaestroEntity
         return $this->payed()
                     ->confirmed()
                     ->withUser()
-                    ->withConfirmedPackets()
-                    ->where('offer_id', [17, 18, 19]);
+                    ->withConfirmedPackets();
     }
 
     public function forVouchers() {
@@ -125,9 +119,7 @@ class Orders extends Entity implements MaestroEntity
                             $ordersUsers->where('dt_confirmed');
                             $ordersUsers->withPacket();
                         }
-                    )
-                    ->where('offer_id', [14, 20, 17, 16, 18, 19, 21, 22, 23]);
-        //->where('offer_id', [22, 16, 14]);
+                    );
     }
 
     public function forOrders() {

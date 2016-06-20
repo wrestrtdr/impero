@@ -13,7 +13,6 @@ class OrdersTags extends Entity
 
     public function order() {
         return $this->belongsTo(Orders::class)
-                    ->primaryKey('id')
                     ->foreignKey('order_id')
                     ->fill('order');
     }
