@@ -11,7 +11,8 @@
   ],
   "require": {
     "pckg/backend": "dev-master",
-    "jonnyw/php-phantomjs": "4.*"
+    "jonnyw/php-phantomjs": "4.*",
+    "foolz/sphinxql-query-builder": "^1.0"
   },
   "minimum-stability": "dev",
   "autoload": {

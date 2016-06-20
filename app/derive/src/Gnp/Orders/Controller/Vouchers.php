@@ -40,7 +40,11 @@ class Vouchers extends Controller
         /**
          * Get all records
          */
-        $all = $orders->forVouchers()->all();
+        $orders->forVouchers();
+
+        $this->dynamicService->getFilterService()->filterByGet($orders);
+
+        $all = $orders->all();
 
         $groupedBy = $all->groupBy(
             function(Order $order) {

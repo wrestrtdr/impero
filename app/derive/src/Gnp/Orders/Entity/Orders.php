@@ -44,23 +44,23 @@ class Orders extends Entity implements MaestroEntity
     }
 
     public function appartment() {
-        return $this->hasOne(OrdersTags::class)
+        return $this->hasOne(OrdersTags::class, 'appartment')
                     ->foreignKey('order_id')
-                    ->where('type', 'appartment')
+                    ->where('appartment.type', 'appartment')
                     ->fill('appartment');
     }
 
     public function checkin() {
-        return $this->hasOne(OrdersTags::class)
+        return $this->hasOne(OrdersTags::class, 'checkin')
                     ->foreignKey('order_id')
-                    ->where('type', 'checkin')
+                    ->where('checkin.type', 'checkin')
                     ->fill('checkin');
     }
 
     public function people() {
-        return $this->hasOne(OrdersTags::class)
+        return $this->hasOne(OrdersTags::class, 'people')
                     ->foreignKey('order_id')
-                    ->where('type', 'people')
+                    ->where('people.type', 'people')
                     ->fill('people');
     }
 
@@ -69,11 +69,11 @@ class Orders extends Entity implements MaestroEntity
     }
 
     public function confirmed() {
-        return $this->where('dt_confirmed');
+        return $this->where('orders.dt_confirmed');
     }
 
     public function payed() {
-        return $this->where('dt_payed');
+        return $this->where('orders.dt_payed');
     }
 
     /**
@@ -105,7 +105,7 @@ class Orders extends Entity implements MaestroEntity
                     ->withUser()
                     ->withOrdersUsers(
                         function(HasMany $ordersUsers) {
-                            $ordersUsers->where('dt_confirmed');
+                            $ordersUsers->where('orders_users.dt_confirmed');
                             $ordersUsers->withPacket();
                         }
                     );
@@ -121,7 +121,7 @@ class Orders extends Entity implements MaestroEntity
                     ->withUser()
                     ->withOrdersUsers(
                         function(HasMany $ordersUsers) {
-                            $ordersUsers->where('dt_confirmed');
+                            $ordersUsers->where('orders_users.dt_confirmed');
                             $ordersUsers->withPacket();
                         }
                     );

@@ -69,7 +69,7 @@ class Config extends Provider
                     'view'       => 'send',
                     'name'       => 'derive.orders.vouchers.send',
                 ],
-                '/orders/voucher/download/[order]'          => [
+                '/orders/voucher/download/[order]'           => [
                     'controller' => Vouchers::class,
                     'view'       => 'download',
                     'name'       => 'derive.orders.voucher.download',
