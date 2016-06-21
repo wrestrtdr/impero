@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f76406d729c04d8f085d009af498c0d9",
-    "content-hash": "a1ae3a45b3d896c79d54911ad67a1495",
+    "hash": "5b44b1b5e1d7cae47fa6653c78fe6dd3",
+    "content-hash": "8347db84479a6a55df90bd2c92a878f2",
     "packages": [
         {
             "name": "bootstrap-select/bootstrap-select",
@@ -811,16 +811,16 @@
         },
         {
             "name": "paypal/rest-api-sdk-php",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
-                "reference": "d3031fc35f4f4b0034a22a6e7174ae063f3a4b22"
+                "reference": "a284bb6d71933b6cd92e07894818fd61aa968462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/d3031fc35f4f4b0034a22a6e7174ae063f3a4b22",
-                "reference": "d3031fc35f4f4b0034a22a6e7174ae063f3a4b22",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/a284bb6d71933b6cd92e07894818fd61aa968462",
+                "reference": "a284bb6d71933b6cd92e07894818fd61aa968462",
                 "shasum": ""
             },
             "require": {
@@ -856,7 +856,7 @@
                 "rest",
                 "sdk"
             ],
-            "time": "2016-05-13 18:25:38"
+            "time": "2016-06-21 20:18:43"
         },
         {
             "name": "pckg/auth",
@@ -902,15 +902,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/backend.git",
-                "reference": "4b9bfbbf52306b048c45cd03a67434e2e1099f1e"
+                "reference": "a785055b3a6bb945e44df238783d1b43bed4cf87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/backend/zipball/4b9bfbbf52306b048c45cd03a67434e2e1099f1e",
-                "reference": "4b9bfbbf52306b048c45cd03a67434e2e1099f1e",
+                "url": "https://api.github.com/repos/pckg/backend/zipball/a785055b3a6bb945e44df238783d1b43bed4cf87",
+                "reference": "a785055b3a6bb945e44df238783d1b43bed4cf87",
                 "shasum": ""
             },
             "require": {
+                "jonnyw/php-phantomjs": "4.*",
                 "pckg/auth": "dev-master",
                 "pckg/dynamic": "dev-master",
                 "pckg/framework": "dev-master",
@@ -943,7 +944,7 @@
             ],
             "description": "Useful backend libraries",
             "homepage": "https://github.com/pckg/backend",
-            "time": "2016-06-14 10:14:55"
+            "time": "2016-06-21 21:07:32"
         },
         {
             "name": "pckg/collection",
@@ -951,12 +952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "fa6fd147a0da434e1e48c971431fe85c80e60395"
+                "reference": "9f9779c63beb200ce53ce9491c5ec4a778ab0e5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/fa6fd147a0da434e1e48c971431fe85c80e60395",
-                "reference": "fa6fd147a0da434e1e48c971431fe85c80e60395",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/9f9779c63beb200ce53ce9491c5ec4a778ab0e5b",
+                "reference": "9f9779c63beb200ce53ce9491c5ec4a778ab0e5b",
                 "shasum": ""
             },
             "type": "library",
@@ -977,7 +978,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-06-20 21:00:53"
+            "time": "2016-06-21 21:07:45"
         },
         {
             "name": "pckg/concept",
@@ -1951,12 +1952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "4e9597ed67619c25e362d8617e353f5026e3c6ba"
+                "reference": "1ecb72626ce86223e953bb94f855706cdde7a50d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/4e9597ed67619c25e362d8617e353f5026e3c6ba",
-                "reference": "4e9597ed67619c25e362d8617e353f5026e3c6ba",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/1ecb72626ce86223e953bb94f855706cdde7a50d",
+                "reference": "1ecb72626ce86223e953bb94f855706cdde7a50d",
                 "shasum": ""
             },
             "require": {
@@ -2003,7 +2004,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-21 06:41:01"
+            "time": "2016-06-21 19:44:32"
         },
         {
             "name": "symfony/filesystem",
