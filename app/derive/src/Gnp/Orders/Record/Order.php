@@ -111,7 +111,7 @@ class Order extends Record
             }
         );
 
-        $additions = $additions->groupBy('id');
+        $additions = $additions->removeEmpty()->groupBy('id');
 
         return implode(
             "<br />",
