@@ -3,6 +3,7 @@
 use Gnp\Orders\Record\Order;
 use Pckg\Database\Entity;
 use Pckg\Database\Entity\Extension\Paginatable;
+use Pckg\Database\Query;
 use Pckg\Database\Relation\HasAndBelongsTo;
 use Pckg\Database\Relation\HasMany;
 use Pckg\Database\Repository;
@@ -85,6 +86,12 @@ class Orders extends Entity implements MaestroEntity
                     ->fill('packets');
     }
 
+    public function ordersBills() {
+        return $this->hasMany(OrdersBills::class)
+                    ->foreignKey('order_id')
+                    ->fill('ordersBills');
+    }
+
     public function confirmedPackets() {
         $relation = $this->packets();
 
@@ -128,6 +135,13 @@ class Orders extends Entity implements MaestroEntity
                     ->withAppartment()
                     ->withPeople()
                     ->withOffer();
+    }
+
+    public function forSummary() {
+        return $this->joinOffer()
+                    ->joinOrdersBills(function(Query $ordersBills){
+                        $ordersBills->where('type', [1, 2]);
+                    });
     }
 
 }
