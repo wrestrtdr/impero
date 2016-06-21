@@ -77,7 +77,6 @@ class Orders extends Controller
                          ->setRecordActions(
                              [
                                  'attributes',
-                                 'rebuy',
                              ]
                          )
                          ->setFields(
@@ -113,7 +112,7 @@ class Orders extends Controller
         /**
          * Those 2 views should be loaded in different action.
          */
-        return $tabelize . view('allocation', ['attributesForm' => $attributesForm]) . view('rebuy');
+        return $tabelize . view('allocation', ['attributesForm' => $attributesForm]);
     }
 
     public function getAllocationAction(Order $order) {

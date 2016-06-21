@@ -1,0 +1,33 @@
+{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'applyVoucherModal'} %}
+    {% block header %}
+        Apply voucher
+    {% endblock %}
+    {% block body %}
+        {% verbatim %}
+            <p>{{ record.id }}</p>
+        {% endverbatim %}
+    {% endblock %}
+{% endembed %}
+
+<script type="text/javascript">
+    new Vue({
+        parent: maestroTable,
+        el: '.container-fluid',
+        data: function () {
+            return {
+                record: null
+            };
+        },
+        methods: {
+            applyVoucher: function (record) {
+                this.record = record;
+
+                $('#applyVoucherModal').modal('show');
+            }
+        }
+    }).$on('record:applyVoucher', function (id, record) {
+        this.applyVoucher(record);
+
+        return true;
+    });
+</script>

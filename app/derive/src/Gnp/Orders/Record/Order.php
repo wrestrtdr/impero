@@ -41,7 +41,7 @@ class Order extends Record
     }
 
     public function getRebuyUrl() {
-        return $this->dt_confirmed || $this->dt_rejected || $this->dt_payed || $this->dt_canceled
+        return $this->dt_confirmed != '0000-00-00 00:00:00' || $this->dt_rejected != '0000-00-00 00:00:00' || $this->dt_payed != '0000-00-00 00:00:00' || $this->dt_canceled != '0000-00-00 00:00:00'
             ? null
             : (config("defaults.protocol") . '://' . (config(
                                                           "defaults.domain"

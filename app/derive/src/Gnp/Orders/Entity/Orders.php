@@ -64,10 +64,6 @@ class Orders extends Entity implements MaestroEntity
                     ->fill('people');
     }
 
-    public function getAddUrl() {
-        return '#';
-    }
-
     public function confirmed() {
         return $this->where('orders.dt_confirmed');
     }

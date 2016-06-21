@@ -1,0 +1,33 @@
+{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'reValidVoucherModal'} %}
+    {% block header %}
+        Re-validate voucher
+    {% endblock %}
+    {% block body %}
+        {% verbatim %}
+            <p>{{ record.id }}</p>
+        {% endverbatim %}
+    {% endblock %}
+{% endembed %}
+
+<script type="text/javascript">
+    new Vue({
+        parent: maestroTable,
+        el: '.container-fluid',
+        data: function () {
+            return {
+                record: null
+            };
+        },
+        methods: {
+            reValidVoucher: function (record) {
+                this.record = record;
+
+                $('#reValidVoucherModal').modal('show');
+            }
+        }
+    }).$on('record:reValidVoucher', function (id, record) {
+        this.reValidVoucher(record);
+
+        return true;
+    });
+</script>
