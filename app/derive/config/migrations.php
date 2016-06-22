@@ -6,8 +6,8 @@ use Pckg\Dynamic\Migration\CreateDynamicTables;
 use Pckg\Generic\Migration\CreateGenericTables;
 
 return [
-    //CreateAuthTables::class,
+    CreateAuthTables::class,
     CreateDynamicTables::class,
-    //CreateGenericTables::class,
+    CreateGenericTables::class,
     OrdersTags::class,
 ];

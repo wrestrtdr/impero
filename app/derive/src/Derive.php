@@ -1,8 +1,11 @@
 <?php
 
+use Gnp\Orders\Controller\Orders;
 use Gnp\Orders\Provider\Config as OrdersProvider;
+use Pckg\Auth\Provider\Config as AuthProvider;
 use Pckg\Framework\Provider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
+use Pckg\Maestro\Provider\Config as MaestroProvider;
 use Pckg\Mail\Provider\Config as MailProvider;
 use Pckg\Manager\Provider\Config as ManagerProvider;
 use Pckg\Dynamic\Provider\Config as DynamicProvider;
@@ -18,6 +21,8 @@ class Derive extends Provider
 
     public function providers() {
         return [
+            MaestroProvider::class,
+            AuthProvider::class,
             MailProvider::class,
             ManagerProvider::class,
             OrdersProvider::class,
@@ -29,6 +34,18 @@ class Derive extends Provider
     public function afterwares() {
         return [
             EncapsulateResponse::class,
+        ];
+    }
+
+    public function routes() {
+        return [
+            'url' => [
+                '/' => [
+                    'controller' => Orders::class,
+                    'view'       => 'home',
+                    'name'       => 'home',
+                ],
+            ],
         ];
     }
 

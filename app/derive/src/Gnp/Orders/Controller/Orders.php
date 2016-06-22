@@ -24,6 +24,10 @@ class Orders extends Controller
         $this->dynamicService = $dynamicService;
     }
 
+    public function getHomeAction() {
+        return 'Ok!';
+    }
+
     public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
         /**
          * Set table.
@@ -137,6 +141,7 @@ class Orders extends Controller
                               'payed'       => 'ROUND(SUM(orders_bills.payed), 2)',
                               'percentage'  => 'IF(SUM(orders_bills.payed) IS NULL, 0, ROUND(SUM(orders_bills.payed)/SUM(orders_bills.price)*100, 2))',
                               'status_type' => 'IF(orders.dt_canceled, \'canceled\', IF(orders.dt_rejected, \'rejected\', IF(orders.dt_payed, \'payed\', IF(orders.dt_confirmed, \'waiting\', \'not-confirmed\'))))',
+                              'count'       => 'COUNT(DISTINCT orders.id)',
                           ]
                       )
                       ->groupBy('orders.offer_id, status_type')
@@ -152,7 +157,15 @@ class Orders extends Controller
         $tabelize = $this->tabelize($orders, ['id'], 'Orders')
                          ->setRecords($groupedBy)
                          ->setGroupByLevels([0])
-                         ->setEntityActions([])
+                         ->setEntityActions(
+                             [
+                                 'filter',
+                                 'sort',
+                                 'group',
+                                 'export',
+                                 'view',
+                             ]
+                         )
                          ->setRecordActions([])
                          ->setFields(
                              [
@@ -160,6 +173,7 @@ class Orders extends Controller
                                  'payed',
                                  'topay',
                                  'percentage',
+                                 'count',
                              ]
                          );
 
