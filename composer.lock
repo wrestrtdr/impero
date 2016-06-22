@@ -864,12 +864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "ebaeed3c7189ca59be9987a67527d3393035320e"
+                "reference": "675434105a2f829d0d473158bb784568006f6164"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/ebaeed3c7189ca59be9987a67527d3393035320e",
-                "reference": "ebaeed3c7189ca59be9987a67527d3393035320e",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/675434105a2f829d0d473158bb784568006f6164",
+                "reference": "675434105a2f829d0d473158bb784568006f6164",
                 "shasum": ""
             },
             "require": {
@@ -894,7 +894,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-06-08 13:55:30"
+            "time": "2016-06-22 14:44:20"
         },
         {
             "name": "pckg/backend",
@@ -1020,12 +1020,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "92ef778e9f5a0de561bde67812d9fbec3064e07b"
+                "reference": "db8eb08a9dd50f1d65443708fabde78b6b0630ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/92ef778e9f5a0de561bde67812d9fbec3064e07b",
-                "reference": "92ef778e9f5a0de561bde67812d9fbec3064e07b",
+                "url": "https://api.github.com/repos/pckg/database/zipball/db8eb08a9dd50f1d65443708fabde78b6b0630ae",
+                "reference": "db8eb08a9dd50f1d65443708fabde78b6b0630ae",
                 "shasum": ""
             },
             "require": {
@@ -1053,7 +1053,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-21 21:07:59"
+            "time": "2016-06-22 14:50:47"
         },
         {
             "name": "pckg/dynamic",
@@ -1061,12 +1061,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "a9006459dedabc5ac5e76615fa15f3507ff73f74"
+                "reference": "99c600c3211f05629d19a4beffa0592d9a6a4951"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/a9006459dedabc5ac5e76615fa15f3507ff73f74",
-                "reference": "a9006459dedabc5ac5e76615fa15f3507ff73f74",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/99c600c3211f05629d19a4beffa0592d9a6a4951",
+                "reference": "99c600c3211f05629d19a4beffa0592d9a6a4951",
                 "shasum": ""
             },
             "type": "library",
@@ -1089,7 +1089,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-21 13:49:54"
+            "time": "2016-06-22 18:21:34"
         },
         {
             "name": "pckg/framework",
@@ -1097,12 +1097,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "0ac024b2897fb1b8fbaf37150ea20e664086211c"
+                "reference": "925d6585e23b1c7a05de39d39183203baff0d571"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/0ac024b2897fb1b8fbaf37150ea20e664086211c",
-                "reference": "0ac024b2897fb1b8fbaf37150ea20e664086211c",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/925d6585e23b1c7a05de39d39183203baff0d571",
+                "reference": "925d6585e23b1c7a05de39d39183203baff0d571",
                 "shasum": ""
             },
             "require": {
@@ -1136,7 +1136,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-06-20 21:01:28"
+            "time": "2016-06-22 14:17:06"
         },
         {
             "name": "pckg/frontend",
@@ -1191,12 +1191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "92b19593b7ba39c4bca6f29641286f290cd10930"
+                "reference": "94072123db0d9bd789344f0897624cd84852a3b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/92b19593b7ba39c4bca6f29641286f290cd10930",
-                "reference": "92b19593b7ba39c4bca6f29641286f290cd10930",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/94072123db0d9bd789344f0897624cd84852a3b8",
+                "reference": "94072123db0d9bd789344f0897624cd84852a3b8",
                 "shasum": ""
             },
             "require": {
@@ -1220,7 +1220,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-06-20 10:05:00"
+            "time": "2016-06-22 14:17:19"
         },
         {
             "name": "pckg/helpers-js",
@@ -1365,12 +1365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "e2cfb9a2b0d55117159e329bcaa9124f61cf225e"
+                "reference": "e67209dce1270c924a19aa24802730229727df3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/e2cfb9a2b0d55117159e329bcaa9124f61cf225e",
-                "reference": "e2cfb9a2b0d55117159e329bcaa9124f61cf225e",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/e67209dce1270c924a19aa24802730229727df3f",
+                "reference": "e67209dce1270c924a19aa24802730229727df3f",
                 "shasum": ""
             },
             "type": "library",
@@ -1393,7 +1393,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-21 13:50:03"
+            "time": "2016-06-22 14:51:25"
         },
         {
             "name": "pckg/mail",
@@ -1477,12 +1477,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "f741c6db277baeabd1a46abd202ac6dfcc11e158"
+                "reference": "2ab2f049bd7b70ecef68f591f732bcd0c6cf8544"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/f741c6db277baeabd1a46abd202ac6dfcc11e158",
-                "reference": "f741c6db277baeabd1a46abd202ac6dfcc11e158",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/2ab2f049bd7b70ecef68f591f732bcd0c6cf8544",
+                "reference": "2ab2f049bd7b70ecef68f591f732bcd0c6cf8544",
                 "shasum": ""
             },
             "require": {
@@ -1507,7 +1507,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-05-24 20:55:49"
+            "time": "2016-06-22 14:17:55"
         },
         {
             "name": "pckg/payment",
@@ -2281,12 +2281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "2a61c4a0c88e422157932f05e0d54c400dc23f0e"
+                "reference": "ea3e63a6efbb1f7c149e9883ad1c72d0c6c9decb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/2a61c4a0c88e422157932f05e0d54c400dc23f0e",
-                "reference": "2a61c4a0c88e422157932f05e0d54c400dc23f0e",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ea3e63a6efbb1f7c149e9883ad1c72d0c6c9decb",
+                "reference": "ea3e63a6efbb1f7c149e9883ad1c72d0c6c9decb",
                 "shasum": ""
             },
             "replace": {
@@ -2324,7 +2324,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-06-20 05:34:27"
+            "time": "2016-06-22 08:21:32"
         },
         {
             "name": "twig/twig",
