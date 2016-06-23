@@ -3,7 +3,7 @@
         Send vouchers
     {% endblock %}
     {% block body %}
-        <p>Do you really want to send vouchers {{ '{{ ids }}' }}?</p>
+        <p>Do you really want to send vouchers {{ '{{ orderIds }}' }}?</p>
         <button class="btn btn-success" v-on:click.prevent="sendVouchers">Yes, send vouchers</button>
     {% endblock %}
 {% endembed %}
@@ -13,7 +13,7 @@
         Generate vouchers
     {% endblock %}
     {% block body %}
-        <p>Do you really want to generate vouchers {{ '{{ ids }}' }}?</p>
+        <p>Do you really want to generate vouchers {{ '{{ orderIds }}' }}?</p>
         <button class="btn btn-success" v-on:click.prevent="generateVouchers">Yes, generate vouchers</button>
     {% endblock %}
 {% endembed %}
@@ -24,27 +24,27 @@
         el: '.container-fluid',
         data: function () {
             return {
-                ids: ''
+                orderIds: ''
             };
         },
         methods: {
             checkSendVoucher: function (ids) {
-                this.ids = ids;
+                this.orderIds = ids;
 
                 $('#sendVouchersModal').modal('show');
             },
             sendVouchers: function () {
-                http.post('/dev.php/orders/voucher/send/' + this.ids, {}, function (json) {
+                http.post('/dev.php/orders/voucher/send/' + this.orderIds, {}, function (json) {
                     $('#sendVouchersModal').modal('hide');
                 });
             },
             checkGenerateVoucher: function (ids) {
-                this.ids = ids;
+                this.orderIds = ids;
 
                 $('#generateVouchersModal').modal('show');
             },
             generateVouchers: function () {
-                http.post('/dev.php/orders/voucher/generate/' + this.ids, {}, function (json) {
+                http.post('/dev.php/orders/voucher/generate/' + this.orderIds, {}, function (json) {
                     $('#generateVouchersModal').modal('hide');
                 });
             }
