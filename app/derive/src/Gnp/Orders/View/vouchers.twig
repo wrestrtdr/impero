@@ -1,4 +1,4 @@
-{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'sendVouchersModal'} %}
+<div class="js-vouchers">{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'sendVouchersModal'} %}
     {% block header %}
         Send vouchers
     {% endblock %}
@@ -21,7 +21,7 @@
 <script type="text/javascript">
     new Vue({
         parent: maestroTable,
-        el: '.container-fluid',
+        el: '.container-fluid div.js-vouchers',
         data: function () {
             return {
                 orderIds: ''
@@ -66,4 +66,4 @@
 
         return true;
     });
-</script>
+</script></div>
