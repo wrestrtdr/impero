@@ -1061,12 +1061,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "ef2eba0c12504e46e60ded2fdbb13415a50a6435"
+                "reference": "47b96162e4c9e4323a78123569ded43e129d16d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/ef2eba0c12504e46e60ded2fdbb13415a50a6435",
-                "reference": "ef2eba0c12504e46e60ded2fdbb13415a50a6435",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/47b96162e4c9e4323a78123569ded43e129d16d5",
+                "reference": "47b96162e4c9e4323a78123569ded43e129d16d5",
                 "shasum": ""
             },
             "type": "library",
@@ -1089,7 +1089,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-23 19:02:39"
+            "time": "2016-06-23 19:08:21"
         },
         {
             "name": "pckg/framework",
