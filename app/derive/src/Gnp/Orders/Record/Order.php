@@ -218,4 +218,8 @@ class Order extends Record
         );
     }
 
+    public function confirmBillFurs() {
+        die("confirming");
+    }
+
 }
