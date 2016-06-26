@@ -5,6 +5,7 @@ use JonnyW\PhantomJs\Client;
 use Pckg\Collection;
 use Pckg\Concept\Reflect;
 use Pckg\Database\Record;
+use Pckg\Framework\Config;
 use Pckg\Furs\Service\Furs;
 use Pckg\Mail\Service\Mail;
 
@@ -241,40 +242,34 @@ class Order extends Record
 
     public function confirmBillFurs() {
         try {
-            ini_set('display_errors', 1);
-            error_reporting(E_ALL);
+            $defaults = context()->get(Config::class)->get('furs');
             /**
              * Create business and invoice.
              */
-            $business = new Furs\Business('GNPSI', '10450505', '1990-08-25');
-            $invoice = new Furs\Invoice('20161234', '100.00', '100.00', '2016-06-25T13:05:24');
-
-            /**
-             * Production.
-             */
-            $certsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'prod' . path('ds');
-            $config = new Furs\Config(
-                '10450505',
-                $certsPath . '10450505-1.pem',
-                $certsPath . '10450505-1.p12',
-                'FK9M8AMMS8HV',
-                $certsPath . 'sigov-ca.pem',
-                'https://blagajne.fu.gov.si:9003/v1/cash_registers',
-                '10450505'
+            $business = new Furs\Business(
+                $defaults['businessId'],
+                $defaults['businessTaxNumber'],
+                $defaults['businessValidityDate']
+            );
+            $invoice = new Furs\Invoice(
+                str_replace('-', '', $this->num),
+                number_format($this->getTotalBillsSum(), 2),
+                number_format($this->getPayedBillsSum(), 2),
+                date('Y-m-d') . 'T' . date('H:i:s')
             );
 
             /**
-             * Development.
+             * Configuration
              */
-            $certsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'dev' . path('ds');
+            $certsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . $defaults['env'] . path('ds');
             $config = new Furs\Config(
-                '10450505',
-                $certsPath . '10450505-1.pem',
-                $certsPath . '10450505-1.p12',
-                'FK9M8AMMS8HV',
-                $certsPath . 'fursserver.pem',
-                'https://blagajne-test.fu.gov.si:9002/v1/cash_registers',
-                '10450505'
+                $defaults['taxNumber'],
+                $certsPath . $defaults['pemCert'],
+                $certsPath . $defaults['p12Cert'],
+                $defaults['password'],
+                $certsPath . $defaults['serverCert'],
+                $defaults['url'],
+                $defaults['softwareSupplierTaxNumber']
             );
 
             /**
@@ -283,15 +278,21 @@ class Order extends Record
             $furs = new Furs($config, $business, $invoice);
             $furs->setTestMode();
 
-            //$furs->createEchoMsg();
-            //$furs->postXML2Furs();
-
+            /**
+             * Create business request.
+             */
             $furs->createBusinessMsg();
             $furs->postXML2Furs();
 
+            /**
+             * Create invoice request.
+             */
             $furs->createInvoiceMsg();
             $furs->postXML2Furs();
 
+            /**
+             * Generate QR code.
+             */
             $furs->generateQR();
 
             if ($eor = $furs->getEOR() && $zoi = $furs->getZOI()) {

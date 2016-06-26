@@ -511,7 +511,6 @@ class Furs
         if ($this->fursResponse) {
             if (isset($this->invoice)) {
                 $doc = new DOMDocument('1.0', 'UTF-8');
-                d($this->fursResponse);
                 $doc->loadXML($this->fursResponse);
                 $this->saveResponse($doc, 'generated');
 
@@ -578,22 +577,8 @@ class Furs
         $qrCode = $qrCode . $controlChar;
         QRcode::png(
             $qrCode,
-            $this->qrDirPath . 'qr-' . $invoice_year . '-' . $this->invoice->getInvoiceNumber() . '.png'
+            $this->qrDirPath . $this->invoice->getInvoiceNumber() . '-' . date('Ymdhis') . '.png'
         );
-    }
-
-    /*
-    * QR manipulation, for testing purposes; as it is called from outside it can be arbitrarily changed
-    */
-
-    public function generateQRTest($id_invoice) {
-        /*
-        $this->zoi = ...;
-        $dateTime = ...;
-        $invoiceNumber = ...;
-        $this->data = array('IssueDateTime' => $dateTime, 'InvoiceNumber' => $invoiceNumber);
-        $this->generateQR();
-        */
     }
 
     public function getZOI() {
