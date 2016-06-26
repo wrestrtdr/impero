@@ -5,6 +5,7 @@ use JonnyW\PhantomJs\Client;
 use Pckg\Collection;
 use Pckg\Concept\Reflect;
 use Pckg\Database\Record;
+use Pckg\Furs\Service\Furs;
 use Pckg\Mail\Service\Mail;
 
 class Order extends Record
@@ -135,6 +136,10 @@ class Order extends Record
         );
     }
 
+    public function queueConfirmFurs() {
+        queue()->create('furs:confirm --orders ' . $this->id);
+    }
+
     public function sendVoucher() {
         $mailer = new Mail();
 
@@ -219,7 +224,64 @@ class Order extends Record
     }
 
     public function confirmBillFurs() {
-        die("confirming");
+        try {
+            /**
+             * Create business and invoice.
+             */
+            $business = new Furs\Business('GNPSI', '10450505', '1990-08-25');
+            $invoice = new Furs\Invoice('20161234', '100.00', '100.00', '2015-08-07T13:05:24');
+
+            /**
+             * Production.
+             */
+            $certsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'prod' . path('ds');
+            $config = new Furs\Config(
+                '10450505',
+                $certsPath . '10450505-1.pem',
+                $certsPath . '10450505-1.p12',
+                'FK9M8AMMS8HV',
+                $certsPath . 'sigov-ca.pem',
+                'https://blagajne.fu.gov.si:9003/v1/cash_registers',
+                '20070691'
+            );
+
+            /**
+             * Development.
+             */
+            $certsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'dev' . path('ds');
+            $config = new Furs\Config(
+                '10450505',
+                $certsPath . '10450505-1.pem',
+                $certsPath . '10450505-1.p12',
+                'FK9M8AMMS8HV',
+                $certsPath . 'fursserver.pem',
+                'https://blagajne-test.fu.gov.si:9002/v1/cash_registers',
+                '20070691'
+            );
+
+            /**
+             * Create furs object.
+             */
+            $furs = new Furs($config, $business, $invoice);
+            $furs->setTestMode();
+
+            //$furs->createEchoMsg();
+            //$furs->postXML2Furs();
+
+            $furs->createBusinessMsg();
+            $furs->postXML2Furs();
+
+            $furs->createInvoiceMsg();
+            $furs->postXML2Furs();
+
+            echo "EOR: " . $furs->getEOR() . "\n";
+            echo "ZOI: " . $furs->getZOI() . "\n";
+
+            //$this->furs_eor = $furs->getEOR();
+            //$this->furs_zoi = $furs->getZOI();
+        } catch (\Exception $e) {
+            dd(exception($e));
+        }
     }
 
 }

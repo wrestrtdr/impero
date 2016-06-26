@@ -4,6 +4,7 @@ use Gnp\Orders\Controller\Orders;
 use Gnp\Orders\Provider\Config as OrdersProvider;
 use Pckg\Auth\Provider\Config as AuthProvider;
 use Pckg\Framework\Provider;
+use Pckg\Furs\Provider\Config as FursProvider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
 use Pckg\Maestro\Provider\Config as MaestroProvider;
 use Pckg\Mail\Provider\Config as MailProvider;
@@ -28,6 +29,7 @@ class Derive extends Provider
             OrdersProvider::class,
             DynamicProvider::class,
             GenericProvider::class,
+            FursProvider::class,
         ];
     }
 
