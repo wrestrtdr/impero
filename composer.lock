@@ -2333,12 +2333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "4e163001358170c747e3443982e15dc41d3dcabe"
+                "reference": "66a0cb34647aa2c9805acc29ac7ceec32ca05b1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/4e163001358170c747e3443982e15dc41d3dcabe",
-                "reference": "4e163001358170c747e3443982e15dc41d3dcabe",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/66a0cb34647aa2c9805acc29ac7ceec32ca05b1e",
+                "reference": "66a0cb34647aa2c9805acc29ac7ceec32ca05b1e",
                 "shasum": ""
             },
             "replace": {
@@ -2376,7 +2376,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-06-24 06:17:36"
+            "time": "2016-06-26 04:35:11"
         },
         {
             "name": "twig/twig",
