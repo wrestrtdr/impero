@@ -46,15 +46,28 @@ class Orders extends Controller
         /**
          * Apply collection extension.
          */
+        $groups = [];
         $groupedBy = $all->groupBy(
-            function($order) {
-                return $order->checkin && $order->checkin->value ? 'Checkin: ' . $order->checkin->value : 'No checking point';
+            function($order) use (&$groups) {
+                $value = 0;
+                if ($order->checkin && $order->checkin->value) {
+                    $value = $order->checkin->value;
+                }
+                $groups[0][$value] = $value ? 'Checkin: ' . $value : 'No checkin point';
+
+                return $value;
             }
         )->each(
-            function($groupOrders) {
+            function($groupOrders) use (&$groups) {
                 return (new Collection($groupOrders))->groupBy(
-                    function($order) {
-                        return $order->appartment && $order->appartment->value ? 'Appartment: ' . $order->appartment->value : 'No appartment';
+                    function($order) use (&$groups) {
+                        $value = 0;
+                        if ($order->appartment && $order->appartment->value) {
+                            $value = $order->appartment->value;
+                        }
+                        $groups[1][$value] = $value ? 'Appartment: ' . $value : 'No appartment';
+
+                        return $value;
                     }
                 );
             },
@@ -68,7 +81,7 @@ class Orders extends Controller
                          ->setPerPage(50)
                          ->setPage(1)
                          ->setTotal($all->total())
-                         ->setGroupByLevels([0, 1])
+                         ->setGroups($groups)
                          ->setEntityActions(
                              [
                                  'add',
@@ -146,15 +159,18 @@ class Orders extends Controller
                       ->limit(null)
                       ->all();
 
+        $groups = [];
         $groupedBy = $all->groupBy(
-            function($summary) {
-                return '#' . $summary->offer_id . ' ' . $summary->offer_title;
+            function($summary) use (&$groups) {
+                $groups[0][$summary->offer_id] = '#' . $summary->offer_id . ' ' . $summary->offer_title;
+
+                return $summary->offer_id;
             }
         );
 
         $tabelize = $this->tabelize($orders, ['id'], 'Orders')
                          ->setRecords($groupedBy)
-                         ->setGroupByLevels([0])
+                         ->setGroups($groups)
                          ->setEntityActions(
                              [
                                  'filter',
@@ -204,7 +220,6 @@ class Orders extends Controller
                          ->setPerPage(50)
                          ->setPage(1)
                          ->setTotal($all->total())
-                         ->setGroupByLevels([])
                          ->setEntityActions(
                              [
                                  'furs',

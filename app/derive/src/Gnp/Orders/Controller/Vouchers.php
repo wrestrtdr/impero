@@ -1,12 +1,12 @@
 <?php namespace Gnp\Orders\Controller;
 
 use Gnp\Orders\Entity\Orders;
-use Gnp\Orders\Record\Order;
-use Pckg\Dynamic\Service\Dynamic;
-use Pckg\Framework\Controller;
 use Gnp\Orders\Entity\Orders as OrdersEntity;
+use Gnp\Orders\Record\Order;
 use Pckg\Collection;
 use Pckg\Dynamic\Entity\Tables;
+use Pckg\Dynamic\Service\Dynamic;
+use Pckg\Framework\Controller;
 use Pckg\Maestro\Helper\Maestro;
 
 class Vouchers extends Controller
@@ -46,13 +46,12 @@ class Vouchers extends Controller
 
         $all = $orders->all();
 
+        $groups = [];
         $groupedBy = $all->groupBy(
-            function(Order $order) {
-                /**
-                 * @T00D00
-                 * This would be faster if we group by offer_id and display title.
-                 */
-                return $order->offer->title;
+            function(Order $order) use (&$groups) {
+                $groups[0][$order->offer_id] = $order->offer->title;
+                
+                return $order->offer_id;
             }
         );
 
@@ -61,7 +60,7 @@ class Vouchers extends Controller
                          ->setPerPage(50)
                          ->setPage(1)
                          ->setTotal($all->total())
-                         ->setGroupByLevels([1])
+                         ->setGroups($groups)
                          ->setEntityActions(
                              [
                                  'generateVoucher',
