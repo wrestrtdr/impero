@@ -1604,12 +1604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "52068ef51348822fe9eca90a585b63768b8e1198"
+                "reference": "7af1f3205ecc8e6fe3a34bf3b62d0c2ea70edea0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/52068ef51348822fe9eca90a585b63768b8e1198",
-                "reference": "52068ef51348822fe9eca90a585b63768b8e1198",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/7af1f3205ecc8e6fe3a34bf3b62d0c2ea70edea0",
+                "reference": "7af1f3205ecc8e6fe3a34bf3b62d0c2ea70edea0",
                 "shasum": ""
             },
             "type": "library",
@@ -1632,7 +1632,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-06-20 10:05:47"
+            "time": "2016-06-26 18:15:33"
         },
         {
             "name": "psr/log",
@@ -1974,63 +1974,6 @@
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
             "time": "2016-06-24 06:07:32"
-        },
-        {
-            "name": "symfony/debug",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/debug.git",
-                "reference": "0abd031b28883e4705c555ed649548cb465b7ae1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/0abd031b28883e4705c555ed649548cb465b7ae1",
-                "reference": "0abd031b28883e4705c555ed649548cb465b7ae1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "psr/log": "~1.0"
-            },
-            "conflict": {
-                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
-            },
-            "require-dev": {
-                "symfony/class-loader": "~2.8|~3.0",
-                "symfony/http-kernel": "~2.8|~3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Debug\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Debug Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-06-21 06:43:40"
         },
         {
             "name": "symfony/dependency-injection",
