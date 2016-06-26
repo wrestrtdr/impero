@@ -64,6 +64,11 @@ class Config extends Provider
                     'view'       => 'furs',
                     'name'       => 'derive.orders.furs',
                 ],
+                '/orders/furs/request-confirmation'          => [
+                    'controller' => Orders::class,
+                    'view'       => 'fursRequest',
+                    'name'       => 'derive.orders.fursRequest',
+                ],
                 '/orders/vouchers'                           => [
                     'controller' => Vouchers::class,
                     'view'       => 'index',

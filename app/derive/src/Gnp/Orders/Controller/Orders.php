@@ -343,4 +343,14 @@ class Orders extends Controller
         return $this->response()->respondWithAjaxSuccess();
     }
 
+    public function postFursRequestAction() {
+        (new OrdersEntity())->where('id', $this->post()->get('orders'))->all()->each(
+            function(Order $order) {
+                $order->queueConfirmFurs();
+            }
+        );
+
+        return $this->response()->respondWithAjaxSuccess();
+    }
+
 }

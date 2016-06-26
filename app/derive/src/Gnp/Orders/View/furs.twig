@@ -24,7 +24,7 @@
             </tr>
             {% endverbatim %}
         </table>
-        <button class="btn btn-success">Confirm all orders on FURS?</button>
+        <button class="btn btn-success" v-on:click="requestConfirmation">Confirm all orders on FURS?</button>
     {% endblock %}
 {% endembed %}
 
@@ -41,6 +41,15 @@
             openFursPopup: function () {
                 $('#fursModal').modal('show');
             },
+            requestConfirmation: function () {
+                http.post('/dev.php/orders/furs/request-confirmation', {
+                    orders: this.orders.map(function (order) {
+                        return order.id;
+                    })
+                }, function () {
+
+                });
+            }
         }
     }).$on('record:openFursPopup', function (id, record) {
         this.orders = [record];
