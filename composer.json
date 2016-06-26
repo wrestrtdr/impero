@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "pckg/backend": "dev-master"
+    "pckg/backend": "dev-master",
+    "robrichards/xmlseclibs": "^2.0"
   },
   "minimum-stability": "dev",
   "autoload": {
