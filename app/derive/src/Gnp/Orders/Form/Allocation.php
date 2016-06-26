@@ -2,7 +2,7 @@
 
 use Pckg\Htmlbuilder\Element\Form\Bootstrap;
 
-class Attributes extends Bootstrap
+class Allocation extends Bootstrap
 {
 
     public function initFields() {

@@ -4,7 +4,7 @@
     {% endblock %}
     {% block body %}
         <p v-if="loading.attributes">Loading attributes ...</p>
-        {{ attributesForm | raw }}
+        {{ allocationForm | raw }}
         <br/>
         <br/>
         <h2>Grouped orders ({{ similarOrders.length }})</h2>

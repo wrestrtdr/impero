@@ -3,7 +3,6 @@
         Confirm bills on FURS
     {% endblock %}
     {% block body %}
-        <p>Confirm orders?</p>
         <table class="table table-stripped table-condensed">
             <tr>
                 <th>ID</th>
@@ -47,7 +46,23 @@
                         return order.id;
                     })
                 }, function () {
-
+                    data.$root.openModal({
+                        dismissable: true,
+                        id: 'modal-furs-success',
+                        header: 'Success',
+                        body: 'Confirmation successfully requested.',
+                        style: 'success',
+                        visible: true
+                    });
+                }.bind(this), function () {
+                    data.$root.openModal({
+                        dismissable: true,
+                        id: 'modal-furs-error',
+                        header: 'Error',
+                        body: 'Error requesting confirmation.',
+                        style: 'danger',
+                        visible: true
+                    });
                 });
             }
         }

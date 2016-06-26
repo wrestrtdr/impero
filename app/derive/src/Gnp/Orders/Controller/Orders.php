@@ -2,7 +2,7 @@
 
 use Gnp\Orders\Entity\Orders as OrdersEntity;
 use Gnp\Orders\Entity\OrdersTags;
-use Gnp\Orders\Form\Attributes;
+use Gnp\Orders\Form\Allocation;
 use Gnp\Orders\Record\Order;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
@@ -28,7 +28,7 @@ class Orders extends Controller
         return 'Ok!';
     }
 
-    public function getGroupAction(OrdersEntity $orders, Attributes $attributesForm) {
+    public function getGroupAction(OrdersEntity $orders, Allocation $allocationForm) {
         /**
          * Set table.
          */
@@ -61,7 +61,7 @@ class Orders extends Controller
             true
         );
 
-        $attributesForm->initFields();
+        $allocationForm->initFields();
 
         $tabelize = $this->tabelize($orders, ['id'], 'Orders')
                          ->setRecords($groupedBy)
@@ -106,7 +106,8 @@ class Orders extends Controller
                                      return $order->getPacketsSummary();
                                  },
                              ]
-                         );
+                         )
+                         ->setViews([view('allocation', ['allocationForm' => $allocationForm])]);
 
         if ($this->request()->isAjax()) {
             return [
@@ -114,10 +115,7 @@ class Orders extends Controller
             ];
         }
 
-        /**
-         * Those 2 views should be loaded in different action.
-         */
-        return $tabelize . view('allocation', ['attributesForm' => $attributesForm]);
+        return $tabelize;
     }
 
     public function getSummaryAction(OrdersEntity $orders) {
@@ -183,9 +181,6 @@ class Orders extends Controller
             ];
         }
 
-        /**
-         * Those 2 views should be loaded in different action.
-         */
         return $tabelize;
     }
 
@@ -226,6 +221,7 @@ class Orders extends Controller
                                  'furs',
                              ]
                          )
+                         ->setViews(['furs'])
                          ->setFields(
                              [
                                  'id',
@@ -267,7 +263,7 @@ class Orders extends Controller
         /**
          * Those 2 views should be loaded in different action.
          */
-        return $tabelize . view('furs');
+        return $tabelize;
     }
 
     public function getAllocationAction(Order $order) {

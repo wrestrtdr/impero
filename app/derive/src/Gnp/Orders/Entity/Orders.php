@@ -149,7 +149,8 @@ class Orders extends Entity implements MaestroEntity
     public function forFurs() {
         return $this->payed()
                     ->confirmed()
-                    ->joinOffer()
+                    ->withOffer()
+                    ->withUser()
                     ->withOrdersBills(
                         function(HasMany $ordersBills) {
                             $ordersBills->where('type', [1, 2]);
