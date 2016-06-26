@@ -1,0 +1,56 @@
+{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'fursModal'} %}
+    {% block header %}
+        Confirm bills on FURS
+    {% endblock %}
+    {% block body %}
+        <p>Confirm orders?</p>
+        <table class="table table-stripped table-condensed">
+            <tr>
+                <th>ID</th>
+                <th>Num</th>
+                <th>Original</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Payed</th>
+            </tr>
+            {% verbatim %}
+            <tr v-for="order in orders" :class="{ 'danger': order.price != order.bills_total || order.price != order.bills_payed, 'info': order.furs_confirmed_at }">
+                <td>{{ order.id }}</td>
+                <td>{{ order.num }}</td>
+                <td>{{ order.original }}</td>
+                <td>{{ order.price }}</td>
+                <td>{{ order.bills_total }}</td>
+                <td>{{ order.bills_payed }}</td>
+            </tr>
+            {% endverbatim %}
+        </table>
+        <button class="btn btn-success">Confirm all orders on FURS?</button>
+    {% endblock %}
+{% endembed %}
+
+<script type="text/javascript">
+    new Vue({
+        parent: maestroTable,
+        el: '#fursModal',
+        data: function () {
+            return {
+                orders: []
+            };
+        },
+        methods: {
+            openFursPopup: function () {
+                $('#fursModal').modal('show');
+            },
+        }
+    }).$on('record:openFursPopup', function (id, record) {
+        this.orders = [record];
+        this.openFursPopup();
+
+        return true;
+    }).$on('entity:openFursPopup', function (ids, records) {
+        this.orders = records;
+        this.openFursPopup();
+
+        return true;
+    });
+</script>

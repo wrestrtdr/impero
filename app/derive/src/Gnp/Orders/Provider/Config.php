@@ -54,10 +54,15 @@ class Config extends Provider
                         'order' => OrdersResolver::class,
                     ],
                 ],
-                '/orders/summary'                           => [
+                '/orders/summary'                            => [
                     'controller' => Orders::class,
                     'view'       => 'summary',
                     'name'       => 'derive.orders.summary',
+                ],
+                '/orders/furs'                               => [
+                    'controller' => Orders::class,
+                    'view'       => 'furs',
+                    'name'       => 'derive.orders.furs',
                 ],
                 '/orders/vouchers'                           => [
                     'controller' => Vouchers::class,

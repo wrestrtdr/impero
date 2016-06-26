@@ -139,9 +139,22 @@ class Orders extends Entity implements MaestroEntity
 
     public function forSummary() {
         return $this->joinOffer()
-                    ->joinOrdersBills(function(Query $ordersBills){
-                        $ordersBills->where('type', [1, 2]);
-                    });
+                    ->joinOrdersBills(
+                        function(Query $ordersBills) {
+                            $ordersBills->where('type', [1, 2]);
+                        }
+                    );
+    }
+
+    public function forFurs() {
+        return $this->payed()
+                    ->confirmed()
+                    ->joinOffer()
+                    ->withOrdersBills(
+                        function(HasMany $ordersBills) {
+                            $ordersBills->where('type', [1, 2]);
+                        }
+                    );
     }
 
 }

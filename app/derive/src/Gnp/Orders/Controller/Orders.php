@@ -187,7 +187,87 @@ class Orders extends Controller
          * Those 2 views should be loaded in different action.
          */
         return $tabelize;
+    }
 
+    public function getFursAction(OrdersEntity $orders) {
+        /**
+         * Set table.
+         */
+        $table = (new Tables())->where('framework_entity', get_class($orders))->oneOrFail();
+        $this->dynamicService->setTable($table);
+
+        /**
+         * Apply entity extension.
+         */
+        $this->dynamicService->applyOnEntity($orders);
+
+        $all = $orders->forFurs()
+                      ->all();
+
+        $tabelize = $this->tabelize($orders, ['id'], 'Orders')
+                         ->setRecords($all)
+                         ->setPerPage(50)
+                         ->setPage(1)
+                         ->setTotal($all->total())
+                         ->setGroupByLevels([])
+                         ->setEntityActions(
+                             [
+                                 'furs',
+                                 'add',
+                                 'filter',
+                                 'sort',
+                                 'group',
+                                 'export',
+                                 'view',
+                             ]
+                         )
+                         ->setRecordActions(
+                             [
+                                 'furs',
+                             ]
+                         )
+                         ->setFields(
+                             [
+                                 'id',
+                                 'num',
+                                 'offer'       => function($order) {
+                                     return $order->offer ? $order->offer->title : ' -- no offer -- ';
+                                 },
+                                 'payee'       => function($order) {
+                                     $user = $order->user;
+
+                                     if (!$user) {
+                                         return ' -- no user -- ';
+                                     }
+
+                                     return $user->surname . ' ' . $user->name . "<br />" .
+                                            $user->email . '<br />' .
+                                            $user->phone;
+                                 },
+                                 'original',
+                                 'price',
+                                 'bills_total' => function(Order $order) {
+                                     return $order->getTotalBillsSum();
+                                 },
+                                 'bills_payed' => function(Order $order) {
+                                     return $order->getPayedBillsSum();
+                                 },
+                                 'furs_eor',
+                                 'furs_zoi',
+                                 'furs_confirmed_at',
+                             ]
+                         );
+
+        if ($this->request()->isAjax()) {
+            return [
+                'records' => $tabelize->transformRecords(),
+            ];
+        }
+
+        /**
+         * Those 2 views should be loaded in different action.
+         */
+        return $tabelize . view('furs');
     }
 
     public function getAllocationAction(Order $order) {

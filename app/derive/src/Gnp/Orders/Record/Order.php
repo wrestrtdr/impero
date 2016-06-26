@@ -125,6 +125,22 @@ class Order extends Record
         );
     }
 
+    public function getTotalBillsSum() {
+        return $this->ordersBills->sum(
+            function(OrdersBill $bill) {
+                return $bill->price;
+            }
+        );
+    }
+
+    public function getPayedBillsSum() {
+        return $this->ordersBills->sum(
+            function(OrdersBill $bill) {
+                return $bill->payed;
+            }
+        );
+    }
+
     public function queueSendVoucher() {
         queue()->create('voucher:send --orders ' . $this->id)->makeTimeoutAfterLast('voucher:send', '+5 seconds');
     }
@@ -274,11 +290,12 @@ class Order extends Record
             $furs->createInvoiceMsg();
             $furs->postXML2Furs();
 
-            echo "EOR: " . $furs->getEOR() . "\n";
-            echo "ZOI: " . $furs->getZOI() . "\n";
-
-            //$this->furs_eor = $furs->getEOR();
-            //$this->furs_zoi = $furs->getZOI();
+            if ($eor = $furs->getEOR() && $zoi = $furs->getZOI()) {
+                $this->furs_eor = $furs->getEOR();
+                $this->furs_zoi = $furs->getZOI();
+                $this->furs_confirmed_at = date('Y-m-d H:i:s');
+                $this->save();
+            }
         } catch (\Exception $e) {
             dd(exception($e));
         }
