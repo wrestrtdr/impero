@@ -952,12 +952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "9f9779c63beb200ce53ce9491c5ec4a778ab0e5b"
+                "reference": "529c16fb6fd6365f8d883a5e299c817b7f906ff5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/9f9779c63beb200ce53ce9491c5ec4a778ab0e5b",
-                "reference": "9f9779c63beb200ce53ce9491c5ec4a778ab0e5b",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/529c16fb6fd6365f8d883a5e299c817b7f906ff5",
+                "reference": "529c16fb6fd6365f8d883a5e299c817b7f906ff5",
                 "shasum": ""
             },
             "type": "library",
@@ -978,7 +978,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-06-21 21:07:45"
+            "time": "2016-06-26 11:20:16"
         },
         {
             "name": "pckg/concept",
@@ -1020,12 +1020,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "710ff4f9e2c9c48d83cabcc9177edaadad65161f"
+                "reference": "0a9344e37c4420a5659c49d4284cb1eaa2eabc44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/710ff4f9e2c9c48d83cabcc9177edaadad65161f",
-                "reference": "710ff4f9e2c9c48d83cabcc9177edaadad65161f",
+                "url": "https://api.github.com/repos/pckg/database/zipball/0a9344e37c4420a5659c49d4284cb1eaa2eabc44",
+                "reference": "0a9344e37c4420a5659c49d4284cb1eaa2eabc44",
                 "shasum": ""
             },
             "require": {
@@ -1053,7 +1053,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-24 13:06:40"
+            "time": "2016-06-26 11:20:29"
         },
         {
             "name": "pckg/dynamic",
@@ -1191,12 +1191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "db3ce579e67b0745d78b32b67f7817a75eff27d0"
+                "reference": "cedc807ba4b929b09a52e117600a805737d76255"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/db3ce579e67b0745d78b32b67f7817a75eff27d0",
-                "reference": "db3ce579e67b0745d78b32b67f7817a75eff27d0",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/cedc807ba4b929b09a52e117600a805737d76255",
+                "reference": "cedc807ba4b929b09a52e117600a805737d76255",
                 "shasum": ""
             },
             "require": {
@@ -1220,7 +1220,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-06-25 13:34:44"
+            "time": "2016-06-26 11:20:54"
         },
         {
             "name": "pckg/helpers-js",
