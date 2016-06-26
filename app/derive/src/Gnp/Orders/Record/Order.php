@@ -241,68 +241,64 @@ class Order extends Record
     }
 
     public function confirmBillFurs() {
-        try {
-            $defaults = context()->get(Config::class)->get('furs');
-            /**
-             * Create business and invoice.
-             */
-            $business = new Furs\Business(
-                $defaults['businessId'],
-                $defaults['businessTaxNumber'],
-                $defaults['businessValidityDate']
-            );
-            $invoice = new Furs\Invoice(
-                str_replace('-', '', $this->num),
-                number_format($this->getTotalBillsSum(), 2),
-                number_format($this->getPayedBillsSum(), 2),
-                date('Y-m-d') . 'T' . date('H:i:s')
-            );
+        $defaults = context()->get(Config::class)->get('furs');
+        /**
+         * Create business and invoice.
+         */
+        $business = new Furs\Business(
+            $defaults['businessId'],
+            $defaults['businessTaxNumber'],
+            $defaults['businessValidityDate']
+        );
+        $invoice = new Furs\Invoice(
+            str_replace('-', '', $this->num),
+            number_format($this->getTotalBillsSum(), 2),
+            number_format($this->getPayedBillsSum(), 2),
+            date('Y-m-d') . 'T' . date('H:i:s')
+        );
 
-            /**
-             * Configuration
-             */
-            $certsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . $defaults['env'] . path('ds');
-            $config = new Furs\Config(
-                $defaults['taxNumber'],
-                $certsPath . $defaults['pemCert'],
-                $certsPath . $defaults['p12Cert'],
-                $defaults['password'],
-                $certsPath . $defaults['serverCert'],
-                $defaults['url'],
-                $defaults['softwareSupplierTaxNumber']
-            );
+        /**
+         * Configuration
+         */
+        $certsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . $defaults['env'] . path('ds');
+        $config = new Furs\Config(
+            $defaults['taxNumber'],
+            $certsPath . $defaults['pemCert'],
+            $certsPath . $defaults['p12Cert'],
+            $defaults['password'],
+            $certsPath . $defaults['serverCert'],
+            $defaults['url'],
+            $defaults['softwareSupplierTaxNumber']
+        );
 
-            /**
-             * Create furs object.
-             */
-            $furs = new Furs($config, $business, $invoice);
-            $furs->setTestMode();
+        /**
+         * Create furs object.
+         */
+        $furs = new Furs($config, $business, $invoice);
+        $furs->setTestMode();
 
-            /**
-             * Create business request.
-             */
-            $furs->createBusinessMsg();
-            $furs->postXML2Furs();
+        /**
+         * Create business request.
+         */
+        $furs->createBusinessMsg();
+        $furs->postXML2Furs();
 
-            /**
-             * Create invoice request.
-             */
-            $furs->createInvoiceMsg();
-            $furs->postXML2Furs();
+        /**
+         * Create invoice request.
+         */
+        $furs->createInvoiceMsg();
+        $furs->postXML2Furs();
 
-            /**
-             * Generate QR code.
-             */
-            $furs->generateQR();
+        /**
+         * Generate QR code.
+         */
+        $furs->generateQR();
 
-            if ($eor = $furs->getEOR() && $zoi = $furs->getZOI()) {
-                $this->furs_eor = $furs->getEOR();
-                $this->furs_zoi = $furs->getZOI();
-                $this->furs_confirmed_at = date('Y-m-d H:i:s');
-                $this->save();
-            }
-        } catch (\Exception $e) {
-            dd(exception($e));
+        if ($eor = $furs->getEOR() && $zoi = $furs->getZOI()) {
+            $this->furs_eor = $furs->getEOR();
+            $this->furs_zoi = $furs->getZOI();
+            $this->furs_confirmed_at = date('Y-m-d H:i:s');
+            $this->save();
         }
     }
 

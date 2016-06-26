@@ -759,18 +759,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "13fed3195b35788aa2809a0dc4faffddf7140357"
+                "reference": "7c62c30a1ec09f1eac3813b1f050dbc5cc475a51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/13fed3195b35788aa2809a0dc4faffddf7140357",
-                "reference": "13fed3195b35788aa2809a0dc4faffddf7140357",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/7c62c30a1ec09f1eac3813b1f050dbc5cc475a51",
+                "reference": "7c62c30a1ec09f1eac3813b1f050dbc5cc475a51",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0",
                 "psr/log": "^1.0",
-                "symfony/debug": "^2.6|^3.0",
                 "symfony/var-dumper": "^2.6|^3.0"
             },
             "require-dev": {
@@ -813,7 +812,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-06-11 12:22:24"
+            "time": "2016-06-26 12:42:26"
         },
         {
             "name": "paymill/paymill",
