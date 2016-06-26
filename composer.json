@@ -11,7 +11,8 @@
   ],
   "require": {
     "pckg/backend": "dev-master",
-    "robrichards/xmlseclibs": "^2.0"
+    "robrichards/xmlseclibs": "^2.0",
+    "aferrandini/phpqrcode": "^1.0"
   },
   "minimum-stability": "dev",
   "autoload": {

@@ -241,11 +241,13 @@ class Order extends Record
 
     public function confirmBillFurs() {
         try {
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL);
             /**
              * Create business and invoice.
              */
             $business = new Furs\Business('GNPSI', '10450505', '1990-08-25');
-            $invoice = new Furs\Invoice('20161234', '100.00', '100.00', '2015-08-07T13:05:24');
+            $invoice = new Furs\Invoice('20161234', '100.00', '100.00', '2016-06-25T13:05:24');
 
             /**
              * Production.
@@ -258,7 +260,7 @@ class Order extends Record
                 'FK9M8AMMS8HV',
                 $certsPath . 'sigov-ca.pem',
                 'https://blagajne.fu.gov.si:9003/v1/cash_registers',
-                '20070691'
+                '10450505'
             );
 
             /**
@@ -272,7 +274,7 @@ class Order extends Record
                 'FK9M8AMMS8HV',
                 $certsPath . 'fursserver.pem',
                 'https://blagajne-test.fu.gov.si:9002/v1/cash_registers',
-                '20070691'
+                '10450505'
             );
 
             /**
@@ -289,6 +291,8 @@ class Order extends Record
 
             $furs->createInvoiceMsg();
             $furs->postXML2Furs();
+
+            $furs->generateQR();
 
             if ($eor = $furs->getEOR() && $zoi = $furs->getZOI()) {
                 $this->furs_eor = $furs->getEOR();

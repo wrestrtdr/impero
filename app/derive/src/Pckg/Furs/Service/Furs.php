@@ -8,6 +8,7 @@ use DOMXPath;
 use Pckg\Furs\Service\Furs\Business;
 use Pckg\Furs\Service\Furs\Config;
 use Pckg\Furs\Service\Furs\Invoice;
+use PHPQRCode\QRcode;
 use RobRichards\XMLSecLibs\XMLSecurityDSig;
 use RobRichards\XMLSecLibs\XMLSecurityKey;
 
@@ -58,7 +59,6 @@ class Furs
         $this->business = $business;
         $this->invoice = $invoice;
 
-        //$this->qrDirPath = OpenProfGlobal::getLocalROOT() . 'include/furs/qr/';
         $this->testXMLPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'test_xml' . path('ds');
         $this->xmlsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'certs' . path('ds');
     }
@@ -67,6 +67,9 @@ class Furs
         $this->xmlsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'dev' . path(
                 'ds'
             ) . 'xmls' . path('ds');
+        $this->qrDirPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'dev' . path(
+                'ds'
+            ) . 'qrcodes' . path('ds');
     }
 
     public function createEchoMsg() {
@@ -99,12 +102,8 @@ class Furs
                 ],
             ],
         ];
+
         $this->createXMLMessage($dataArray);
-
-// override with test xml
-// override with test xml
-
-        //$this->xmlMessage = file_get_contents($this->testXMLPath . 'echo.xml');
     }
 
     public function createBusinessMsg() {
@@ -504,7 +503,7 @@ class Furs
             CURLOPT_SSLCERT           => $this->config->getPemCert(),
             CURLOPT_SSLCERTPASSWD     => $this->config->getPassword(),
             CURLOPT_CAINFO            => $this->config->getServerCert(),
-            //CURLOPT_VERBOSE           => dev() ? true : false,
+            CURLOPT_VERBOSE           => dev() ? true : false,
         ];
         curl_setopt_array($conn, $settings);
         $this->fursResponse = curl_exec($conn);
@@ -512,6 +511,7 @@ class Furs
         if ($this->fursResponse) {
             if (isset($this->invoice)) {
                 $doc = new DOMDocument('1.0', 'UTF-8');
+                d($this->fursResponse);
                 $doc->loadXML($this->fursResponse);
                 $this->saveResponse($doc, 'generated');
 
@@ -542,9 +542,6 @@ class Furs
     }
 
     public function generateQR() {
-// generate only in case of invoice declaration
-// generate only in case of invoice declaration
-
         if (!isset($this->invoice)) {
             return;
         }
@@ -559,16 +556,10 @@ class Furs
 
         $zoiDecimal = $this->md52dec($this->zoi);
 
-//if shorter than 39 chars add zeros
-//if shorter than 39 chars add zeros
-
         $zeros2Add = 39 - strlen($zoiDecimal);
         for ($i = 0; $i < $zeros2Add; $i++) {
             $zoiDecimal = '0' . $zoiDecimal;
         }
-
-// DATETIME number
-// DATETIME number
 
         $tmpNum = explode('T', $this->invoice->getIssueDateTime());
         $tmpDate = explode('-', $tmpNum[0]);
