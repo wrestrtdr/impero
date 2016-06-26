@@ -2,6 +2,7 @@
 
 use Gnp\Orders\Controller\Orders;
 use Gnp\Orders\Provider\Config as OrdersProvider;
+use Gnp\Platform\Provider\Config as PlatformProvider;
 use Pckg\Auth\Provider\Config as AuthProvider;
 use Pckg\Framework\Provider;
 use Pckg\Furs\Provider\Config as FursProvider;
@@ -30,6 +31,7 @@ class Derive extends Provider
             DynamicProvider::class,
             GenericProvider::class,
             FursProvider::class,
+            PlatformProvider::class,
         ];
     }
 

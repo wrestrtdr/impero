@@ -1,9 +1,9 @@
 <?php
 
 use Gnp\Orders\Migration\OrdersTags;
+use Gnp\Platform\Migration\CreatePlatformTables;
 use Pckg\Auth\Migration\CreateAuthTables;
 use Pckg\Dynamic\Migration\CreateDynamicTables;
-use Pckg\Dynamic\Migration\InstallDynamicTables;
 use Pckg\Generic\Migration\CreateGenericTables;
 
 return [
@@ -12,4 +12,5 @@ return [
     CreateGenericTables::class,
     OrdersTags::class,
     //InstallDynamicTables::class,
+    CreatePlatformTables::class,
 ];

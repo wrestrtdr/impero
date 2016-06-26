@@ -24,6 +24,8 @@
                 {{ _menuService.build('admin') | raw }}
 
                 {{ _pluginService.make('Pckg\\Auth\\Controller\\Auth', 'getUserHeader') | raw }}
+
+                {{ _pluginService.make('Gnp\\Platform\\Controller\\Platform', 'getUserHeader') | raw }}
             </div>
         {% endif %}
     </div>
