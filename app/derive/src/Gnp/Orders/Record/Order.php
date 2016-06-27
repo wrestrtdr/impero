@@ -143,18 +143,18 @@ class Order extends Record
     }
 
     public function queueSendVoucher() {
-        queue()->create('voucher:send --orders ' . $this->id)->makeTimeoutAfterLast('voucher:send', '+5 seconds');
+        queue()->create('voucher:send --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])->makeTimeoutAfterLast('voucher:send', '+5 seconds');
     }
 
     public function queueGenerateVoucher() {
-        queue()->create('voucher:generate --orders ' . $this->id)->makeTimeoutAfterLast(
+        queue()->create('voucher:generate --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])->makeTimeoutAfterLast(
             'voucher:generate',
             '+2 seconds'
         );
     }
 
     public function queueConfirmFurs() {
-        queue()->create('furs:confirm --orders ' . $this->id);
+        queue()->create('furs:confirm --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id']);
     }
 
     public function sendVoucher() {
