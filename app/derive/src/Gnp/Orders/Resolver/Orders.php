@@ -1,7 +1,6 @@
 <?php namespace Gnp\Orders\Resolver;
 
 use Gnp\Orders\Entity\Orders as OrdersEntity;
-use Pckg\Database\Relation\BelongsTo;
 use Pckg\Database\Relation\HasMany;
 use Pckg\Framework\Provider\RouteResolver;
 
@@ -10,14 +9,16 @@ class Orders implements RouteResolver
 
     public function resolve($value) {
         return (new OrdersEntity())->where('id', $value)
-                                   ->withAppartment()
-                                   ->withCheckin()
-                                   ->withPeople()
+                                   ->joinAppartment()
+                                   ->joinCheckin()
+                                   ->joinPeople()
                                    ->withOffer()
-                                    ->withOrdersUsers(function(HasMany $hasMany){
-                                        $hasMany->where('dt_confirmed');
-                                        $hasMany->withPacket();
-                                    })
+                                   ->withOrdersUsers(
+                                       function(HasMany $hasMany) {
+                                           $hasMany->where('dt_confirmed');
+                                           $hasMany->withPacket();
+                                       }
+                                   )
                                    ->oneOrFail();
     }
 

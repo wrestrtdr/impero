@@ -294,9 +294,9 @@ class Orders extends Controller
 
     public function getAllocationAttributesAction(Order $order) {
         return [
-            'appartment' => $order->appartment ? $order->appartment->value : null,
-            'checkin'    => $order->checkin ? $order->checkin->value : null,
-            'people'     => $order->people ? $order->people->value : null,
+            'appartment' => $order->appartment,
+            'checkin'    => $order->checkin,
+            'people'     => $order->people,
         ];
     }
 
