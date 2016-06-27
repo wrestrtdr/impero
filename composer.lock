@@ -1104,12 +1104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "36d5e6c1ba5f6cf17082efd3da16cf6d0ab6f196"
+                "reference": "0b4c9337d7762c4d3056bf6253263435ed069fe3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/36d5e6c1ba5f6cf17082efd3da16cf6d0ab6f196",
-                "reference": "36d5e6c1ba5f6cf17082efd3da16cf6d0ab6f196",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/0b4c9337d7762c4d3056bf6253263435ed069fe3",
+                "reference": "0b4c9337d7762c4d3056bf6253263435ed069fe3",
                 "shasum": ""
             },
             "type": "library",
@@ -1132,7 +1132,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-26 23:41:37"
+            "time": "2016-06-27 11:42:22"
         },
         {
             "name": "pckg/framework",
@@ -1408,12 +1408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "0df05073f730363947f29ad9eeba3b93457c9cc1"
+                "reference": "7ab026085550eae2b7446b69b12a8c8866d472d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/0df05073f730363947f29ad9eeba3b93457c9cc1",
-                "reference": "0df05073f730363947f29ad9eeba3b93457c9cc1",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/7ab026085550eae2b7446b69b12a8c8866d472d1",
+                "reference": "7ab026085550eae2b7446b69b12a8c8866d472d1",
                 "shasum": ""
             },
             "type": "library",
@@ -1436,7 +1436,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-26 23:42:03"
+            "time": "2016-06-27 11:42:37"
         },
         {
             "name": "pckg/mail",
