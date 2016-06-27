@@ -131,9 +131,9 @@ class Orders extends Entity implements MaestroEntity
         return $this->payed()
                     ->confirmed()
                     ->withOffer()
-                    ->withCheckin()
-                    ->withAppartment()
-                    ->withPeople()
+                    ->joinCheckin()
+                    ->joinAppartment()
+                    ->joinPeople()
                     ->withUser()
                     ->withOrdersUsers(
                         function(HasMany $ordersUsers) {
