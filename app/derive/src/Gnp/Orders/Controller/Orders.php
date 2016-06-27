@@ -42,6 +42,7 @@ class Orders extends Controller
 
         $all = $orders->forOrders()
                       ->forAllocation()
+                      ->orderBy('checkin.value, appartment.value')
                       ->all();
         /**
          * Apply collection extension.
@@ -49,10 +50,7 @@ class Orders extends Controller
         $groups = [];
         $groupedBy = $all->groupBy(
             function($order) use (&$groups) {
-                $value = 0;
-                if ($order->checkin && $order->checkin->value) {
-                    $value = $order->checkin->value;
-                }
+                $value = $order->checkin ?? 0;
                 $groups[0][$value] = $value ? 'Checkin: ' . $value : 'No checkin point';
 
                 return $value;
@@ -61,10 +59,7 @@ class Orders extends Controller
             function($groupOrders) use (&$groups) {
                 return (new Collection($groupOrders))->groupBy(
                     function($order) use (&$groups) {
-                        $value = 0;
-                        if ($order->appartment && $order->appartment->value) {
-                            $value = $order->appartment->value;
-                        }
+                        $value = $order->appartment ?? 0;
                         $groups[1][$value] = $value ? 'Appartment: ' . $value : 'No appartment';
 
                         return $value;
@@ -119,13 +114,13 @@ class Orders extends Controller
                                      return $order->getPacketsSummary();
                                  },
                                  'app'     => function(Order $order) {
-                                     return $order->appartment ? $order->appartment->value : '';
+                                     return $order->appartment;
                                  },
                                  'checkin' => function(Order $order) {
-                                     return $order->checkin ? $order->checkin->value : '';
+                                     return $order->checkin;
                                  },
                                  'people'  => function(Order $order) {
-                                     return $order->people ? $order->people->value : '';
+                                     return $order->people;
                                  },
                              ]
                          )

@@ -48,21 +48,27 @@ class Orders extends Entity implements MaestroEntity
         return $this->hasOne(OrdersTags::class, 'appartment')
                     ->foreignKey('order_id')
                     ->where('appartment.type', 'appartment')
-                    ->fill('appartment');
+                    ->fill('appartment')
+                    ->addSelect(['appartment' => 'appartment.value'])
+                    ->leftJoin();
     }
 
     public function checkin() {
         return $this->hasOne(OrdersTags::class, 'checkin')
                     ->foreignKey('order_id')
                     ->where('checkin.type', 'checkin')
-                    ->fill('checkin');
+                    ->fill('checkin')
+                    ->addSelect(['checkin' => 'checkin.value'])
+                    ->leftJoin();
     }
 
     public function people() {
         return $this->hasOne(OrdersTags::class, 'people')
                     ->foreignKey('order_id')
                     ->where('people.type', 'people')
-                    ->fill('people');
+                    ->fill('people')
+                    ->addSelect(['people' => 'people.value'])
+                    ->leftJoin();
     }
 
     public function confirmed() {
@@ -102,6 +108,13 @@ class Orders extends Entity implements MaestroEntity
         return $relation;
     }
 
+    public function forOrders() {
+        return $this->joinCheckin()
+                    ->joinAppartment()
+                    ->joinPeople()
+                    ->withOffer();
+    }
+
     public function forAllocation() {
         return $this->payed()
                     ->confirmed()
@@ -128,13 +141,6 @@ class Orders extends Entity implements MaestroEntity
                             $ordersUsers->withPacket();
                         }
                     );
-    }
-
-    public function forOrders() {
-        return $this->withCheckin()
-                    ->withAppartment()
-                    ->withPeople()
-                    ->withOffer();
     }
 
     public function forSummary() {
