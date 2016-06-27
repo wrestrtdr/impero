@@ -1063,12 +1063,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "6f937310d373b660b37e330610a3196e952cf869"
+                "reference": "184b79ac160adefe769da57a3f68a9cac3197a25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/6f937310d373b660b37e330610a3196e952cf869",
-                "reference": "6f937310d373b660b37e330610a3196e952cf869",
+                "url": "https://api.github.com/repos/pckg/database/zipball/184b79ac160adefe769da57a3f68a9cac3197a25",
+                "reference": "184b79ac160adefe769da57a3f68a9cac3197a25",
                 "shasum": ""
             },
             "require": {
@@ -1096,7 +1096,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-27 19:41:38"
+            "time": "2016-06-27 20:04:42"
         },
         {
             "name": "pckg/dynamic",
@@ -1104,12 +1104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "754fbba66d51eb0bc14bde8630263fb73d53f477"
+                "reference": "5a266932c5a2acc631cf3e0148625b7821aca09d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/754fbba66d51eb0bc14bde8630263fb73d53f477",
-                "reference": "754fbba66d51eb0bc14bde8630263fb73d53f477",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/5a266932c5a2acc631cf3e0148625b7821aca09d",
+                "reference": "5a266932c5a2acc631cf3e0148625b7821aca09d",
                 "shasum": ""
             },
             "type": "library",
@@ -1132,7 +1132,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-27 19:41:10"
+            "time": "2016-06-27 19:58:06"
         },
         {
             "name": "pckg/framework",
