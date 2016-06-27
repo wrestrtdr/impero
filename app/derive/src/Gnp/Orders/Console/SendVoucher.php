@@ -1,13 +1,15 @@
 <?php namespace Gnp\Orders\Console;
 
 use Gnp\Orders\Entity\Orders;
-use Pckg\Framework\Console\Command;
+use Gnp\Platform\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
 class SendVoucher extends Command
 {
 
     protected function configure() {
+        parent::configure();
+
         $this->setName('voucher:send')
              ->setDescription('Send voucher')
              ->addOptions(

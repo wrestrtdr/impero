@@ -1,5 +1,6 @@
 <?php namespace Gnp\Platform\Middleware;
 
+use Exception;
 use Gnp\Platform\Entity\Platforms;
 use Pckg\Concept\Context;
 use Pckg\Concept\Reflect;
@@ -30,14 +31,19 @@ class InitPlatformDatabase
         $this->platforms = $platforms;
     }
 
-    public function execute(callable $next) {
-        if (!isset($_SESSION['platform_id'])) {
-            $_SESSION['platform_id'] = 1;
+    public function execute(callable $next, $platformId = null) {
+        if (!isConsole()) {
+            if (!isset($_SESSION['platform_id'])) {
+                $_SESSION['platform_id'] = 1;
+            }
+            $platformId = $_SESSION['platform_id'];
         }
 
-        $platform = $this->platforms->where('id', $_SESSION['platform_id'])->one();
+        if (!$platformId) {
+            throw new Exception('Platform is missing (InitPlatformDatabase)');
+        }
 
-        //d($platform->getDatabaseConfig());
+        $platform = $this->platforms->where('id', $platformId)->one();
 
         $this->context->bind(
             Repository::class . '.gnp',

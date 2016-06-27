@@ -1,13 +1,15 @@
 <?php namespace Gnp\Orders\Console;
 
 use Gnp\Orders\Entity\Orders;
-use Pckg\Framework\Console\Command;
+use Gnp\Platform\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
 class GenerateVoucher extends Command
 {
 
     protected function configure() {
+        parent::configure();
+
         $this->setName('voucher:generate')
              ->setDescription('Generates voucher')
              ->addOptions(
