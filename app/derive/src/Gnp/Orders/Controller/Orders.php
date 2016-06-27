@@ -134,6 +134,7 @@ class Orders extends Controller
         if ($this->request()->isAjax()) {
             return [
                 'records' => $tabelize->transformRecords(),
+                'groups'  => $groups,
             ];
         }
 
@@ -203,6 +204,7 @@ class Orders extends Controller
         if ($this->request()->isAjax()) {
             return [
                 'records' => $tabelize->transformRecords(),
+                'groups'  => $groups,
             ];
         }
 
@@ -281,6 +283,7 @@ class Orders extends Controller
         if ($this->request()->isAjax()) {
             return [
                 'records' => $tabelize->transformRecords(),
+                'groups'  => [],
             ];
         }
 
