@@ -1234,12 +1234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "578d73a6a683f35586bcdeb9bce87be73186ac2e"
+                "reference": "9ad5a6d1531a1429b81fd8f79eb9c50d30b4593b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/578d73a6a683f35586bcdeb9bce87be73186ac2e",
-                "reference": "578d73a6a683f35586bcdeb9bce87be73186ac2e",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/9ad5a6d1531a1429b81fd8f79eb9c50d30b4593b",
+                "reference": "9ad5a6d1531a1429b81fd8f79eb9c50d30b4593b",
                 "shasum": ""
             },
             "require": {
@@ -1263,7 +1263,7 @@
             ],
             "description": "Generic frontend",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2016-06-26 21:03:16"
+            "time": "2016-06-27 14:42:14"
         },
         {
             "name": "pckg/helpers-js",
@@ -1604,12 +1604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "7af1f3205ecc8e6fe3a34bf3b62d0c2ea70edea0"
+                "reference": "773134614307f47febe2caa6448dc15637b948de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/7af1f3205ecc8e6fe3a34bf3b62d0c2ea70edea0",
-                "reference": "7af1f3205ecc8e6fe3a34bf3b62d0c2ea70edea0",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/773134614307f47febe2caa6448dc15637b948de",
+                "reference": "773134614307f47febe2caa6448dc15637b948de",
                 "shasum": ""
             },
             "type": "library",
@@ -1632,7 +1632,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-06-26 18:15:33"
+            "time": "2016-06-27 14:42:31"
         },
         {
             "name": "psr/log",
