@@ -429,12 +429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "bd2b5953b24f09febe56cb41ac12b52dc018ccda"
+                "reference": "7a98043c1c985612ffefbe8a5f0ec087808a1d19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/bd2b5953b24f09febe56cb41ac12b52dc018ccda",
-                "reference": "bd2b5953b24f09febe56cb41ac12b52dc018ccda",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/7a98043c1c985612ffefbe8a5f0ec087808a1d19",
+                "reference": "7a98043c1c985612ffefbe8a5f0ec087808a1d19",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +471,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-06-23 08:49:49"
+            "time": "2016-06-27 12:50:43"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -1063,12 +1063,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "04b90ef04ff10becef7a27bf2bc83c2ab27e8b31"
+                "reference": "8d95d99a5802d0c96b5109ebad036aa4d65a0d64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/04b90ef04ff10becef7a27bf2bc83c2ab27e8b31",
-                "reference": "04b90ef04ff10becef7a27bf2bc83c2ab27e8b31",
+                "url": "https://api.github.com/repos/pckg/database/zipball/8d95d99a5802d0c96b5109ebad036aa4d65a0d64",
+                "reference": "8d95d99a5802d0c96b5109ebad036aa4d65a0d64",
                 "shasum": ""
             },
             "require": {
@@ -1096,7 +1096,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-27 12:25:11"
+            "time": "2016-06-27 14:03:07"
         },
         {
             "name": "pckg/dynamic",
