@@ -19,7 +19,9 @@ class Orders implements RouteResolver
                                            $hasMany->withPacket();
                                        }
                                    )
-                                   ->oneOrFail();
+                                   ->oneOrFail(function(){die();
+                                       return response()->notFound('Order not found');
+                                   });
     }
 
     public function parametrize($record) {

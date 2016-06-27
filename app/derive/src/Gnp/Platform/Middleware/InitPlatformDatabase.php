@@ -37,6 +37,8 @@ class InitPlatformDatabase
 
         $platform = $this->platforms->where('id', $_SESSION['platform_id'])->one();
 
+        //d($platform->getDatabaseConfig());
+
         $this->context->bind(
             Repository::class . '.gnp',
             $this->initDatabase->initPdoDatabase(
