@@ -332,19 +332,19 @@
             </div>
             <br />
             <b>Important booking information</b>
-            {% if order.checkin.value %}
+            {% if order.checkin %}
                 <div class="attribute">
-                    Check-in: {{ order.checkin.value }}
+                    Check-in: {{ order.checkin }}
                 </div>
             {% endif %}
-            {% if order.appartment.value %}
+            {% if order.appartment %}
                 <div class="attribute">
-                    {{ order.appartment.value }}
+                    {{ order.appartment }}
                 </div>
             {% endif %}
-            {% if order.people.value %}
+            {% if order.people %}
                 <div class="attribute">
-                    {{ order.people.value }}
+                    {{ order.people }}
                 </div>
             {% endif %}
         </div>
