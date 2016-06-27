@@ -1063,12 +1063,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "faaa200ef729e969a707fd2c52651fdda7da8e97"
+                "reference": "04b90ef04ff10becef7a27bf2bc83c2ab27e8b31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/faaa200ef729e969a707fd2c52651fdda7da8e97",
-                "reference": "faaa200ef729e969a707fd2c52651fdda7da8e97",
+                "url": "https://api.github.com/repos/pckg/database/zipball/04b90ef04ff10becef7a27bf2bc83c2ab27e8b31",
+                "reference": "04b90ef04ff10becef7a27bf2bc83c2ab27e8b31",
                 "shasum": ""
             },
             "require": {
@@ -1096,7 +1096,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-26 23:01:05"
+            "time": "2016-06-27 12:25:11"
         },
         {
             "name": "pckg/dynamic",
@@ -1140,12 +1140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "277f1024775ef503ec6289158457f3a2f953ab92"
+                "reference": "1746501a050542a2deec8a4df2882eb0fca3c0cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/277f1024775ef503ec6289158457f3a2f953ab92",
-                "reference": "277f1024775ef503ec6289158457f3a2f953ab92",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/1746501a050542a2deec8a4df2882eb0fca3c0cf",
+                "reference": "1746501a050542a2deec8a4df2882eb0fca3c0cf",
                 "shasum": ""
             },
             "require": {
@@ -1179,7 +1179,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-06-26 23:01:26"
+            "time": "2016-06-27 12:25:32"
         },
         {
             "name": "pckg/frontend",
@@ -1408,12 +1408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "7ab026085550eae2b7446b69b12a8c8866d472d1"
+                "reference": "eb09d8bd674aceb72c3afe6614a193db05eb6f6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/7ab026085550eae2b7446b69b12a8c8866d472d1",
-                "reference": "7ab026085550eae2b7446b69b12a8c8866d472d1",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/eb09d8bd674aceb72c3afe6614a193db05eb6f6f",
+                "reference": "eb09d8bd674aceb72c3afe6614a193db05eb6f6f",
                 "shasum": ""
             },
             "type": "library",
@@ -1436,7 +1436,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-27 11:42:37"
+            "time": "2016-06-27 12:09:33"
         },
         {
             "name": "pckg/mail",
