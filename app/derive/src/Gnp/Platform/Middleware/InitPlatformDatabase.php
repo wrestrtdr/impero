@@ -44,6 +44,8 @@ class InitPlatformDatabase
                 'gnp'
             )
         );
+
+        return $next();
     }
 
 }

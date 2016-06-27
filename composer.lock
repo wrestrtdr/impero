@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "8d735c95da9852995e30d1806642d1fddf9ebda4"
+                "reference": "51b979d1a99c119acd1d36475b78c9b05bbe9611"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/8d735c95da9852995e30d1806642d1fddf9ebda4",
-                "reference": "8d735c95da9852995e30d1806642d1fddf9ebda4",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/51b979d1a99c119acd1d36475b78c9b05bbe9611",
+                "reference": "51b979d1a99c119acd1d36475b78c9b05bbe9611",
                 "shasum": ""
             },
             "require-dev": {
@@ -421,7 +421,7 @@
                 "font",
                 "icon"
             ],
-            "time": "2016-06-06 08:45:37"
+            "time": "2016-06-23 10:40:57"
         },
         {
             "name": "fzaninotto/faker",
@@ -2319,12 +2319,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "66a0cb34647aa2c9805acc29ac7ceec32ca05b1e"
+                "reference": "209288a199ab2974192c829a0aec89d0c71e4f3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/66a0cb34647aa2c9805acc29ac7ceec32ca05b1e",
-                "reference": "66a0cb34647aa2c9805acc29ac7ceec32ca05b1e",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/209288a199ab2974192c829a0aec89d0c71e4f3f",
+                "reference": "209288a199ab2974192c829a0aec89d0c71e4f3f",
                 "shasum": ""
             },
             "replace": {
@@ -2362,7 +2362,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-06-26 04:35:11"
+            "time": "2016-06-27 08:13:01"
         },
         {
             "name": "twig/twig",

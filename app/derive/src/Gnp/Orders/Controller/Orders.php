@@ -41,7 +41,7 @@ class Orders extends Controller
         $this->dynamicService->applyOnEntity($orders);
 
         $all = $orders->forOrders()
-                      ->forAllocation()// here we need relation orders.orders_users.dt_confirmed
+                      ->forAllocation()
                       ->all();
         /**
          * Apply collection extension.
@@ -117,6 +117,15 @@ class Orders extends Controller
                                  },
                                  'packets' => function(Order $order) {
                                      return $order->getPacketsSummary();
+                                 },
+                                 'app'     => function(Order $order) {
+                                     return $order->appartment ? $order->appartment->value : '';
+                                 },
+                                 'checkin' => function(Order $order) {
+                                     return $order->checkin ? $order->checkin->value : '';
+                                 },
+                                 'people'  => function(Order $order) {
+                                     return $order->people ? $order->people->value : '';
                                  },
                              ]
                          )
