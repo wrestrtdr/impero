@@ -907,12 +907,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "7c8877e19e680e72f16dd57421188b8fea47ed24"
+                "reference": "f1de01015887ef404868e454827bd903e9269576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/7c8877e19e680e72f16dd57421188b8fea47ed24",
-                "reference": "7c8877e19e680e72f16dd57421188b8fea47ed24",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/f1de01015887ef404868e454827bd903e9269576",
+                "reference": "f1de01015887ef404868e454827bd903e9269576",
                 "shasum": ""
             },
             "require": {
@@ -937,7 +937,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-06-29 17:53:41"
+            "time": "2016-06-29 20:14:29"
         },
         {
             "name": "pckg/backend",
@@ -1063,12 +1063,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "184b79ac160adefe769da57a3f68a9cac3197a25"
+                "reference": "4ae529aad95c08e182de00dbfa6705531ae9c342"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/184b79ac160adefe769da57a3f68a9cac3197a25",
-                "reference": "184b79ac160adefe769da57a3f68a9cac3197a25",
+                "url": "https://api.github.com/repos/pckg/database/zipball/4ae529aad95c08e182de00dbfa6705531ae9c342",
+                "reference": "4ae529aad95c08e182de00dbfa6705531ae9c342",
                 "shasum": ""
             },
             "require": {
@@ -1096,7 +1096,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-27 20:04:42"
+            "time": "2016-06-29 20:14:52"
         },
         {
             "name": "pckg/dynamic",
@@ -1104,12 +1104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "7b88fb4f9b60d3a64097579c5ae8900a73ae8e58"
+                "reference": "207c878427dd050d2642c23694df0b11ef6de834"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/7b88fb4f9b60d3a64097579c5ae8900a73ae8e58",
-                "reference": "7b88fb4f9b60d3a64097579c5ae8900a73ae8e58",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/207c878427dd050d2642c23694df0b11ef6de834",
+                "reference": "207c878427dd050d2642c23694df0b11ef6de834",
                 "shasum": ""
             },
             "type": "library",
@@ -1132,7 +1132,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-27 20:32:40"
+            "time": "2016-06-29 19:48:13"
         },
         {
             "name": "pckg/framework",
@@ -1329,12 +1329,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/htmlbuilder.git",
-                "reference": "3dfc3d1b3c17186bf0b1f2e7be521c1cbbcf5dd5"
+                "reference": "d9668b6d4532ec89d9988f7a2388ee14241548ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/3dfc3d1b3c17186bf0b1f2e7be521c1cbbcf5dd5",
-                "reference": "3dfc3d1b3c17186bf0b1f2e7be521c1cbbcf5dd5",
+                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/d9668b6d4532ec89d9988f7a2388ee14241548ef",
+                "reference": "d9668b6d4532ec89d9988f7a2388ee14241548ef",
                 "shasum": ""
             },
             "require": {
@@ -1366,7 +1366,7 @@
             ],
             "description": "Build advanced forms in PHP with datasources, decorators, handlers and validators",
             "homepage": "https://bitbucket.org/lfw/htmlbuilder",
-            "time": "2016-05-29 10:21:33"
+            "time": "2016-06-29 20:15:16"
         },
         {
             "name": "pckg/import",
@@ -1408,12 +1408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "eb09d8bd674aceb72c3afe6614a193db05eb6f6f"
+                "reference": "1a788c8f856fe479a933b0a989b990c386087d75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/eb09d8bd674aceb72c3afe6614a193db05eb6f6f",
-                "reference": "eb09d8bd674aceb72c3afe6614a193db05eb6f6f",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/1a788c8f856fe479a933b0a989b990c386087d75",
+                "reference": "1a788c8f856fe479a933b0a989b990c386087d75",
                 "shasum": ""
             },
             "type": "library",
@@ -1436,7 +1436,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-27 12:09:33"
+            "time": "2016-06-29 20:15:38"
         },
         {
             "name": "pckg/mail",
@@ -1919,12 +1919,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "e4c612542171072eb54754489f23576e50d16a47"
+                "reference": "464e1784515c4e4b6d689a28ee191c2717069f21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/e4c612542171072eb54754489f23576e50d16a47",
-                "reference": "e4c612542171072eb54754489f23576e50d16a47",
+                "url": "https://api.github.com/repos/symfony/console/zipball/464e1784515c4e4b6d689a28ee191c2717069f21",
+                "reference": "464e1784515c4e4b6d689a28ee191c2717069f21",
                 "shasum": ""
             },
             "require": {
@@ -1973,7 +1973,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 07:02:38"
+            "time": "2016-06-29 19:53:37"
         },
         {
             "name": "symfony/dependency-injection",
