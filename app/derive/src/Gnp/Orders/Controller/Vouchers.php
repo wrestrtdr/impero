@@ -119,6 +119,7 @@ class Vouchers extends Controller
         if ($this->request()->isAjax()) {
             return [
                 'records' => $tabelize->transformRecords(),
+                'groups'  => $groups,
             ];
         }
 
@@ -207,6 +208,7 @@ class Vouchers extends Controller
         if ($this->request()->isAjax()) {
             return [
                 'records' => $tabelize->transformRecords(),
+                'groups'  => $groups,
             ];
         }
 
