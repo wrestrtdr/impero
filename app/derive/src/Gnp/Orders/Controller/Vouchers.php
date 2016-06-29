@@ -50,7 +50,7 @@ class Vouchers extends Controller
         $groupedBy = $all->groupBy(
             function(Order $order) use (&$groups) {
                 $groups[0][$order->offer_id] = $order->offer->title;
-                
+
                 return $order->offer_id;
             }
         );
@@ -75,6 +75,8 @@ class Vouchers extends Controller
                                  'sendVoucher',
                                  'previewVoucher',
                                  'downloadVoucher',
+                                 'applyVoucher',
+                                 'reValidVoucher',
                              ]
                          )
                          ->setFields(
@@ -98,22 +100,23 @@ class Vouchers extends Controller
                                  'packets'   => function(Order $order) {
                                      return $order->getPacketsSummary();
                                  },
+                                 'additions' => function(Order $order) {
+                                     return $order->getAdditionsSummary();
+                                 },
                                  'app'       => function(Order $order) {
                                      return $order->appartment;
                                  },
-                                 'checkin'   => function(Order $order) {
-                                     return $order->checkin;
-                                 },
-                                 'people'    => function(Order $order) {
-                                     return $order->people;
-                                 },
+                                 'checkin',
+                                 'people',
                                  'voucherId' => function(Order $order) {
                                      return $order->getVoucherId();
                                  },
                                  'voucher_url',
                                  'voucher_sent_at',
+                                 'taken_at',
+                                 'take_comment',
                              ]
-                         );
+                         )->setViews(['Gnp\Orders:vouchers']);
 
         if ($this->request()->isAjax()) {
             return [
@@ -121,7 +124,95 @@ class Vouchers extends Controller
             ];
         }
 
-        return $tabelize . view('Gnp\Orders:vouchers');
+        return $tabelize;
+    }
+
+    public function getCheckinAction(OrdersEntity $orders) {
+        /**
+         * Set table.
+         */
+        $table = (new Tables())->where('framework_entity', get_class($orders))->oneOrFail();
+        $this->dynamicService->setTable($table);
+
+        /**
+         * Apply entity extension.
+         */
+        $this->dynamicService->applyOnEntity($orders);
+
+        /**
+         * When limited and grouped, we need to order results by grouped field.
+         */
+        $orders->orderBy('offer_id DESC');
+        $orders->groupBy('id');
+
+        /**
+         * Get all records
+         */
+        $orders->forVouchers();
+
+        $this->dynamicService->getFilterService()->filterByGet($orders);
+
+        $all = $orders->all();
+
+        $groups = [];
+
+        $tabelize = $this->tabelize($orders, ['id'], 'Vouchers')
+                         ->setRecords($all)
+                         ->setPerPage(50)
+                         ->setPage(1)
+                         ->setTotal($all->total())
+                         ->setGroups($groups)
+                         ->setEntityActions(
+                             []
+                         )
+                         ->setRecordActions(
+                             [
+                                 'applyVoucher',
+                                 'reValidVoucher',
+                             ]
+                         )
+                         ->setFields(
+                             [
+                                 'id',
+                                 'num',
+                                 'offer'      => function($order) {
+                                     return $order->offer ? $order->offer->title : ' -- no offer -- ';
+                                 },
+                                 'payee'      => function($order) {
+                                     $user = $order->user;
+
+                                     if (!$user) {
+                                         return ' -- no user -- ';
+                                     }
+
+                                     return $user->surname . ' ' . $user->name . "<br />" .
+                                            $user->email . '<br />' .
+                                            $user->phone;
+                                 },
+                                 'packets'    => function(Order $order) {
+                                     return $order->getPacketsSummary();
+                                 },
+                                 'additions'  => function(Order $order) {
+                                     return $order->getAdditionsSummary();
+                                 },
+                                 'attributes' => function(Order $order) {
+                                     return $order->checkin . '<br />' . $order->people . '<br />' . $order->appartment;
+                                 },
+                                 'voucherId'  => function(Order $order) {
+                                     return $order->getVoucherId();
+                                 },
+                                 'taken_at',
+                                 'take_comment',
+                             ]
+                         )->setViews(['Gnp\Orders:vouchers']);
+
+        if ($this->request()->isAjax()) {
+            return [
+                'records' => $tabelize->transformRecords(),
+            ];
+        }
+
+        return $tabelize;
     }
 
     public function getPreviewAction(Order $order) {
@@ -160,6 +251,12 @@ class Vouchers extends Controller
         header("Content-Disposition:attachment;filename='Voucher #" . $order->id . ".pdf'");
         readfile($order->getAbsoluteVoucherUrl());
         die();
+    }
+
+    public function postApplyAction(Order $order) {
+        $order->takeVoucher();
+
+        return $this->response()->respondWithAjaxSuccessAndRedirectBack();
     }
 
 }

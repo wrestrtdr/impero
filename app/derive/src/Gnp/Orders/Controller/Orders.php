@@ -272,6 +272,9 @@ class Orders extends Controller
                                  'furs_eor',
                                  'furs_zoi',
                                  'furs_confirmed_at',
+                                 'furs_number' => function(Order $order) {
+                                     return $order->furs->id;
+                                 },
                              ]
                          );
 

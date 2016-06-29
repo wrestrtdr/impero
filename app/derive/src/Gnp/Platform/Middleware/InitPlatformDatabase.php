@@ -37,6 +37,8 @@ class InitPlatformDatabase
                 $_SESSION['platform_id'] = 1;
             }
             $platformId = $_SESSION['platform_id'];
+        } else {
+            $_SESSION['platform_id'] = $platformId;
         }
 
         if (!$platformId) {

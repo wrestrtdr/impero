@@ -1,69 +1,127 @@
-<div class="js-vouchers">{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'sendVouchersModal'} %}
-    {% block header %}
-        Send vouchers
-    {% endblock %}
-    {% block body %}
-        <p>Do you really want to send vouchers {{ '{{ orderIds }}' }}?</p>
-        <button class="btn btn-success" v-on:click.prevent="sendVouchers">Yes, send vouchers</button>
-    {% endblock %}
-{% endembed %}
+<div class="js-vouchers">
+    {% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'sendVouchersModal'} %}
+        {% block header %}
+            Send vouchers
+        {% endblock %}
+        {% block body %}
+            <p>Do you really want to send vouchers {{ '{{ orderIds }}' }}?</p>
+            <button class="btn btn-success" v-on:click.prevent="sendVouchers">Yes, send vouchers</button>
+        {% endblock %}
+    {% endembed %}
 
-{% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'generateVouchersModal'} %}
-    {% block header %}
-        Generate vouchers
-    {% endblock %}
-    {% block body %}
-        <p>Do you really want to generate vouchers {{ '{{ orderIds }}' }}?</p>
-        <button class="btn btn-success" v-on:click.prevent="generateVouchers">Yes, generate vouchers</button>
-    {% endblock %}
-{% endembed %}
+    {% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'generateVouchersModal'} %}
+        {% block header %}
+            Generate vouchers
+        {% endblock %}
+        {% block body %}
+            <p>Do you really want to generate vouchers {{ '{{ orderIds }}' }}?</p>
+            <button class="btn btn-success" v-on:click.prevent="generateVouchers">Yes, generate vouchers</button>
+        {% endblock %}
+    {% endembed %}
 
-<script type="text/javascript">
-    new Vue({
-        parent: maestroTable,
-        el: '.container-fluid div.js-vouchers',
-        data: function () {
-            return {
-                orderIds: ''
-            };
-        },
-        methods: {
-            checkSendVoucher: function (ids) {
-                this.orderIds = ids;
+    {% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'applyVoucherModal'} %}
+        {% block header %}
+            Do you really want to apply voucher?
+        {% endblock %}
+        {% block body %}
+            <p><b>Order number:</b> {{ '{{ order.num }} ({{ order.id }})' }}</p>
+            <p><b>Offer:</b> {{ '{{ order.offer }}' }}</p>
+            <p><b>Payee:</b> {{ '{{{  order.payee }}}' }}</p>
+            <p><b>Packets:</b> {{ '{{{  order.packets }}}' }}</p>
+            <p><b v-if="order.additions">Additions:</b> {{ '{{{  order.additions }}}' }}</p>
+            <b>Checkin comment:</b>
+            <textarea v-model="voucherNote" class="form-control"></textarea>
+            <br/>
+            <button class="btn btn-success" v-on:click.prevent="applyVoucher">Yes, apply vouchers</button>
+        {% endblock %}
+    {% endembed %}
 
-                $('#sendVouchersModal').modal('show');
+    {% embed 'Pckg/Generic/View/modal.twig' with {'close': true, 'id': 'reValidVoucherModal'} %}
+        {% block header %}
+            Do you really want to re-valid voucher?
+        {% endblock %}
+        {% block body %}
+            <p><b>Order number:</b> {{ '{{ order.num }} ({{ order.id }})' }}</p>
+            <p><b>Offer:</b> {{ '{{ order.offer }}' }}</p>
+            <p><b>Payee:</b> {{ '{{{  order.payee }}}' }}</p>
+            <p><b>Packets:</b> {{ '{{{  order.packets }}}' }}</p>
+            <p><b v-if="order.additions">Additions:</b> {{ '{{{  order.additions }}}' }}</p>
+            <b>Checkin comment:</b>
+            <textarea v-model="voucherNote" class="form-control"></textarea>
+            <br/>
+            <button class="btn btn-danger" v-on:click.prevent="applyVoucher">Yes, re-apply vouchers</button>
+        {% endblock %}
+    {% endembed %}
+
+    <script type="text/javascript">
+        new Vue({
+            parent: maestroTable,
+            el: '.container-fluid div.js-vouchers',
+            data: function () {
+                return {
+                    orderIds: '',
+                    order: null
+                };
             },
-            sendVouchers: function () {
-                http.post('/dev.php/orders/voucher/send/' + this.orderIds, {}, function (json) {
-                    $('#sendVouchersModal').modal('hide');
-                });
-            },
-            checkGenerateVoucher: function (ids) {
-                this.orderIds = ids;
+            methods: {
+                checkSendVoucher: function (ids) {
+                    this.orderIds = ids;
 
-                $('#generateVouchersModal').modal('show');
-            },
-            generateVouchers: function () {
-                http.post('/dev.php/orders/voucher/generate/' + this.orderIds, {}, function (json) {
-                    $('#generateVouchersModal').modal('hide');
-                });
+                    $('#sendVouchersModal').modal('show');
+                },
+                sendVouchers: function () {
+                    http.post('/dev.php/orders/voucher/send/' + this.orderIds, {}, function (json) {
+                        $('#sendVouchersModal').modal('hide');
+                    });
+                },
+                checkGenerateVoucher: function (ids) {
+                    this.orderIds = ids;
+
+                    $('#generateVouchersModal').modal('show');
+                },
+                generateVouchers: function () {
+                    http.post('/dev.php/orders/voucher/generate/' + this.orderIds, {}, function (json) {
+                        $('#generateVouchersModal').modal('hide');
+                    });
+                },
+                checkApplyVoucher: function () {
+                    $('#applyVoucherModal').modal('show');
+                },
+                applyVoucher: function () {
+                    http.post('/dev.php/orders/voucher/apply/' + this.order.id, {}, function (json) {
+                        $('#applyVoucherModal').modal('show');
+                    });
+                },
+                checkReValidVoucher: function () {
+                    $('#reValidVoucherModal').modal('show');
+                }
             }
-        }
-    }).$on('record:checkGenerateVoucher', function (id) {
-        this.checkGenerateVoucher(id);
+        }).$on('record:checkGenerateVoucher', function (id) {
+            this.checkGenerateVoucher(id);
 
-        return true;
-    }).$on('entity:checkGenerateVoucher', function (ids) {
-        this.checkGenerateVoucher(ids.join(','));
+            return true;
+        }).$on('entity:checkGenerateVoucher', function (ids) {
+            this.checkGenerateVoucher(ids.join(','));
 
-        return true;
-    }).$on('record:checkSendVoucher', function (id) {
-        this.checkSendVoucher(id);
+            return true;
+        }).$on('record:checkSendVoucher', function (id) {
+            this.checkSendVoucher(id);
 
-        return true;
-    }).$on('entity:checkSendVoucher', function (ids) {
-        this.checkSendVoucher(ids.join(','));
+            return true;
+        }).$on('entity:checkSendVoucher', function (ids) {
+            this.checkSendVoucher(ids.join(','));
 
-        return true;
-    });
-</script></div>
+            return true;
+        }).$on('record:checkApplyVoucher', function (id, record) {
+            this.order = record;
+            this.checkApplyVoucher();
+
+            return true;
+        }).$on('record:checkReValidVoucher', function (id, record) {
+            this.order = record;
+            this.checkReValidVoucher();
+
+            return true;
+        });
+    </script>
+</div>

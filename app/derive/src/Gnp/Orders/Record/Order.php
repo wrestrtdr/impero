@@ -6,6 +6,7 @@ use Pckg\Collection;
 use Pckg\Concept\Reflect;
 use Pckg\Database\Record;
 use Pckg\Framework\Config;
+use Pckg\Furs\Entity\Furs as FursEntity;
 use Pckg\Furs\Service\Furs;
 use Pckg\Mail\Service\Mail;
 
@@ -143,14 +144,18 @@ class Order extends Record
     }
 
     public function queueSendVoucher() {
-        queue()->create('voucher:send --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])->makeTimeoutAfterLast('voucher:send', '+5 seconds');
+        queue()
+            ->create('voucher:send --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])
+            ->makeTimeoutAfterLast('voucher:send', '+5 seconds');
     }
 
     public function queueGenerateVoucher() {
-        queue()->create('voucher:generate --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])->makeTimeoutAfterLast(
-            'voucher:generate',
-            '+2 seconds'
-        );
+        queue()
+            ->create('voucher:generate --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])
+            ->makeTimeoutAfterLast(
+                'voucher:generate',
+                '+2 seconds'
+            );
     }
 
     public function queueConfirmFurs() {
@@ -242,6 +247,12 @@ class Order extends Record
 
     public function confirmBillFurs() {
         $defaults = context()->get(Config::class)->get('furs');
+
+        /**
+         * Get or create FURS invoice number.
+         */
+        $fursRecord = (new FursEntity())->getOrCreateFromOrder($this);
+
         /**
          * Create business and invoice.
          */
@@ -251,7 +262,7 @@ class Order extends Record
             $defaults['businessValidityDate']
         );
         $invoice = new Furs\Invoice(
-            str_replace('-', '', $this->num),
+            $fursRecord->id,
             number_format($this->getTotalBillsSum(), 2),
             number_format($this->getPayedBillsSum(), 2),
             date('Y-m-d') . 'T' . date('H:i:s')
@@ -294,12 +305,22 @@ class Order extends Record
          */
         $furs->generateQR();
 
-        if ($eor = $furs->getEOR() && $zoi = $furs->getZOI()) {
+        if ($eor = $furs->getEOR()) {
             $this->furs_eor = $furs->getEOR();
+        }
+
+        if ($zoi = $furs->getZOI()) {
             $this->furs_zoi = $furs->getZOI();
             $this->furs_confirmed_at = date('Y-m-d H:i:s');
-            $this->save();
         }
+
+        $this->save();
+    }
+
+    public function takeVoucher() {
+        $this->taken_at = date('Y-m-d H:i:s');
+        $this->take_comment .= date('Y-m-d H:i:s') . request()->post('comment') . "\n";
+        $this->save();
     }
 
 }

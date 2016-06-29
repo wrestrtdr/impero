@@ -8,6 +8,7 @@ use Pckg\Database\Relation\HasAndBelongsTo;
 use Pckg\Database\Relation\HasMany;
 use Pckg\Database\Repository;
 use Pckg\Dynamic\Entity\Snippet\EntityActions;
+use Pckg\Furs\Entity\Furs;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 
 class Orders extends Entity implements MaestroEntity
@@ -68,6 +69,15 @@ class Orders extends Entity implements MaestroEntity
                     ->where('people.type', 'people')
                     ->fill('people')
                     ->addSelect(['people' => 'people.value'])
+                    ->leftJoin();
+    }
+
+    public function furs() {
+        return $this->hasOne(Furs::class, 'furs')
+                    ->foreignKey('order_id')
+                    ->where('platform_id', $_SESSION['platform_id'])
+                    ->fill('furs')
+                    ->addSelect(['furs.*'])
                     ->leftJoin();
     }
 
@@ -161,7 +171,7 @@ class Orders extends Entity implements MaestroEntity
                         function(HasMany $ordersBills) {
                             $ordersBills->where('type', [1, 2]);
                         }
-                    );
+                    )->withFurs();
     }
 
 }

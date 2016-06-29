@@ -69,6 +69,11 @@ class Config extends Provider
                     'view'       => 'fursRequest',
                     'name'       => 'derive.orders.fursRequest',
                 ],
+                '/orders/checkin'                            => [
+                    'controller' => Vouchers::class,
+                    'view'       => 'checkin',
+                    'name'       => 'derive.orders.checkin',
+                ],
                 '/orders/vouchers'                           => [
                     'controller' => Vouchers::class,
                     'view'       => 'index',
@@ -88,6 +93,14 @@ class Config extends Provider
                     'controller' => Vouchers::class,
                     'view'       => 'download',
                     'name'       => 'derive.orders.voucher.download',
+                    'resolvers'  => [
+                        'order' => OrdersResolver::class,
+                    ],
+                ],
+                '/orders/voucher/apply/[order]'              => [
+                    'controller' => Vouchers::class,
+                    'view'       => 'apply',
+                    'name'       => 'derive.orders.voucher.apply',
                     'resolvers'  => [
                         'order' => OrdersResolver::class,
                     ],
