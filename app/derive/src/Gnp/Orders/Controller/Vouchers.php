@@ -108,9 +108,7 @@ class Vouchers extends Controller
                                  },
                                  'checkin',
                                  'people',
-                                 'voucherId' => function(Order $order) {
-                                     return $order->getVoucherId();
-                                 },
+                                 'voucher_id',
                                  'voucher_url',
                                  'voucher_sent_at',
                                  'taken_at',
@@ -148,9 +146,14 @@ class Vouchers extends Controller
         /**
          * Get all records
          */
-        $orders->forVouchers();
+        $orders->forCheckin();
 
-        $this->dynamicService->getFilterService()->filterByGet($orders);
+        /**
+         * Full search is disabled.
+         */
+        if (($search = $this->get()->get('search')) || strlen($search)) {
+            $orders->where('voucher_id', $search . '%', 'LIKE');
+        }
 
         $all = $orders->all();
 
@@ -195,12 +198,7 @@ class Vouchers extends Controller
                                  'additions'  => function(Order $order) {
                                      return $order->getAdditionsSummary();
                                  },
-                                 'attributes' => function(Order $order) {
-                                     return $order->checkin . '<br />' . $order->people . '<br />' . $order->appartment;
-                                 },
-                                 'voucherId'  => function(Order $order) {
-                                     return $order->getVoucherId();
-                                 },
+                                 'voucher_id',
                                  'taken_at',
                                  'take_comment',
                              ]

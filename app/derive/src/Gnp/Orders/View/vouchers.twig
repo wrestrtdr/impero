@@ -24,13 +24,13 @@
             Do you really want to apply voucher?
         {% endblock %}
         {% block body %}
-            <p><b>Order number:</b> {{ '{{ order.num }} ({{ order.id }})' }}</p>
+            <p><b>Order number:</b> {{ '{{ order.num }} - {{ order.id }} - {{ order.voucherId }}' }}</p>
             <p><b>Offer:</b> {{ '{{ order.offer }}' }}</p>
             <p><b>Payee:</b> {{ '{{{  order.payee }}}' }}</p>
             <p><b>Packets:</b> {{ '{{{  order.packets }}}' }}</p>
             <p><b v-if="order.additions">Additions:</b> {{ '{{{  order.additions }}}' }}</p>
             <b>Checkin comment:</b>
-            <textarea v-model="voucherNote" class="form-control"></textarea>
+            <textarea v-model="order.take_comment" class="form-control"></textarea>
             <br/>
             <button class="btn btn-success" v-on:click.prevent="applyVoucher">Yes, apply vouchers</button>
         {% endblock %}
@@ -41,13 +41,13 @@
             Do you really want to re-valid voucher?
         {% endblock %}
         {% block body %}
-            <p><b>Order number:</b> {{ '{{ order.num }} ({{ order.id }})' }}</p>
+            <p><b>Order number:</b> {{ '{{ order.num }} - {{ order.id }} - {{ order.voucherId }}' }}</p>
             <p><b>Offer:</b> {{ '{{ order.offer }}' }}</p>
             <p><b>Payee:</b> {{ '{{{  order.payee }}}' }}</p>
             <p><b>Packets:</b> {{ '{{{  order.packets }}}' }}</p>
             <p><b v-if="order.additions">Additions:</b> {{ '{{{  order.additions }}}' }}</p>
             <b>Checkin comment:</b>
-            <textarea v-model="voucherNote" class="form-control"></textarea>
+            <textarea v-model="order.take_comment" class="form-control"></textarea>
             <br/>
             <button class="btn btn-danger" v-on:click.prevent="applyVoucher">Yes, re-apply vouchers</button>
         {% endblock %}

@@ -174,4 +174,15 @@ class Orders extends Entity implements MaestroEntity
                     )->withFurs();
     }
 
+    public function forCheckin() {
+        return $this->payed()
+                    ->confirmed()
+                    ->withOffer()
+                    ->withUser()
+                    ->withOrdersUsers(function(HasMany $ordersUser){
+                        $ordersUser->withAdditions();
+                        $ordersUser->withPacket();
+                    });
+    }
+
 }

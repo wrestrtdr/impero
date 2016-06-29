@@ -239,7 +239,7 @@ class Order extends Record
 
     public function getVoucherId() {
         return substr(
-            config('security.hash') . sha1(sha1($this->id) . ' ' . sha1($this->user_id) . ' ' . sha1($this->offer_id)),
+            sha1(sha1($this->id) . ' ' . sha1($this->user_id) . ' ' . sha1($this->offer_id)),
             15,
             10
         );
