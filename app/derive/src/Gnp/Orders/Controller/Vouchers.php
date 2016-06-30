@@ -177,10 +177,11 @@ class Vouchers extends Controller
                          )
                          ->setFields(
                              [
-                                 'id',
-                                 'num',
-                                 'offer'      => function($order) {
-                                     return $order->offer ? $order->offer->title : ' -- no offer -- ';
+                                 'order' => function(Order $order){
+                                     return '<b style="word-break: normal;">' . $order->voucher_id . '</b>' . '<br />' . $order->num . '<br />' . $order->id;
+                                 },
+                                 'package'    => function(Order $order) {
+                                     return $order->offer->title . '<br />' . $order->getPacketsSummary() . '<br />' . $order->getAdditionsSummary();
                                  },
                                  'payee'      => function($order) {
                                      $user = $order->user;
@@ -193,15 +194,9 @@ class Vouchers extends Controller
                                             $user->email . '<br />' .
                                             $user->phone;
                                  },
-                                 'packets'    => function(Order $order) {
-                                     return $order->getPacketsSummary();
+                                 'info' => function($order){
+                                     return $order->taken_at . '<br />' . $order->take_comment;
                                  },
-                                 'additions'  => function(Order $order) {
-                                     return $order->getAdditionsSummary();
-                                 },
-                                 'voucher_id',
-                                 'taken_at',
-                                 'take_comment',
                              ]
                          )->setViews(['Gnp\Orders:vouchers']);
 
