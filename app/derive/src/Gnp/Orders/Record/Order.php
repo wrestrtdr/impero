@@ -5,6 +5,7 @@ use JonnyW\PhantomJs\Client;
 use Pckg\Collection;
 use Pckg\Concept\Reflect;
 use Pckg\Database\Record;
+use Pckg\Dynamic\Record\Snippet\RecordActions;
 use Pckg\Framework\Config;
 use Pckg\Furs\Entity\Furs as FursEntity;
 use Pckg\Furs\Service\Furs;
@@ -13,17 +14,11 @@ use Pckg\Mail\Service\Mail;
 class Order extends Record
 {
 
+    use RecordActions;
+
     protected $entity = Orders::class;
 
     protected $toArray = ['user', 'packetsSummary'];
-
-    public function getEditUrl() {
-        return '#';
-    }
-
-    public function getDeleteUrl() {
-        return '#';
-    }
 
     public function getDownloadVoucherUrl() {
         return url(
@@ -319,7 +314,13 @@ class Order extends Record
 
     public function takeVoucher() {
         $this->taken_at = date('Y-m-d H:i:s');
-        $this->take_comment .= date('Y-m-d H:i:s') . request()->post('comment') . "\n";
+        $this->take_comment .= request()->post('comment') . "\n";
+        $this->save();
+    }
+
+    public function retakeVoucher() {
+        $this->taken_at = date('Y-m-d H:i:s');
+        $this->take_comment .= request()->post('comment') . "\n";
         $this->save();
     }
 

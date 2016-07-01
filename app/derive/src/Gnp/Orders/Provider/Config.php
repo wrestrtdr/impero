@@ -105,6 +105,14 @@ class Config extends Provider
                         'order' => OrdersResolver::class,
                     ],
                 ],
+                '/orders/voucher/reapply/[order]'              => [
+                    'controller' => Vouchers::class,
+                    'view'       => 'reapply',
+                    'name'       => 'derive.orders.voucher.reapply',
+                    'resolvers'  => [
+                        'order' => OrdersResolver::class,
+                    ],
+                ],
             ],
         ];
     }

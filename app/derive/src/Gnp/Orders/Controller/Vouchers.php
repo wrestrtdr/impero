@@ -177,13 +177,14 @@ class Vouchers extends Controller
                          )
                          ->setFields(
                              [
-                                 'order' => function(Order $order){
+                                 'order'   => function(Order $order) {
                                      return '<b style="word-break: normal;">' . $order->voucher_id . '</b>' . '<br />' . $order->num . '<br />' . $order->id;
                                  },
-                                 'package'    => function(Order $order) {
-                                     return $order->offer->title . '<br />' . $order->getPacketsSummary() . '<br />' . $order->getAdditionsSummary();
+                                 'package' => function(Order $order) {
+                                     return $order->offer->title . '<br />' . $order->getPacketsSummary(
+                                     ) . '<br />' . $order->getAdditionsSummary();
                                  },
-                                 'payee'      => function($order) {
+                                 'payee'   => function($order) {
                                      $user = $order->user;
 
                                      if (!$user) {
@@ -194,11 +195,22 @@ class Vouchers extends Controller
                                             $user->email . '<br />' .
                                             $user->phone;
                                  },
-                                 'info' => function($order){
-                                     return $order->taken_at . '<br />' . $order->take_comment;
+                                 'info'    => function($order) {
+                                     return $order->taken_at . ($order->take_comment ? '<br />' : '') . $order->take_comment;
                                  },
                              ]
-                         )->setViews(['Gnp\Orders:vouchers']);
+                         )
+                         ->setFieldTransformations(
+                             [
+                                 'id',
+                                 'num',
+                                 'voucher_id',
+                                 'offer' => function(Order $order) {
+                                     return $order->offer->title;
+                                 },
+                             ]
+                         )
+                         ->setViews(['Gnp\Orders:vouchers']);
 
         if ($this->request()->isAjax()) {
             return [
@@ -250,6 +262,12 @@ class Vouchers extends Controller
 
     public function postApplyAction(Order $order) {
         $order->takeVoucher();
+
+        return $this->response()->respondWithAjaxSuccessAndRedirectBack();
+    }
+
+    public function postReapplyAction(Order $order) {
+        $order->retakeVoucher();
 
         return $this->response()->respondWithAjaxSuccessAndRedirectBack();
     }

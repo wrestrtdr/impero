@@ -4,6 +4,7 @@ use Gnp\Orders\Entity\Orders as OrdersEntity;
 use Gnp\Orders\Entity\OrdersTags;
 use Gnp\Orders\Form\Allocation;
 use Gnp\Orders\Record\Order;
+use Pckg\Auth\Service\Auth;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Record;
