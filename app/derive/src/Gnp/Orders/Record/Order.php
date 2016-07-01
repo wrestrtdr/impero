@@ -319,7 +319,7 @@ class Order extends Record
     }
 
     public function retakeVoucher() {
-        $this->taken_at = date('Y-m-d H:i:s');
+        $this->taken_at = null;
         $this->take_comment .= request()->post('comment') . "\n";
         $this->save();
     }
