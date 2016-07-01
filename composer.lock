@@ -429,12 +429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "913b4661019b412ab6ef99172a3d6e3175c9f855"
+                "reference": "726a36230cf4811db4b71f18fdd19b9ea4389a54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/913b4661019b412ab6ef99172a3d6e3175c9f855",
-                "reference": "913b4661019b412ab6ef99172a3d6e3175c9f855",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/726a36230cf4811db4b71f18fdd19b9ea4389a54",
+                "reference": "726a36230cf4811db4b71f18fdd19b9ea4389a54",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +471,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-06-29 16:36:43"
+            "time": "2016-07-01 12:18:29"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -1103,12 +1103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "40f841bdbff2bbc8d1f67e7b0d20b74ac0447cde"
+                "reference": "6aea5cd92b60a282703ad3829da55cd3fb09bbb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/40f841bdbff2bbc8d1f67e7b0d20b74ac0447cde",
-                "reference": "40f841bdbff2bbc8d1f67e7b0d20b74ac0447cde",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/6aea5cd92b60a282703ad3829da55cd3fb09bbb1",
+                "reference": "6aea5cd92b60a282703ad3829da55cd3fb09bbb1",
                 "shasum": ""
             },
             "type": "library",
@@ -1131,7 +1131,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-06-30 11:58:22"
+            "time": "2016-07-01 20:10:23"
         },
         {
             "name": "pckg/framework",
@@ -1139,12 +1139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "8f5bf54d1f64a0ffc33308811f1258a441089b59"
+                "reference": "e613f0a927324e6c597ed12d653dd9b2eead6dee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/8f5bf54d1f64a0ffc33308811f1258a441089b59",
-                "reference": "8f5bf54d1f64a0ffc33308811f1258a441089b59",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/e613f0a927324e6c597ed12d653dd9b2eead6dee",
+                "reference": "e613f0a927324e6c597ed12d653dd9b2eead6dee",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1178,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-06-27 14:28:10"
+            "time": "2016-07-01 20:12:54"
         },
         {
             "name": "pckg/frontend",
@@ -1407,12 +1407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "89a8d09141ce05a59d9a9c7ade0d128c5575858d"
+                "reference": "f4ce9e28faac5c0fa1e263e46f6f1fc664b2bad5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/89a8d09141ce05a59d9a9c7ade0d128c5575858d",
-                "reference": "89a8d09141ce05a59d9a9c7ade0d128c5575858d",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/f4ce9e28faac5c0fa1e263e46f6f1fc664b2bad5",
+                "reference": "f4ce9e28faac5c0fa1e263e46f6f1fc664b2bad5",
                 "shasum": ""
             },
             "type": "library",
@@ -1435,7 +1435,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-06-30 11:58:46"
+            "time": "2016-07-01 20:13:24"
         },
         {
             "name": "pckg/mail",
@@ -1927,12 +1927,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "464e1784515c4e4b6d689a28ee191c2717069f21"
+                "reference": "e62a1ec70f679510ecde30466885ffb89d4c7cb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/464e1784515c4e4b6d689a28ee191c2717069f21",
-                "reference": "464e1784515c4e4b6d689a28ee191c2717069f21",
+                "url": "https://api.github.com/repos/symfony/console/zipball/e62a1ec70f679510ecde30466885ffb89d4c7cb8",
+                "reference": "e62a1ec70f679510ecde30466885ffb89d4c7cb8",
                 "shasum": ""
             },
             "require": {
@@ -1981,7 +1981,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 19:53:37"
+            "time": "2016-07-01 16:19:27"
         },
         {
             "name": "symfony/dependency-injection",
@@ -1989,12 +1989,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "d17ccbab3beb5328cfba1c662653a6aafe3d8e66"
+                "reference": "54c33a9e194086202a09907c1a7eaf687fa0faa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d17ccbab3beb5328cfba1c662653a6aafe3d8e66",
-                "reference": "d17ccbab3beb5328cfba1c662653a6aafe3d8e66",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/54c33a9e194086202a09907c1a7eaf687fa0faa3",
+                "reference": "54c33a9e194086202a09907c1a7eaf687fa0faa3",
                 "shasum": ""
             },
             "require": {
@@ -2044,7 +2044,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:51:25"
+            "time": "2016-07-01 16:08:10"
         },
         {
             "name": "symfony/filesystem",
@@ -2272,12 +2272,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "bebaa0496239958f0c41cdc33392a7aa8e59f578"
+                "reference": "b69648974b39cc6f76aea9d3aee8212cd0c0d75d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/bebaa0496239958f0c41cdc33392a7aa8e59f578",
-                "reference": "bebaa0496239958f0c41cdc33392a7aa8e59f578",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/b69648974b39cc6f76aea9d3aee8212cd0c0d75d",
+                "reference": "b69648974b39cc6f76aea9d3aee8212cd0c0d75d",
                 "shasum": ""
             },
             "require": {
@@ -2319,7 +2319,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:48:55"
+            "time": "2016-07-01 16:08:10"
         },
         {
             "name": "twbs/bootstrap",
