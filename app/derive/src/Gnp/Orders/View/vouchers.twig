@@ -86,11 +86,13 @@
                     $('#applyVoucherModal').modal('show');
                 },
                 applyVoucher: function () {
+
                     http.post('/dev.php/orders/voucher/apply/' + this.order.id, {
                         comment: this.order.info
                     }, function (json) {
                         $('#applyVoucherModal').modal('hide');
-                    });
+                        this.order.info = '<b>Taken this session</b><br />' + this.order.info;
+                    }.bind(this));
                 },
                 reApplyVoucher: function () {
                     http.post('/dev.php/orders/voucher/reapply/' + this.order.id, {
