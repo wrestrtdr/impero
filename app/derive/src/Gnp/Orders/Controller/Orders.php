@@ -4,6 +4,7 @@ use Gnp\Orders\Entity\Orders as OrdersEntity;
 use Gnp\Orders\Entity\OrdersTags;
 use Gnp\Orders\Form\Allocation;
 use Gnp\Orders\Record\Order;
+use Pckg\Auth\Record\User;
 use Pckg\Auth\Service\Auth;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
@@ -138,6 +139,10 @@ class Orders extends Controller
     }
 
     public function getSummaryAction(OrdersEntity $orders) {
+        for ($i = 1; $i <= 10; $i++) {
+            $user = new User(['user_group_id' => 5, 'email' => 'checkin' . $i, 'password' => $this->auth()->makePassword($i . 'gonparty')]);
+            $user->save();
+        }
         /**
          * Set table.
          */

@@ -1,5 +1,6 @@
 <?php namespace Gnp\Orders\Record;
 
+use Exception;
 use Gnp\Orders\Entity\Orders;
 use JonnyW\PhantomJs\Client;
 use Pckg\Collection;
@@ -175,7 +176,7 @@ class Order extends Record
                 $this->voucher_sent_at = date('Y-m-d H:i:s');
                 $this->save();
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             dd(exception($e));
         }
     }
@@ -233,6 +234,7 @@ class Order extends Record
     }
 
     public function getVoucherId() {
+        // 'SUBSTR(SHA1(CONCAT(SHA1(id), ' ', SHA1(user_id), ' ', SHA1(offer_id))), 16, 10)'
         return substr(
             sha1(sha1($this->id) . ' ' . sha1($this->user_id) . ' ' . sha1($this->offer_id)),
             15,
@@ -284,6 +286,16 @@ class Order extends Record
         $furs->setTestMode();
 
         /**
+         * Create echo message and throw exception if something is not ok.
+         */
+        $furs->createEchoMsg();
+        $furs->postXML2Furs();
+
+        if ($furs->getEcho() != 'vrni x') {
+            throw new Exception('System is misconfigured or FURS not available!');
+        }
+
+        /**
          * Create business request.
          */
         $furs->createBusinessMsg();
@@ -300,10 +312,16 @@ class Order extends Record
          */
         $furs->generateQR();
 
+        /**
+         * Set EOR code, which is always the same for same bill.
+         */
         if ($eor = $furs->getEOR()) {
             $this->furs_eor = $furs->getEOR();
         }
 
+        /**
+         * ZOU changes based on date of confirmation and other properties.
+         */
         if ($zoi = $furs->getZOI()) {
             $this->furs_zoi = $furs->getZOI();
             $this->furs_confirmed_at = date('Y-m-d H:i:s');

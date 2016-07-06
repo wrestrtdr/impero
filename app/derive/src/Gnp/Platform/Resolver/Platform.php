@@ -7,7 +7,7 @@ class Platform implements RouteResolver
 {
 
     public function resolve($value) {
-        return (new Platforms())->where('id', $value)->oneOrFail();
+        return (new Platforms())->forUser(auth()->getUser())->where('id', $value)->oneOrFail();
     }
 
     public function parametrize($record) {

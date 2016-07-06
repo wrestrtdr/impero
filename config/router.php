@@ -25,5 +25,10 @@ return [
                 'bob.gonparty', // temp
             ],
         ],
+        'tempus' => [
+            'host' => [
+                'bob.pckg.tempus',
+            ],
+        ],
     ],
 ];

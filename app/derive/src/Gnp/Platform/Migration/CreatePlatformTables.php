@@ -10,6 +10,10 @@ class CreatePlatformTables extends Migration
         $platforms->varchar('title');
         $platforms->text('database');
 
+        $platformsUsers = $this->table('platforms_users');
+        $platformsUsers->integer('user_id')->references('users');
+        $platformsUsers->integer('platform_id')->references('platforms');
+
         $this->save();
     }
 

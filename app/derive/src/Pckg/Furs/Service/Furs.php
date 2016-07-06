@@ -524,6 +524,18 @@ class Furs
         curl_close($conn);
     }
 
+    public function getEcho() {
+        if ($this->fursResponse) {
+            $doc = new DOMDocument('1.0', 'UTF-8');
+            $doc->loadXML($this->fursResponse);
+            $this->saveResponse($doc, 'generated');
+
+            $xpath = new DOMXPath($doc);
+            $nodeset = $xpath->query("//fu:EchoResponse")->item(0);
+            return $nodeset->nodeValue ?? null;
+        }
+    }
+
     protected function saveResponse($doc, $type) {
         $doc->save(
             $this->xmlsPath . date('Ymdhis') . '_' . substr(sha1($this->msgIdentifier), 0, 6) . '_' . $type . '.xml'

@@ -11,7 +11,7 @@ class Platform extends Controller
         return view(
             'Gnp\Platform:userHeader',
             [
-                'platforms'       => $platforms->all(),
+                'platforms'       => $platforms->forUser($this->auth()->getUser())->all(),
                 'currentPlatform' => $platforms->where('id', $_SESSION['platform_id'])->one(),
             ]
         );
