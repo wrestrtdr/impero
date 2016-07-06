@@ -212,12 +212,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "cbfe3ee6f758225559b1111048e05a3e4c2e26cf"
+                "reference": "b8bb147f46cc9790326ce2440a13be06cc5a63bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/cbfe3ee6f758225559b1111048e05a3e4c2e26cf",
-                "reference": "cbfe3ee6f758225559b1111048e05a3e4c2e26cf",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/b8bb147f46cc9790326ce2440a13be06cc5a63bb",
+                "reference": "b8bb147f46cc9790326ce2440a13be06cc5a63bb",
                 "shasum": ""
             },
             "require": {
@@ -256,7 +256,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2016-05-15 10:06:34"
+            "time": "2016-07-03 21:52:18"
         },
         {
             "name": "facebook/php-sdk-v4",
@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "51b979d1a99c119acd1d36475b78c9b05bbe9611"
+                "reference": "4c8cb044576e6dde990ef64963671ea46e23c268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/51b979d1a99c119acd1d36475b78c9b05bbe9611",
-                "reference": "51b979d1a99c119acd1d36475b78c9b05bbe9611",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/4c8cb044576e6dde990ef64963671ea46e23c268",
+                "reference": "4c8cb044576e6dde990ef64963671ea46e23c268",
                 "shasum": ""
             },
             "require-dev": {
@@ -421,7 +421,7 @@
                 "font",
                 "icon"
             ],
-            "time": "2016-06-23 10:40:57"
+            "time": "2016-06-30 18:10:06"
         },
         {
             "name": "fzaninotto/faker",
@@ -429,12 +429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "726a36230cf4811db4b71f18fdd19b9ea4389a54"
+                "reference": "a08f97c17fbb88777ec50c7742313648541e4ef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/726a36230cf4811db4b71f18fdd19b9ea4389a54",
-                "reference": "726a36230cf4811db4b71f18fdd19b9ea4389a54",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a08f97c17fbb88777ec50c7742313648541e4ef7",
+                "reference": "a08f97c17fbb88777ec50c7742313648541e4ef7",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +471,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-07-01 12:18:29"
+            "time": "2016-07-06 09:04:39"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -906,12 +906,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "784e9dc42ea881102c43e43213e2a8c6343e8fed"
+                "reference": "d52b3b6c695af702591a37b49e1595b9400a576c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/784e9dc42ea881102c43e43213e2a8c6343e8fed",
-                "reference": "784e9dc42ea881102c43e43213e2a8c6343e8fed",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/d52b3b6c695af702591a37b49e1595b9400a576c",
+                "reference": "d52b3b6c695af702591a37b49e1595b9400a576c",
                 "shasum": ""
             },
             "require": {
@@ -936,7 +936,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2016-06-30 11:58:02"
+            "time": "2016-07-06 19:15:06"
         },
         {
             "name": "pckg/backend",
@@ -994,12 +994,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/collection.git",
-                "reference": "9a70944654c64117901b7d06a880a94b784daaa9"
+                "reference": "066ac0534b1565afd5ededd3eef826897c6d281a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/collection/zipball/9a70944654c64117901b7d06a880a94b784daaa9",
-                "reference": "9a70944654c64117901b7d06a880a94b784daaa9",
+                "url": "https://api.github.com/repos/pckg/collection/zipball/066ac0534b1565afd5ededd3eef826897c6d281a",
+                "reference": "066ac0534b1565afd5ededd3eef826897c6d281a",
                 "shasum": ""
             },
             "type": "library",
@@ -1020,7 +1020,7 @@
             ],
             "description": "PHP collection implementation",
             "homepage": "https://github.com/pckg/collection",
-            "time": "2016-06-26 23:41:18"
+            "time": "2016-07-06 19:15:28"
         },
         {
             "name": "pckg/concept",
@@ -1028,12 +1028,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/concept.git",
-                "reference": "d1aa0a634bab2238b62c2761b3b8d439e1a36351"
+                "reference": "afc1ef1eb74216a028e626c577d3a5b77e7a2b4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/concept/zipball/d1aa0a634bab2238b62c2761b3b8d439e1a36351",
-                "reference": "d1aa0a634bab2238b62c2761b3b8d439e1a36351",
+                "url": "https://api.github.com/repos/pckg/concept/zipball/afc1ef1eb74216a028e626c577d3a5b77e7a2b4b",
+                "reference": "afc1ef1eb74216a028e626c577d3a5b77e7a2b4b",
                 "shasum": ""
             },
             "type": "library",
@@ -1054,7 +1054,7 @@
             ],
             "description": "Few concepts",
             "homepage": "https://github.com/pckg/concept",
-            "time": "2016-06-24 13:06:31"
+            "time": "2016-07-06 19:15:49"
         },
         {
             "name": "pckg/database",
@@ -1062,12 +1062,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "4ae529aad95c08e182de00dbfa6705531ae9c342"
+                "reference": "7c23233d232e4f2080c3dfe02e6b5a4f787fef35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/4ae529aad95c08e182de00dbfa6705531ae9c342",
-                "reference": "4ae529aad95c08e182de00dbfa6705531ae9c342",
+                "url": "https://api.github.com/repos/pckg/database/zipball/7c23233d232e4f2080c3dfe02e6b5a4f787fef35",
+                "reference": "7c23233d232e4f2080c3dfe02e6b5a4f787fef35",
                 "shasum": ""
             },
             "require": {
@@ -1095,7 +1095,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-06-29 20:14:52"
+            "time": "2016-07-06 19:16:04"
         },
         {
             "name": "pckg/dynamic",
@@ -1103,12 +1103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "6aea5cd92b60a282703ad3829da55cd3fb09bbb1"
+                "reference": "2053b13ad9a69e89105224e6d9f5e4ac5afa72bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/6aea5cd92b60a282703ad3829da55cd3fb09bbb1",
-                "reference": "6aea5cd92b60a282703ad3829da55cd3fb09bbb1",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/2053b13ad9a69e89105224e6d9f5e4ac5afa72bb",
+                "reference": "2053b13ad9a69e89105224e6d9f5e4ac5afa72bb",
                 "shasum": ""
             },
             "type": "library",
@@ -1131,7 +1131,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-07-01 20:10:23"
+            "time": "2016-07-02 10:29:09"
         },
         {
             "name": "pckg/framework",
@@ -1139,12 +1139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "e613f0a927324e6c597ed12d653dd9b2eead6dee"
+                "reference": "b30c5b1a1c9193262dd50232413c69eef620a5f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/e613f0a927324e6c597ed12d653dd9b2eead6dee",
-                "reference": "e613f0a927324e6c597ed12d653dd9b2eead6dee",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/b30c5b1a1c9193262dd50232413c69eef620a5f9",
+                "reference": "b30c5b1a1c9193262dd50232413c69eef620a5f9",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1178,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-07-01 20:12:54"
+            "time": "2016-07-06 19:16:26"
         },
         {
             "name": "pckg/frontend",
@@ -1328,12 +1328,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/htmlbuilder.git",
-                "reference": "d9668b6d4532ec89d9988f7a2388ee14241548ef"
+                "reference": "ebb064281e2d474b3d7ca93bd794f7c483b5fd4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/d9668b6d4532ec89d9988f7a2388ee14241548ef",
-                "reference": "d9668b6d4532ec89d9988f7a2388ee14241548ef",
+                "url": "https://api.github.com/repos/pckg/htmlbuilder/zipball/ebb064281e2d474b3d7ca93bd794f7c483b5fd4a",
+                "reference": "ebb064281e2d474b3d7ca93bd794f7c483b5fd4a",
                 "shasum": ""
             },
             "require": {
@@ -1365,7 +1365,7 @@
             ],
             "description": "Build advanced forms in PHP with datasources, decorators, handlers and validators",
             "homepage": "https://bitbucket.org/lfw/htmlbuilder",
-            "time": "2016-06-29 20:15:16"
+            "time": "2016-07-02 10:14:49"
         },
         {
             "name": "pckg/import",
@@ -2209,12 +2209,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "f78f6e278113c8591f4ef8faf013be39df9cef0f"
+                "reference": "e326274cb9a79c17450b4d040e5136e217dd2c11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/f78f6e278113c8591f4ef8faf013be39df9cef0f",
-                "reference": "f78f6e278113c8591f4ef8faf013be39df9cef0f",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e326274cb9a79c17450b4d040e5136e217dd2c11",
+                "reference": "e326274cb9a79c17450b4d040e5136e217dd2c11",
                 "shasum": ""
             },
             "require": {
@@ -2264,7 +2264,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-06-29 05:43:32"
+            "time": "2016-07-05 11:11:18"
         },
         {
             "name": "symfony/yaml",

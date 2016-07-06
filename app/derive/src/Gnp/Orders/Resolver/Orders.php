@@ -19,7 +19,7 @@ class Orders implements RouteResolver
                                            $hasMany->withPacket();
                                        }
                                    )
-                                   ->oneOrFail(function(){die();
+                                   ->oneOrFail(function(){
                                        return response()->notFound('Order not found');
                                    });
     }

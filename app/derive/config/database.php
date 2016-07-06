@@ -17,12 +17,4 @@ return [
         'db'      => 'pckg_queue',
         'charset' => 'utf8',
     ],
-    /*'gnp'     => [
-        'driver'  => 'mysql',
-        'host'    => '127.0.0.1',
-        'user'    => 'pckg_derive',
-        'pass'    => 'pckg_derive',
-        'db'      => 'gnp_gonparty',
-        'charset' => 'utf8',
-    ],*/
 ];
