@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "133f4e596916417f3344dcf693de1cc4",
-    "content-hash": "b5b69848f6602c5ce7f8a9c103425ff8",
+    "hash": "f8e2b8ab574c891de1ca784ed4fb6cb0",
+    "content-hash": "fdd507c69f8134107256f5dcd99b2e5c",
     "packages": [
         {
             "name": "aferrandini/phpqrcode",
@@ -1062,12 +1062,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "7c23233d232e4f2080c3dfe02e6b5a4f787fef35"
+                "reference": "c46b9ea95266df210e2310e91500283c1e5c73d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/7c23233d232e4f2080c3dfe02e6b5a4f787fef35",
-                "reference": "7c23233d232e4f2080c3dfe02e6b5a4f787fef35",
+                "url": "https://api.github.com/repos/pckg/database/zipball/c46b9ea95266df210e2310e91500283c1e5c73d0",
+                "reference": "c46b9ea95266df210e2310e91500283c1e5c73d0",
                 "shasum": ""
             },
             "require": {
@@ -1095,7 +1095,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-07-06 19:16:04"
+            "time": "2016-07-06 19:31:44"
         },
         {
             "name": "pckg/dynamic",
@@ -1632,6 +1632,42 @@
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
             "time": "2016-06-27 15:01:59"
+        },
+        {
+            "name": "pckg/tempus",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/tempus.git",
+                "reference": "d4381f35411ed2e99a67324a121d9f6e3aea6c35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/tempus/zipball/d4381f35411ed2e99a67324a121d9f6e3aea6c35",
+                "reference": "d4381f35411ed2e99a67324a121d9f6e3aea6c35",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Tempus",
+            "homepage": "https://github.com/pckg-app/tempus",
+            "time": "2016-07-06 19:37:43"
         },
         {
             "name": "psr/log",
@@ -2477,7 +2513,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "pckg/backend": 20
+        "pckg/backend": 20,
+        "pckg/tempus": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

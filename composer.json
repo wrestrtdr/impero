@@ -11,6 +11,7 @@
   ],
   "require": {
     "pckg/backend": "dev-master",
+    "pckg/tempus": "dev-master",
     "robrichards/xmlseclibs": "^2.0",
     "aferrandini/phpqrcode": "^1.0"
   },
