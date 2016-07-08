@@ -503,7 +503,7 @@ class Furs
             CURLOPT_SSLCERT           => $this->config->getPemCert(),
             CURLOPT_SSLCERTPASSWD     => $this->config->getPassword(),
             CURLOPT_CAINFO            => $this->config->getServerCert(),
-            // CURLOPT_VERBOSE           => dev() ? true : false,
+            CURLOPT_VERBOSE           => true,//dev() ? true : false,
         ];
         curl_setopt_array($conn, $settings);
         $this->fursResponse = curl_exec($conn);

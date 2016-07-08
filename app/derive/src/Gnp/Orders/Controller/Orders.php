@@ -46,6 +46,7 @@ class Orders extends Controller
                       ->forAllocation()
                       ->orderBy('checkin.value, appartment.value')
                       ->all();
+
         /**
          * Apply collection extension.
          */

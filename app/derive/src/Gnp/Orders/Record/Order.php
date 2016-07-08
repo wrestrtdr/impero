@@ -310,7 +310,7 @@ class Order extends Record
         /**
          * Generate QR code.
          */
-        $furs->generateQR();
+        // $furs->generateQR();
 
         /**
          * Set EOR code, which is always the same for same bill.
