@@ -1,6 +1,6 @@
 <?php namespace Pckg\Furs\Entity;
 
-use Gnp\Orders\Record\Order;
+use Derive\Orders\Record\Order;
 use Pckg\Database\Entity;
 use Pckg\Database\Repository;
 use Pckg\Furs\Record\Furs as FursRecord;

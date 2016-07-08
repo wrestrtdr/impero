@@ -3,9 +3,9 @@
 use Pckg\Concept\Reflect;
 use Pckg\Framework\Provider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
-use Pckg\Generic\Provider\Config as GenericProvider;
-use Pckg\Manager\Provider\Config as ManagerProvider;
-use Pckg\Dynamic\Provider\Config as DynamicProvider;
+use Pckg\Generic\Provider\Generic as GenericProvider;
+use Pckg\Manager\Provider\Manager as ManagerProvider;
+use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
 use Pckg\Tempus\Console\FetchTempus;
 use Pckg\Tempus\Controller\Tempus as TempusController;
 

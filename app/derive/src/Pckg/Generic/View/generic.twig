@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="http://bob.pckg.derive/">
     {% include '_head.twig' %}
 </head>
 <body id="vue-app">
@@ -25,7 +26,7 @@
 
                 {{ _pluginService.make('Pckg\\Auth\\Controller\\Auth', 'getUserHeader') | raw }}
 
-                {{ _pluginService.make('Gnp\\Platform\\Controller\\Platform', 'getUserHeader') | raw }}
+                {{ _pluginService.make('Derive\\Platform\\Controller\\Platform', 'getUserHeader') | raw }}
             </div>
         {% endif %}
     </div>

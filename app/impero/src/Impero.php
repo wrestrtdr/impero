@@ -1,6 +1,6 @@
 <?php
 
-use Impero\Impero\Provider\Config as ImperoProvider;
+use Impero\Impero\Provider\Impero as ImperoProvider;
 use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
 use Pckg\Generic\Middleware\EncapsulateResponse;

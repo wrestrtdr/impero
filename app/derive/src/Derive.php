@@ -1,18 +1,18 @@
 <?php
 
-use Gnp\Orders\Controller\Orders;
-use Gnp\Orders\Provider\Config as OrdersProvider;
-use Gnp\Platform\Provider\Config as PlatformProvider;
-use Pckg\Auth\Provider\Config as AuthProvider;
+use Derive\Orders\Controller\Orders;
+use Derive\Orders\Provider\Orders as OrdersProvider;
+use Derive\Platform\Provider\Platform as PlatformProvider;
+use Pckg\Auth\Provider\Auth as AuthProvider;
 use Pckg\Concept\Reflect;
 use Pckg\Framework\Provider;
-use Pckg\Furs\Provider\Config as FursProvider;
+use Pckg\Furs\Provider\Furs as FursProvider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
-use Pckg\Maestro\Provider\Config as MaestroProvider;
-use Pckg\Mail\Provider\Config as MailProvider;
-use Pckg\Manager\Provider\Config as ManagerProvider;
-use Pckg\Dynamic\Provider\Config as DynamicProvider;
-use Pckg\Generic\Provider\Config as GenericProvider;
+use Pckg\Maestro\Provider\Maestro as MaestroProvider;
+use Pckg\Mail\Provider\Mail as MailProvider;
+use Pckg\Manager\Provider\Manager as ManagerProvider;
+use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
+use Pckg\Generic\Provider\Generic as GenericProvider;
 
 /**
  * This is core application of GNP platform. ;-)
