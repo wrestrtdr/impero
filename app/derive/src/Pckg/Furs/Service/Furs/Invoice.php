@@ -11,26 +11,31 @@ class Invoice
 
     protected $issueDateTime;
 
-    public function __construct($invoiceNumber, $invoiceAmount, $paymentAmount, $issueDateTime) {
+    public function __construct($invoiceNumber, $invoiceAmount, $paymentAmount, $issueDateTime)
+    {
         $this->invoiceNumber = $invoiceNumber;
         $this->invoiceAmount = $invoiceAmount;
         $this->paymentAmount = $paymentAmount;
         $this->issueDateTime = $issueDateTime;
     }
 
-    public function getInvoiceNumber() {
+    public function getInvoiceNumber()
+    {
         return $this->invoiceNumber;
     }
 
-    public function getInvoiceAmount() {
+    public function getInvoiceAmount()
+    {
         return $this->invoiceAmount;
     }
 
-    public function getPaymentAmount() {
+    public function getPaymentAmount()
+    {
         return $this->paymentAmount;
     }
 
-    public function getIssueDateTime() {
+    public function getIssueDateTime()
+    {
         return $this->issueDateTime;
     }
 

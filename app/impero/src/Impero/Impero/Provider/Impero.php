@@ -1,13 +1,13 @@
 <?php namespace Impero\Impero\Provider;
 
-use Impero\Git\Provider\Git as GitProvider;
-use Impero\Impero\Controller\Impero as ImperoController;
-use Pckg\Framework\Provider;
 use Impero\Apache\Provider\Apache as ApacheProvider;
 use Impero\Ftp\Provider\Ftp as FtpProvider;
+use Impero\Git\Provider\Git as GitProvider;
+use Impero\Impero\Controller\Impero as ImperoController;
 use Impero\Mysql\Provider\Mysql as MysqlProvider;
 use Pckg\Auth\Provider\Auth as AuthProvider;
 use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
+use Pckg\Framework\Provider;
 use Pckg\Generic\Provider\Generic as GenericProvider;
 use Pckg\Manager\Provider\Manager as ManagerProvider;
 

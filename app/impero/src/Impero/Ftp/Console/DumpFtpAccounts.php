@@ -10,7 +10,7 @@ class DumpFtpAccounts extends Command
     protected function configure()
     {
         $this->setName('ftp:dumpaccounts')
-            ->setDescription('Dump all FTP accounts');
+             ->setDescription('Dump all FTP accounts');
     }
 
     public function execute(InputInterface $input, OutputInterface $output)

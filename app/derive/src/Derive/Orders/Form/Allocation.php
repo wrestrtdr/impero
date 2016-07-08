@@ -5,7 +5,8 @@ use Pckg\Htmlbuilder\Element\Form\Bootstrap;
 class Allocation extends Bootstrap
 {
 
-    public function initFields() {
+    public function initFields()
+    {
         $this->addText('appartment')
              ->setLabel(__('appartment'))
              ->setAttribute('v-model', 'appartment');

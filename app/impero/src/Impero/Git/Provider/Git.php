@@ -8,7 +8,8 @@ use Pckg\Framework\Provider;
 class Git extends Provider
 {
 
-    public function routes() {
+    public function routes()
+    {
         return [
             'url' => [
                 '/git/webhook/[site]' => [
@@ -23,7 +24,8 @@ class Git extends Provider
         ];
     }
 
-    public function consoles() {
+    public function consoles()
+    {
         return [
             GitPull::class,
         ];

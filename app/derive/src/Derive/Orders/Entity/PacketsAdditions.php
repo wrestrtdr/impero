@@ -8,7 +8,8 @@ class PacketsAdditions extends Entity
 
     protected $repositoryName = Repository::class . '.gnp';
 
-    public function addition() {
+    public function addition()
+    {
         return $this->belongsTo(Additions::class)
                     ->foreignKey('addition_id')
                     ->fill('addition');

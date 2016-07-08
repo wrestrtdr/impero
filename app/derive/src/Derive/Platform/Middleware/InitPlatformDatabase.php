@@ -1,7 +1,7 @@
 <?php namespace Derive\Platform\Middleware;
 
-use Exception;
 use Derive\Platform\Entity\Platforms;
+use Exception;
 use Pckg\Concept\Context;
 use Pckg\Concept\Reflect;
 use Pckg\Database\Command\InitDatabase;
@@ -25,13 +25,15 @@ class InitPlatformDatabase
      */
     protected $platforms;
 
-    public function __construct(Context $context, InitDatabase $initDatabase, Platforms $platforms) {
+    public function __construct(Context $context, InitDatabase $initDatabase, Platforms $platforms)
+    {
         $this->context = $context;
         $this->initDatabase = $initDatabase;
         $this->platforms = $platforms;
     }
 
-    public function execute(callable $next, $platformId = null) {
+    public function execute(callable $next, $platformId = null)
+    {
         if (!isConsole()) {
             if (!isset($_SESSION['platform_id'])) {
                 $_SESSION['platform_id'] = 1;

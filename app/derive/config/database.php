@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'default' => [
+    'default'    => [
         'driver'  => 'mysql',
         'host'    => '127.0.0.1',
         'user'    => 'pckg_derive',
@@ -9,7 +9,7 @@ return [
         'db'      => 'pckg_derive',
         'charset' => 'utf8',
     ],
-    'queue'   => [
+    'queue'      => [
         'driver'  => 'mysql',
         'host'    => '127.0.0.1',
         'user'    => 'pckg_derive',
@@ -17,7 +17,7 @@ return [
         'db'      => 'pckg_queue',
         'charset' => 'utf8',
     ],
-    'deriveprod'   => [
+    'deriveprod' => [
         'driver'  => 'mysql',
         'host'    => '127.0.0.1',
         'user'    => 'pckg_derive',

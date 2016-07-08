@@ -1,8 +1,8 @@
 <?php namespace Impero\Mysql\Entity;
 
-use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 use Impero\Mysql\Record\Database;
 use Pckg\Database\Entity;
+use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 
 class Databases extends Entity implements MaestroEntity
 {

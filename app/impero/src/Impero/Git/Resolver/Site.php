@@ -6,7 +6,8 @@ use Pckg\Framework\Provider\RouteResolver;
 class Site implements RouteResolver
 {
 
-    public function resolve($value) {
+    public function resolve($value)
+    {
         return (new Sites())->where('id', $value)->oneOrFail(
             function() {
                 response()->notFound('Site not found');
@@ -14,7 +15,8 @@ class Site implements RouteResolver
         );
     }
 
-    public function parametrize($record) {
+    public function parametrize($record)
+    {
         return $record->id;
     }
 

@@ -16,6 +16,7 @@ class Ftp extends Controller
      * List all available ftps.
      *
      * @param Ftps $ftps
+     *
      * @return mixed
      */
     public function getIndexAction(Ftps $ftps)
@@ -27,8 +28,9 @@ class Ftp extends Controller
      * Show add form.
      * Form is automatically filled with session data.
      *
-     * @param FtpForm $ftpForm
+     * @param FtpForm   $ftpForm
      * @param FtpRecord $ftpRecord
+     *
      * @return mixed
      */
     public function getAddAction(FtpForm $ftpForm, FtpRecord $ftpRecord)
@@ -48,8 +50,9 @@ class Ftp extends Controller
      * Save form data.
      * Form is automatically filled with request data.
      *
-     * @param FtpForm $ftpForm
+     * @param FtpForm   $ftpForm
      * @param FtpRecord $ftpRecord
+     *
      * @return mixed
      */
     public function postAddAction(FtpForm $ftpForm, FtpRecord $ftpRecord, FtpService $ftpService)
@@ -72,20 +75,22 @@ class Ftp extends Controller
         /**
          * Save record to vsftpd.
          */
-        $ftpService->saveAccount([
-            'comment' => $ftpRecord->id,
-            'user' => $ftpRecord->getFullUsername(),
-            'password' => $this->request()->password,
-            'status' => 1,
-            'uid' => 2001,
-            'gid' => 2001,
-            'dir' => $ftpRecord->getFullPath(),
-            'ulbandwidth' => 100,
-            'dlbandwidth' => 100,
-            'ipaccess' => '*',
-            'quotasize' => 50,
-            'quotafiles' => 50,
-        ]);
+        $ftpService->saveAccount(
+            [
+                'comment'     => $ftpRecord->id,
+                'user'        => $ftpRecord->getFullUsername(),
+                'password'    => $this->request()->password,
+                'status'      => 1,
+                'uid'         => 2001,
+                'gid'         => 2001,
+                'dir'         => $ftpRecord->getFullPath(),
+                'ulbandwidth' => 100,
+                'dlbandwidth' => 100,
+                'ipaccess'    => '*',
+                'quotasize'   => 50,
+                'quotafiles'  => 50,
+            ]
+        );
 
         /**
          * If ftp was added via ajax, we display some data and redirect url.
@@ -98,8 +103,9 @@ class Ftp extends Controller
      * Show edit form.
      * Form is automatically filled with session data.
      *
-     * @param FtpForm $ftpForm
+     * @param FtpForm   $ftpForm
      * @param FtpRecord $ftpRecord
+     *
      * @return mixed
      */
     public function getEditAction(FtpForm $ftpForm, FtpRecord $ftpRecord)
@@ -119,8 +125,9 @@ class Ftp extends Controller
      * Save form data.
      * Form was automatically filled with request data.
      *
-     * @param FtpForm $ftpForm
+     * @param FtpForm   $ftpForm
      * @param FtpRecord $ftpRecord
+     *
      * @return $this
      */
     public function postEditAction(FtpForm $ftpForm, FtpRecord $ftpRecord, FtpService $ftpService)
@@ -133,20 +140,22 @@ class Ftp extends Controller
         /**
          * Save record to vsftpd.
          */
-        $ftpService->saveAccount([
-            'comment' => $ftpRecord->id,
-            'user' => $ftpRecord->getFullUsername(),
-            'password' => $this->request()->password,
-            'status' => 1,
-            'uid' => 2001,
-            'gid' => 2001,
-            'dir' => $ftpRecord->getFullPath(),
-            'ulbandwidth' => 100,
-            'dlbandwidth' => 100,
-            'ipaccess' => '*',
-            'quotasize' => 50,
-            'quotafiles' => 50,
-        ]);
+        $ftpService->saveAccount(
+            [
+                'comment'     => $ftpRecord->id,
+                'user'        => $ftpRecord->getFullUsername(),
+                'password'    => $this->request()->password,
+                'status'      => 1,
+                'uid'         => 2001,
+                'gid'         => 2001,
+                'dir'         => $ftpRecord->getFullPath(),
+                'ulbandwidth' => 100,
+                'dlbandwidth' => 100,
+                'ipaccess'    => '*',
+                'quotasize'   => 50,
+                'quotafiles'  => 50,
+            ]
+        );
 
         /**
          * If ftp was added via ajax, we display some data.
@@ -159,6 +168,7 @@ class Ftp extends Controller
      * Delete record.
      *
      * @param FtpRecord $ftpRecord
+     *
      * @return $this
      */
     public function getDeleteAction(FtpRecord $ftpRecord)

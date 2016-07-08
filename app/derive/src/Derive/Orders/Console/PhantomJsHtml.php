@@ -6,43 +6,53 @@ use JonnyW\PhantomJs\Procedure\OutputInterface;
 class PhantomJsHtml implements ResponseInterface, OutputInterface
 {
 
-    public function import(array $data) {
+    public function import(array $data)
+    {
         return $data;
     }
 
-    public function getHeaders() {
+    public function getHeaders()
+    {
         return [];
     }
 
-    public function getHeader($code) {
+    public function getHeader($code)
+    {
         return null;
     }
 
-    public function getStatus() {
+    public function getStatus()
+    {
         return 200;
     }
 
-    public function getContent() {
+    public function getContent()
+    {
         return '<p>This is content</p>';
     }
 
-    public function getContentType() {
+    public function getContentType()
+    {
         return 'text/html; charset=UTF-8';
     }
 
-    public function getUrl() {
+    public function getUrl()
+    {
         return null;
     }
 
-    public function getRedirectUrl() {
+    public function getRedirectUrl()
+    {
         return null;
     }
 
-    public function isRedirect() {
+    public function isRedirect()
+    {
         return false;
     }
 
-    public function getTime() {
+    public function getTime()
+    {
         return (date('Y-m-d H:i:s'));
     }
 

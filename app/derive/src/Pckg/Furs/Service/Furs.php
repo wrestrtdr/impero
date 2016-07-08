@@ -52,14 +52,16 @@ class Furs
      */
     protected $invoice;
 
-    public function __construct(Config $config, Business $business, Invoice $invoice) {
+    public function __construct(Config $config, Business $business, Invoice $invoice)
+    {
         $this->config = $config;
         $this->business = $business;
         $this->invoice = $invoice;
         $this->xmlsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'certs' . path('ds');
     }
 
-    public function setTestMode() {
+    public function setTestMode()
+    {
         $this->xmlsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'dev' . path(
                 'ds'
             ) . 'xmls' . path('ds');
@@ -68,7 +70,8 @@ class Furs
             ) . 'qrcodes' . path('ds');
     }
 
-    public function createEchoMsg() {
+    public function createEchoMsg()
+    {
         $this->content2SignIdentifier = '';
 
         $this->urlPostHeader = [
@@ -102,7 +105,8 @@ class Furs
         $this->createXMLMessage($dataArray);
     }
 
-    public function createBusinessMsg() {
+    public function createBusinessMsg()
+    {
         $this->msgIdentifier = 'data';
         $this->content2SignIdentifier = 'fu:BusinessPremiseRequest';
 
@@ -192,7 +196,8 @@ class Furs
         $this->createXMLMessage($dataArray);
     }
 
-    public function createInvoiceMsg($subsequent = null) {
+    public function createInvoiceMsg($subsequent = null)
+    {
         $messageID = $this->returnUUID();
         $dateTime = str_replace(' ', 'T', date('Y-m-d H:i:s'));
 
@@ -340,7 +345,8 @@ class Furs
         $this->createXMLMessage($dataArray);
     }
 
-    private function createXMLMessage($dataArray) {
+    private function createXMLMessage($dataArray)
+    {
         $dom = new DOMDocument('1.0', 'UTF-8');
         $child = $this->generateXMLMessageFromArray($dom, $dataArray);
         if ($child) {
@@ -350,7 +356,8 @@ class Furs
         $this->xmlMessage = $dom->saveXML();
     }
 
-    private function generateXMLMessageFromArray($dom, $dataArray) {
+    private function generateXMLMessageFromArray($dom, $dataArray)
+    {
         if (empty($dataArray['name'])) {
             return false;
         }
@@ -380,7 +387,8 @@ class Furs
         return $element;
     }
 
-    public function generateZOI() {
+    public function generateZOI()
+    {
         /**
          * IssueDateTime in xml scheme is    YYYY-MM-DDTHH:MM:SS
          * IssueDateTime in zoi is           DD.MM.YYYY HH:MM:SS
@@ -399,7 +407,8 @@ class Furs
         return md5($signature);
     }
 
-    function returnUUID() {
+    function returnUUID()
+    {
         $data = openssl_random_pseudo_bytes(16);
         // in case of PHP 7 use random_bytes
         $data = random_bytes(16);
@@ -411,7 +420,8 @@ class Furs
         return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
 
-    private function returnUUID2() {
+    private function returnUUID2()
+    {
         mt_srand(crc32(serialize(microtime(true))));
 
         return sprintf(
@@ -439,7 +449,8 @@ class Furs
         );
     }
 
-    public function signDocument() {
+    public function signDocument()
+    {
         if (strlen($this->content2SignIdentifier) == 0) {
             return;
         }
@@ -481,7 +492,8 @@ class Furs
         $this->xmlMessage = $doc->saveXML();
     }
 
-    public function postXML2Furs() {
+    public function postXML2Furs()
+    {
         $this->signDocument();
 
         $conn = curl_init();
@@ -499,7 +511,7 @@ class Furs
             CURLOPT_SSLCERT           => $this->config->getPemCert(),
             CURLOPT_SSLCERTPASSWD     => $this->config->getPassword(),
             CURLOPT_CAINFO            => $this->config->getServerCert(),
-//            CURLOPT_VERBOSE           => true,//dev() ? true : false,
+            //            CURLOPT_VERBOSE           => true,//dev() ? true : false,
         ];
 //d("Request", $this->xmlMessage);
         curl_setopt_array($conn, $settings);
@@ -521,7 +533,8 @@ class Furs
         curl_close($conn);
     }
 
-    public function getEcho() {
+    public function getEcho()
+    {
         if ($this->fursResponse) {
             $doc = new DOMDocument('1.0', 'UTF-8');
             $doc->loadXML($this->fursResponse);
@@ -529,17 +542,20 @@ class Furs
 
             $xpath = new DOMXPath($doc);
             $nodeset = $xpath->query("//fu:EchoResponse")->item(0);
+
             return $nodeset->nodeValue ?? null;
         }
     }
 
-    protected function saveResponse($doc, $type) {
+    protected function saveResponse($doc, $type)
+    {
         $doc->save(
             $this->xmlsPath . date('Ymdhis') . '_' . substr(sha1($this->msgIdentifier), 0, 6) . '_' . $type . '.xml'
         );
     }
 
-    private function md52dec($hex) {
+    private function md52dec($hex)
+    {
         $dec = 0;
         $len = strlen($hex);
         for ($i = 1; $i <= $len; $i++) {
@@ -549,7 +565,8 @@ class Furs
         return $dec;
     }
 
-    public function generateQR() {
+    public function generateQR()
+    {
         if (!isset($this->invoice)) {
             return;
         }
@@ -590,19 +607,23 @@ class Furs
         );
     }
 
-    public function getZOI() {
+    public function getZOI()
+    {
         return $this->zoi;
     }
 
-    public function getEOR() {
+    public function getEOR()
+    {
         return $this->eor;
     }
 
-    public function getFURSResponse() {
+    public function getFURSResponse()
+    {
         return $this->fursResponse;
     }
 
-    public function echoXML() {
+    public function echoXML()
+    {
         $this->signDocument();
 
         header('Content-Type: text/xml; charset=utf-8', true);

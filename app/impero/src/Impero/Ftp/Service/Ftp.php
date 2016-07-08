@@ -17,7 +17,7 @@ class Ftp
 
     public function saveAccount($data)
     {
-        
+
         $account = $this->ftps->where('comment', $data['comment'])->one();
 
         if (!$account) {

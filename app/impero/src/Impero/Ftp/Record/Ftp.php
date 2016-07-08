@@ -1,8 +1,8 @@
 <?php namespace Impero\Ftp\Record;
 
 use Impero\Ftp\Entity\Ftps;
-use Pckg\Maestro\Service\Contract\Record as MaestroRecord;
 use Pckg\Database\Record;
+use Pckg\Maestro\Service\Contract\Record as MaestroRecord;
 
 class Ftp extends Record implements MaestroRecord
 {

@@ -8,11 +8,13 @@ class Platform extends Record
 
     protected $entity = Platforms::class;
 
-    public function getDatabaseConfig() {
+    public function getDatabaseConfig()
+    {
         return (array)json_decode($this->database);
     }
 
-    public function getSwitchUrl() {
+    public function getSwitchUrl()
+    {
         return url('derive.platform.switch', ['platform' => $this]);
     }
 

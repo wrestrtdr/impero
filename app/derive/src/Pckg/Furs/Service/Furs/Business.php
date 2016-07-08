@@ -9,21 +9,25 @@ class Business
 
     protected $validityDate;
 
-    public function __construct($id, $taxNumber, $validityDate) {
+    public function __construct($id, $taxNumber, $validityDate)
+    {
         $this->id = $id;
         $this->taxNumber = $taxNumber;
         $this->validityDate = $validityDate;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getTaxNumber() {
+    public function getTaxNumber()
+    {
         return $this->taxNumber;
     }
 
-    public function getValidityDate() {
+    public function getValidityDate()
+    {
         return $this->validityDate;
     }
 

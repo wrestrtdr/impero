@@ -7,7 +7,8 @@ use Symfony\Component\Console\Input\InputOption;
 class GenerateVoucher extends Command
 {
 
-    protected function configure() {
+    protected function configure()
+    {
         parent::configure();
 
         $this->setName('voucher:generate')
@@ -25,7 +26,8 @@ class GenerateVoucher extends Command
             );
     }
 
-    public function handle(Orders $orders) {
+    public function handle(Orders $orders)
+    {
         $arrOrders = $orders->where('id', $this->option('orders'))->all();
 
         foreach ($arrOrders as $i => $order) {

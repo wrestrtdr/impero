@@ -11,7 +11,7 @@ class Impero extends Provider
     public function providers()
     {
         return [
-            ImperoProvider::class
+            ImperoProvider::class,
         ];
     }
 
@@ -30,31 +30,34 @@ function maestro_urls($class, $slug, $record, $resolver, $alterslug = null)
         $alterslug = $slug;
     }
 
-    return array_merge_array([
-        'controller' => $class,
-        '',
-    ], [
-        '/' . $alterslug                               => [
-            'name' => $slug . '.list',
-            'view' => 'index',
+    return array_merge_array(
+        [
+            'controller' => $class,
+            '',
         ],
-        '/' . $alterslug . '/add'                      => [
-            'name' => $slug . '.add',
-            'view' => 'add',
-        ],
-        '/' . $alterslug . '/edit/[' . $record . ']'   => [
-            'name'      => $slug . '.edit',
-            'view'      => 'edit',
-            'resolvers' => [
-                $record => $resolver,
+        [
+            '/' . $alterslug                               => [
+                'name' => $slug . '.list',
+                'view' => 'index',
             ],
-        ],
-        '/' . $alterslug . '/delete/[' . $record . ']' => [
-            'name'      => $slug . '.delete',
-            'view'      => 'delete',
-            'resolvers' => [
-                $record => $resolver,
+            '/' . $alterslug . '/add'                      => [
+                'name' => $slug . '.add',
+                'view' => 'add',
             ],
-        ],
-    ]);
+            '/' . $alterslug . '/edit/[' . $record . ']'   => [
+                'name'      => $slug . '.edit',
+                'view'      => 'edit',
+                'resolvers' => [
+                    $record => $resolver,
+                ],
+            ],
+            '/' . $alterslug . '/delete/[' . $record . ']' => [
+                'name'      => $slug . '.delete',
+                'view'      => 'delete',
+                'resolvers' => [
+                    $record => $resolver,
+                ],
+            ],
+        ]
+    );
 }

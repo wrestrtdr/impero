@@ -11,7 +11,7 @@ class Database extends Form\Bootstrap implements ResolvesOnRequest
         $this->addHidden('id');
 
         $this->addText('name')
-            ->setLabel('Name:');
+             ->setLabel('Name:');
 
         $this->addSubmit();
 

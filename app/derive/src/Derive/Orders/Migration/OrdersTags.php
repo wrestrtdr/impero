@@ -5,7 +5,8 @@ use Pckg\Migration\Migration;
 class OrdersTags extends Migration
 {
 
-    public function up() {
+    public function up()
+    {
         $ordersUsersTags = $this->table('orders_tags');
         $ordersUsersTags->integer('order_id')->references('orders');
         $ordersUsersTags->varchar('type');

@@ -7,7 +7,8 @@ class Basket extends Controller
      * Accepts offer id, number of customers and selected packets.
      * Returns all data.
      */
-    public function getCustomersAction() {
+    public function getCustomersAction()
+    {
         $post = [
             'offer_id' => 88,
             'packets'  => [
@@ -20,7 +21,8 @@ class Basket extends Controller
      * Accepts customer data and promo code.
      * Returns estimate data.
      */
-    public function postCustomersAction() {
+    public function postCustomersAction()
+    {
         $posted = [
             'offer_id'   => 88,
             'order'      => [
@@ -100,7 +102,8 @@ class Basket extends Controller
         ];
     }
 
-    public function postEstimateAction() {
+    public function postEstimateAction()
+    {
         $posted = [
             'installments' => 2,
             'tos'          => true,

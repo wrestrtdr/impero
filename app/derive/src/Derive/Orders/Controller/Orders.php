@@ -5,7 +5,6 @@ use Derive\Orders\Entity\OrdersTags;
 use Derive\Orders\Form\Allocation;
 use Derive\Orders\Record\Order;
 use Pckg\Auth\Record\User;
-use Pckg\Auth\Service\Auth;
 use Pckg\Collection;
 use Pckg\Database\Query\Raw;
 use Pckg\Database\Record;
@@ -22,15 +21,18 @@ class Orders extends Controller
 
     protected $dynamicService;
 
-    public function __construct(Dynamic $dynamicService) {
+    public function __construct(Dynamic $dynamicService)
+    {
         $this->dynamicService = $dynamicService;
     }
 
-    public function getHomeAction() {
+    public function getHomeAction()
+    {
         return 'Ok!';
     }
 
-    public function getGroupAction(OrdersEntity $orders, Allocation $allocationForm) {
+    public function getGroupAction(OrdersEntity $orders, Allocation $allocationForm)
+    {
         /**
          * Set table.
          */
@@ -139,9 +141,16 @@ class Orders extends Controller
         return $tabelize;
     }
 
-    public function getSummaryAction(OrdersEntity $orders) {
+    public function getSummaryAction(OrdersEntity $orders)
+    {
         for ($i = 1; $i <= 10; $i++) {
-            $user = new User(['user_group_id' => 5, 'email' => 'checkin' . $i, 'password' => $this->auth()->makePassword($i . 'gonparty')]);
+            $user = new User(
+                [
+                    'user_group_id' => 5,
+                    'email'         => 'checkin' . $i,
+                    'password'      => $this->auth()->makePassword($i . 'gonparty'),
+                ]
+            );
             $user->save();
         }
         /**
@@ -213,7 +222,8 @@ class Orders extends Controller
         return $tabelize;
     }
 
-    public function getFursAction(OrdersEntity $orders) {
+    public function getFursAction(OrdersEntity $orders)
+    {
         /**
          * Set table.
          */
@@ -298,11 +308,13 @@ class Orders extends Controller
         return $tabelize;
     }
 
-    public function getAllocationAction(Order $order) {
+    public function getAllocationAction(Order $order)
+    {
         return $this->getAllocationAttributesAction($order);
     }
 
-    public function getAllocationAttributesAction(Order $order) {
+    public function getAllocationAttributesAction(Order $order)
+    {
         return [
             'appartment' => $order->appartment,
             'checkin'    => $order->checkin,
@@ -310,7 +322,8 @@ class Orders extends Controller
         ];
     }
 
-    public function getAllocationNonAllocatedAction() {
+    public function getAllocationNonAllocatedAction()
+    {
         return [
             'nonAllocatedOrders' => (new OrdersEntity())
                 ->where(
@@ -324,7 +337,8 @@ class Orders extends Controller
         ];
     }
 
-    public function postAllocationSimilarAction() {
+    public function postAllocationSimilarAction()
+    {
         return [
             'similarOrders' => (new OrdersTags())
                 ->where('type', 'appartment')
@@ -346,7 +360,8 @@ class Orders extends Controller
         ];
     }
 
-    public function postSaveAction() {
+    public function postSaveAction()
+    {
         $post = $this->post();
 
         $orderIds = $post->get('orders');
@@ -371,7 +386,8 @@ class Orders extends Controller
         return $this->response()->respondWithAjaxSuccess();
     }
 
-    public function postFursRequestAction() {
+    public function postFursRequestAction()
+    {
         (new OrdersEntity())->where('id', $this->post()->get('orders'))->all()->each(
             function(Order $order) {
                 $order->queueConfirmFurs();

@@ -16,11 +16,13 @@ class Vouchers extends Controller
 
     protected $dynamicService;
 
-    public function __construct(Dynamic $dynamicService) {
+    public function __construct(Dynamic $dynamicService)
+    {
         $this->dynamicService = $dynamicService;
     }
 
-    public function getIndexAction(OrdersEntity $orders) {
+    public function getIndexAction(OrdersEntity $orders)
+    {
         /**
          * Set table.
          */
@@ -126,7 +128,8 @@ class Vouchers extends Controller
         return $tabelize;
     }
 
-    public function getCheckinAction(OrdersEntity $orders) {
+    public function getCheckinAction(OrdersEntity $orders)
+    {
         /**
          * Set table.
          */
@@ -222,7 +225,8 @@ class Vouchers extends Controller
         return $tabelize;
     }
 
-    public function getPreviewAction(Order $order) {
+    public function getPreviewAction(Order $order)
+    {
         return view(
             'voucher/voucher',
             [
@@ -231,7 +235,8 @@ class Vouchers extends Controller
         );
     }
 
-    public function postGenerateAction($orders) {
+    public function postGenerateAction($orders)
+    {
         $orders = (new Orders())->where('id', explode(',', $orders))->all();
         $orders->each(
             function(Order $order) {
@@ -242,7 +247,8 @@ class Vouchers extends Controller
         return $this->response()->respondWithAjaxSuccessAndRedirectBack();
     }
 
-    public function postSendAction($orders) {
+    public function postSendAction($orders)
+    {
         $orders = (new Orders())->where('id', explode(',', $orders))->all();
         $orders->each(
             function(Order $order) {
@@ -253,20 +259,23 @@ class Vouchers extends Controller
         return $this->response()->respondWithAjaxSuccessAndRedirectBack();
     }
 
-    public function getDownloadAction(Order $order) {
+    public function getDownloadAction(Order $order)
+    {
         header("Content-type:application/pdf");
         header("Content-Disposition:attachment;filename='Voucher #" . $order->id . ".pdf'");
         readfile($order->getAbsoluteVoucherUrl());
         die();
     }
 
-    public function postApplyAction(Order $order) {
+    public function postApplyAction(Order $order)
+    {
         $order->takeVoucher();
 
         return $this->response()->respondWithAjaxSuccessAndRedirectBack();
     }
 
-    public function postReapplyAction(Order $order) {
+    public function postReapplyAction(Order $order)
+    {
         $order->retakeVoucher();
 
         return $this->response()->respondWithAjaxSuccessAndRedirectBack();

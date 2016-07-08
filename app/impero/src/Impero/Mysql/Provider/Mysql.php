@@ -13,7 +13,7 @@ class Mysql extends Provider
     {
         return [
             'url' => maestro_urls(Database::class, 'database', 'database', DatabaseResolver::class, 'mysql/databases')
-                + maestro_urls(User::class, 'user', 'user', UserResolver::class, 'mysql/users'),
+                     + maestro_urls(User::class, 'user', 'user', UserResolver::class, 'mysql/users'),
         ];
     }
 

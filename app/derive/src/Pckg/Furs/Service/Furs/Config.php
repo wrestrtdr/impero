@@ -17,7 +17,15 @@ class Config
 
     protected $softwareSupplierTaxNumber;
 
-    public function __construct($taxNumber, $pemCert, $p12Cert, $password, $serverCert, $url, $softwareSupplierTaxNumber) {
+    public function __construct(
+        $taxNumber,
+        $pemCert,
+        $p12Cert,
+        $password,
+        $serverCert,
+        $url,
+        $softwareSupplierTaxNumber
+    ) {
         $this->taxNumber = $taxNumber;
         $this->pemCert = $pemCert;
         $this->p12Cert = $p12Cert;
@@ -27,31 +35,38 @@ class Config
         $this->softwareSupplierTaxNumber = $softwareSupplierTaxNumber;
     }
 
-    public function getTaxNumber() {
+    public function getTaxNumber()
+    {
         return $this->taxNumber;
     }
 
-    public function getPemCert() {
+    public function getPemCert()
+    {
         return $this->pemCert;
     }
 
-    public function getP12Cert() {
+    public function getP12Cert()
+    {
         return $this->p12Cert;
     }
 
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    public function getServerCert() {
+    public function getServerCert()
+    {
         return $this->serverCert;
     }
 
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->url;
     }
 
-    public function getSoftwareSupplierTaxNumber() {
+    public function getSoftwareSupplierTaxNumber()
+    {
         return $this->softwareSupplierTaxNumber;
     }
 

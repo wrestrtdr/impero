@@ -3,12 +3,12 @@
 use Impero\Apache\Entity\Sites;
 use Impero\Apache\Record\Site;
 use Impero\Mysql\Entity\Databases;
+use Pckg\Auth\Service\Auth;
 use Pckg\Concept\Reflect;
 use Pckg\Concept\Reflect\Resolver as ResolverInterface;
 use Pckg\Database\Record;
 use Pckg\Framework\Response;
 use Pckg\Framework\Router;
-use Pckg\Auth\Service\Auth;
 
 class Resolver implements ResolverInterface
 {
@@ -49,9 +49,11 @@ class Resolver implements ResolverInterface
 
         return $this->databases->where('id', $id)
             //->userIsAuthorized()
-            ->oneOrFail(function () {
-                $this->response->unauthorized('Database not found');
-            });
+                               ->oneOrFail(
+                function() {
+                    $this->response->unauthorized('Database not found');
+                }
+            );
     }
 
     public function parametrize($record)

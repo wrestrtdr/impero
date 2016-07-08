@@ -11,7 +11,8 @@ class OrdersTags extends Entity
 
     protected $repositoryName = Repository::class . '.gnp';
 
-    public function order() {
+    public function order()
+    {
         return $this->belongsTo(Orders::class)
                     ->foreignKey('order_id')
                     ->fill('order');

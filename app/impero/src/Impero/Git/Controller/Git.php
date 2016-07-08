@@ -6,7 +6,8 @@ use Pckg\Framework\Controller;
 class Git extends Controller
 {
 
-    public function postWebhookAction(Site $site) {
+    public function postWebhookAction(Site $site)
+    {
         $data = json_decode(file_get_contents("php://input"));
 
         foreach ($data->push->changes as $change) {

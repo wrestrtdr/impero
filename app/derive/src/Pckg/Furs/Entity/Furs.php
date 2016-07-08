@@ -12,7 +12,8 @@ class Furs extends Entity
 
     protected $repositoryName = Repository::class . '.deriveprod';
 
-    public function getOrCreateFromOrder(Order $order) {
+    public function getOrCreateFromOrder(Order $order)
+    {
         $furs = (new static())->where('order_id', $order->id)->where('platform_id', $_SESSION['platform_id'])->one();
 
         if (!$furs) {

@@ -6,7 +6,8 @@ use Pckg\Furs\Console\FursConfirmation;
 class Furs extends Provider
 {
 
-    public function consoles() {
+    public function consoles()
+    {
         return [
             FursConfirmation::class,
         ];

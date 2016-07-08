@@ -1,7 +1,7 @@
 <?php namespace Derive\Orders\Record;
 
-use Exception;
 use Derive\Orders\Entity\Orders;
+use Exception;
 use JonnyW\PhantomJs\Client;
 use Pckg\Collection;
 use Pckg\Concept\Reflect;
@@ -21,7 +21,8 @@ class Order extends Record
 
     protected $toArray = ['user', 'packetsSummary'];
 
-    public function getDownloadVoucherUrl() {
+    public function getDownloadVoucherUrl()
+    {
         return url(
             'derive.orders.voucher.download',
             [
@@ -30,7 +31,8 @@ class Order extends Record
         );
     }
 
-    public function getPreviewVoucherUrl() {
+    public function getPreviewVoucherUrl()
+    {
         return url(
             'derive.orders.voucher.preview',
             [
@@ -39,7 +41,8 @@ class Order extends Record
         );
     }
 
-    public function getRebuyUrl() {
+    public function getRebuyUrl()
+    {
         return $this->dt_confirmed != '0000-00-00 00:00:00' || $this->dt_rejected != '0000-00-00 00:00:00' || $this->dt_payed != '0000-00-00 00:00:00' || $this->dt_canceled != '0000-00-00 00:00:00'
             ? null
             : (config("defaults.protocol") . '://' . (config(
@@ -47,21 +50,25 @@ class Order extends Record
                                                       ) ?? $_SERVER['HTTP_HOST']) . '/estimate/' . $this->hash);
     }
 
-    public function setAppartment($appartment) {
+    public function setAppartment($appartment)
+    {
         $this->setTag('appartment', $appartment);
     }
 
-    public function setCheckin($checkin) {
+    public function setCheckin($checkin)
+    {
         $this->setTag('checkin', $checkin);
 
     }
 
-    public function setPeople($people) {
+    public function setPeople($people)
+    {
         $this->setTag('people', $people);
 
     }
 
-    protected function setTag($type, $value) {
+    protected function setTag($type, $value)
+    {
         $attr = (
         new OrdersTag(
             [
@@ -75,7 +82,8 @@ class Order extends Record
         $attr->save();
     }
 
-    public function getPacketsSummary() {
+    public function getPacketsSummary()
+    {
         $packets = new Collection();
         $this->ordersUsers->each(
             function(OrdersUser $orderUser) use ($packets) {
@@ -98,7 +106,8 @@ class Order extends Record
         );
     }
 
-    public function getAdditionsSummary() {
+    public function getAdditionsSummary()
+    {
         $additions = new Collection();
         $this->ordersUsers->each(
             function(OrdersUser $orderUser) use ($additions) {
@@ -123,7 +132,8 @@ class Order extends Record
         );
     }
 
-    public function getTotalBillsSum() {
+    public function getTotalBillsSum()
+    {
         return $this->ordersBills->sum(
             function(OrdersBill $bill) {
                 return $bill->price;
@@ -131,7 +141,8 @@ class Order extends Record
         );
     }
 
-    public function getPayedBillsSum() {
+    public function getPayedBillsSum()
+    {
         return $this->ordersBills->sum(
             function(OrdersBill $bill) {
                 return $bill->payed;
@@ -139,13 +150,15 @@ class Order extends Record
         );
     }
 
-    public function queueSendVoucher() {
+    public function queueSendVoucher()
+    {
         queue()
             ->create('voucher:send --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])
             ->makeTimeoutAfterLast('voucher:send', '+5 seconds');
     }
 
-    public function queueGenerateVoucher() {
+    public function queueGenerateVoucher()
+    {
         queue()
             ->create('voucher:generate --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])
             ->makeTimeoutAfterLast(
@@ -154,11 +167,13 @@ class Order extends Record
             );
     }
 
-    public function queueConfirmFurs() {
+    public function queueConfirmFurs()
+    {
         queue()->create('furs:confirm --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id']);
     }
 
-    public function sendVoucher() {
+    public function sendVoucher()
+    {
         $mailer = new Mail();
 
         $template = view('Derive\Orders:voucherMail', ['order' => $this]);
@@ -181,17 +196,20 @@ class Order extends Record
         }
     }
 
-    public function getAbsoluteVoucherUrl() {
+    public function getAbsoluteVoucherUrl()
+    {
         return path('storage') . 'derive' . path('ds') . 'voucher' . path('ds') . $this->voucher_url;
     }
 
-    public function getRelativeVoucherUrl() {
+    public function getRelativeVoucherUrl()
+    {
         return str_replace(path('root'), '', path('storage')) . 'derive' . path('ds') . 'voucher' . path(
             'ds'
         ) . $this->voucher_url;
     }
 
-    public function generateVoucher() {
+    public function generateVoucher()
+    {
         /**
          * Make a request to frontend.
          */
@@ -233,7 +251,8 @@ class Order extends Record
         $this->save();
     }
 
-    public function getVoucherId() {
+    public function getVoucherId()
+    {
         // 'SUBSTR(SHA1(CONCAT(SHA1(id), ' ', SHA1(user_id), ' ', SHA1(offer_id))), 16, 10)'
         return substr(
             sha1(sha1($this->id) . ' ' . sha1($this->user_id) . ' ' . sha1($this->offer_id)),
@@ -242,7 +261,8 @@ class Order extends Record
         );
     }
 
-    public function confirmBillFurs() {
+    public function confirmBillFurs()
+    {
         $defaults = context()->get(Config::class)->get('furs');
 
         /**
@@ -330,13 +350,15 @@ class Order extends Record
         $this->save();
     }
 
-    public function takeVoucher() {
+    public function takeVoucher()
+    {
         $this->taken_at = date('Y-m-d H:i:s');
         $this->take_comment .= request()->post('comment') . "\n";
         $this->save();
     }
 
-    public function retakeVoucher() {
+    public function retakeVoucher()
+    {
         $this->taken_at = null;
         $this->take_comment .= request()->post('comment') . "\n";
         $this->save();

@@ -5,14 +5,14 @@ use Derive\Orders\Provider\Orders as OrdersProvider;
 use Derive\Platform\Provider\Platform as PlatformProvider;
 use Pckg\Auth\Provider\Auth as AuthProvider;
 use Pckg\Concept\Reflect;
+use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
 use Pckg\Framework\Provider;
 use Pckg\Furs\Provider\Furs as FursProvider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
+use Pckg\Generic\Provider\Generic as GenericProvider;
 use Pckg\Maestro\Provider\Maestro as MaestroProvider;
 use Pckg\Mail\Provider\Mail as MailProvider;
 use Pckg\Manager\Provider\Manager as ManagerProvider;
-use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
-use Pckg\Generic\Provider\Generic as GenericProvider;
 
 /**
  * This is core application of GNP platform. ;-)
@@ -22,7 +22,8 @@ use Pckg\Generic\Provider\Generic as GenericProvider;
 class Derive extends Provider
 {
 
-    public function providers() {
+    public function providers()
+    {
         return [
             MaestroProvider::class,
             AuthProvider::class,
@@ -36,13 +37,15 @@ class Derive extends Provider
         ];
     }
 
-    public function afterwares() {
+    public function afterwares()
+    {
         return [
             EncapsulateResponse::class,
         ];
     }
 
-    public function routes() {
+    public function routes()
+    {
         return [
             'url' => [
                 '/' => [

@@ -8,7 +8,8 @@ use Pckg\Framework\Provider;
 class Platform extends Provider
 {
 
-    public function routes() {
+    public function routes()
+    {
         return [
             'url' => [
                 '/switch-platform/[platform]' => [
@@ -27,13 +28,15 @@ class Platform extends Provider
      * @T00D00 ... this and newRoutes() methods need to be added to base Provider for better readability of app.
      * @return array
      */
-    public function routeResolvers() {
+    public function routeResolvers()
+    {
         return [
             'platform' => PlatformResolver::class,
         ];
     }
 
-    public function newRoutes() {
+    public function newRoutes()
+    {
         return [
             'url' => [
                 '/switch-platform/[platform]' => PlatformController::class . '@switchPlatform:derive.platform.switch',
@@ -41,7 +44,8 @@ class Platform extends Provider
         ];
     }
 
-    public function middlewares() {
+    public function middlewares()
+    {
         return [
             InitPlatformDatabase::class,
         ];

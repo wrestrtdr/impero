@@ -10,7 +10,8 @@ use Pckg\Framework\Provider;
 class Orders extends Provider
 {
 
-    public function routes() {
+    public function routes()
+    {
         return [
             'url' => [
                 '/orders'                                    => [
@@ -105,7 +106,7 @@ class Orders extends Provider
                         'order' => OrdersResolver::class,
                     ],
                 ],
-                '/orders/voucher/reapply/[order]'              => [
+                '/orders/voucher/reapply/[order]'            => [
                     'controller' => Vouchers::class,
                     'view'       => 'reapply',
                     'name'       => 'derive.orders.voucher.reapply',
@@ -117,11 +118,13 @@ class Orders extends Provider
         ];
     }
 
-    public function paths() {
+    public function paths()
+    {
         return $this->getViewPaths();
     }
 
-    public function consoles() {
+    public function consoles()
+    {
         return [
             GenerateVoucher::class,
             SendVoucher::class,

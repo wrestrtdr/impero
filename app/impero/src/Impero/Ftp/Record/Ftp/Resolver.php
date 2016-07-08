@@ -2,10 +2,10 @@
 
 use Impero\Ftp\Entity\Ftps;
 use Impero\Ftp\Record\Ftp;
+use Pckg\Auth\Service\Auth;
 use Pckg\Concept\Reflect\Resolver as ResolverInterface;
 use Pckg\Framework\Response;
 use Pckg\Framework\Router;
-use Pckg\Auth\Service\Auth;
 
 class Resolver implements ResolverInterface
 {
@@ -39,8 +39,8 @@ class Resolver implements ResolverInterface
     }
 
     /**
-     * @T00D00 - parameter from router (let's say it's 'zobnascetka-si-schtr4jh-3') should already be passed to resolve method.
-     * We should also know which class are we resolving (Record\Ftp::class)
+     * @T00D00 - parameter from router (let's say it's 'zobnascetka-si-schtr4jh-3') should already be passed to resolve
+     *         method. We should also know which class are we resolving (Record\Ftp::class)
      */
     public function resolve($class)
     {
@@ -53,9 +53,11 @@ class Resolver implements ResolverInterface
          */
         return $this->ftps->where('id', $id)
             //->userIsAuthorized()
-            ->oneOrFail(function () {
-                $this->response->unauthorized('Ftp account not found');
-            });
+                          ->oneOrFail(
+                function() {
+                    $this->response->unauthorized('Ftp account not found');
+                }
+            );
     }
 
     public function parametrize($record)

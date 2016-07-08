@@ -1,18 +1,19 @@
 <?php
 
 use Pckg\Concept\Reflect;
+use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
 use Pckg\Framework\Provider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
 use Pckg\Generic\Provider\Generic as GenericProvider;
 use Pckg\Manager\Provider\Manager as ManagerProvider;
-use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
 use Pckg\Tempus\Console\FetchTempus;
 use Pckg\Tempus\Controller\Tempus as TempusController;
 
 class Tempus extends Provider
 {
 
-    public function providers() {
+    public function providers()
+    {
         return [
             DynamicProvider::class,
             GenericProvider::class,
@@ -20,13 +21,15 @@ class Tempus extends Provider
         ];
     }
 
-    public function afterwares() {
+    public function afterwares()
+    {
         return [
             EncapsulateResponse::class,
         ];
     }
 
-    public function routes() {
+    public function routes()
+    {
         return [
             'url' => [
                 '/' => [
@@ -38,7 +41,8 @@ class Tempus extends Provider
         ];
     }
 
-    public function consoles() {
+    public function consoles()
+    {
         return [
             FetchTempus::class,
         ];

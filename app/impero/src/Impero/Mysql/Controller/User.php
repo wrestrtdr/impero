@@ -1,10 +1,10 @@
 <?php namespace Impero\Mysql\Controller;
 
-use Pckg\Maestro\Helper\Maestro;
 use Impero\Mysql\Entity\Users;
 use Impero\Mysql\Form\User as UserForm;
 use Impero\Mysql\Record\User as UserRecord;
 use Pckg\Framework\Controller;
+use Pckg\Maestro\Helper\Maestro;
 
 class User extends Controller
 {
@@ -15,6 +15,7 @@ class User extends Controller
      * List all available users.
      *
      * @param Users $users
+     *
      * @return mixed
      */
     public function getIndexAction(Users $users)
@@ -28,6 +29,7 @@ class User extends Controller
      *
      * @param UserForm   $userForm
      * @param UserRecord $userRecord
+     *
      * @return mixed
      */
     public function getAddAction(UserForm $userForm, UserRecord $userRecord)
@@ -49,6 +51,7 @@ class User extends Controller
      *
      * @param UserForm   $userForm
      * @param UserRecord $userRecord
+     *
      * @return mixed
      */
     public function postAddAction(UserForm $userForm, UserRecord $userRecord)
@@ -81,6 +84,7 @@ class User extends Controller
      *
      * @param UserForm   $userForm
      * @param UserRecord $userRecord
+     *
      * @return mixed
      */
     public function getEditAction(UserForm $userForm, UserRecord $userRecord)
@@ -102,6 +106,7 @@ class User extends Controller
      *
      * @param UserForm   $userForm
      * @param UserRecord $userRecord
+     *
      * @return $this
      */
     public function postEditAction(UserForm $userForm, UserRecord $userRecord)
@@ -122,6 +127,7 @@ class User extends Controller
      * Delete record.
      *
      * @param UserRecord $userRecord
+     *
      * @return $this
      */
     public function getDeleteAction(UserRecord $userRecord)

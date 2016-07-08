@@ -12,7 +12,7 @@ class DumpVirtualhosts extends Command
     protected function configure()
     {
         $this->setName('apache:dump')
-            ->setDescription('Dump all virtualhosts');
+             ->setDescription('Dump all virtualhosts');
     }
 
     public function handle(Sites $sites)
@@ -20,9 +20,11 @@ class DumpVirtualhosts extends Command
         $this->output('Building virtualhosts');
         $sites = $sites->all();
         $virtualhosts = [];
-        $sites->each(function (Site $site) use (&$virtualhosts) {
-            $virtualhosts[] = $site->getVirtualhost();
-        });
+        $sites->each(
+            function(Site $site) use (&$virtualhosts) {
+                $virtualhosts[] = $site->getVirtualhost();
+            }
+        );
 
         $virtualhosts = implode("\n\n", $virtualhosts);
 

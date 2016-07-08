@@ -20,32 +20,37 @@ class Orders extends Entity implements MaestroEntity
 
     protected $repositoryName = Repository::class . '.gnp';
 
-    public function offer() {
+    public function offer()
+    {
         return $this->belongsTo(Offers::class)
                     ->foreignKey('offer_id')
                     ->fill('offer');
     }
 
-    public function activeOffer() {
+    public function activeOffer()
+    {
         return $this->offer()
                     ->where('offers.dt_published')
                     ->innerJoin();
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->hasOne(Users::class)
                     ->foreignKey('id')
                     ->primaryKey('user_id')
                     ->fill('user');
     }
 
-    public function ordersUsers() {
+    public function ordersUsers()
+    {
         return $this->hasMany(OrdersUsers::class)
                     ->foreignKey('order_id')
                     ->fill('ordersUsers');
     }
 
-    public function appartment() {
+    public function appartment()
+    {
         return $this->hasOne(OrdersTags::class, 'appartment')
                     ->foreignKey('order_id')
                     ->where('appartment.type', 'appartment')
@@ -54,7 +59,8 @@ class Orders extends Entity implements MaestroEntity
                     ->leftJoin();
     }
 
-    public function checkin() {
+    public function checkin()
+    {
         return $this->hasOne(OrdersTags::class, 'checkin')
                     ->foreignKey('order_id')
                     ->where('checkin.type', 'checkin')
@@ -63,7 +69,8 @@ class Orders extends Entity implements MaestroEntity
                     ->leftJoin();
     }
 
-    public function people() {
+    public function people()
+    {
         return $this->hasOne(OrdersTags::class, 'people')
                     ->foreignKey('order_id')
                     ->where('people.type', 'people')
@@ -72,7 +79,8 @@ class Orders extends Entity implements MaestroEntity
                     ->leftJoin();
     }
 
-    public function furs() {
+    public function furs()
+    {
         return $this->hasOne(Furs::class, 'furs')
                     ->foreignKey('order_id')
                     ->where('platform_id', $_SESSION['platform_id'])
@@ -81,18 +89,21 @@ class Orders extends Entity implements MaestroEntity
                     ->leftJoin();
     }
 
-    public function confirmed() {
+    public function confirmed()
+    {
         return $this->where('orders.dt_confirmed');
     }
 
-    public function payed() {
+    public function payed()
+    {
         return $this->where('orders.dt_payed');
     }
 
     /**
      * @return HasAndBelongsTo
      */
-    public function packets() {
+    public function packets()
+    {
         return $this->hasAndBelongsTo(Packets::class)
                     ->over(OrdersUsers::class)
                     ->leftForeignKey('order_id')
@@ -102,13 +113,15 @@ class Orders extends Entity implements MaestroEntity
                     ->fill('packets');
     }
 
-    public function ordersBills() {
+    public function ordersBills()
+    {
         return $this->hasMany(OrdersBills::class)
                     ->foreignKey('order_id')
                     ->fill('ordersBills');
     }
 
-    public function confirmedPackets() {
+    public function confirmedPackets()
+    {
         $relation = $this->packets();
 
         $relation->getMiddleEntity()->where('orders_users.dt_confirmed');
@@ -118,14 +131,16 @@ class Orders extends Entity implements MaestroEntity
         return $relation;
     }
 
-    public function forOrders() {
+    public function forOrders()
+    {
         return $this->joinCheckin()
                     ->joinAppartment()
                     ->joinPeople()
                     ->withOffer();
     }
 
-    public function forAllocation() {
+    public function forAllocation()
+    {
         return $this->payed()
                     ->confirmed()
                     ->withUser()
@@ -137,7 +152,8 @@ class Orders extends Entity implements MaestroEntity
                     );
     }
 
-    public function forVouchers() {
+    public function forVouchers()
+    {
         return $this->payed()
                     ->confirmed()
                     ->withOffer()
@@ -153,7 +169,8 @@ class Orders extends Entity implements MaestroEntity
                     );
     }
 
-    public function forSummary() {
+    public function forSummary()
+    {
         return $this->joinOffer()
                     ->joinOrdersBills(
                         function(Query $ordersBills) {
@@ -162,7 +179,8 @@ class Orders extends Entity implements MaestroEntity
                     );
     }
 
-    public function forFurs() {
+    public function forFurs()
+    {
         return $this->payed()
                     ->confirmed()
                     ->withOffer()
@@ -174,15 +192,18 @@ class Orders extends Entity implements MaestroEntity
                     )->withFurs();
     }
 
-    public function forCheckin() {
+    public function forCheckin()
+    {
         return $this->payed()
                     ->confirmed()
                     ->withOffer()
                     ->withUser()
-                    ->withOrdersUsers(function(HasMany $ordersUser){
-                        $ordersUser->withAdditions();
-                        $ordersUser->withPacket();
-                    });
+                    ->withOrdersUsers(
+                        function(HasMany $ordersUser) {
+                            $ordersUser->withAdditions();
+                            $ordersUser->withPacket();
+                        }
+                    );
     }
 
 }

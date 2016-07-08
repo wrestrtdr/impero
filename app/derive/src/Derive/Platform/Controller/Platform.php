@@ -7,7 +7,8 @@ use Pckg\Framework\Controller;
 class Platform extends Controller
 {
 
-    public function getUserHeaderAction(Platforms $platforms) {
+    public function getUserHeaderAction(Platforms $platforms)
+    {
         return view(
             'Derive\Platform:userHeader',
             [
@@ -17,7 +18,8 @@ class Platform extends Controller
         );
     }
 
-    public function getSwitchPlatformAction(PlatformRecord $platform) {
+    public function getSwitchPlatformAction(PlatformRecord $platform)
+    {
         $_SESSION['platform_id'] = $platform->id;
 
         return $this->response()->respondWithSuccessRedirect();

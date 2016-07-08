@@ -6,13 +6,15 @@ use Symfony\Component\Console\Input\InputOption;
 class GitPull extends Command
 {
 
-    protected function configure() {
+    protected function configure()
+    {
         $this->setName('git:pull')
              ->setDescription('Pull latest changes from GIT repository')
-            ->addOption('data', null, InputOption::VALUE_REQUIRED);
+             ->addOption('data', null, InputOption::VALUE_REQUIRED);
     }
 
-    public function handle() {
+    public function handle()
+    {
         $this->output('Pulling changes.');
         $data = json_decode($this->option('data'));
 

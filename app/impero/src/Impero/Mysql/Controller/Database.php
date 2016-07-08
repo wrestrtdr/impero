@@ -3,8 +3,8 @@
 use Impero\Mysql\Entity\Databases;
 use Impero\Mysql\Form\Database as DatabaseForm;
 use Impero\Mysql\Record\Database as DatabaseRecord;
-use Pckg\Maestro\Helper\Maestro;
 use Pckg\Framework\Controller;
+use Pckg\Maestro\Helper\Maestro;
 
 class Database extends Controller
 {
@@ -15,6 +15,7 @@ class Database extends Controller
      * List all available databases.
      *
      * @param Databases $databases
+     *
      * @return mixed
      */
     public function getIndexAction(Databases $databases)
@@ -28,6 +29,7 @@ class Database extends Controller
      *
      * @param DatabaseForm   $databaseForm
      * @param DatabaseRecord $databaseRecord
+     *
      * @return mixed
      */
     public function getAddAction(DatabaseForm $databaseForm, DatabaseRecord $databaseRecord)
@@ -49,6 +51,7 @@ class Database extends Controller
      *
      * @param DatabaseForm   $databaseForm
      * @param DatabaseRecord $databaseRecord
+     *
      * @return mixed
      */
     public function postAddAction(DatabaseForm $databaseForm, DatabaseRecord $databaseRecord)
@@ -81,6 +84,7 @@ class Database extends Controller
      *
      * @param DatabaseForm   $databaseForm
      * @param DatabaseRecord $databaseRecord
+     *
      * @return mixed
      */
     public function getEditAction(DatabaseForm $databaseForm, DatabaseRecord $databaseRecord)
@@ -102,6 +106,7 @@ class Database extends Controller
      *
      * @param DatabaseForm   $databaseForm
      * @param DatabaseRecord $databaseRecord
+     *
      * @return $this
      */
     public function postEditAction(DatabaseForm $databaseForm, DatabaseRecord $databaseRecord)
@@ -122,6 +127,7 @@ class Database extends Controller
      * Delete record.
      *
      * @param DatabaseRecord $databaseRecord
+     *
      * @return $this
      */
     public function getDeleteAction(DatabaseRecord $databaseRecord)

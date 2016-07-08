@@ -1,8 +1,8 @@
 <?php namespace Impero\Mysql\Record;
 
-use Pckg\Maestro\Service\Contract\Record as MaestroRecord;
 use Impero\Mysql\Entity\Databases;
 use Pckg\Database\Record;
+use Pckg\Maestro\Service\Contract\Record as MaestroRecord;
 
 class Database extends Record implements MaestroRecord
 {
