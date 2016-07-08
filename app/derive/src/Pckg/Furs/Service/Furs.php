@@ -35,8 +35,6 @@ class Furs
 
     private $qrDirPath;
 
-    private $testXMLPath;
-
     private $xmlsPath;
 
     /**
@@ -58,8 +56,6 @@ class Furs
         $this->config = $config;
         $this->business = $business;
         $this->invoice = $invoice;
-
-        $this->testXMLPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'test_xml' . path('ds');
         $this->xmlsPath = path('storage') . 'derive' . path('ds') . 'furs' . path('ds') . 'certs' . path('ds');
     }
 
