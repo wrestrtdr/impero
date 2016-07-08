@@ -1603,12 +1603,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "c8980b24b3db896c18284024ae2cb7a6b041bf00"
+                "reference": "1e00c806e28894b568b437878a0c7e642959300b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/c8980b24b3db896c18284024ae2cb7a6b041bf00",
-                "reference": "c8980b24b3db896c18284024ae2cb7a6b041bf00",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/1e00c806e28894b568b437878a0c7e642959300b",
+                "reference": "1e00c806e28894b568b437878a0c7e642959300b",
                 "shasum": ""
             },
             "type": "library",
@@ -1631,7 +1631,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-06-27 15:01:59"
+            "time": "2016-07-08 13:27:27"
         },
         {
             "name": "pckg/tempus",
@@ -1856,12 +1856,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "e5a8fd78b675cf2ef4355cf8c7728abee2ddc7d3"
+                "reference": "dd0c61ff5db125e6ccf72787508334288764bc77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e5a8fd78b675cf2ef4355cf8c7728abee2ddc7d3",
-                "reference": "e5a8fd78b675cf2ef4355cf8c7728abee2ddc7d3",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/dd0c61ff5db125e6ccf72787508334288764bc77",
+                "reference": "dd0c61ff5db125e6ccf72787508334288764bc77",
                 "shasum": ""
             },
             "require": {
@@ -1869,7 +1869,7 @@
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1,<0.9.4"
+                "mockery/mockery": "~0.9.1"
             },
             "type": "library",
             "extra": {
@@ -1902,7 +1902,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-07-08 10:48:46"
+            "time": "2016-07-08 12:03:59"
         },
         {
             "name": "symfony/config",
