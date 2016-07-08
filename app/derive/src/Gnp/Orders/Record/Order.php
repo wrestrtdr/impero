@@ -301,6 +301,7 @@ class Order extends Record
         $furs->createBusinessMsg();
         $furs->postXML2Furs();
 
+die("Created?");
         /**
          * Create invoice request.
          */

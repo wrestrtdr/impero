@@ -499,11 +499,12 @@ class Furs
             CURLOPT_SSLCERT           => $this->config->getPemCert(),
             CURLOPT_SSLCERTPASSWD     => $this->config->getPassword(),
             CURLOPT_CAINFO            => $this->config->getServerCert(),
-            CURLOPT_VERBOSE           => true,//dev() ? true : false,
+//            CURLOPT_VERBOSE           => true,//dev() ? true : false,
         ];
+//d("Request", $this->xmlMessage);
         curl_setopt_array($conn, $settings);
         $this->fursResponse = curl_exec($conn);
-
+//d("Response", $this->fursResponse);
         if ($this->fursResponse) {
             if (isset($this->invoice)) {
                 $doc = new DOMDocument('1.0', 'UTF-8');
