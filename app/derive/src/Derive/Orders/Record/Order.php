@@ -345,6 +345,7 @@ class Order extends Record
         if ($zoi = $furs->getZOI()) {
             $this->furs_zoi = $furs->getZOI();
             $this->furs_confirmed_at = date('Y-m-d H:i:s');
+            $this->furs_num = $defaults['personId'] . '-' . $defaults['businessId'] . '-' . $fursRecord->id;
         }
 
         $this->save();

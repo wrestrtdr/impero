@@ -1,5 +1,7 @@
 <?php namespace Derive\Orders\Controller;
 
+use Pckg\Framework\Controller;
+
 class Basket extends Controller
 {
 
@@ -82,10 +84,15 @@ class Basket extends Controller
                         'price'    => 10.00,
                         'total'    => 20.00,
                     ],
+                    [
+                        'title'    => 'Promo koda',
+                        'quantity' => 1,
+                        'price'    => 12.12,
+                        'total'    => 12.12,
+                    ],
                 ],
                 'total'       => 528.00,
-                'reservation' => 19.9,
-                'remaining'   => 508.1,
+                'remaining'   => 528.00,
             ],
             'installments' => [
                 [
