@@ -2,6 +2,7 @@
 
 use Derive\Orders\Record\Packet;
 use Pckg\Database\Entity;
+use Pckg\Database\Relation\HasMany;
 use Pckg\Database\Repository;
 
 class Packets extends Entity
@@ -17,6 +18,18 @@ class Packets extends Entity
                     ->foreignKey('packet_id')
                     ->fill('voucherTab')
                     ->where('picture', null, 'IS NOT');
+    }
+
+    public function forOrderForm()
+    {
+        return $this->published()
+                    ->available()
+                    ->withAdditions(
+                        function(HasMany $additions) {
+                            $additions->published();
+                            $additions->available();
+                        }
+                    );
     }
 
 }

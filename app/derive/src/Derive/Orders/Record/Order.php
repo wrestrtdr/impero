@@ -1,5 +1,6 @@
 <?php namespace Derive\Orders\Record;
 
+use Derive\Basket\Service\Installments;
 use Derive\Orders\Entity\Orders;
 use Exception;
 use JonnyW\PhantomJs\Client;
@@ -345,7 +346,7 @@ class Order extends Record
         if ($zoi = $furs->getZOI()) {
             $this->furs_zoi = $furs->getZOI();
             $this->furs_confirmed_at = date('Y-m-d H:i:s');
-            $this->furs_num = $defaults['personId'] . '-' . $defaults['businessId'] . '-' . $fursRecord->id;
+            $this->furs_num = $defaults['businessId'] . '-' . $defaults['personId'] . '-' . str_pad($fursRecord->id, 4 > strlen($fursRecord->id) ? 4 : strlen($fursRecord->id), '0', STR_PAD_LEFT);
         }
 
         $this->save();
@@ -363,6 +364,18 @@ class Order extends Record
         $this->taken_at = null;
         $this->take_comment .= request()->post('comment') . "\n";
         $this->save();
+    }
+
+    /**
+     * @return $this
+     * @T00D00
+     */
+    public function setInstallments($number)
+    {
+        $installments = new Installments();
+        $installments->setOrder($this)->redefineTo($number);
+
+        return $this;
     }
 
 }
