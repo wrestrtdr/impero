@@ -29,4 +29,6 @@ sublime
 .idea
 phinx.yml
 
+# TESTS ;-)
 tests/_output/*
+codeception.yml
