@@ -208,24 +208,26 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "1.2.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "b8bb147f46cc9790326ce2440a13be06cc5a63bb"
+                "reference": "19811e00829958f06d9bfbfeb0d0e6b7aaff3767"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/b8bb147f46cc9790326ce2440a13be06cc5a63bb",
-                "reference": "b8bb147f46cc9790326ce2440a13be06cc5a63bb",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/19811e00829958f06d9bfbfeb0d0e6b7aaff3767",
+                "reference": "19811e00829958f06d9bfbfeb0d0e6b7aaff3767",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "^1.0.1",
-                "php": ">= 5.3.3"
+                "php": ">= 5.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.24"
+                "dominicsayers/isemail": "dev-master",
+                "phpunit/phpunit": "^4.8.0",
+                "satooshi/php-coveralls": "dev-master"
             },
             "type": "library",
             "extra": {
@@ -234,8 +236,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Egulias\\": "src/"
+                "psr-4": {
+                    "Egulias\\EmailValidator\\": "EmailValidator"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -247,7 +249,7 @@
                     "name": "Eduardo Gulias Davis"
                 }
             ],
-            "description": "A library for validating emails",
+            "description": "A library for validating emails against several RFCs",
             "homepage": "https://github.com/egulias/EmailValidator",
             "keywords": [
                 "email",
@@ -256,7 +258,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2016-07-03 21:52:18"
+            "time": "2016-07-12 13:22:10"
         },
         {
             "name": "facebook/php-sdk-v4",
@@ -429,12 +431,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "a08f97c17fbb88777ec50c7742313648541e4ef7"
+                "reference": "039eeba8a61788df89c7800eccb2c56723a0db34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a08f97c17fbb88777ec50c7742313648541e4ef7",
-                "reference": "a08f97c17fbb88777ec50c7742313648541e4ef7",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/039eeba8a61788df89c7800eccb2c56723a0db34",
+                "reference": "039eeba8a61788df89c7800eccb2c56723a0db34",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +473,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-07-06 09:04:39"
+            "time": "2016-07-11 08:36:05"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -816,16 +818,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.21.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7"
+                "reference": "36c134b53c21a137d450c86a27046022d98574fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
-                "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/36c134b53c21a137d450c86a27046022d98574fd",
+                "reference": "36c134b53c21a137d450c86a27046022d98574fd",
                 "shasum": ""
             },
             "require": {
@@ -836,6 +838,11 @@
                 "phpunit/phpunit": "~4.0|~5.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.22-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Carbon\\": "src/Carbon/"
@@ -859,7 +866,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-11-04 20:07:17"
+            "time": "2016-06-27 17:44:29"
         },
         {
             "name": "paymill/paymill",
@@ -1111,12 +1118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "678637e1a73e46e65562a4f5767b0862e4697282"
+                "reference": "32504161acabc5e720ccaaa42b1974a1a3b6787a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/678637e1a73e46e65562a4f5767b0862e4697282",
-                "reference": "678637e1a73e46e65562a4f5767b0862e4697282",
+                "url": "https://api.github.com/repos/pckg/database/zipball/32504161acabc5e720ccaaa42b1974a1a3b6787a",
+                "reference": "32504161acabc5e720ccaaa42b1974a1a3b6787a",
                 "shasum": ""
             },
             "require": {
@@ -1144,7 +1151,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-07-08 21:05:31"
+            "time": "2016-07-13 05:48:30"
         },
         {
             "name": "pckg/dynamic",
@@ -1188,12 +1195,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "0937257514724da959ae077883e6d7588408e614"
+                "reference": "5024753aabf5a11eb1cd969f07870e9723b53eb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/0937257514724da959ae077883e6d7588408e614",
-                "reference": "0937257514724da959ae077883e6d7588408e614",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/5024753aabf5a11eb1cd969f07870e9723b53eb2",
+                "reference": "5024753aabf5a11eb1cd969f07870e9723b53eb2",
                 "shasum": ""
             },
             "require": {
@@ -1227,7 +1234,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-07-08 21:05:51"
+            "time": "2016-07-13 05:48:46"
         },
         {
             "name": "pckg/frontend",
@@ -1896,16 +1903,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "dd0c61ff5db125e6ccf72787508334288764bc77"
+                "reference": "7e782c78d3d6927593f9bb9155cb428a7a52d080"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/dd0c61ff5db125e6ccf72787508334288764bc77",
-                "reference": "dd0c61ff5db125e6ccf72787508334288764bc77",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/7e782c78d3d6927593f9bb9155cb428a7a52d080",
+                "reference": "7e782c78d3d6927593f9bb9155cb428a7a52d080",
                 "shasum": ""
             },
             "require": {
-                "egulias/email-validator": "~1.2",
+                "egulias/email-validator": "~2.0",
                 "php": ">=5.5.0"
             },
             "require-dev": {
@@ -1942,7 +1949,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-07-08 12:03:59"
+            "time": "2016-07-09 18:35:08"
         },
         {
             "name": "symfony/config",
@@ -2349,12 +2356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "e326274cb9a79c17450b4d040e5136e217dd2c11"
+                "reference": "3743fa69f74a2e94b86112fc154ced97ca730c26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e326274cb9a79c17450b4d040e5136e217dd2c11",
-                "reference": "e326274cb9a79c17450b4d040e5136e217dd2c11",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3743fa69f74a2e94b86112fc154ced97ca730c26",
+                "reference": "3743fa69f74a2e94b86112fc154ced97ca730c26",
                 "shasum": ""
             },
             "require": {
@@ -2404,7 +2411,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-07-05 11:11:18"
+            "time": "2016-07-10 08:06:43"
         },
         {
             "name": "symfony/yaml",
@@ -2467,12 +2474,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "c3c089b8959c29002fa087f78fdc29dae6a7e767"
+                "reference": "dc992508173d4aa67b14ad2308558fdb348f9607"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/c3c089b8959c29002fa087f78fdc29dae6a7e767",
-                "reference": "c3c089b8959c29002fa087f78fdc29dae6a7e767",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/dc992508173d4aa67b14ad2308558fdb348f9607",
+                "reference": "dc992508173d4aa67b14ad2308558fdb348f9607",
                 "shasum": ""
             },
             "replace": {
@@ -2510,7 +2517,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-07-09 08:36:29"
+            "time": "2016-07-12 19:19:16"
         },
         {
             "name": "twig/twig",
@@ -2518,12 +2525,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999"
+                "reference": "c535bc0b56aa93ead7a75b6841f28645153b0539"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/cdccdbbdf35f38a70eb6931667a76fc68012a999",
-                "reference": "cdccdbbdf35f38a70eb6931667a76fc68012a999",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c535bc0b56aa93ead7a75b6841f28645153b0539",
+                "reference": "c535bc0b56aa93ead7a75b6841f28645153b0539",
                 "shasum": ""
             },
             "require": {
@@ -2571,7 +2578,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-06-24 05:05:43"
+            "time": "2016-07-10 07:48:21"
         },
         {
             "name": "zurb/foundation",
