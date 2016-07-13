@@ -28,3 +28,5 @@ config/env.example.php
 sublime
 .idea
 phinx.yml
+
+tests/_output/*
