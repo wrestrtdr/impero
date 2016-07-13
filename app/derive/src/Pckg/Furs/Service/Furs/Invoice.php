@@ -26,12 +26,12 @@ class Invoice
 
     public function getInvoiceAmount()
     {
-        return $this->invoiceAmount;
+        return str_replace(',', '', $this->invoiceAmount);
     }
 
     public function getPaymentAmount()
     {
-        return $this->paymentAmount;
+        return str_replace(',', '', $this->paymentAmount);
     }
 
     public function getIssueDateTime()
