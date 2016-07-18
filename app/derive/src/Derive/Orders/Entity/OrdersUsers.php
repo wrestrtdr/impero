@@ -1,5 +1,7 @@
 <?php namespace Derive\Orders\Entity;
 
+use Derive\Offers\Entity\Packets;
+use Derive\Offers\Entity\PacketsAdditions;
 use Derive\Orders\Record\OrdersUser;
 use Pckg\Database\Entity;
 use Pckg\Database\Repository;

@@ -277,7 +277,8 @@ class Order extends Record
         $business = new Furs\Business(
             $defaults['businessId'],
             $defaults['businessTaxNumber'],
-            $defaults['businessValidityDate']
+            $defaults['businessValidityDate'],
+            $defaults['electronicDeviceId']
         );
         $invoice = new Furs\Invoice(
             $fursRecord->id,
@@ -346,7 +347,12 @@ class Order extends Record
         if ($zoi = $furs->getZOI()) {
             $this->furs_zoi = $furs->getZOI();
             $this->furs_confirmed_at = date('Y-m-d H:i:s');
-            $this->furs_num = $defaults['businessId'] . '-' . $defaults['personId'] . '-' . date('Y') . str_pad($fursRecord->id, 4 > strlen($fursRecord->id) ? 4 : strlen($fursRecord->id), '0', STR_PAD_LEFT);
+            $this->furs_num = $defaults['businessId'] . '-' . $defaults['electronicDeviceId'] . '-' . date('Y') . str_pad(
+                    $fursRecord->id,
+                    4 > strlen($fursRecord->id) ? 4 : strlen($fursRecord->id),
+                    '0',
+                    STR_PAD_LEFT
+                );
         }
 
         $this->save();

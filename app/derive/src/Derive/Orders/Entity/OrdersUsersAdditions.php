@@ -8,4 +8,9 @@ class OrdersUsersAdditions extends Entity
 
     protected $repositoryName = Repository::class . '.gnp';
 
+    public function recalculateZoi()
+    {
+        
+    }
+
 }

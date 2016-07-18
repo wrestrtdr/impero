@@ -1,6 +1,6 @@
-<?php namespace Derive\Orders\Entity;
+<?php namespace Derive\Offers\Entity;
 
-use Derive\Orders\Record\Addition;
+use Derive\Offers\Record\Addition;
 use Pckg\Database\Entity;
 use Pckg\Database\Repository;
 

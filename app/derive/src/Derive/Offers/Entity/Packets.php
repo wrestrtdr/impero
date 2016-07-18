@@ -1,6 +1,6 @@
-<?php namespace Derive\Orders\Entity;
+<?php namespace Derive\Offers\Entity;
 
-use Derive\Orders\Record\Packet;
+use Derive\Offers\Record\Packet;
 use Pckg\Database\Entity;
 use Pckg\Database\Relation\HasMany;
 use Pckg\Database\Repository;

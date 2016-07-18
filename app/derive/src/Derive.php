@@ -1,5 +1,6 @@
 <?php
 
+use Derive\Offers\Provider\Offers as OffersProvider;
 use Derive\Orders\Controller\Orders;
 use Derive\Orders\Provider\Orders as OrdersProvider;
 use Derive\Platform\Provider\Platform as PlatformProvider;
@@ -30,6 +31,7 @@ class Derive extends Provider
             MailProvider::class,
             ManagerProvider::class,
             OrdersProvider::class,
+            OffersProvider::class,
             DynamicProvider::class,
             GenericProvider::class,
             FursProvider::class,

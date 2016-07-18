@@ -204,7 +204,7 @@ class Furs
         if ($subsequent) {
             $subsequentSubmitArray = [
                 'name'  => 'fu:SubsequentSubmit',
-                'value' => $subsequent, // 1
+                'value' => '1', // 1
             ];
         } else {
             $subsequentSubmitArray = [];
@@ -259,7 +259,7 @@ class Furs
                         ],
                         1 => [
                             'name'  => 'fu:ElectronicDeviceID',
-                            'value' => 1,
+                            'value' => $this->business->getElectronicDeviceId(),
                         ],
                         2 => [
                             'name'  => 'fu:InvoiceNumber',
@@ -394,8 +394,8 @@ class Furs
          * IssueDateTime in zoi is           DD.MM.YYYY HH:MM:SS
          */
 
-        $businessPremiseID = '1';
-        $electronicDeviceID = '1';
+        $businessPremiseID = $this->business->getId();
+        $electronicDeviceID = $this->business->getElectronicDeviceId();
         $newIssueDateTime = date("d.m.Y H:i:s", strtotime($this->invoice->getIssueDateTime()));
         $signData = $this->config->getTaxNumber() . $newIssueDateTime . $this->invoice->getInvoiceNumber(
             ) . $businessPremiseID . $electronicDeviceID . $this->invoice->getInvoiceAmount();

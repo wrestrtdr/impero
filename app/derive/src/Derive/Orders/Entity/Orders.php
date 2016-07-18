@@ -1,5 +1,7 @@
 <?php namespace Derive\Orders\Entity;
 
+use Derive\Offers\Entity\Offers;
+use Derive\Offers\Entity\Packets;
 use Derive\Orders\Record\Order;
 use Pckg\Database\Entity;
 use Pckg\Database\Entity\Extension\Paginatable;

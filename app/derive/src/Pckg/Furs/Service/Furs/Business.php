@@ -9,11 +9,14 @@ class Business
 
     protected $validityDate;
 
-    public function __construct($id, $taxNumber, $validityDate)
+    protected $electronicDeviceId;
+
+    public function __construct($id, $taxNumber, $validityDate, $electronicDeviceId)
     {
         $this->id = $id;
         $this->taxNumber = $taxNumber;
         $this->validityDate = $validityDate;
+        $this->electronicDeviceId = $electronicDeviceId;
     }
 
     public function getId()
@@ -29,6 +32,11 @@ class Business
     public function getValidityDate()
     {
         return $this->validityDate;
+    }
+
+    public function getElectronicDeviceId()
+    {
+        return $this->electronicDeviceId;
     }
 
 }

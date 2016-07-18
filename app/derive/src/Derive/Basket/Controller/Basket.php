@@ -45,7 +45,7 @@ class Basket extends Controller
      * Accepts customer data and promo code.
      * Returns estimate data.
      */
-    public function postCustomersAction(Users $users)
+    public function postOrderFormAction(Users $users)
     {
         /**
          * Expected data:

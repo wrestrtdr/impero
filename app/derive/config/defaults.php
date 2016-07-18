@@ -8,6 +8,7 @@ return [
                 'exclude'  => [
                     'login',
                     'derive.orders.voucher.preview',
+                    'derive\.offers\.(.*)',
                 ],
                 'redirect' => 'login',
             ],

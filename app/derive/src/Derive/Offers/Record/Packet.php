@@ -1,6 +1,6 @@
-<?php namespace Derive\Orders\Record;
+<?php namespace Derive\Offers\Record;
 
-use Derive\Orders\Entity\Packets;
+use Derive\Offers\Entity\Packets;
 use Pckg\Database\Record;
 
 class Packet extends Record

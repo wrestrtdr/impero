@@ -1,9 +1,9 @@
-<?php namespace Derive\Orders\Entity;
+<?php namespace Derive\Offers\Entity;
 
 use Pckg\Database\Entity;
 use Pckg\Database\Repository;
 
-class PacketsTabs extends Entity
+class Countries extends Entity
 {
 
     protected $repositoryName = Repository::class . '.gnp';
