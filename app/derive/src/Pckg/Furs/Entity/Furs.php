@@ -15,6 +15,9 @@ class Furs extends Entity
 
     public function getOrCreateFromOrder(Order $order, Business $business)
     {
+        /**
+         * Get existent furs record
+         */
         $furs = (new static())
             ->where('order_id', $order->id)
             ->where('business_id', $business->getId())
@@ -22,8 +25,15 @@ class Furs extends Entity
             ->one();
 
         if (!$furs) {
+            $last = (new static())
+                ->where('business_id', $business->getId())
+                ->where('business_tax_number', $business->getTaxNumber())
+                ->orderBy('furs_id DESC')
+                ->one();
+
             $furs = new FursRecord(
                 [
+                    'furs_id'             => $last ? $last->furs_id + 1 : 1,
                     'order_id'            => $order->id,
                     'business_id'         => $business->getId(),
                     'business_tax_number' => $business->getTaxNumber(),

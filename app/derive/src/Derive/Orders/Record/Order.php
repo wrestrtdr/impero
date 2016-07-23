@@ -285,7 +285,7 @@ class Order extends Record
          * Create invoice.
          */
         $invoice = new Furs\Invoice(
-            $fursRecord->id,
+            $fursRecord->furs_id,
             number_format($this->getTotalBillsSum(), 2),
             number_format($this->getPayedBillsSum(), 2),
             date('Y-m-d') . 'T' . date('H:i:s')
@@ -352,8 +352,8 @@ class Order extends Record
             $this->furs_zoi = $furs->getZOI();
             $this->furs_confirmed_at = date('Y-m-d H:i:s');
             $this->furs_num = $defaults['businessId'] . '-' . $defaults['electronicDeviceId'] . '-' . date('Y') . str_pad(
-                    $fursRecord->id,
-                    4 > strlen($fursRecord->id) ? 4 : strlen($fursRecord->id),
+                    $fursRecord->furs_id,
+                    4 > strlen($fursRecord->furs_id) ? 4 : strlen($fursRecord->furs_id),
                     '0',
                     STR_PAD_LEFT
                 );
