@@ -170,7 +170,7 @@ class Order extends Record
 
     public function queueConfirmFurs()
     {
-        queue()->create('furs:confirm --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id']);
+        queue()->create('furs:confirm --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])->makeTimeoutAfterLast('furs:confirm', 1);
     }
 
     public function sendVoucher()
