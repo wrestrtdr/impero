@@ -4,6 +4,7 @@
     {% include '_head.twig' %}
 </head>
 <body id="vue-app">
+{% block content %}{{ content | raw }}{% endblock %}
 
 {% include '_foot.twig' %}
 
