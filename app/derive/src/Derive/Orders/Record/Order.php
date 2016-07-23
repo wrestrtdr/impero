@@ -170,7 +170,7 @@ class Order extends Record
 
     public function queueConfirmFurs()
     {
-        queue()->create('furs:confirm --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id'])->makeTimeoutAfterLast('furs:confirm', 1);
+        queue()->create('furs:confirm --orders ' . $this->id . ' --platform ' . $_SESSION['platform_id']);
     }
 
     public function sendVoucher()
@@ -286,7 +286,8 @@ class Order extends Record
          */
         $invoice = new Furs\Invoice(
             $fursRecord->furs_id,
-            number_format($this->getTotalBillsSum(), 2),
+            //number_format($this->getTotalBillsSum(), 2),
+            number_format($this->getPayedBillsSum(), 2),
             number_format($this->getPayedBillsSum(), 2),
             date('Y-m-d') . 'T' . date('H:i:s')
         );

@@ -1,7 +1,7 @@
 <?php
 
+use Derive\Layout\Middleware\RegisterDeriveAssets;
 use Derive\Offers\Provider\Offers as OffersProvider;
-use Derive\Orders\Controller\Orders;
 use Derive\Orders\Provider\Orders as OrdersProvider;
 use Derive\Platform\Provider\Platform as PlatformProvider;
 use Pckg\Auth\Provider\Auth as AuthProvider;
@@ -36,6 +36,13 @@ class Derive extends Provider
             GenericProvider::class,
             FursProvider::class,
             PlatformProvider::class,
+        ];
+    }
+
+    public function middlewares()
+    {
+        return [
+            RegisterDeriveAssets::class,
         ];
     }
 

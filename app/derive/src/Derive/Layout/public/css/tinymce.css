@@ -1,0 +1,72 @@
+h1 {
+  font-size:30px;
+  line-height:34px;
+}
+h2 {
+  font-size:22px;
+  line-height:24px;
+}
+h3 {
+  font-size:16px;
+  line-height:18px;
+}
+
+h1, h2, h3 {
+	margin: 5px 0px;
+}
+
+p, span, div {
+  line-height:14px;
+  font-size:12px;
+}
+
+p {
+	margin: 0px 0px 5px 0px;
+}
+
+.fsXS {
+  font-size: 8px;
+  line-height:10px;
+}
+.fsS {
+  font-size: 10px;
+  line-height:12px;
+}
+.fsM {
+  font-size: 15px;
+  line-height:17px;
+}
+.fsL {
+  font-size: 16px;
+  line-height:19px;
+}
+.fsXL {
+  font-size: 20px;
+  line-height:24px;
+}
+.fsXXL {
+  font-size: 30px;
+  line-height: 34px;
+}
+
+.clrBlack {
+  color: #000;
+}
+.clrWhite {
+  color: #fff;
+}
+.clrRed {
+  color: red;
+}
+.clrGreen {
+  color: green;
+}
+.clrBlue {
+  color: blue;
+}
+.clrYellow {
+  color: yellow;
+}
+.clrOrange {
+  color: orange;
+}

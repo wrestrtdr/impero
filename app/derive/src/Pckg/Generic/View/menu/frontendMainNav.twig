@@ -1,0 +1,16 @@
+<ul class="nav navbar-nav navbar-right">
+    {% for menuItem in menuItems %}
+        <li>
+            <a href="{{ menuItem.getRealUrl() }}" role="button" aria-haspopup="true">{{ menuItem.title | raw }}</a>
+        </li>
+    {% endfor %}
+    <li class="login-space hidden-xs">
+        {% if _auth.isLoggedIn() %}
+            <a class="login" href="/profile">{{ __('header_my_profile') }} <i
+                        class="glyphicon glyphicon-user" aria-hidden="true"></i></a>
+        {% else %}
+            <a class="login" href="#loginModal">{{ __('header_login') }} <i
+                        class="glyphicon glyphicon-user" aria-hidden="true"></i></a>
+        {% endif %}
+    </li>
+</ul>

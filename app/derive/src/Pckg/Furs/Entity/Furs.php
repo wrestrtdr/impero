@@ -22,6 +22,7 @@ class Furs extends Entity
             ->where('order_id', $order->id)
             ->where('business_id', $business->getId())
             ->where('business_tax_number', $business->getTaxNumber())
+            ->where('platform_id', $_SESSION['platform_id'])
             ->one();
 
         if (!$furs) {
@@ -37,6 +38,7 @@ class Furs extends Entity
                     'order_id'            => $order->id,
                     'business_id'         => $business->getId(),
                     'business_tax_number' => $business->getTaxNumber(),
+                    'platform_id'         => $_SESSION['platform_id'],
                 ]
             );
         }
