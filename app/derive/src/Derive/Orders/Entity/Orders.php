@@ -86,7 +86,8 @@ class Orders extends Entity implements MaestroEntity
     {
         return $this->hasOne(Furs::class, 'furs')
                     ->foreignKey('order_id')
-                    ->where('platform_id', $_SESSION['platform_id'])
+                    ->where('business_id', 'PP1')
+                    ->where('business_tax_number', '81835078')
                     ->fill('furs')
                     ->addSelect(['furs.*'])
                     ->leftJoin();
