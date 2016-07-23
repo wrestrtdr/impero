@@ -9,7 +9,7 @@ class CreateFursTable extends Migration
     {
         $furs = $this->table('furs');
         $furs->integer('order_id');
-        $furs->varchar('furs_id');
+        $furs->integer('furs_id');
         $furs->varchar('business_id');
         $furs->varchar('business_tax_number');
         $furs->datetime('requested_at')->nullable();
