@@ -26,7 +26,7 @@ class Derive extends Provider
     public function providers()
     {
         return [
-            MaestroProvider::class,
+            // MaestroProvider::class,
             AuthProvider::class,
             MailProvider::class,
             ManagerProvider::class,
@@ -50,11 +50,11 @@ class Derive extends Provider
     {
         return [
             'url' => [
-                '/' => [
+                /*'/v2/' => [
                     'controller' => Orders::class,
                     'view'       => 'home',
                     'name'       => 'home',
-                ],
+                ],*/
             ],
         ];
     }

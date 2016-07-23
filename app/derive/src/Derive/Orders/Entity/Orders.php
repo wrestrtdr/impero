@@ -6,6 +6,7 @@ use Derive\Orders\Record\Order;
 use Pckg\Database\Entity;
 use Pckg\Database\Entity\Extension\Paginatable;
 use Pckg\Database\Query;
+use Pckg\Database\Query\Raw;
 use Pckg\Database\Relation\HasAndBelongsTo;
 use Pckg\Database\Relation\HasMany;
 use Pckg\Database\Repository;
@@ -183,8 +184,7 @@ class Orders extends Entity implements MaestroEntity
 
     public function forFurs()
     {
-        return $this->payed()
-                    ->confirmed()
+        return $this->where(Raw::raw('orders.id IN(SELECT order_id FROM orders_bills WHERE payed AND type IN(1,2))'))
                     ->withOffer()
                     ->withUser()
                     ->withOrdersBills(

@@ -4,6 +4,7 @@ use Derive\Orders\Record\Order;
 use Pckg\Database\Entity;
 use Pckg\Database\Repository;
 use Pckg\Furs\Record\Furs as FursRecord;
+use Pckg\Furs\Service\Furs\Business;
 
 class Furs extends Entity
 {
@@ -12,15 +13,20 @@ class Furs extends Entity
 
     protected $repositoryName = Repository::class . '.deriveprod';
 
-    public function getOrCreateFromOrder(Order $order)
+    public function getOrCreateFromOrder(Order $order, Business $business)
     {
-        $furs = (new static())->where('order_id', $order->id)->where('platform_id', $_SESSION['platform_id'])->one();
+        $furs = (new static())
+            ->where('order_id', $order->id)
+            ->where('business_id', $business->getId())
+            ->where('business_tax_number', $business->getTaxNumber())
+            ->one();
 
         if (!$furs) {
             $furs = new FursRecord(
                 [
-                    'order_id'    => $order->id,
-                    'platform_id' => $_SESSION['platform_id'],
+                    'order_id'            => $order->id,
+                    'business_id'         => $business->getId(),
+                    'business_tax_number' => $business->getTaxNumber(),
                 ]
             );
         }

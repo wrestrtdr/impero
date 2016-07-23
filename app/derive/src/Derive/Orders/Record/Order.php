@@ -267,12 +267,7 @@ class Order extends Record
         $defaults = context()->get(Config::class)->get('furs');
 
         /**
-         * Get or create FURS invoice number.
-         */
-        $fursRecord = (new FursEntity())->getOrCreateFromOrder($this);
-
-        /**
-         * Create business and invoice.
+         * Create business.
          */
         $business = new Furs\Business(
             $defaults['businessId'],
@@ -280,6 +275,15 @@ class Order extends Record
             $defaults['businessValidityDate'],
             $defaults['electronicDeviceId']
         );
+
+        /**
+         * Get or create FURS invoice number.
+         */
+        $fursRecord = (new FursEntity())->getOrCreateFromOrder($this, $business);
+
+        /**
+         * Create invoice.
+         */
         $invoice = new Furs\Invoice(
             $fursRecord->id,
             number_format($this->getTotalBillsSum(), 2),
