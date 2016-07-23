@@ -1585,12 +1585,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "852bad9b5881078b8fa96666211228bc9deb1374"
+                "reference": "d459186d62ae4cf796227b5c69b521a24e33f1db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/852bad9b5881078b8fa96666211228bc9deb1374",
-                "reference": "852bad9b5881078b8fa96666211228bc9deb1374",
+                "url": "https://api.github.com/repos/pckg/database/zipball/d459186d62ae4cf796227b5c69b521a24e33f1db",
+                "reference": "d459186d62ae4cf796227b5c69b521a24e33f1db",
                 "shasum": ""
             },
             "require": {
@@ -1618,7 +1618,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-07-18 19:12:21"
+            "time": "2016-07-23 09:06:06"
         },
         {
             "name": "pckg/dynamic",
@@ -2126,12 +2126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "542a2a73bf6caf9d87bd3567b727e1e33000a224"
+                "reference": "10bd0992bf90e3a4c83b919c8c4fa1acf0e24617"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/542a2a73bf6caf9d87bd3567b727e1e33000a224",
-                "reference": "542a2a73bf6caf9d87bd3567b727e1e33000a224",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/10bd0992bf90e3a4c83b919c8c4fa1acf0e24617",
+                "reference": "10bd0992bf90e3a4c83b919c8c4fa1acf0e24617",
                 "shasum": ""
             },
             "type": "library",
@@ -2154,7 +2154,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-07-08 21:07:30"
+            "time": "2016-07-23 09:11:12"
         },
         {
             "name": "pckg/tempus",
