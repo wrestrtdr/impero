@@ -2042,12 +2042,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/migrator.git",
-                "reference": "5adc339265468524766813eb9d11a08d62555b02"
+                "reference": "e326c2790eb3462d085d50f668e0107e87e18215"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/migrator/zipball/5adc339265468524766813eb9d11a08d62555b02",
-                "reference": "5adc339265468524766813eb9d11a08d62555b02",
+                "url": "https://api.github.com/repos/pckg/migrator/zipball/e326c2790eb3462d085d50f668e0107e87e18215",
+                "reference": "e326c2790eb3462d085d50f668e0107e87e18215",
                 "shasum": ""
             },
             "require": {
@@ -2072,7 +2072,7 @@
             ],
             "description": "Database, config and other migrations made simple",
             "homepage": "https://github.com/pckg/migrator",
-            "time": "2016-07-08 21:07:13"
+            "time": "2016-07-23 08:36:03"
         },
         {
             "name": "pckg/payment",
@@ -2162,12 +2162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/tempus.git",
-                "reference": "b242705f1c81c5639d007e97226de063ebde65d4"
+                "reference": "85d6b810317eca438ad8868a100eed9b05df3cd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/tempus/zipball/b242705f1c81c5639d007e97226de063ebde65d4",
-                "reference": "b242705f1c81c5639d007e97226de063ebde65d4",
+                "url": "https://api.github.com/repos/pckg/tempus/zipball/85d6b810317eca438ad8868a100eed9b05df3cd4",
+                "reference": "85d6b810317eca438ad8868a100eed9b05df3cd4",
                 "shasum": ""
             },
             "type": "library",
@@ -2190,7 +2190,7 @@
             ],
             "description": "Tempus",
             "homepage": "https://github.com/pckg-app/tempus",
-            "time": "2016-07-18 18:59:57"
+            "time": "2016-07-23 08:36:22"
         },
         {
             "name": "phpdocumentor/reflection-common",
