@@ -183,6 +183,9 @@ class Orders extends Entity implements MaestroEntity
                     );
     }
 
+    /**
+     * @return $this
+     */
     public function forFurs()
     {
         return $this->where(Raw::raw('orders.id IN(SELECT order_id FROM orders_bills WHERE payed AND type IN(1,2))'))

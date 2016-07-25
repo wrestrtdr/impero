@@ -1,0 +1,99 @@
+{% if tutorial %}
+    <div class="container tutorial">
+        {{ tutorial | raw }}
+    </div>
+{% endif %}
+
+<section class="container offers-list">
+    <a class="title" href="/offers">
+        <h1>{{ __('homepage_title_offers') }}</h1>
+    </a>
+    <div class="row">
+        {% for offer in offers %}
+            <!-- big offers are 1 in a row, medium offers are 2 in a row -->
+            <!-- single offer box -->
+            {% if offer.size != 'small' %}
+                <div class="col-xs-12{% if offer.size == 'medium' %} col-sm-6{% endif %}">
+                    <article class="offer {{ offer.size }} {% if offer.n %2 == 1 %}even{%endif%} row">
+                        <!-- image box -->
+                        <div class="{% if offer.size == 'big' %}col-sm-9 {% endif %}col-xs-12 image-outer-box">
+                            <a href="{{ offer.url }}">
+                                <img class="img-responsive" src="{{ offer.image }}" />
+                            </a>
+                        </div>
+                        <!-- /image box -->
+
+                        <!-- information box next to the image -->
+                        <a class="{% if offer.size == 'big' %}col-sm-5 col-sm-offset-7{% endif %} col-xs-10 col-xs-offset-1 info-outer-box" href="{{ offer.url }}">
+                            <div class="info-inner-box">
+                                <header>
+                                    <h1>{{ offer.title }}</h1>
+                                    {% if offer.subtitle %}<h2>{{ offer.subtitle }}</h2>{% endif %}
+                                </header>
+                                <p class="location">{{ offer.location }}</p>
+                                <p class="time">{{ offer.date }}</p>
+                                <div class="bottom">
+                                    <button class="button">{{ __('btn_go') }}</button>
+                                    <p class="pickup-line visible-lg{% if offer.size != 'big' %} hidden{% endif %}">{{ offer.pickupLine }}</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                                {% if offer.price != 0 %}
+                                    <div class="price-tag">
+                                        {{ __('price_from') }} <strong>{{ offer.price }}€</strong>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </a>
+                        <!-- /information box next to the image -->
+
+                        <div class="clearfix"></div>
+                    </article>
+                </div>
+                <!-- list of small offers with categories -->
+            {% else %}
+                {% if offer.first == true %}
+                    <div class="spacing-top hidden-xs"></div>
+                    <div class="col-lg-5 col-sm-4 offer-category first active" data-catid="{{ offer.caid }}">
+                        <h3>{{ offer.catitle }}</h3>
+                    </div>
+                {% elseif offer.catitle != ''  %}
+                    <div class="col-lg-5 col-sm-4 offer-category inactive" data-catid="{{ offer.caid }}">
+                        <h3>{{ offer.catitle }}</h3>
+                    </div>
+                    <div class="col-lg-7 col-sm-8 offer-category seperator-line hidden-xs">
+                        <div></div>
+                    </div>
+                    <div class="clearfix catheader hidden-xs"></div>
+                {% endif %}
+                <div class="col-lg-7 col-sm-8{% if offer.first == false %} col-lg-offset-5 col-sm-offset-4{% endif %}">
+                    <article class="row offer {{ offer.size }}">
+                        <a href="{{ offer.url }}">
+                            <div class="info-inner-box">
+                                <div class="col-xs-3">
+                                    {% if offer.price != 0 %}
+                                        <div class="price-tag">
+                                            {{ __('price_from') }} <strong>{{ offer.price }}€</strong>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-sm-6 col-xs-9 move">
+                                    <header>
+                                        <h1>{{ offer.title }}</h1>
+                                        <h2>{{ offer.subtitle }}</h2>
+                                    </header>
+                                    <p class="location">{{ offer.location }}</p>
+                                    <p class="time">{{ offer.date }}</p>
+                                </div>
+                                <div class="col-sm-3 col-sm-offset-0 col-xs-9 col-xs-offset-3 bottom">
+                                    <button class="button">{{ __('btn_go') }}</button>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            {% endif %}
+            <!-- clear row if there are 2 in row and it's the second column already -->
+            {% if offer.break %}<div class="clearfix"></div>{% endif %}
+        {% endfor %}
+    </div>
+</section>

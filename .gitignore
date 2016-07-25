@@ -8,6 +8,9 @@ bower_components
 # WWW
 www/cache/**
 www/media/**
+www/css
+www/js
+www/img
 
 # GIT
 !**/.gitkeep

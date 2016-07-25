@@ -1,24 +1,24 @@
 <?php namespace Derive\Offers\Controller;
 
 use Derive\Offers\Entity\Offers as OffersEntity;
-use Pckg\Database\Relation\BelongsTo;
 use Pckg\Framework\Controller;
 
 class Offers extends Controller
 {
 
+    public function getHomepageAction(OffersEntity $offers)
+    {
+        return view(
+            'Derive\Offers:offers\homepage',
+            [
+                'offers' => $offers->forHomepage()->all(),
+            ]
+        );
+    }
+
     public function getListAction(OffersEntity $offers)
     {
-        $offersArr = $offers->withCity(
-            function(BelongsTo $city) {
-                $city->withCountry();
-            }
-        )->withCategory()
-                            ->published()
-                            ->onFirstPage()
-                            ->count()
-                            ->orderBy('offers.top DESC, offers.position_index ASC')
-                            ->all();
+        $offersArr = $offers->forListing()->all();
 
         return view(
             'Derive\Offers:offers\list',

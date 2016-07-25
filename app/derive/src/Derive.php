@@ -11,7 +11,6 @@ use Pckg\Framework\Provider;
 use Pckg\Furs\Provider\Furs as FursProvider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
 use Pckg\Generic\Provider\Generic as GenericProvider;
-use Pckg\Maestro\Provider\Maestro as MaestroProvider;
 use Pckg\Mail\Provider\Mail as MailProvider;
 use Pckg\Manager\Provider\Manager as ManagerProvider;
 
@@ -26,7 +25,6 @@ class Derive extends Provider
     public function providers()
     {
         return [
-            MaestroProvider::class,
             AuthProvider::class,
             MailProvider::class,
             ManagerProvider::class,

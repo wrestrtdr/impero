@@ -14,7 +14,7 @@ class DeriveAssets extends Provider
             "js/jquery.validationEngine.js",
             "js/colorbox/jquery.colorbox.js",
             "js/maestro/func.js",
-            "js/bootstrap.min.js",
+            //"js/bootstrap.min.js",
             //],
             //'main'      => [
             "js/jquery.blueimp-gallery.min.js",
@@ -24,7 +24,7 @@ class DeriveAssets extends Provider
             //"js/ga.php",
             "js/oldbrowser.js",
             "js/moment.js",
-            "js/bootstrap-datetimepicker.min.js",
+            //"js/bootstrap-datetimepicker.min.js",
             //"vendor/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.js",
             "js/hideShowPassword.min.js",
 

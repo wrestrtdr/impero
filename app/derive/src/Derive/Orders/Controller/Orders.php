@@ -36,7 +36,7 @@ class Orders extends Controller
         /**
          * Set table.
          */
-        $table = (new Tables())->where('framework_entity', get_class($orders))->oneOrFail();
+        $table = (new Tables())->where('framework_entity', OrdersEntity::class)->oneOrFail();
         $this->dynamicService->setTable($table);
 
         /**
@@ -383,18 +383,18 @@ class Orders extends Controller
                                     ->where('order_id', $orderIds, 'NOT IN')
                                     ->delete();
 
-        return $this->response()->respondWithAjaxSuccess();
+        return $this->response()->respondWithSuccess();
     }
 
     public function postFursRequestAction()
     {
         (new OrdersEntity())->where('id', $this->post()->get('orders'))->all()->each(
             function(Order $order) {
-                $order->queueConfirmFurs();
+                // $order->queueConfirmFurs();
             }
         );
 
-        return $this->response()->respondWithAjaxSuccess();
+        return $this->response()->respondWithSuccess();
     }
 
 }

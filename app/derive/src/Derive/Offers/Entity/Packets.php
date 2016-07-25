@@ -32,4 +32,14 @@ class Packets extends Entity
                     );
     }
 
+    public function published()
+    {
+        return $this->where('dt_published');
+    }
+
+    public function available()
+    {
+        return $this;
+    }
+
 }
