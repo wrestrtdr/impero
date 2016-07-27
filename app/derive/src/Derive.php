@@ -51,17 +51,4 @@ class Derive extends Provider
         ];
     }
 
-    public function routes()
-    {
-        return [
-            'url' => [
-                /*'/v2/' => [
-                    'controller' => Orders::class,
-                    'view'       => 'home',
-                    'name'       => 'home',
-                ],*/
-            ],
-        ];
-    }
-
 }

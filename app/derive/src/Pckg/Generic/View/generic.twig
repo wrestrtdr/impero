@@ -5,6 +5,7 @@
 </head>
 <body id="vue-app">
 
+{% if not _request.isAjax() %}
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,6 +31,7 @@
         {% endif %}
     </div>
 </nav>
+{% endif %}
 
 <div class="container-fluid">
     <!-- alerts -->

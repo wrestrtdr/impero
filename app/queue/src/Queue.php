@@ -1,6 +1,5 @@
 <?php
 
-use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
 use Pckg\Queue\Provider\Queue as QueueProvider;
 
