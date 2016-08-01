@@ -390,7 +390,7 @@ class Orders extends Controller
     {
         (new OrdersEntity())->where('id', $this->post()->get('orders'))->all()->each(
             function(Order $order) {
-                // $order->queueConfirmFurs();
+                $order->queueConfirmFurs();
             }
         );
 
