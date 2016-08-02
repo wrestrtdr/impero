@@ -1626,12 +1626,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "0e60297a4049bce68587b2d896c695003174aa34"
+                "reference": "ee2487f0c98e66ab464bf8cc1c9a50c0ecc21b94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/0e60297a4049bce68587b2d896c695003174aa34",
-                "reference": "0e60297a4049bce68587b2d896c695003174aa34",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/ee2487f0c98e66ab464bf8cc1c9a50c0ecc21b94",
+                "reference": "ee2487f0c98e66ab464bf8cc1c9a50c0ecc21b94",
                 "shasum": ""
             },
             "require": {
@@ -1658,7 +1658,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-08-02 20:26:34"
+            "time": "2016-08-02 20:46:37"
         },
         {
             "name": "pckg/framework",
@@ -1666,12 +1666,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "901637c91d543d41ae7c9aff68e586287db49e26"
+                "reference": "6ef13c60de7bb7a93628743315a8769b880028b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/901637c91d543d41ae7c9aff68e586287db49e26",
-                "reference": "901637c91d543d41ae7c9aff68e586287db49e26",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/6ef13c60de7bb7a93628743315a8769b880028b3",
+                "reference": "6ef13c60de7bb7a93628743315a8769b880028b3",
                 "shasum": ""
             },
             "require": {
@@ -1705,7 +1705,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-07-27 11:16:41"
+            "time": "2016-08-02 20:47:09"
         },
         {
             "name": "pckg/frontend",
@@ -1934,12 +1934,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "53bb299fde02559260086987550d814d6fd1cc17"
+                "reference": "16b1275750980d68745974d33051fc0a34948497"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/53bb299fde02559260086987550d814d6fd1cc17",
-                "reference": "53bb299fde02559260086987550d814d6fd1cc17",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/16b1275750980d68745974d33051fc0a34948497",
+                "reference": "16b1275750980d68745974d33051fc0a34948497",
                 "shasum": ""
             },
             "type": "library",
@@ -1962,7 +1962,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-07-25 20:48:02"
+            "time": "2016-08-02 20:47:32"
         },
         {
             "name": "pckg/mail",
@@ -2009,12 +2009,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/manager.git",
-                "reference": "fc5767dd5e48439d03d1228a0de9405a0473c036"
+                "reference": "24d04b51269fff06974a7834f1ad8d797ecdad0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/manager/zipball/fc5767dd5e48439d03d1228a0de9405a0473c036",
-                "reference": "fc5767dd5e48439d03d1228a0de9405a0473c036",
+                "url": "https://api.github.com/repos/pckg/manager/zipball/24d04b51269fff06974a7834f1ad8d797ecdad0c",
+                "reference": "24d04b51269fff06974a7834f1ad8d797ecdad0c",
                 "shasum": ""
             },
             "require": {
@@ -2038,7 +2038,7 @@
             ],
             "description": "SEO, meta and asset manager",
             "homepage": "https://github.com/pckg/manager",
-            "time": "2016-07-25 20:48:29"
+            "time": "2016-08-02 12:58:52"
         },
         {
             "name": "pckg/migrator",
@@ -4116,12 +4116,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "9e5c3c24da9166ee019d64b8c3b2d79fba4a70b9"
+                "reference": "cec494ceed624e22a8e2acbfc95121f1798fb15f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/9e5c3c24da9166ee019d64b8c3b2d79fba4a70b9",
-                "reference": "9e5c3c24da9166ee019d64b8c3b2d79fba4a70b9",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/cec494ceed624e22a8e2acbfc95121f1798fb15f",
+                "reference": "cec494ceed624e22a8e2acbfc95121f1798fb15f",
                 "shasum": ""
             },
             "require": {
@@ -4164,7 +4164,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30 07:26:43"
+            "time": "2016-08-02 10:15:39"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4565,12 +4565,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "cd3288cd749886aa1ff43038f17db6494e883262"
+                "reference": "f891dd5781923380e069385881728250c929cb4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/cd3288cd749886aa1ff43038f17db6494e883262",
-                "reference": "cd3288cd749886aa1ff43038f17db6494e883262",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/f891dd5781923380e069385881728250c929cb4b",
+                "reference": "f891dd5781923380e069385881728250c929cb4b",
                 "shasum": ""
             },
             "require": {
@@ -4612,7 +4612,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-17 14:08:33"
+            "time": "2016-08-02 07:47:02"
         },
         {
             "name": "twbs/bootstrap",
