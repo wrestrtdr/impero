@@ -67,7 +67,7 @@ class Vouchers extends Controller
                              [
                                  'generateVoucher',
                                  'sendVoucher',
-                                 'filter',
+                                 'options',
                                  'view',
                              ]
                          )

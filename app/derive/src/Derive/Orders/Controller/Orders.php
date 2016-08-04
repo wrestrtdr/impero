@@ -85,9 +85,7 @@ class Orders extends Controller
                          ->setEntityActions(
                              [
                                  'add',
-                                 'filter',
-                                 'sort',
-                                 'group',
+                                 'options',
                                  'export',
                                  'view',
                              ]
@@ -184,9 +182,7 @@ class Orders extends Controller
                          ->setGroups($groups)
                          ->setEntityActions(
                              [
-                                 'filter',
-                                 'sort',
-                                 'group',
+                                 'options',
                                  'export',
                                  'view',
                              ]
@@ -237,9 +233,7 @@ class Orders extends Controller
                              [
                                  'furs',
                                  'add',
-                                 'filter',
-                                 'sort',
-                                 'group',
+                                 'options',
                                  'export',
                                  'view',
                              ]
