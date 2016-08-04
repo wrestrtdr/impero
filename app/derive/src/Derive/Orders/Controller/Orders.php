@@ -143,16 +143,6 @@ class Orders extends Controller
 
     public function getSummaryAction(OrdersEntity $orders)
     {
-        for ($i = 1; $i <= 10; $i++) {
-            $user = new User(
-                [
-                    'user_group_id' => 5,
-                    'email'         => 'checkin' . $i,
-                    'password'      => $this->auth()->makePassword($i . 'gonparty'),
-                ]
-            );
-            $user->save();
-        }
         /**
          * Set table.
          */
