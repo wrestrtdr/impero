@@ -727,12 +727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "158c17127299b183d4b9784d7385bb29fe2f5982"
+                "reference": "3b45e7675e8997ac96142b0265d158343958f708"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/158c17127299b183d4b9784d7385bb29fe2f5982",
-                "reference": "158c17127299b183d4b9784d7385bb29fe2f5982",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3b45e7675e8997ac96142b0265d158343958f708",
+                "reference": "3b45e7675e8997ac96142b0265d158343958f708",
                 "shasum": ""
             },
             "require": {
@@ -781,7 +781,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-07-21 20:48:12"
+            "time": "2016-08-04 00:05:49"
         },
         {
             "name": "guzzlehttp/promises",
@@ -840,12 +840,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "b1501c9fd5845473f39b89db5ac9a39a7ab62a38"
+                "reference": "64862e854f876bc5aee2996cab2f552db8586065"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/b1501c9fd5845473f39b89db5ac9a39a7ab62a38",
-                "reference": "b1501c9fd5845473f39b89db5ac9a39a7ab62a38",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/64862e854f876bc5aee2996cab2f552db8586065",
+                "reference": "64862e854f876bc5aee2996cab2f552db8586065",
                 "shasum": ""
             },
             "require": {
@@ -897,7 +897,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2016-07-25 11:34:12"
+            "time": "2016-08-03 09:33:34"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -1626,12 +1626,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "ee2487f0c98e66ab464bf8cc1c9a50c0ecc21b94"
+                "reference": "52b9de18b1940f75d2e34d35854ca6f9e40cd187"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/ee2487f0c98e66ab464bf8cc1c9a50c0ecc21b94",
-                "reference": "ee2487f0c98e66ab464bf8cc1c9a50c0ecc21b94",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/52b9de18b1940f75d2e34d35854ca6f9e40cd187",
+                "reference": "52b9de18b1940f75d2e34d35854ca6f9e40cd187",
                 "shasum": ""
             },
             "require": {
@@ -1658,7 +1658,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-08-02 20:46:37"
+            "time": "2016-08-02 22:04:43"
         },
         {
             "name": "pckg/framework",
@@ -1934,12 +1934,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "16b1275750980d68745974d33051fc0a34948497"
+                "reference": "bd94f2a2d0b34b9fbb20058ecbf32e062f1dbcbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/16b1275750980d68745974d33051fc0a34948497",
-                "reference": "16b1275750980d68745974d33051fc0a34948497",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/bd94f2a2d0b34b9fbb20058ecbf32e062f1dbcbc",
+                "reference": "bd94f2a2d0b34b9fbb20058ecbf32e062f1dbcbc",
                 "shasum": ""
             },
             "type": "library",
@@ -1962,7 +1962,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-08-02 20:47:32"
+            "time": "2016-08-02 22:05:32"
         },
         {
             "name": "pckg/mail",
@@ -3040,12 +3040,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "reference": "d0aabc038f1f3ff665dfe1e9673bcd0df609c681"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/d0aabc038f1f3ff665dfe1e9673bcd0df609c681",
+                "reference": "d0aabc038f1f3ff665dfe1e9673bcd0df609c681",
                 "shasum": ""
             },
             "require": {
@@ -3073,6 +3073,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -3081,7 +3082,7 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2016-08-03 19:47:37"
         },
         {
             "name": "psr/log",
@@ -4620,12 +4621,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "c282ca589cf44076f7434b2c20531fb76e0f6750"
+                "reference": "7e2741eb1074afc66bdf2fb5c2b65d476cf7f37e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/c282ca589cf44076f7434b2c20531fb76e0f6750",
-                "reference": "c282ca589cf44076f7434b2c20531fb76e0f6750",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7e2741eb1074afc66bdf2fb5c2b65d476cf7f37e",
+                "reference": "7e2741eb1074afc66bdf2fb5c2b65d476cf7f37e",
                 "shasum": ""
             },
             "replace": {
@@ -4663,7 +4664,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-07-29 16:49:23"
+            "time": "2016-08-03 04:37:14"
         },
         {
             "name": "twig/twig",
