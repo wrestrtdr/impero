@@ -1585,12 +1585,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "582111412bf590dbf6362d56edaf5abf1684e479"
+                "reference": "d35fb343d0c4d9ab8659c7562f3cb9afb62180db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/582111412bf590dbf6362d56edaf5abf1684e479",
-                "reference": "582111412bf590dbf6362d56edaf5abf1684e479",
+                "url": "https://api.github.com/repos/pckg/database/zipball/d35fb343d0c4d9ab8659c7562f3cb9afb62180db",
+                "reference": "d35fb343d0c4d9ab8659c7562f3cb9afb62180db",
                 "shasum": ""
             },
             "require": {
@@ -1618,7 +1618,7 @@
             ],
             "description": "PHP database implementation",
             "homepage": "https://github.com/pckg/database",
-            "time": "2016-07-25 22:36:56"
+            "time": "2016-08-04 13:10:51"
         },
         {
             "name": "pckg/dynamic",
@@ -1626,12 +1626,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/dynamic.git",
-                "reference": "52b9de18b1940f75d2e34d35854ca6f9e40cd187"
+                "reference": "df025b701e7736790f252095383708d6ccad8d9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/dynamic/zipball/52b9de18b1940f75d2e34d35854ca6f9e40cd187",
-                "reference": "52b9de18b1940f75d2e34d35854ca6f9e40cd187",
+                "url": "https://api.github.com/repos/pckg/dynamic/zipball/df025b701e7736790f252095383708d6ccad8d9b",
+                "reference": "df025b701e7736790f252095383708d6ccad8d9b",
                 "shasum": ""
             },
             "require": {
@@ -1658,7 +1658,7 @@
             ],
             "description": "Dynamic tables",
             "homepage": "https://github.com/pckg/dynamic",
-            "time": "2016-08-02 22:04:43"
+            "time": "2016-08-04 13:50:40"
         },
         {
             "name": "pckg/framework",
@@ -1934,12 +1934,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/maestro.git",
-                "reference": "bd94f2a2d0b34b9fbb20058ecbf32e062f1dbcbc"
+                "reference": "60f72ec4d4dafd3b34ac6945ef20eaab803243a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/maestro/zipball/bd94f2a2d0b34b9fbb20058ecbf32e062f1dbcbc",
-                "reference": "bd94f2a2d0b34b9fbb20058ecbf32e062f1dbcbc",
+                "url": "https://api.github.com/repos/pckg/maestro/zipball/60f72ec4d4dafd3b34ac6945ef20eaab803243a8",
+                "reference": "60f72ec4d4dafd3b34ac6945ef20eaab803243a8",
                 "shasum": ""
             },
             "type": "library",
@@ -1962,7 +1962,7 @@
             ],
             "description": "Maestro",
             "homepage": "https://github.com/pckg/maestro",
-            "time": "2016-08-02 22:05:32"
+            "time": "2016-08-04 13:11:40"
         },
         {
             "name": "pckg/mail",
