@@ -4,10 +4,13 @@ use Impero\Apache\Record\Site;
 use Pckg\Auth\Entity\Users;
 use Pckg\Auth\Service\Auth;
 use Pckg\Database\Entity;
+use Pckg\Dynamic\Entity\Snippet\EntityActions;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 
 class Sites extends Entity implements MaestroEntity
 {
+
+    use EntityActions;
 
     protected $record = Site::class;
 
