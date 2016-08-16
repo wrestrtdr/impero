@@ -32,6 +32,24 @@ class Packets extends Entity
                     );
     }
 
+    public function forSecondStep()
+    {
+        return $this->published()
+                    ->available()
+                    ->withAdditions(
+                        function(HasMany $additions) {
+                            $additions->published()
+                                      ->available();
+                        }
+                    )
+                    ->withDepartments()
+                    ->withIncludes(
+                        function(HasMany $includes) {
+                            $includes->published();
+                        }
+                    );
+    }
+
     public function published()
     {
         return $this->where('dt_published');
@@ -40,6 +58,30 @@ class Packets extends Entity
     public function available()
     {
         return $this;
+    }
+
+    public function additions()
+    {
+        return $this->hasAndBelongsTo(Additions::class)
+                    ->over(PacketsAdditions::class)
+                    ->leftForeignKey('packet_id')
+                    ->rightForeignKey('addition_id');
+    }
+
+    public function departments()
+    {
+        return $this->hasAndBelongsTo(Cities::class)
+                    ->over(PacketsCities::class)
+                    ->leftForeignKey('packet_id')
+                    ->rightForeignKey('city_id');
+    }
+
+    public function includes()
+    {
+        return $this->hasAndBelongsTo(Additions::class)
+                    ->over(PacketsIncludes::class)
+                    ->leftForeignKey('packet_id')
+                    ->rightForeignKey('include_id');
     }
 
 }

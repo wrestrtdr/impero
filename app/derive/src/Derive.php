@@ -1,5 +1,6 @@
 <?php
 
+use Derive\Basket\Provider\Basket;
 use Derive\Layout\Middleware\RegisterDeriveAssets;
 use Derive\Offers\Provider\Offers as OffersProvider;
 use Derive\Orders\Provider\Orders as OrdersProvider;
@@ -34,6 +35,7 @@ class Derive extends Provider
             GenericProvider::class,
             FursProvider::class,
             PlatformProvider::class,
+            Basket::class,
         ];
     }
 

@@ -1,12 +1,18 @@
 <?php namespace Derive\Basket\Controller;
 
+use Derive\Offers\Entity\Packets;
+use Derive\Offers\Record\Offer;
 use Derive\Orders\Entity\Offers;
+use Derive\Orders\Entity\Orders;
+use Derive\Orders\Entity\OrdersUsers;
+use Derive\Orders\Entity\OrdersUsersAdditions;
 use Derive\Orders\Record\Order;
 use Derive\Orders\Record\OrdersUser;
 use Derive\Orders\Record\OrdersUsersAddition;
 use Pckg\Auth\Entity\Users;
 use Pckg\Auth\Record\User;
 use Pckg\Framework\Controller;
+use Pckg\Manager\Asset;
 
 class Basket extends Controller
 {
@@ -15,28 +21,105 @@ class Basket extends Controller
      * Accepts offer id, number of customers and selected packets.
      * Returns all data.
      * We WON'T create order on this point.
+     *
+     * Expected data:
+     * $post = [
+     *  'offer_id' => 88,
+     *  'packets'  => [
+     *      198 => 2,
+     *  ],
+     * ];
      */
-    public function getOrderFormAction(Offers $offers)
+    public function getOrderAction(Offer $offer, Packets $packetsEntity)
     {
+        $packets = $this->get('packets', []);
+
+        $arrData = [];
+        $customers = 1;
+        $total = 0;
+        $payment = 0;
+        $orderType = null;
+        $totalQuantity = $arrData['total_quantity'] = array_sum($packets);
+
+        foreach ($packets AS $packet => $quantity) {
+            $hash = sha1(microtime());
+            $type = $total == 0
+                ? "payee"
+                : "customers";
+
+            /**
+             * Set view data.
+             */
+            $arrData[$type][$hash]["packet"] = $rPacket = $packetsEntity->forSecondStep()
+                                                                        ->where('id', $packet)
+                                                                        ->oneOrFail();
+
+            if ($rPacket->ticket) {
+                $orderType = 'simple';
+            } else {
+                $orderType = 'complex';
+            }
+
+            /**
+             * @T00D00 - move this to view
+             */
+            if ($rPacket->ticket) {
+                $rPacket->includes->each(
+                    function($include) use ($totalQuantity) {
+                        $include->title = $totalQuantity . "x " . $include->title;
+                    }
+                );
+            }
+
+            $arrData[$type][$hash]["payment"] = cutAndMakePrice($rPacket->price);
+
+            /**
+             * Add packet price to payment.
+             */
+            $payment += $rPacket->price;
+
+            /**
+             * Count customers.
+             */
+            if ($total) {
+                $customers++;
+            }
+
+            $total++;
+        }
+
         /**
-         * Expected data:
-         * $post = [
-         *  'offer_id' => 88,
-         *  'packets'  => [
-         *      198 => 2,
-         *  ],
-         * ];
+         * Payee is only one.
+         */
+        $arrData['payee'] = end($arrData['payee']);
+
+        /**
+         * @T00D00 - fix this ... we'll probably need to create form helper?
+         * "name"     => "order[" . $hash . "][packet_id]",
+         * "id"       => "packet_id_" . $hash,
+         * "selected" => $packet,
+         * "class"    => "orderPacket",
          */
 
-        $offer = $offers->forOrderForm()
-                        ->where('id', $this->post('offer_id'))
-                        ->oneOrFail();
+        $this->assetManager()->addAssets(
+            [
+                'js/narocilnica.js',
+                'js/predracun.js',
+            ],
+            'footer',
+            path('www')
+        );
 
         return view(
             'Derive\Basket:basket\orderForm',
             [
-                'offer'          => $offer,
-                'orderedPackets' => $this->post('packets'),
+                'cssPage'    => 'order',
+                'offer'      => $offer,
+                "form"       => $arrData,
+                'orderType'  => $orderType,
+                'totalUsers' => $totalQuantity,
+                'payment'    => $payment,
+                'action'     => url('predracun'),
             ]
         );
     }
@@ -45,7 +128,7 @@ class Basket extends Controller
      * Accepts customer data and promo code.
      * Returns estimate data.
      */
-    public function postOrderFormAction(Users $users)
+    public function postOrderFormAction(Offer $offer, Users $users)
     {
         /**
          * Expected data:
@@ -78,24 +161,47 @@ class Basket extends Controller
          *  'promo_code' => null,
          * ];
          */
+        $order = $this->post()->toArray();
+        $hash = sha1(microtime());
+        $refresh = false;
+
+        if (!$this->post('order')) {
+            return [
+                "success" => false,
+                "text"    => __("refresh_triggered"),
+            ];
+        } else {
+            $this->session()->last_order = $order;
+            $this->session()->last_order->hash = $hash;
+        }
+
+        $showReservations = RESERVATION > 0;
+        $showPortions = $offer->getMaxPortions();
 
         /**
          * Create new order by offer_id and promo_code_id.
          * We will add user later.
          */
-        $order = new Order(
+        $order = Orders::createNew(
             [
                 'offer_id'      => $this->post('offer_id'),
                 'promo_code_id' => $this->post('promo_code_id'),
+                'hash'          => $hash,
+                'referer'       => $this->cookie('referer'),
             ]
         );
-        $order->save();
 
         /**
          * Save each orders_user.
          */
-        foreach ($this->post('order') as $orderUser) {
+        $payeeRegistered = false;
+        foreach ($this->post('order') as $tempHash => $orderUser) {
+            $pass = substr(sha1(microtime()), 0, 10);
             $user = $users->where('email', $orderUser['email'])->one();
+
+            if (!$order->user_id && $user) {
+                $payeeRegistered = true;
+            }
 
             /**
              * Create user if he doesn't exist yet.
@@ -104,10 +210,26 @@ class Basket extends Controller
                 $user = User::getOrCreate(
                     [
                         'email'   => $orderUser['email'],
-                        'name'    => $orderUser['name'],
-                        'surname' => $orderUser['surname'],
-                        'phone'   => $orderUser['phone'],
-                        'address' => $orderUser['address'],
+                        'name'    => $orderUser['name'] ?? null,
+                        'surname' => $orderUser['surname'] ?? null,
+                        'phone'   => $orderUser['phone'] ?? null,
+                        'address' => $orderUser['address'] ?? null,
+                        'pass'    => $pass,
+                    ]
+                );
+            }
+
+            /**
+             * Send signup email to payee.
+             */
+            if (!$order->user_id && !$payeeRegistered) {
+                email(
+                    'signup-payee',
+                    $user->email,
+                    [
+                        'user'     => $user,
+                        'offer'    => $offer,
+                        'password' => $pass,
                     ]
                 );
             }
@@ -145,6 +267,173 @@ class Basket extends Controller
                 $ordersUserAddition->save();
             }
         }
+
+        /**
+         * Summarize data
+         */
+        $arrSumPackets = [];
+        $arrSumAdditions = [];
+        foreach ($order['order'] AS $userOrder) {
+            if (!isset($userOrder['packet_id'])) {
+                return [
+                    "success" => false,
+                    "text"    => __("cannot_find_packet"),
+                ];
+            }
+            if (isset($arrSumPackets[$userOrder['packet_id']])) {
+                $arrSumPackets[$userOrder['packet_id']]++;
+            } else {
+                $arrSumPackets[$userOrder['packet_id']] = 1;
+            }
+
+            if (isset($userOrder['additions'])) {
+                foreach ($userOrder['additions'] AS $userAddition) {
+                    if (isset($arrSumAdditions[$userAddition])) {
+                        $arrSumAdditions[$userAddition]++;
+                    } else {
+                        $arrSumAdditions[$userAddition] = 1;
+                    }
+                }
+            }
+        }
+
+        if (!$arrSumPackets) {
+            return [
+                "success" => false,
+                "text"    => __("choose_at_least_one_packet"),
+            ];
+        }
+
+        $sum = 0.0;
+        /**
+         * Summarize packets.
+         */
+        $ordersUsers = (new OrdersUsers())->addSelect(['quantity' => 'COUNT(id)'])
+                                          ->withPacket()
+                                          ->where('order_id', $order->id)
+                                          ->groupBy('packet_id')
+                                          ->all();
+        $arrBills = [];
+        $ordersUsers->each(
+            function(OrdersUser $ordersUser) use ($arrBills, $sum) {
+                $arrBills[] = [
+                    'title'    => $ordersUser->packet->title,
+                    'price'    => makePrice($ordersUser->packet->price),
+                    'sum'      => makePrice($ordersUser->packet->price * $ordersUser->quantity),
+                    'quantity' => $ordersUser->quantity,
+                ];
+                $sum += $ordersUser->packet->price * $ordersUser->quantity;
+            }
+        );
+
+        /**
+         * Summarize additions.
+         */
+        $ordersUsersAdditions = (new OrdersUsersAdditions())
+            ->addSelect(['quantity' => 'COUNT(id)'])
+            ->withAdditions()
+            ->where('orders_user_id', $order->ordersUsers->map('id'))
+            ->all();
+        $ordersUsersAdditions->each(
+            function(OrdersUsersAddition $ordersUsersAddition) use ($arrBills, $sum) {
+                $arrBills[] = [
+                    'title'    => $ordersUsersAddition->addition->title,
+                    'price'    => makePrice($ordersUsersAddition->addition->value),
+                    'sum'      => makePrice($ordersUsersAddition->quantity * $ordersUsersAddition->addition->value),
+                    'quantity' => $ordersUsersAddition->quantity,
+                ];
+                $sum += $ordersUsersAddition->quantity * $ordersUsersAddition->addition->value;
+            }
+        );
+
+        /**
+         * Summarize processing cost.
+         */
+        $processingCost = $order->getProcessingCost();
+        $arrBills[] = [
+            'title'    => 'Booking fee',
+            'price'    => makePrice($processingCost),
+            'sum'      => makePrice($processingCost),
+            'quantity' => 1,
+        ];
+        $sum += $processingCost;
+
+        /**
+         * Summarize promo code.
+         */
+        if ($order->promo_code_id) {
+            $discount = $order->promoCode->getMinusByPrice($sum);
+            $promoDiscount = '-' . makePrice($discount);
+            $this->session()->promoDiscount = $discount;
+
+            $arrBills[] = [
+                'title'    => __('promo_code_title'),
+                'price'    => $promoDiscount,
+                'sum'      => $promoDiscount,
+                'quantity' => 1,
+            ];
+
+            $sum -= $discount;
+        } else {
+            $this->session()->promoDiscount = null;
+        }
+
+        /**
+         * Save price data.
+         */
+        $order->set(
+            [
+                'price'    => $sum,
+                'original' => $sum,
+            ]
+        )->save();
+
+        /**
+         * Get max portions.
+         */
+        $maxPortions = $offer->getMaxPortions();
+        $arrPortions = range(1, $maxPortions);
+
+        /**
+         * @T00D00 - previous system re-saved orders_users and additions?
+         */
+
+        $tplData = [
+            "payee"            => $order->user,
+            "order"            => $order,
+            "paymentDate"      => date("d.m.Y", strtotime($offer->dt_closed)),
+            "offer"            => $offer,
+            "sumTotal"         => $sum,
+            /**
+             * @T00D00 - remove and refactor?
+             */
+            "sumRemaining"     => $sum - RESERVATION,
+            "paymentsList"     => /*HTML::select(
+                [
+                    "id"      => "bills",
+                    "name"    => "bills",
+                    "options" => $arrPortions,
+                ]
+            ),*/
+                null,
+            "portion"          => /*$this->portions(
+                [
+                    "portions"     => 1,
+                    "max"          => $offer->dt_closed,
+                    "price"        => $sum - RESERVATION,
+                    'max_portions' => $maxPortions,
+                ]
+            ),*/
+                null,
+            "reservationPrice" => /*makePrice(RESERVATION)*/
+                null,
+            "action"           => url("placilna sredstva"),
+            "showReservations" => $showReservations,
+            "showPortions"     => $showPortions,
+            "mode"             => /*MODE*/
+                'full',
+            'bills'            => $arrBills,
+        ];
 
         $return = [
             'order'        => $order,
@@ -191,6 +480,433 @@ class Basket extends Controller
                 ],
             ],
         ];
+
+        return view('Pckg\Derive:basket\estimate', $return);
+    }
+
+    public function oldPostOrderFormAction()
+    {
+        $this->log();
+        $order = $_POST;
+        $hash = sha1(microtime());
+        $refresh = false;
+
+        // catch refresh
+        if (!isset($order['order']) || empty($order['order'])) {
+            return JSON::to(
+                [
+                    "success" => false,
+                    "text"    => __("refresh_triggered"),
+                ]
+            );
+        } else {
+            $_SESSION['last order'] = $order;
+            $_SESSION['last order']['hash'] = $hash;
+        }
+
+        $rOffer = $this->Offers->get("first", null, ["id" => $order['offer_id']]);
+
+        $pt = $this->OffersPaymentMethods->getPaymentTable($rOffer['id']);
+
+        // hide reservations in HTML template if all methods have disabled reservations
+        $showReservations = RESERVATION > 0;
+
+        // hide portions in HTML template if all methods have disabled portions
+        $showPortions = ($rOffer['max_portions'] ?? MAX_PORTIONS) > 1;
+
+        if (!isset($order['offer_id']) || !Validate::isInt($order['offer_id'])) {
+            return JSON::to(
+                [
+                    "success" => false,
+                    "text"    => __("wrong_offer"),
+                ]
+            );
+        }
+
+        $rPayee = [];
+        $arrSentEmails = [];
+        $i = 0;
+        foreach ($order['order'] AS $tempHash => $orderUser) {
+            $rUser = $this->Users->get("first", null, ["email" => $orderUser['email']]);
+
+            // register user
+            if (empty($rUser)) {
+                $pass = substr(sha1(microtime()), 0, 10);
+                $userId = -1;
+
+                if (!empty($orderUser['email'])) {
+                    $userId = $this->Users->insert(
+                        [
+                            "email"    => $orderUser['email'],
+                            "name"     => $orderUser['name'],
+                            "surname"  => $orderUser['surname'],
+                            "phone"    => isset($orderUser['phone']) ? $orderUser['phone'] : null,
+                            "password" => Auth::hashPassword($pass),
+                        ]
+                    );
+
+                    // send mail only if it is not yet sent AND user is a payee. Friends are not mailed anymore
+                    if (!in_array($orderUser['email'], $arrSentEmails) && $i == 0) {
+                        $this->Mails->automatic(
+                            'signup-payee',
+                            [
+                                "user"     => $userId,
+                                "offer"    => $order['offer_id'],
+                                "password" => $pass,
+                                "to"       => $orderUser['email'],
+                            ]
+                        );
+                        $arrSentEmails[] = $orderUser['email'];
+                    }
+                } else {
+                    $userId = $this->Users->insert(
+                        [
+                            "email"    => substr(sha1(microtime()), 0, 10) . "@gnp.si",
+                            "name"     => $orderUser['name'],
+                            "surname"  => $orderUser['surname'],
+                            "phone"    => isset($orderUser['phone']) ? $orderUser['phone'] : null,
+                            "enabled"  => -1,
+                            "password" => Auth::hashPassword($pass),
+                        ]
+                    );
+                }
+
+                $rUser = $this->Users->get("first", null, ["id" => $userId]);
+            } else if (isset($orderUser['phone']) && is_numeric($orderUser['phone'])) {
+
+                // take new data only if they are valid
+                $this->Users->update(
+                    [
+                        "name"    => ($orderUser['name'] != '' && !is_null(
+                                $orderUser['name']
+                            )) ? $orderUser['name'] : $rUser['name'],
+                        "surname" => ($orderUser['surname'] != '' && !is_null(
+                                $orderUser['surname']
+                            )) ? $orderUser['surname'] : $rUser['surname'],
+                        "phone"   => ($orderUser['phone'] != '' && is_numeric(
+                                $orderUser['phone']
+                            )) ? $orderUser['phone'] : $rUser['phone'],
+                    ],
+                    $rUser['id']
+                );
+
+                // get new, updated data
+                $rUser = $this->Users->get("first", null, ["id" => $rUser['id']]);
+            }
+
+            $order['order'][$tempHash]['user_id'] = $rUser['id'];
+
+            // set current user as payee
+            if ($i == 0) {
+                $rPayee = $rUser;
+            }
+            $i++;
+        }
+
+        if (empty($rPayee)) {
+            return JSON::to(
+                [
+                    "success" => false,
+                    "text"    => __("cannot_find_payee"),
+                ]
+            );
+        }
+
+        $sqlNumOrders = "SELECT MAX(num) AS num FROM orders o WHERE o.dt_added >= '" . date("Y") . "-01-01 00:00:00'";
+        $qNumOrders = $this->db->q($sqlNumOrders);
+        $rNumOrders = $this->db->f($qNumOrders);
+
+        if (!empty($rNumOrders['num'])) {
+            $tempArr = explode("-", $rNumOrders['num']);
+            $realMaxNum = (int)ltrim(end($tempArr), "0");
+        } else {
+            $realMaxNum = 0;
+        }
+
+        if ($refresh == false) {
+            $orderID = $this->Orders->insert(
+                [
+                    "user_id"       => $rPayee['id'],
+                    "hash"          => $hash,
+                    "offer_id"      => $order['offer_id'],
+                    "referer"       => isset($_COOKIE['referer']) && $_COOKIE['referer'] ? $_COOKIE['referer'] : '',
+                    "num"           => date("Y") . "-" . numToString($realMaxNum + 1),
+                    "promo_code_id" => $this->PromoCodes->getIdByCode($_POST['promocode'], true, $order['offer_id']),
+                ]
+            );
+        } else {
+            $rTempOrder = $this->Orders->get("first", null, ["hash" => $_SESSION['last order']['hash']]);
+
+            if (empty($rTempOrder)) {
+                return JSON::to(
+                    [
+                        "success" => false,
+                        "text"    => __("cannot_find_order"),
+                    ]
+                );
+            }
+
+            $orderID = $rTempOrder['id'];
+        }
+
+        $tpl = new TwigTpl('orders/templates/estimateform.twig');
+
+        // sumarize data
+        $arrSumPackets = [];
+        $arrSumAdditions = [];
+        foreach ($order['order'] AS $userOrder) {
+            if (!isset($userOrder['packet_id'])) {
+                return JSON::to(
+                    [
+                        "success" => false,
+                        "text"    => __("cannot_find_packet"),
+                    ]
+                );
+            }
+            if (isset($arrSumPackets[$userOrder['packet_id']])) {
+                $arrSumPackets[$userOrder['packet_id']]++;
+            } else {
+                $arrSumPackets[$userOrder['packet_id']] = 1;
+            }
+
+            if (isset($userOrder['additions'])) {
+                foreach ($userOrder['additions'] AS $userAddition) {
+                    if (isset($arrSumAdditions[$userAddition])) {
+                        $arrSumAdditions[$userAddition]++;
+                    } else {
+                        $arrSumAdditions[$userAddition] = 1;
+                    }
+                }
+            }
+        }
+
+        if (empty($arrSumPackets)) {
+            return JSON::to(
+                [
+                    "success" => false,
+                    "text"    => __("choose_at_least_one_packet"),
+                ]
+            );
+        }
+
+        // sumarize data
+        $sum = 0.0;
+
+        // get packets from database
+        $sqlPackets = "SELECT p.id, p.title, p.price " .
+                      "FROM packets p " .
+                      "INNER JOIN offers o ON o.id = p.offer_id " .
+                      "WHERE p.offer_id = " . $order['offer_id'] . " " . // only selected offer
+                      "AND p.id IN (" . implode(",", array_keys($arrSumPackets)) . ")" . // only selected packets
+                      "AND o.dt_published > '" . DT_NULL . "' " . // is published offer
+                      "AND o.dt_published < '" . DT_NOW . "'" .
+                      "AND p.dt_published > '" . DT_NULL . "' " . // is published packet
+                      "AND p.dt_published < '" . DT_NOW . "'" .
+                      "AND o.dt_opened > '" . DT_NULL . "' " . // is opened
+                      "AND o.dt_opened < '" . DT_NOW . "'";
+        $qPackets = $this->db->q($sqlPackets);
+        $arrBills = [];
+        while ($rPacket = $this->db->f($qPackets)) {
+            $arrBills[] = [
+                "title"    => $rPacket['title'],
+                "price"    => makePrice($rPacket['price']),
+                "sum"      => makePrice($rPacket['price'] * $arrSumPackets[$rPacket['id']]),
+                "quantity" => $arrSumPackets[$rPacket['id']],
+            ];
+            $sum += (float)($rPacket['price'] * $arrSumPackets[$rPacket['id']]);
+        }
+
+        if (empty($arrSumPackets)) {
+            $arrSumPackets[-1] = 0;
+        }
+
+        if (empty($arrSumAdditions)) {
+            $arrSumAdditions[-1] = 0;
+        }
+
+        // stroški prijavnine
+        $sum += PROCESSING_COST;
+
+        $arrBills[] = [
+            "title"    => "Booking fee",
+            "price"    => makePrice(PROCESSING_COST),
+            "sum"      => makePrice(PROCESSING_COST),
+            "quantity" => 1,
+        ];
+
+        // get additions from database
+        $sqlAdditions = "SELECT pa.id, a.title, pa.value " .
+                        "FROM additions a " .
+                        "INNER JOIN packets_additions pa ON pa.addition_id = a.id " .
+                        "INNER JOIN packets p ON p.id = pa.packet_id " .
+                        "INNER JOIN offers o ON o.id = p.offer_id " .
+                        "WHERE p.offer_id = " . $order['offer_id'] . " " . // only selected offer
+                        "AND p.id IN (" . implode(",", array_keys($arrSumPackets)) . ") " . // only selected packets
+                        "AND pa.id IN (" . implode(
+                            ",",
+                            array_keys($arrSumAdditions)
+                        ) . ") " . // only selected additions
+                        "AND o.dt_published > '" . DT_NULL . "' " . // is published offer
+                        "AND o.dt_published < '" . DT_NOW . "' " .
+                        "AND p.dt_published > '" . DT_NULL . "' " . // is published packet
+                        "AND p.dt_published < '" . DT_NOW . "' " .
+                        "AND o.dt_opened > '" . DT_NULL . "' " . // is opened
+                        "AND o.dt_opened < '" . DT_NOW . "' " .
+                        "AND pa.visible = 1";
+        $qAdditions = $this->db->q($sqlAdditions);
+
+        while ($rAddition = $this->db->f($qAdditions)) {
+            $tpl->parse(
+                [
+                    "title"    => $rAddition['title'],
+                    "price"    => makePrice($rAddition['value']),
+                    "sum"      => makePrice($rAddition['value'] * $arrSumAdditions[$rAddition['id']]),
+                    "quantity" => $arrSumAdditions[$rAddition['id']],
+                ],
+                "row"
+            );
+            $sum += (float)($rAddition['value'] * $arrSumAdditions[$rAddition['id']]);
+        }
+
+        $rOrder = $this->Orders->get("first", null, ["id" => $orderID]);
+
+        if ($rOrder['promo_code_id']) {
+            $discount = $this->PromoCodes->getMinusByIdAndPrice($rOrder['promo_code_id'], $sum);
+            $promoDiscount = '-' . makePrice($discount);
+            $_SESSION['promo_discount'] = $discount;
+
+            $arrBills[] = [
+                'title'    => __('promo_code_title'),
+                'price'    => $promoDiscount,
+                'sum'      => $promoDiscount,
+                'quantity' => 1,
+            ];
+
+            $sum -= $discount;
+        } else {
+            $_SESSION['promo_discount'] = null;
+        }
+
+        // update sum
+        $this->Orders->update(
+            [
+                "price"    => $sum,
+                "original" => $sum,
+            ],
+            $rOrder['id']
+        );
+
+        $rOrder = $this->Orders->get("first", null, ["id" => $orderID]);
+
+        $tpl->commit("row");
+
+        // calculate maximum number of portions only if we have them enabled in Maestro
+        $maxPortions = ($showPortions) ? $this->getMaxPortions(
+            $rOffer['max_portions'] ?? MAX_PORTIONS,
+            $rOffer['dt_start'],
+            DT_NOW,
+            $rOffer['max_portions'] ?? MAX_PORTIONS
+        ) : 1;
+
+        $arrPortions = [];
+        for ($i = 1; $i <= $maxPortions; $i++) {
+            $arrPortions[$i] = $i;
+        }
+
+        // delete orders users
+        $qDeleteOrdersUsers = $this->OrdersUsers->get("all", null, ["order_id" => $orderID]);
+        while ($rDeleteOrdersUser = $this->db->f($qDeleteOrdersUsers)) {
+            // delete orders users additions
+            $qDeleteOrdersUsersAdditions = $this->OrdersUsersAdditions->get(
+                "all",
+                null,
+                ["orders_user_id" => $rDeleteOrdersUser['id']]
+            );
+            while ($rDeleteOrdersUserAddition = $this->db->f($qDeleteOrdersUsersAdditions)) {
+                $this->OrdersUsersAdditions->delete($rDeleteOrdersUserAddition['id']);
+            }
+
+            $this->OrdersUsers->delete($rDeleteOrdersUser['id']);
+        }
+
+        // insert new data
+        foreach ($order['order'] AS $tempHash => $orderUser) {
+            // insert orders user
+            $ordersUserID = $this->OrdersUsers->insert(
+                [
+                    "order_id"  => $orderID,
+                    "packet_id" => $orderUser['packet_id'],
+                    "notes"     => $orderUser['notes'] ?? null,
+                    "user_id"   => $orderUser['user_id'], // updated in first while loop
+                    "city_id"   => isset($orderUser['department_id']) ? $orderUser['department_id'] : -1,
+                ]
+            );
+
+            // insert orders users addition
+            if (isset($orderUser['additions'])) {
+                foreach ($orderUser['additions'] AS $ordersUsersAddition) {
+                    $this->OrdersUsersAdditions->insert(
+                        [
+                            "orders_user_id" => $ordersUserID,
+                            "addition_id"    => $ordersUsersAddition,
+                        ]
+                    );
+                }
+            }
+        }
+
+        $tplData = [
+            "payee"            => [
+                "name"    => $rPayee['name'],
+                "surname" => $rPayee['surname'],
+                "address" => ($rPayee['address']) ? $rPayee['address'] : null,
+                "post"    => $rPayee['post'] ? $rPayee['address'] : null,
+            ],
+            "order"            => $rOrder,
+            "paymentDate"      => date("d.m.Y", strtotime($rOffer['dt_closed'])),
+            "offer"            => $rOffer,
+            "sumTotal"         => $sum,
+            "sumRemaining"     => $sum - RESERVATION,
+            "paymentsList"     => HTML::select(
+                [
+                    "id"      => "bills",
+                    "name"    => "bills",
+                    "options" => $arrPortions,
+                ]
+            ),
+            "portion"          => $this->portions(
+                [
+                    "portions"     => 1,
+                    "max"          => $rOffer['dt_closed'],
+                    "price"        => $sum - RESERVATION,
+                    'max_portions' => $rOffer['max_portions'] ?? MAX_PORTIONS,
+                ]
+            ),
+            "action"           => Router::make("placilna sredstva"),
+            "showReservations" => $showReservations,
+            "showPortions"     => $showPortions,
+            "reservationPrice" => makePrice(RESERVATION),
+            "mode"             => MODE,
+            'bills'            => $arrBills,
+        ];
+
+        $tpl->addData($tplData);
+
+        if (!$refresh) {
+            return JSON::to(
+                [
+                    "success" => true,
+                    "html"    => $tpl->display(),
+                    "css"     => [
+                        "n" => "estimateform" . (SKIP_PAYMENT_METHOD_SELECTION ? ' skip-payment-step' : ''),
+                        "o" => "order",
+                    ],
+                    "newurl"  => Router::make("predracun"),
+                ]
+            );
+        }
+
+        return $tpl->display();
     }
 
     public function postEstimateAction(Order $order)

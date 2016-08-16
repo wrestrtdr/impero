@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<!-- gonparty.twig -->
 <html>
 <head>
     {% include '_head.twig' %}
 
-    <link href="/app/derive/src/Derive/Layout/public/css/style.less" rel="stylesheet/less"/>
+    <link href="//bob.pckg.derive/app/derive/src/Derive/Layout/public/css/style.less" rel="stylesheet/less"/>
     <!--[if IE]>
-    <link href="/app/derive/src/Derive/Layout/public/css/ie.less" rel="stylesheet/less">
+    <link href="//bob.pckg.derive/app/derive/src/Derive/Layout/public/css/ie.less" rel="stylesheet/less">
     <![endif]-->
     <link href='https://fonts.googleapis.com/css?family=Raleway:600,800|Montserrat:400,700|Oswald:400,700&subset=latin,latin-ext'
           rel='stylesheet' type='text/css'><!-- Fav and touch icons -->
@@ -15,10 +16,10 @@
 
     <!-- IFRAME -->
     {% if MODE == 'basic' %}
-        <script src="/app/derive/src/Derive/Layout/public/js/iframeResizer.contentWindow.min.js"></script>
+        <script src="//bob.pckg.derive/app/derive/src/Derive/Layout/public/js/iframeResizer.contentWindow.min.js"></script>
     {% endif %}
 
-    <script src="/app/derive/src/Derive/Layout/public/js/less.min.js"></script>
+    <script src="//bob.pckg.derive/app/derive/src/Derive/Layout/public/js/less.min.js"></script>
     {% if FB_CONVERSION_PIXEL != '' %}
         <!-- Facebook Pixel Code -->
         <script>
@@ -51,7 +52,8 @@
     {% endif %}
 
 </head>
-<body id="vue-app">
+<body id="vue-app"{% if cssPage | length %} class="{{ right | raw }}"{% endif %}>
+
 {% if GTM != '' %}
     <!-- Google Tag Manager -->
     <noscript>
@@ -81,8 +83,8 @@
     <!-- HEADER -->
     <header class="header {% if true or homepage %}homepage{% endif %}">
         {% if true or homepage %}
-            <video autoplay loop poster="/app/derive/src/Derive/Layout/public/img/homepage-header-background.jpg" id="homepage_video">
-                <source src="/app/derive/src/Derive/Layout/public/img/header.mp4" type="video/mp4">
+            <video autoplay loop poster="//bob.pckg.derive/app/derive/src/Derive/Layout/public/img/homepage-header-background.jpg" id="homepage_video">
+                <source src="//bob.pckg.derive/app/derive/src/Derive/Layout/public/img/header.mp4" type="video/mp4">
             </video>
             <div class="transparent-overlay"></div>
         {% endif %}

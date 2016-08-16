@@ -16,11 +16,26 @@ class Offers extends Entity
 
     public function forOrderForm()
     {
-        return $this->published()->withPackets(
-            function(HasMany $packets) {
-                $packets->forOrderForm();
-            }
-        );
+        return $this->published()
+                    ->withPackets(
+                        function(HasMany $packets) {
+                            $packets->forOrderForm();
+                        }
+                    );
+    }
+
+    /**
+     * @return $this
+     */
+    public function forSecondStep()
+    {
+        return $this->published()
+                    ->available()
+                    ->withPackets(
+                        function(HasMany $packets) {
+                            $packets->forSecondStep();
+                        }
+                    );
     }
 
     public function forHomepage()
@@ -66,9 +81,29 @@ class Offers extends Entity
                     ->foreignKey('category_id');
     }
 
+    /**
+     * @return $this
+     */
+    public function available()
+    {
+        return $this;
+    }
+
     public function published()
     {
+        /**
+         * @T00D00 - fix condition!
+         */
         return $this->where(Raw::raw('offers.dt_published'));
+    }
+
+    public function active()
+    {
+        /**
+         * @T00D00 - fix condition!
+         */
+        return $this->where(Raw::raw('offers.dt_closed'))
+                    ->where(Raw::raw('offers.dt_opened'));
     }
 
     public function onFirstPage()

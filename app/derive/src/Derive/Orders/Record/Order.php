@@ -352,12 +352,14 @@ class Order extends Record
         if ($zoi = $furs->getZOI()) {
             $this->furs_zoi = $furs->getZOI();
             $this->furs_confirmed_at = date('Y-m-d H:i:s');
-            $this->furs_num = $defaults['businessId'] . '-' . $defaults['electronicDeviceId'] . '-' . date('Y') . str_pad(
-                    $fursRecord->furs_id,
-                    4 > strlen($fursRecord->furs_id) ? 4 : strlen($fursRecord->furs_id),
-                    '0',
-                    STR_PAD_LEFT
-                );
+            $this->furs_num = $defaults['businessId'] . '-' . $defaults['electronicDeviceId'] . '-' . date(
+                    'Y'
+                ) . str_pad(
+                                  $fursRecord->furs_id,
+                                  4 > strlen($fursRecord->furs_id) ? 4 : strlen($fursRecord->furs_id),
+                                  '0',
+                                  STR_PAD_LEFT
+                              );
         }
 
         $this->save();
@@ -387,6 +389,36 @@ class Order extends Record
         $installments->setOrder($this)->redefineTo($number);
 
         return $this;
+    }
+
+    public function getProcessingCost()
+    {
+        /**
+         * @T00D00 - move this to settings.
+         */
+        $min = 1.5;
+        $max = 5.5;
+        $ratio = 0.01;
+
+        $sum = 0.0;
+        $this->ordersUsers->each(
+            function(OrdersUser $ordersUser) use ($sum) {
+                $sum += $ordersUser->packet->price;
+            }
+        );
+
+        $cost = $sum * $ratio;
+
+        if ($cost < $min) {
+            return $min;
+
+        } else if ($cost > $max) {
+            return $max;
+
+        } else {
+            return $cost;
+
+        }
     }
 
 }

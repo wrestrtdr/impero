@@ -212,4 +212,24 @@ class Orders extends Entity implements MaestroEntity
                     );
     }
 
+    public static function createNew($data)
+    {
+        $order = new Order($data);
+
+        $lastOrder = (new static)->where('dt_added', date('Y') . '-01-01', '>=')
+                                 ->addSelect(['num' => 'MAX(num)'])
+                                 ->one();
+
+        $realMaxNum = 0;
+        if ($lastOrder) {
+            $tempArr = explode("-", $lastOrder->num);
+            $realMaxNum = (int)ltrim(end($tempArr), "0");
+        }
+
+        $order->num = date('Y') . '-' . numToString($realMaxNum + 1);
+        $order->save();
+
+        return $order;
+    }
+
 }

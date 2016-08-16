@@ -1,6 +1,9 @@
 <?php namespace Derive\Basket\Provider;
 
+use Derive\Basket\Controller\Basket as BasketController;
+use Derive\Basket\Resolver\Offer;
 use Pckg\Framework\Provider;
+use Pckg\Generic\Middleware\EncapsulateResponse;
 
 class Basket extends Provider
 {
@@ -9,18 +12,29 @@ class Basket extends Provider
     {
         return [
             'url' => [
-                '/derive/order'                 => [
-                    'controller' => \Derive\Basket\Controller\Basket::class,
+                '/order'                 => [
+                    'controller' => BasketController::class,
                     'view'       => 'order',
                     'name'       => 'derive.basket.order',
+                    'resolvers'  => [
+                        Offer::class,
+                    ],
+                    'afterwares' => [
+                        EncapsulateResponse::class,
+                    ],
+                    'pckg'       => [
+                        'generic' => [
+                            'template' => 'Pckg\Generic:gonparty',
+                        ],
+                    ],
                 ],
-                '/derive/estimate'              => [
-                    'controller' => \Derive\Basket\Controller\Basket::class,
+                '/estimate'              => [
+                    'controller' => BasketController::class,
                     'view'       => 'estimate',
                     'name'       => 'derive.basket.estimate',
                 ],
-                '/derive/select-payment-method' => [
-                    'controller' => \Derive\Basket\Controller\Basket::class,
+                '/select-payment-method' => [
+                    'controller' => BasketController::class,
                     'view'       => 'paymentMethod',
                     'name'       => 'derive.basket.paymentMethod',
                 ],

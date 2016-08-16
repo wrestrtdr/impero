@@ -1,0 +1,244 @@
+<!-- INCLUDES -->
+{% macro includes(includes) %}
+    {% for incl in includes %}
+        <li>
+        <div class="the-cloud">{{ incl.title }}{% if incl.description %} <span class="tooltip-questionmark"
+                                                                               title="{{ incl.description }}"
+                                                                               data-toggle="tooltip">?</span>{% endif %}
+        </div></li>{% endfor %}
+{% endmacro %}
+
+<!-- DEPARTURE CITIES -->
+{% macro departments(departments, hash) %}
+    {% for department in departments %}
+        <li>
+        <input id="department_{{ hash }}_{{ department.id }}" type="radio" value="{{ department.id }}"
+               name="order[{{ hash }}][department_id]" data-value="{{ department.value }}"{{ department.checked }}
+               data-validation-engine="validate[required]"/>
+        <label for="department_{{ hash }}_{{ department.id }}">
+            {{ department.title }}
+            {% if department.value > 0 %}
+                <span><nobr>{{ department.value }} €</nobr></span>
+            {% endif %}
+        </label>
+        </li>{% endfor %}
+{% endmacro %}
+
+<!-- ADDITIONS -->
+{% macro additions(additions, hash) %}
+    {% for addition in additions %}
+        <li>
+            {% if addition.value > 0 %}
+                <nobr><span class="price">{{ addition.value }} €</span></nobr>{% endif %}
+            {% if addition.description %} <span class="tooltip-questionmark" title="{{ addition.description }}"
+                                                data-toggle="tooltip">?</span>{% endif %}
+            <input class="ordersUserAddition" id="addition_{{ hash }}_{{ addition.id }}" type="checkbox"
+                   value="{{ addition.id }}" name="order[{{ hash }}][additions][]"
+                   data-value="{{ addition.value }}"{{ addition.checked }} />
+            <label for="addition_{{ hash }}_{{ addition.id }}">{{ addition.title }}</label>
+        </li>
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+<h1>{{ offer.title }}</h1>
+
+<h2 class="border-b">
+    {{ __('orders_instructions_heading') }}
+    <span class="step">{{ __('step_two') }}</span>
+    <div class="clearfix"></div>
+</h2>
+
+<p class="instructions">{{ __('order_instructions') }}</p>
+
+<form method="post" action="{{ url('predracun') }}" id="orderform" autocomplete="off">
+    <input type="hidden" value="{{ offer.id }}" name="offer_id" id="offer_id"/>
+    <h3 class="font-secondary square-left border-b">{{ __('heading_payee') }}</h3>
+
+    <!-- MAIN USER - PAYEE -->
+    {% set payee = form.payee %}
+    {% block payee %}
+        <div class="of-box">
+            <div style="" id="payee" class="row customer" data-hash="{{ payee.hash }}">
+                <!-- PACKET INFO -->
+                <div class="col-sm-4 packet-info">
+                    <h3 class="font-secondary">{{ __('heading_choose_packet_payee') }}</h3>
+                    {{ payee.packetsList | raw }}
+
+                    <h4>{% if not form.package_complex %}{{ form.total_quantity }}x {% endif %}{{ payee.packet.title | raw }}</h4>
+                    <ul class="list-unstyled includes" id="orderIncludes_{{ payee.hash }}">
+                        {{ macros.includes(payee.includes) }}
+                    </ul>
+                    <div class="basis">{{ __('packet_without_additions') }}
+                        <span>{% if form.package_complex %}{{ payee.payment | raw }}{% else %}{{ form.payment | raw }}{% endif %}</span>
+                    </div>
+                </div>
+                <!-- USER PERSONAL INFO -->
+                <div class="col-sm-4 user-info">
+                    <h3 class="font-secondary">{{ __('heading_personal_info') }}</h3>
+                    <div class="the-cloud" data-cloud-descr="{{ __('placeholder_real_email') }}"
+                         data-cloud-type="input">
+                        <input class="payeeEmail" type="email" id="email" name="order[{{ payee.hash }}][email]"
+                               placeholder="{{ __('placeholder_real_email') }}" value="{{ payee.email }}"
+                               data-validation-engine="validate[required,custom[email]]"/>
+                    </div>
+                    <div class="the-cloud" data-cloud-descr="{{ __('placeholder_name') }}" data-cloud-type="input">
+                        <input type="text" name="order[{{ payee.hash }}][name]"
+                               placeholder="{{ __('placeholder_name') }}" value="{{ payee.name }}"
+                               data-validation-engine="validate[required]"/>
+                    </div>
+                    <div class="the-cloud" data-cloud-descr="{{ __('placeholder_surname') }}" data-cloud-type="input">
+                        <input type="text" name="order[{{ payee.hash }}][surname]"
+                               placeholder="{{ __('placeholder_surname') }}" value="{{ payee.surname }}"
+                               data-validation-engine="validate[required]"/>
+                    </div>
+                    <div class="the-cloud" data-cloud-descr="{{ __('placeholder_phone') }}" data-cloud-type="input">
+                        <input type="tel" name="order[{{ payee.hash }}][phone]"
+                               placeholder="{{ __('placeholder_phone') }}" value="{{ payee.phone }}"
+                               data-validation-engine="validate[required]"/>
+                    </div>
+                    <!-- NOTES -->
+                    <div class="inline-notes">
+                        <textarea name="order[{{ payee.hash }}][notes]"
+                                  placeholder="{{ __('placeholder_notes') }}"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- DEPARTURE -->
+                    <div class="departure">
+                        <div class="inline-departure">
+                            <h3 class="font-secondary">{{ __('heading_department') }}</h3>
+                            {% if payee.departments %}
+                                <ul class="list-unstyled customRC" id="orderDepartments_{{ payee.hash }}">
+                                    {{ macros.departments(payee.departments, payee.hash) }}
+                                </ul>
+                            {% else %}
+                                <div class="subtle">{{ __('no_packet_options_available') }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- ADDITIONS -->
+                    <div class="additions">
+                        <h3 class="font-secondary">{{ __('heading_additions') }}</h3>
+                        {% if payee.additions %}
+                            <ul class="list-unstyled customRC" id="orderAdditions_{{ payee.hash }}">
+                                {{ macros.additions(payee.additions, payee.hash) }}
+                            </ul>
+                        {% else %}
+                            <div class="subtle">{{ __('no_packet_additions_available') }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                {% if form.package_complex %}
+                    <div class="user-sum col-xs-12">
+                        {{ __('sum_packet_additions') }}:
+                        <nobr><span id="payment_{{ payee.hash }}">{{ payee.payment | raw }}</span></nobr>
+                    </div>
+                    <div class="clearfix"></div>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
+
+    <!-- OTHER USERS -->
+    <div id="customers" {% if not form.package_complex %}class="hidden"{% endif %}>
+        {% if totalUsers > 1 %}
+            <h3 class="font-secondary square-left border-b">{{ __('heading_choose_packets_friend') }}</h3>
+        {% endif %}
+        {% for customer in form.customers %}
+            <div class="of-box">
+                <div id="customer" class="row customer" data-hash="{{ customer.hash }}">
+                    <!-- PACKET INFO -->
+                    <div class="col-sm-4 packet-info">
+                        <h3 class="font-secondary">{{ __('heading_choose_packet_friend') }}</h3>
+                        {{ customer.packetsList | raw }}
+                        <h4>{{ customer.packet.title | raw }}</h4>
+                        <ul class="list-unstyled includes" id="orderIncludes_{{ customer.hash }}">
+                            {{ macros.includes(customer.includes) }}
+                        </ul>
+                        <div class="basis">{{ __('packet_without_additions') }}
+                            <span>{{ customer.payment | raw }}</span></div>
+                    </div>
+                    <!-- USER INFO -->
+                    <div class="col-sm-4 user-info">
+                        <h3 class="font-secondary">{{ __('heading_friend_personal_info') }}</h3>
+                        <div class="the-cloud">
+                            <input type="text" name="order[{{ customer.hash }}][email]"
+                                   placeholder="{{ __('placeholder_real_email') }}" class="customerEmail"
+                                   data-validation-engine="validate[custom[email]]" id="email{{ customer.hash }}"/>
+                            <div class="field-note">{{ __('order_form_email_not_required') }}</div>
+                        </div>
+                        <div class="the-cloud">
+                            <input type="text" name="order[{{ customer.hash }}][name]"
+                                   placeholder="{{ __('placeholder_name') }}" {% if form.package_complex %} data-validation-engine="validate[required]" {% endif %} />
+                        </div>
+                        <div class="the-cloud">
+                            <input type="text" name="order[{{ customer.hash }}][surname]"
+                                   placeholder="{{ __('placeholder_surname') }}"/>
+                        </div>
+                        <!-- NOTES -->
+                        {% if form.package_complex %}
+                            <div class="inline-notes">
+                                <textarea name="order[{{ customer.hash }}][notes]"
+                                          placeholder="{{ __('placeholder_notes') }}"></textarea>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- DEPARTURE -->
+                        <div class="departure">
+                            <div class="inline-departure">
+                                <h3 class="font-secondary">{{ __('heading_department') }}</h3>
+                                {% if customer.departments %}
+                                    <ul class="list-unstyled customRC" id="orderDepartments_{{ customer.hash }}">
+                                        {{ macros.departments(customer.departments, customer.hash) }}
+                                    </ul>
+                                {% else %}
+                                    <div class="subtle">{{ __('no_packet_options_available') }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- ADDITIONS -->
+                        <div class="additions">
+                            <h3 class="font-secondary">{{ __('heading_additions') }}</h3>
+                            {% if customer.additions %}
+                                <ul class="list-unstyled customRC" id="orderAdditions_{{ customer.hash }}">
+                                    {{ macros.additions(customer.additions, customer.hash) }}
+                                </ul>
+                            {% else %}
+                                <div class="subtle">{{ __('no_packet_additions_available') }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 user-sum">
+                        {{ __('sum_packet_additions') }}:
+                        <nobr><span id="payment_{{ customer.hash }}">{{ customer.payment | raw }}</span></nobr>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="promo-code">
+        <label for="promocode">{{ __('label_promo_code') }}</label>
+        <div class="input-wrap">
+            <input type="text" id="promocode" name="promocode" placeholder="{{ __('placeholder_enter_promo_code') }}"/>
+        </div>
+        <a class="promocode-submit">{{ __('btn_apply_promo_code') }}</a>
+        <div class="promo-code-notice"></div>
+    </div>
+
+    <div class="sum-all">
+        {{ __('sum_packets_additions') }} <span id="payment">{{ payment }} €</span>
+        {% if offer.getMaxPortions() > 1 %}<p
+                class="portions">{{ offer.getMaxPortions() ~ ' ' ~ __('order_form_max_portions') }}</p>{% endif %}
+    </div>
+    <div class="submit-button">
+        <input type="button" id="btnSubmitOrder" value="{{ __('btn_go_to_estimate') }}" class="button medium"/>
+    </div>
+</form>

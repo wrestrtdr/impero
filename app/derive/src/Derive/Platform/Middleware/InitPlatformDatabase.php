@@ -35,10 +35,18 @@ class InitPlatformDatabase
     public function execute(callable $next, $platformId = null)
     {
         if (!isConsole()) {
-            if (!isset($_SESSION['platform_id'])) {
-                $_SESSION['platform_id'] = 1;
+            /**
+             * If request is made directly do derive.foobar.si, we estamblish derive connection.
+             * Otherwise we should connect to platform database.
+             */
+            if ($_SERVER['HTTP_HOST'] == 'bob.gonparty') {
+                $platformId = 7;
+            } else {
+                if (!isset($_SESSION['platform_id'])) {
+                    $_SESSION['platform_id'] = 1;
+                }
+                $platformId = $_SESSION['platform_id'];
             }
-            $platformId = $_SESSION['platform_id'];
         } else {
             $_SESSION['platform_id'] = $platformId;
         }

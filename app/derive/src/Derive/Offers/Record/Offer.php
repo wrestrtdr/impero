@@ -1,6 +1,7 @@
 <?php namespace Derive\Offers\Record;
 
 use Derive\Offers\Entity\Offers;
+use Derive\Offers\Entity\Packets;
 use Pckg\Database\Record;
 
 class Offer extends Record
@@ -23,6 +24,32 @@ class Offer extends Record
         return $this->city->country->title . ', ' . $this->city->title;
     }
 
+    public function hasEnabledPortions()
+    {
+        $pt = $this->paymentMethods;
+
+        return true;(!$pt->braintreeportions && !$pt->paypalportions && !$pt->monetaportions && !$pt->upnportions) ? false : true;
+    }
+
+    public function getMaxPortions()
+    {
+        if (!$this->hasEnabledPortions()) {
+            return 1;
+        }
+
+        /**
+         * @T00D00 - implement this!
+         */
+    }
+
+    public function getAvailablePacketsByType($ticket)
+    {
+        return (new Packets())->available()
+                              ->where('offer_id', $this->id)
+                              ->where('ticket', $ticket)
+                              ->all();
+    }
+
     public function getDate()
     {
         $dtLeave = $this->dt_start;
@@ -41,7 +68,8 @@ class Offer extends Record
         return $date;
     }
 
-    public function getImage() {
+    public function getImage()
+    {
         return '';
     }
 
