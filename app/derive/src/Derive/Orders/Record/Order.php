@@ -1,7 +1,15 @@
 <?php namespace Derive\Orders\Record;
 
-use Derive\Basket\Service\Installments;
+use Carbon\Carbon;
+use Derive\Basket\Service\Summary;
+use Derive\Basket\Service\Summary\Item\Addition;
+use Derive\Basket\Service\Summary\Item\Deduction;
+use Derive\Basket\Service\Summary\Item\Item;
+use Derive\Basket\Service\Summary\Item\Packet;
 use Derive\Orders\Entity\Orders;
+use Derive\Orders\Entity\OrdersUsers;
+use Derive\Orders\Entity\OrdersUsersAdditions;
+use Derive\Orders\Entity\OrdersUsersDeductions;
 use Exception;
 use JonnyW\PhantomJs\Client;
 use Pckg\Collection;
@@ -385,40 +393,147 @@ class Order extends Record
      */
     public function setInstallments($number)
     {
-        $installments = new Installments();
-        $installments->setOrder($this)->redefineTo($number);
-
-        return $this;
-    }
-
-    public function getProcessingCost()
-    {
         /**
-         * @T00D00 - move this to settings.
+         * Rules:
+         *  - try to match 5., 15. and 25. in the month for due date
+         *  - orders made 15 days or less to the event should be payed instantly
+         *  - orders made 45 days or less to the event should be payed instantly or instantly+15 days before event
          */
-        $min = 1.5;
-        $max = 5.5;
-        $ratio = 0.01;
+        $today = Carbon::now();
+        $dueDate = Carbon::now();
+        $eventDate = Carbon::parse($this->offer->dt_closed);
+        $lastPayment = $eventDate->subDays(15);
+        $diffInDays = $eventDate->diffInDays($today);
+
+        /**
+         * First payment is always today.
+         */
+        $dueDates = [$today];
+
+        if ($diffInDays <= 15) {
+            /**
+             * Orders made 15 days or less to the event should be payed instantly.
+             */
+            return $dueDates;
+        }
+
+        /**
+         * Find next 5., 15., or 25.
+         */
+        while ($dueDate->format('%d') % 5 != 0) {
+            $dueDate->addDay(1);
+        }
+
+        for ($i = 2; $i <= $number; $i++) {
+            $dueDate->addMonth();
+
+            if ($lastPayment->lt($dueDate)) {
+                $dueDates[] = $lastPayment->copy();
+                break;
+            }
+
+            $dueDates[] = $dueDate->copy();
+        }
+
+        /**
+         * We have due dates. Now we should make prices.
+         */
+        $payed = 0.0;
+        foreach ($this->ordersBills as $bill) {
+            if ($bill->payed) {
+                $payed += $bill->payed;
+            }
+            $bill->delete();
+        }
 
         $sum = 0.0;
-        $this->ordersUsers->each(
-            function(OrdersUser $ordersUser) use ($sum) {
-                $sum += $ordersUser->packet->price;
+        foreach ($dueDates as $i => $dueDate) {
+            if ($i + 1 < count($dueDates)) {
+                $price = round($this->total / count($dueDates), 2);
+            } else {
+                $price = round($this->total - $sum, 2);
+            }
+            $ordersBill = new OrdersBill(
+                [
+                    'order_id' => $this->id,
+                    'valid_at' => $dueDate,
+                    'price'    => $price,
+                    'payed'    => $payed,
+                ]
+            );
+            $ordersBill->save();
+            $payed = 0.0;
+        }
+    }
+
+    /**
+     * return Summary
+     */
+    public function getSummary()
+    {
+        $summary = new Summary();
+        /**
+         * Summarize packets.
+         */
+        $ordersUsers = (new OrdersUsers())
+            ->addSelect(['quantity' => 'COUNT(id)'])
+            ->withPacket()
+            ->where('order_id', $this->id)
+            ->groupBy('packet_id')
+            ->all();
+        $ordersUsers->each(
+            function(OrdersUser $ordersUser) use ($summary) {
+                $summary->addItem(new Packet($ordersUser->packet, $ordersUser->quantity));
             }
         );
 
-        $cost = $sum * $ratio;
+        /**
+         * Summarize additions.
+         */
+        $ordersUsersAdditions = (new OrdersUsersAdditions())
+            ->addSelect(['quantity' => 'COUNT(id)'])
+            ->withAdditions()
+            ->where('orders_user_id', $this->ordersUsers->map('id'))
+            ->all();
+        $ordersUsersAdditions->each(
+            function(OrdersUsersAddition $ordersUsersAddition) use ($summary) {
+                $summary->addItem(new Addition($ordersUsersAddition->addition, $ordersUsersAddition->quantity));
+            }
+        );
 
-        if ($cost < $min) {
-            return $min;
+        /**
+         * Summarize additions.
+         */
+        $ordersUsersAdditions = (new OrdersUsersDeductions())
+            ->addSelect(['quantity' => 'COUNT(id)'])
+            ->withAdditions()
+            ->where('orders_user_id', $this->ordersUsers->map('id'))
+            ->all();
+        $ordersUsersAdditions->each(
+            function(OrdersUsersDeduction $ordersUsersDeduction) use ($summary) {
+                $summary->addItem(new Deduction($ordersUsersDeduction->addition, $ordersUsersDeduction->quantity));
+            }
+        );
 
-        } else if ($cost > $max) {
-            return $max;
+        /**
+         * Summarize processing cost.
+         */
+        $processingCost = $summary->getProcessingCost();
+        $summary->addItem(new Item(__('booking_fee'), $processingCost, 1));
 
+        /**
+         * Summarize promo code.
+         */
+        if ($this->promo_code_id) {
+            $discount = $this->promoCode->getMinusByPrice($summary->getSum());
+            session()->promoDiscount = $discount;
+
+            $summary->addItem(new Item(__('promo_code_title'), -$discount, 1));
         } else {
-            return $cost;
-
+            session()->promoDiscount = null;
         }
+
+        return $summary;
     }
 
 }

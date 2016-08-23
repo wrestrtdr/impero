@@ -52,7 +52,7 @@
     {% endif %}
 
 </head>
-<body id="vue-app"{% if cssPage | length %} class="{{ right | raw }}"{% endif %}>
+<body id="vue-app">
 
 {% if GTM != '' %}
     <!-- Google Tag Manager -->
@@ -79,7 +79,7 @@
 
 <div class="alert alert-success logout" data-dismiss="alert">{{ __('logout_successful') }}</div>
 
-{% if true or MODE == 'full' %}
+{% if config('defaults.mode') == 'full' %}
     <!-- HEADER -->
     <header class="header {% if true or homepage %}homepage{% endif %}">
         {% if true or homepage %}
@@ -135,7 +135,7 @@
 {% endif %}
 
 <!-- class="default"-->
-<div class="container {{ cssPage }}{% if MODE == 'basic' %} basic-mode{% endif %}" id="maincontainer">
+<div class="container {{ cssPage }}{% if config('defaults.mode') == 'basic' %} basic-mode{% endif %}" id="maincontainer">
     <div class="row">
         <div class="col-xs-12" id="leftcontent">
             {% block content %}{{ content | raw }}{% endblock %}
@@ -148,7 +148,7 @@
     </div>
 </div>
 
-{% if not cookiesAllowed and MODE == 'full' %}
+{% if false and not cookiesAllowed and config('defaults.mode') == 'full' %}
     <div class="cookie-notice">
         <div class="container">
             <div class="row">
@@ -166,7 +166,7 @@
     </div>
 {% endif %}
 
-{% if true or not hideFooter and (true or MODE == 'full') %}
+{% if not hideFooter and config('defaults.mode') == 'full' %}
     <footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -225,7 +225,7 @@
 </noscript>
 
 <!-- IFRAME -->
-{% if MODE == 'basic' %}
+{% if config('defaults.mode') == 'basic' %}
     <script>
         if (top !== self) { // Check we are in an iFrame
             var interval = setInterval(function () {

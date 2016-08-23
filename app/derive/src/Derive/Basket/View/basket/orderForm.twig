@@ -40,6 +40,22 @@
     {% endfor %}
 {% endmacro %}
 
+<!-- DEDUCTS -->
+{% macro deducts(deducts, hash) %}
+    {% for deduct in deducts %}
+        <li>
+            {% if deduct.value > 0 %}
+                <nobr><span class="price">{{ deduct.value }} €</span></nobr>{% endif %}
+            {% if deduct.description %} <span class="tooltip-questionmark" title="{{ deduct.description }}"
+                                                data-toggle="tooltip">?</span>{% endif %}
+            <input class="ordersUserDeduct" id="deduct_{{ hash }}_{{ deduct.id }}" type="checkbox"
+                   value="{{ deduct.id }}" name="order[{{ hash }}][deducts][]"
+                   data-value="{{ deduct.value }}"{{ deduct.checked }} />
+            <label for="addition_{{ hash }}_{{ deduct.id }}">{{ deduct.title }}</label>
+        </li>
+    {% endfor %}
+{% endmacro %}
+
 {% import _self as macros %}
 
 <h1>{{ offer.title }}</h1>
@@ -66,12 +82,12 @@
                     <h3 class="font-secondary">{{ __('heading_choose_packet_payee') }}</h3>
                     {{ payee.packetsList | raw }}
 
-                    <h4>{% if not form.package_complex %}{{ form.total_quantity }}x {% endif %}{{ payee.packet.title | raw }}</h4>
+                    <h4>{% if form.orderType == 'simple' %}{{ form.total_quantity }}x {% endif %}{{ payee.packet.title | raw }}</h4>
                     <ul class="list-unstyled includes" id="orderIncludes_{{ payee.hash }}">
                         {{ macros.includes(payee.includes) }}
                     </ul>
                     <div class="basis">{{ __('packet_without_additions') }}
-                        <span>{% if form.package_complex %}{{ payee.payment | raw }}{% else %}{{ form.payment | raw }}{% endif %}</span>
+                        <span>{% if form.orderType == 'complex' %}{{ payee.payment | raw }}{% else %}{{ form.payment | raw }}{% endif %}</span>
                     </div>
                 </div>
                 <!-- USER PERSONAL INFO -->
@@ -129,9 +145,20 @@
                             <div class="subtle">{{ __('no_packet_additions_available') }}</div>
                         {% endif %}
                     </div>
+                    <!-- DEDUCTS -->
+                    <div class="additions deducts">
+                        <h3 class="font-secondary">{{ __('heading_deducts') }}</h3>
+                        {% if payee.deducts %}
+                            <ul class="list-unstyled customRC" id="orderDeducts_{{ payee.hash }}">
+                                {{ macros.deducts(payee.deducts, payee.hash) }}
+                            </ul>
+                        {% else %}
+                            <div class="subtle">{{ __('no_packet_deducts_available') }}</div>
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="clearfix"></div>
-                {% if form.package_complex %}
+                {% if form.orderType == 'complex' %}
                     <div class="user-sum col-xs-12">
                         {{ __('sum_packet_additions') }}:
                         <nobr><span id="payment_{{ payee.hash }}">{{ payee.payment | raw }}</span></nobr>
@@ -143,17 +170,21 @@
     {% endblock %}
 
     <!-- OTHER USERS -->
-    <div id="customers" {% if not form.package_complex %}class="hidden"{% endif %}>
+    <div id="customers" {% if form.orderType == 'simple' %}class="hidden"{% endif %}>
         {% if totalUsers > 1 %}
             <h3 class="font-secondary square-left border-b">{{ __('heading_choose_packets_friend') }}</h3>
         {% endif %}
-        {% for customer in form.customers %}
+        {% for hash,customer in form.customers %}
             <div class="of-box">
-                <div id="customer" class="row customer" data-hash="{{ customer.hash }}">
+                <div id="customer" class="row customer" data-hash="{{ hash }}">
                     <!-- PACKET INFO -->
                     <div class="col-sm-4 packet-info">
                         <h3 class="font-secondary">{{ __('heading_choose_packet_friend') }}</h3>
-                        {{ customer.packetsList | raw }}
+                        {{ select(customer.packets, {
+                            'name': 'order[' ~ customer.hash ~ '][packet_id]',
+                            'id': 'packet_id_' ~ customer.hash,
+                            'class': 'orderPacket'
+                        }, 'title').setValue(customer.packet.id) | raw }}
                         <h4>{{ customer.packet.title | raw }}</h4>
                         <ul class="list-unstyled includes" id="orderIncludes_{{ customer.hash }}">
                             {{ macros.includes(customer.includes) }}
@@ -172,14 +203,14 @@
                         </div>
                         <div class="the-cloud">
                             <input type="text" name="order[{{ customer.hash }}][name]"
-                                   placeholder="{{ __('placeholder_name') }}" {% if form.package_complex %} data-validation-engine="validate[required]" {% endif %} />
+                                   placeholder="{{ __('placeholder_name') }}" {% if form.orderType == 'complex' %} data-validation-engine="validate[required]" {% endif %} />
                         </div>
                         <div class="the-cloud">
                             <input type="text" name="order[{{ customer.hash }}][surname]"
                                    placeholder="{{ __('placeholder_surname') }}"/>
                         </div>
                         <!-- NOTES -->
-                        {% if form.package_complex %}
+                        {% if form.orderType == 'complex' %}
                             <div class="inline-notes">
                                 <textarea name="order[{{ customer.hash }}][notes]"
                                           placeholder="{{ __('placeholder_notes') }}"></textarea>

@@ -1,5 +1,6 @@
 <?php namespace Derive\Offers\Record;
 
+use Carbon\Carbon;
 use Derive\Offers\Entity\Offers;
 use Derive\Offers\Entity\Packets;
 use Pckg\Database\Record;
@@ -28,7 +29,8 @@ class Offer extends Record
     {
         $pt = $this->paymentMethods;
 
-        return true;(!$pt->braintreeportions && !$pt->paypalportions && !$pt->monetaportions && !$pt->upnportions) ? false : true;
+        return true;
+        (!$pt->braintreeportions && !$pt->paypalportions && !$pt->monetaportions && !$pt->upnportions) ? false : true;
     }
 
     public function getMaxPortions()
@@ -36,9 +38,9 @@ class Offer extends Record
         if (!$this->hasEnabledPortions()) {
             return 1;
         }
-
+        
         /**
-         * @T00D00 - implement this!
+         * @T00D00
          */
     }
 

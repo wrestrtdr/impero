@@ -39,8 +39,9 @@ class InitPlatformDatabase
              * If request is made directly do derive.foobar.si, we estamblish derive connection.
              * Otherwise we should connect to platform database.
              */
-            if ($_SERVER['HTTP_HOST'] == 'bob.gonparty') {
-                $platformId = 7;
+            $platform = (new Platforms())->where('title', $_SERVER['HTTP_HOST'])->one();
+            if ($platform) {
+                $platformId = $platform->id;
             } else {
                 if (!isset($_SESSION['platform_id'])) {
                     $_SESSION['platform_id'] = 1;

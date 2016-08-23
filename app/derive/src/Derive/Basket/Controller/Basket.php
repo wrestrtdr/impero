@@ -1,17 +1,18 @@
 <?php namespace Derive\Basket\Controller;
 
+use Derive\Basket\Record\PromoCode;
+use Derive\Basket\Service\Summary;
 use Derive\Offers\Entity\Packets;
 use Derive\Offers\Record\Offer;
 use Derive\Orders\Entity\Offers;
 use Derive\Orders\Entity\Orders;
-use Derive\Orders\Entity\OrdersUsers;
-use Derive\Orders\Entity\OrdersUsersAdditions;
 use Derive\Orders\Record\Order;
 use Derive\Orders\Record\OrdersUser;
 use Derive\Orders\Record\OrdersUsersAddition;
 use Pckg\Auth\Entity\Users;
 use Pckg\Auth\Record\User;
 use Pckg\Framework\Controller;
+use Pckg\Framework\View\Twig;
 use Pckg\Manager\Asset;
 
 class Basket extends Controller
@@ -42,18 +43,40 @@ class Basket extends Controller
         $totalQuantity = $arrData['total_quantity'] = array_sum($packets);
 
         foreach ($packets AS $packet => $quantity) {
-            $hash = sha1(microtime());
-            $type = $total == 0
-                ? "payee"
-                : "customers";
+            $rPacket = $packetsEntity->forSecondStep()
+                                     ->where('id', $packet)
+                                     ->oneOrFail();
+            $arrPackets = $packetsEntity->forSecondStep()
+                                        ->where('offer_id', $rPacket->offer_id)
+                                        ->where('ticket', $rPacket->ticket)
+                                        ->allOrFail();
 
             /**
              * Set view data.
              */
-            $arrData[$type][$hash]["packet"] = $rPacket = $packetsEntity->forSecondStep()
-                                                                        ->where('id', $packet)
-                                                                        ->oneOrFail();
+            for ($i = 0; $i < $quantity; $i++) {
+                $hash = sha1(microtime());
+                $type = $total == 0
+                    ? "payee"
+                    : "customers";
+                $arrData[$type][$hash]["packet"] = $rPacket;
+                $arrData[$type][$hash]["packets"] = $arrPackets;
+                $arrData[$type][$hash]["hash"] = $hash;
+                $arrData[$type][$hash]["payment"] = cutAndMakePrice($rPacket->price);
 
+                /**
+                 * Count customers.
+                 */
+                if ($total) {
+                    $customers++;
+                }
+
+                $total++;
+            }
+
+            /**
+             * Set form type.
+             */
             if ($rPacket->ticket) {
                 $orderType = 'simple';
             } else {
@@ -71,35 +94,16 @@ class Basket extends Controller
                 );
             }
 
-            $arrData[$type][$hash]["payment"] = cutAndMakePrice($rPacket->price);
-
             /**
              * Add packet price to payment.
              */
             $payment += $rPacket->price;
-
-            /**
-             * Count customers.
-             */
-            if ($total) {
-                $customers++;
-            }
-
-            $total++;
         }
 
         /**
          * Payee is only one.
          */
         $arrData['payee'] = end($arrData['payee']);
-
-        /**
-         * @T00D00 - fix this ... we'll probably need to create form helper?
-         * "name"     => "order[" . $hash . "][packet_id]",
-         * "id"       => "packet_id_" . $hash,
-         * "selected" => $packet,
-         * "class"    => "orderPacket",
-         */
 
         $this->assetManager()->addAssets(
             [
@@ -109,6 +113,8 @@ class Basket extends Controller
             'footer',
             path('www')
         );
+
+        Twig::addStaticData('cssPage', 'order');
 
         return view(
             'Derive\Basket:basket\orderForm',
@@ -122,6 +128,46 @@ class Basket extends Controller
                 'action'     => url('predracun'),
             ]
         );
+    }
+
+    /**
+     * @param Order $order
+     *
+     * Accept order and display order form.
+     * Useful for editing and re-buy.
+     * Used for re-buy. =)
+     */
+    public function getOrderFormAction(Order $order)
+    {
+
+    }
+
+    /**
+     * @param PromoCode $promoCode
+     * @param Offer     $offer
+     *
+     * @return array
+     */
+    public function postApplyPromoCode(PromoCode $promoCode, Offer $offer)
+    {
+        $price = $this->post('price');
+        $valid = false;
+
+        if (!($error = $promoCode->getError($offer))) {
+            $price = $promoCode->applyToPrice($price);
+            $notice = __('promo_code_applied');
+            $valid = true;
+        } else {
+            $notice = $error;
+        }
+
+        return [
+            'success' => true,
+            'valid'   => $valid,
+            'price'   => cutAndMakePrice($price),
+            'notice'  => $notice,
+        ];
+
     }
 
     /**
@@ -163,19 +209,17 @@ class Basket extends Controller
          */
         $order = $this->post()->toArray();
         $hash = sha1(microtime());
-        $refresh = false;
 
         if (!$this->post('order')) {
             return [
                 "success" => false,
-                "text"    => __("refresh_triggered"),
+                "text"    => __("order_data_missing"),
             ];
-        } else {
-            $this->session()->last_order = $order;
-            $this->session()->last_order->hash = $hash;
         }
 
-        $showReservations = RESERVATION > 0;
+        $this->session()->last_order = $order;
+        $this->session()->last_order->hash = $hash;
+
         $showPortions = $offer->getMaxPortions();
 
         /**
@@ -207,7 +251,7 @@ class Basket extends Controller
              * Create user if he doesn't exist yet.
              */
             if (!$user) {
-                $user = User::getOrCreate(
+                $user = User::create(
                     [
                         'email'   => $orderUser['email'],
                         'name'    => $orderUser['name'] ?? null,
@@ -262,6 +306,20 @@ class Basket extends Controller
                 $ordersUserAddition = new OrdersUsersAddition(
                     [
                         'order_user_id' => $ordersUser->id,
+                        'addition_id'   => $addition, // packet_addition_id
+                    ]
+                );
+                $ordersUserAddition->save();
+            }
+
+            /**
+             * Save deductions.
+             */
+            foreach ($orderUser['deductions'] as $deduction) {
+                $ordersUserAddition = new OrdersUsersAddition(
+                    [
+                        'order_user_id' => $ordersUser->id,
+                        'deduction_id'  => $deduction, // packet_addition_id
                     ]
                 );
                 $ordersUserAddition->save();
@@ -273,6 +331,7 @@ class Basket extends Controller
          */
         $arrSumPackets = [];
         $arrSumAdditions = [];
+        $arrSumDeductions = [];
         foreach ($order['order'] AS $userOrder) {
             if (!isset($userOrder['packet_id'])) {
                 return [
@@ -280,18 +339,38 @@ class Basket extends Controller
                     "text"    => __("cannot_find_packet"),
                 ];
             }
+
+            /**
+             * Summarize packets.
+             */
             if (isset($arrSumPackets[$userOrder['packet_id']])) {
                 $arrSumPackets[$userOrder['packet_id']]++;
             } else {
                 $arrSumPackets[$userOrder['packet_id']] = 1;
             }
 
+            /**
+             * Summarize additions.
+             */
             if (isset($userOrder['additions'])) {
                 foreach ($userOrder['additions'] AS $userAddition) {
                     if (isset($arrSumAdditions[$userAddition])) {
                         $arrSumAdditions[$userAddition]++;
                     } else {
                         $arrSumAdditions[$userAddition] = 1;
+                    }
+                }
+            }
+
+            /**
+             * Summarize deductions.
+             */
+            if (isset($userOrder['deductions'])) {
+                foreach ($userOrder['deductions'] AS $userDeduction) {
+                    if (isset($arrSumDeductions[$userDeduction])) {
+                        $arrSumDeductions[$userDeduction]++;
+                    } else {
+                        $arrSumDeductions[$userDeduction] = 1;
                     }
                 }
             }
@@ -304,87 +383,18 @@ class Basket extends Controller
             ];
         }
 
-        $sum = 0.0;
         /**
-         * Summarize packets.
+         * Create summary.
          */
-        $ordersUsers = (new OrdersUsers())->addSelect(['quantity' => 'COUNT(id)'])
-                                          ->withPacket()
-                                          ->where('order_id', $order->id)
-                                          ->groupBy('packet_id')
-                                          ->all();
-        $arrBills = [];
-        $ordersUsers->each(
-            function(OrdersUser $ordersUser) use ($arrBills, $sum) {
-                $arrBills[] = [
-                    'title'    => $ordersUser->packet->title,
-                    'price'    => makePrice($ordersUser->packet->price),
-                    'sum'      => makePrice($ordersUser->packet->price * $ordersUser->quantity),
-                    'quantity' => $ordersUser->quantity,
-                ];
-                $sum += $ordersUser->packet->price * $ordersUser->quantity;
-            }
-        );
-
-        /**
-         * Summarize additions.
-         */
-        $ordersUsersAdditions = (new OrdersUsersAdditions())
-            ->addSelect(['quantity' => 'COUNT(id)'])
-            ->withAdditions()
-            ->where('orders_user_id', $order->ordersUsers->map('id'))
-            ->all();
-        $ordersUsersAdditions->each(
-            function(OrdersUsersAddition $ordersUsersAddition) use ($arrBills, $sum) {
-                $arrBills[] = [
-                    'title'    => $ordersUsersAddition->addition->title,
-                    'price'    => makePrice($ordersUsersAddition->addition->value),
-                    'sum'      => makePrice($ordersUsersAddition->quantity * $ordersUsersAddition->addition->value),
-                    'quantity' => $ordersUsersAddition->quantity,
-                ];
-                $sum += $ordersUsersAddition->quantity * $ordersUsersAddition->addition->value;
-            }
-        );
-
-        /**
-         * Summarize processing cost.
-         */
-        $processingCost = $order->getProcessingCost();
-        $arrBills[] = [
-            'title'    => 'Booking fee',
-            'price'    => makePrice($processingCost),
-            'sum'      => makePrice($processingCost),
-            'quantity' => 1,
-        ];
-        $sum += $processingCost;
-
-        /**
-         * Summarize promo code.
-         */
-        if ($order->promo_code_id) {
-            $discount = $order->promoCode->getMinusByPrice($sum);
-            $promoDiscount = '-' . makePrice($discount);
-            $this->session()->promoDiscount = $discount;
-
-            $arrBills[] = [
-                'title'    => __('promo_code_title'),
-                'price'    => $promoDiscount,
-                'sum'      => $promoDiscount,
-                'quantity' => 1,
-            ];
-
-            $sum -= $discount;
-        } else {
-            $this->session()->promoDiscount = null;
-        }
+        $summary = $order->getSummary();
 
         /**
          * Save price data.
          */
         $order->set(
             [
-                'price'    => $sum,
-                'original' => $sum,
+                'price'    => $summary->getSum(),
+                'original' => $summary->getSum(),
             ]
         )->save();
 
@@ -428,11 +438,11 @@ class Basket extends Controller
             "reservationPrice" => /*makePrice(RESERVATION)*/
                 null,
             "action"           => url("placilna sredstva"),
-            "showReservations" => $showReservations,
             "showPortions"     => $showPortions,
             "mode"             => /*MODE*/
                 'full',
             'bills'            => $arrBills,
+            'summary'          => $summary,
         ];
 
         $return = [
@@ -922,6 +932,7 @@ class Basket extends Controller
         /**
          * Simply set installments
          */
+        dd($order);
         $order->setInstallments($this->post('installments'));
     }
 
