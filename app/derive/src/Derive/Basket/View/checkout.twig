@@ -32,7 +32,8 @@
                 order: {},
                 installments: [],
                 portions: [],
-                summary: {}
+                summary: {},
+                promocode: null
             };
         },
         ready: function () {
@@ -112,6 +113,14 @@
                 }.bind(this));
 
                 return sum;
+            },
+            applyPromoCode: function () {
+                http.post('{{ url('derive.basket.applyPromoCode') }}', {
+                    promocode: this.promocode,
+                    'offer_id': this.offer.id
+                }, function (data) {
+                    console.log(data);
+                });
             },
             submitOrderForm: function () {
                 var customers = [];

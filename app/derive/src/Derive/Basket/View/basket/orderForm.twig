@@ -214,10 +214,11 @@
     <div class="promo-code">
         <label for="promocode">{{ __('label_promo_code') }}</label>
         <div class="input-wrap">
-            <input type="text" id="promocode" name="promocode"
-                   placeholder="{{ __('placeholder_enter_promo_code') }}"/>
+            <input type="text" id="promocode"
+                   placeholder="{{ __('placeholder_enter_promo_code') }}"
+                v-model="promocode" />
         </div>
-        <a class="promocode-submit">{{ __('btn_apply_promo_code') }}</a>
+        <a class="promocode-submit" v-on:click.prevent="applyPromoCode">{{ __('btn_apply_promo_code') }}</a>
         <div class="promo-code-notice"></div>
     </div>
 
