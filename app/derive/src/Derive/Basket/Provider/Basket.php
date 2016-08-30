@@ -30,7 +30,7 @@ class Basket extends Provider
                         ],
                     ],
                 ],
-                '/order/[order]'                     => [
+                '/order/[order]'             => [
                     'controller' => BasketController::class,
                     'view'       => 'order',
                     'name'       => 'derive.basket.order.rebuy',

@@ -81,9 +81,9 @@
 @offerTextImportant: #fdd752;
 @offerTagBackground: #fff;
 @offerTagText: #1c1c1c;
-@offerButtonBackground: #fdd752; 
+@offerButtonBackground: #fdd752;
 @offerButtonText: #1c1c1c;
-@offerButtonHoverBackground: #fff; 
+@offerButtonHoverBackground: #fff;
 @offerButtonHoverText: #1c1c1c;
 @offerTitlePreSquare: #fff073;
 
@@ -98,7 +98,7 @@
 @tipQuestionmarkBorder: #8c8c8c;
 
 /* modal box */
-@modalBackground: #f2f2f2; 
+@modalBackground: #f2f2f2;
 @modalText: #1c1c1c;
 
 /* other */
@@ -131,9 +131,9 @@
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
   border-radius: @radius;
-  -moz-background-clip: padding; 
-  -webkit-background-clip: padding-box; 
-  background-clip: padding-box; 
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .opacity(@opacity: 0.6) {
   -moz-opacity: @opacity;
@@ -174,8 +174,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -186,7 +186,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -221,7 +221,7 @@ h1 {
 	line-height:42px;
 	margin-bottom:60px;
 	margin-top:20px;
-	
+
 	&.big {
 		font-size:48px;
 		line-height:60px;
@@ -233,7 +233,7 @@ h2 {
 	line-height:36px;
 	margin-bottom:40px;
 	margin-top:20px;
-	
+
 	@media only screen and (max-width: @xs-min) {
 		font-size:24px;
 		line-height:28px;
@@ -253,13 +253,13 @@ h4 {
 }
 h1, h2, h3, h4 {
 	color: @text;
-	
+
 	&.font-secondary {
 		font-weight:normal;
 		margin-bottom:20px;
 		text-transform:uppercase;
 	}
-	
+
 	.gray,
 	.small {
 		font-size:12px;
@@ -271,24 +271,24 @@ p {
 a {
 	color: @link;
 	text-decoration:underline;
-	
+
 	&:hover,
 	&:focus {
 		cursor:pointer;
 	}
-	
+
 	&>h1,
 	&>h2,
 	&>h3,
 	&>h4 {
 		color:@title;
-		
+
 		&:hover,
 		&:focus {
 			color:@title;
 		}
 	}
-	
+
 	&.title {
 		text-decoration:none;
 	}
@@ -308,7 +308,7 @@ a {
 	color:@textSubtle;
 	float:right;
 	font-weight:normal;
-	
+
 	@media only screen and (max-width: @xs-max) {
 		display:block;
 		font-size:14px;
@@ -319,7 +319,7 @@ a {
 }
 .square-left { /* square left from title */
 	position:relative;
-	
+
 	&::before {
 		background: @squareLeftOfTitle;
     content: " ";
@@ -357,7 +357,7 @@ a {
 		.rounded(0);
 		text-align:left;
 		text-transform:uppercase;
-		
+
 		&:focus,
 		&:hover,
 		&:active, {
@@ -366,12 +366,12 @@ a {
 			color:@text;
 			.inside-shadow(0,0,0,0);
 		}
-		
+
 		&.disabled {
 			border-color:@selectDisabled;
 			color:@selectDisabled;
 		}
-		
+
 		&.chevron {
 			&:after {
 				content:"\e114";
@@ -393,18 +393,18 @@ a {
 		padding:0;
 		.rounded(0);
 		width:100%;
-		
+
 		&>li {
 			border-left:6px solid @selectImportant;
 			border-right:6px solid @selectImportant;
 			text-transform:uppercase;
-			
+
 			a {
 				font-weight:bold;
 				padding:6px 20px;
 				text-decoration:none;
 				white-space:normal;
-				
+
 				&:hover,
 				&:active,
 				&:focus {
@@ -413,7 +413,7 @@ a {
 			}
 			&.dropdown-header {
 				padding-top:10px;
-				
+
 				&:first-child {
 					padding-top:6px;
 				}
@@ -431,7 +431,7 @@ a {
 			background:#FFF;
 			border-color:@selectImportant;
 			color:@text;
-			
+
 			&.chevron {
 				&:after {
 					content:"\e113";
@@ -442,7 +442,7 @@ a {
 			margin-top:-6px;
 		}
 	}
-	
+
 	@media only screen and (max-width: @xs-max) {
 		button {
 			font-size:16px;
@@ -457,7 +457,7 @@ a {
 			}
 		}
 	}
-	
+
 }
 
 /* animated dot spot */
@@ -465,7 +465,7 @@ a {
 	.inline-block();
 	margin:0 10px;
 	z-index:10;
-	
+
 	.element-basic {
 		background:@animatedIndicator;
 		height:15px;
@@ -586,7 +586,7 @@ a {
 	margin-left: 2px;
 	text-align: center;
 	width: 14px;
-	
+
 	&:hover {
 		cursor:pointer;
 	}
@@ -630,7 +630,7 @@ a {
 	text-transform: @buttonTextTransform;
 	transition: background 0.5s ease;
 	white-space:normal;
-	
+
 	&:hover,
 	&:focus {
 		background-color: @buttonHoverBackground;
@@ -649,7 +649,7 @@ a {
 	&.disabled {
 		background:@buttonDisabledBackground;
 		color:@buttonDisabledText;
-		
+
 		&:hover,
 		&:focus {
 			background:@buttonDisabledBackground;
@@ -715,7 +715,7 @@ select {
 .password-footer {
 	margin-bottom:8px;
 	margin-left:10px;
-	
+
 	input {
 		margin:0 !important;
 		vertical-align:middle;
@@ -810,14 +810,14 @@ select {
 /* HOVER TIP CLOUD */
 .the-cloud {
 	position:relative;
-	
+
 	&.active {
 		&:hover,
 		&:focus {
 			cursor:help;
 		}
 	}
-	
+
 	.cloud {
 		bottom:100%;
 		left:0;
@@ -826,7 +826,7 @@ select {
 		position: absolute;
 		top:auto;
     z-index: 99;
-		
+
 		.square {
 			background-color: @menuBackground;
 			color: @menuText;
@@ -858,7 +858,7 @@ select {
 	line-height:15px;
 	margin-bottom: 10px;
 	padding: 10px;
-	
+
 	h3 {
 		font-size:16px;
 		line-height:18px;
@@ -881,7 +881,7 @@ body > iframe {
 .header {
 	background:url('/img/homepage-header-background.jpg') no-repeat center center;
 	background-size:cover;
-	
+
 	/* ----- MAIN MENU -----*/
 	.navbar-default {
 		background:@menuBackground;
@@ -890,7 +890,7 @@ body > iframe {
 		padding-top:5px;
 		.rounded(0);
 		z-index:3;
-		
+
 		/* mobile menu */
 		.navbar-header {
 			.menu-button {
@@ -900,7 +900,7 @@ body > iframe {
 				font-size:12px;
 				margin-left:15px;
 				.rounded(0);
-				
+
 				&:hover,
 				&:focus {
 					background:none;
@@ -911,16 +911,16 @@ body > iframe {
 				margin-left:10px;
 				margin-right:15px;
 				margin-top:10px;
-				
+
 				a {
 					color:@menuTextSubtle;
 					font-size:12px;
 					text-decoration:none;
-					
+
 					&:hover {
 						color:@menuHoverTextSubtle;
 					}
-					
+
 					.glyphicon {
 						color: @icon;
 						font-size:20px;
@@ -934,31 +934,31 @@ body > iframe {
 				a {
 					.inline-block();
 					padding:5px;
-					
+
 					img {
 						max-height:40px;
 					}
 				}
 			}
 		}
-		
+
 		/* full menu and mobile collapsed */
 		.navbar-nav {
 			@media only screen and (max-width: @xs-max) {
 				padding-top:7px;
 			}
-			
+
 			&>li {
 				&>a {
 					color:@menuText;
 					font-size:14px;
 					text-decoration:none;
 					transition: color 0.5s ease;
-					
+
 					&:hover {
 						color: @menuHoverText;;
 					}
-					
+
 					@media only screen and (max-width: @xs-max) {
 						font-size:16px;
 					}
@@ -967,32 +967,32 @@ body > iframe {
 					a {
 						margin-left:-8px;
 						padding:8px;
-						
+
 						img {
 							max-height:40px;
 						}
 					}
 				}
-				
+
 				&.active a {
 					background:@menuActiveBackground;
 					color:@menuActiveText;
-					
+
 					&:hover {
 						background:@menuActiveBackground;
 						color:@menuActiveText;
 					}
 				}
-				
+
 				&.login-space {
 					a {
 						color:@menuTextSubtle;
 						font-size:12px;
-						
+
 						&:hover {
 							color:@menuHoverTextSubtle;
 						}
-						
+
 						.glyphicon {
 							color: @icon;
 							font-size:14px;
@@ -1004,14 +1004,14 @@ body > iframe {
 			&.navbar-right {
 				margin-top:5px;
 			}
-			
+
 		} /* -/.navbar-nav*/
-		
+
 		.navbar-collapse {
 			border:0;
 		}
 	} /* -navbar-default */
-	
+
 	.intro {
     margin: 0 auto;
 		padding: 150px 0;
@@ -1019,20 +1019,20 @@ body > iframe {
     text-align: center;
     width: 80%;
 		z-index:3;
-		
+
 		@media only screen and (max-width: @xs-min) {
 			padding-top:50px;
-			
+
 			.button {
 				font-size:16px;
 				font-weight:bold;
 				padding:17px 30px;
 			}
 		}
-		
+
 		.logo {
 			margin-bottom:45px;
-			
+
 			img {
 				margin:0 auto;
 				max-width:80%;
@@ -1041,7 +1041,7 @@ body > iframe {
 		h1 {
 			color: @homepageIntroTitle;
 			margin-bottom: 30px;
-			
+
 			span.important {
 				color: @textImportant;
 			}
@@ -1051,12 +1051,12 @@ body > iframe {
 			color: @homepageIntroTitle;
 		}
 	}
-	
+
 	/* header on homepage */
 	&.homepage {
 		position:relative;
 		overflow:hidden;
-		
+
 		.transparent-overlay {
 			background:#131313;
 			height:100%;
@@ -1065,14 +1065,14 @@ body > iframe {
 			z-index:2;
 			width:100%;
 		}
-		
+
 		video {
 			backgorund:#000;
 			position:absolute;
 			width:100%;
 			z-index:1;
 		}
-		
+
 		.navbar-default {
 			background:none;
 		}
@@ -1088,7 +1088,7 @@ body > iframe {
 	text-align: center;
 	top: 120px;
 	width: 500px;
-	
+
 	@media only screen and (max-width: @xs-max) {
 		margin-left:5%;
 		left:0;
@@ -1103,7 +1103,7 @@ body > iframe {
 	margin-top:100px;
 	padding-bottom:30px;
 	padding-top:60px;
-	
+
 	h3 {
 		color:@menuText;
 		margin:20px 0;
@@ -1111,49 +1111,49 @@ body > iframe {
 	a {
 		color:@linkFooter;
 		text-decoration:none;
-		
+
 		&:hover {
 			color:@menuHoverText;
 		}
 	}
-	
+
 	.social-icons {
 		margin-top:30px;
-		
+
 		a {
 			display:inline-block;
 			margin-right:25px;
 			text-decoration:none;
-			
+
 			&:last-child {
 				margin-right:0;
 			}
-			
+
 			img {
 				height:45px;
 			}
-			
+
 			@media only screen and (max-width: @sm-max) {
 				margin-right:20px;
-				
+
 				img {
 					height:45px;
 				}
 			}
 		}
 	}
-	
+
 	.footer-menu-badges {
 		margin-top:40px;
-		
+
 		.footer-badges {
 			img {
 				height:34px;
-				
+
 				&:first-child {
 					margin-right:2%;
 				}
-				
+
 				@media only screen and (min-width: @md-min) and (max-width: @md-max) {
 					height:28px;
 				}
@@ -1163,7 +1163,7 @@ body > iframe {
 				@media only screen and (max-width: @xs-max) {
 					margin-bottom:20px;
 					max-width:80%;
-					
+
 					&:last-child {
 						max-width:18%;
 					}
@@ -1173,17 +1173,17 @@ body > iframe {
 		.footer-menu {
 			font-size:12px;
 			margin-top:15px;
-			
+
 			@media only screen and (min-width: @md-min) and (max-width: @md-max) {
 				margin-top:2px;
 			}
 			@media only screen and (max-width: @sm-max) {
 				margin-top:0;
 			}
-			
+
 			a {
 				padding:5px 10px;
-				
+
 				&:first-child {
 					padding-left:0;
 				}
@@ -1210,11 +1210,11 @@ body > iframe {
 	position:fixed;
 	width:100%;
 	z-index:9999999999;
-	
+
 	.img-responsive {
 		margin: 0 auto 20px;
 	}
-	
+
 	h2 {
 		color:@menuText;
 		font-size:30px;
@@ -1226,18 +1226,18 @@ body > iframe {
 		line-height:30px;
 		margin-bottom:10px;
 	}
-	
+
 	.button {
 		font-size:24px;
 		font-weight:bold;
 		margin-top:40px;
 		padding:25px 70px;
 	}
-	
+
 	@media only screen and (max-width: @xs-max) {
 		height:100%;
 		text-align:center;
-		
+
 		.button {
 			font-size:18px;
 			padding:15px 50px;
@@ -1257,7 +1257,7 @@ body > iframe {
 	padding-bottom:100px;
 	padding-top:120px;
 	text-align:center;
-	
+
 	h2 {
 		font-size:36px;
 		margin-bottom:90px;
@@ -1267,7 +1267,7 @@ body > iframe {
 		margin-bottom:35px;
 		margin-top:30px;
 	}
-	
+
 	.first-row {
 		span {
 			color:@tutorialIcons;
@@ -1277,7 +1277,7 @@ body > iframe {
 			margin-bottom:50px;
 			padding-bottom:50px;
 			position:relative;
-			
+
 			&:after {
 				background:@textImportant;
 				bottom:0;
@@ -1292,10 +1292,10 @@ body > iframe {
 	}
 	.second-row {
 		margin-top:90px;
-		
+
 		.ctas {
 			margin-top:30px;
-			
+
 			a {
 				color:@tutorialIcons;
 				font-size:24px;
@@ -1308,7 +1308,7 @@ body > iframe {
 /* ----- 404 PAGE ----- */
 .container.r404 {
 	text-align:center;
-	
+
 	h1 {
 		margin-bottom:25px;
 	}
@@ -1317,7 +1317,7 @@ body > iframe {
 /* ----- OPINIONS ON HOMEPAGE ----- */
 .homepage-opinions {
 	margin-top:100px;
-	
+
 	h2 {
 		margin-bottom:0;
 	}
@@ -1325,7 +1325,7 @@ body > iframe {
 		margin-bottom:40px;
 		margin-top:20px;
 		padding-left:60px;
-		
+
 		&:before {
 			color: #fdd752;
 			content: "\e005";
@@ -1336,12 +1336,12 @@ body > iframe {
 			position: absolute;
 			top: 0px;
 		}
-		
+
 		.footer {
 			font-size:14px;
 			font-style:italic;
 			margin-top:13px;
-			
+
 			p {
 				margin-bottom:0;
 			}
@@ -1358,12 +1358,12 @@ body > iframe {
 	padding-bottom:50px;
 	padding-top:50px;
 	text-align:center;
-	
+
 	&.newsletter-homepage {
 		height:700px;
 		padding-bottom:0px;
 		padding-top:0px;
-		
+
 		#parallax {
 			left:-5%;
 			overflow:hidden;
@@ -1375,11 +1375,11 @@ body > iframe {
 			color:#FFF;
 			margin-top:170px;
 			padding:50px;
-			
+
 			input#email {
 				color:#FFF;
 			}
-		
+
 			h2 {
 				color:#FFF;
 				margin-top:0;
@@ -1418,7 +1418,7 @@ body > iframe {
 	border-top:1px solid @seperatorHorizontal;
 	padding-bottom:50px;
 	padding-top:50px;
-	
+
 	h3 {
 		margin-top:20px;
 	}
@@ -1448,26 +1448,26 @@ body > iframe {
 			line-height: 16px;
 			margin-bottom:5px;
 		}
-		
+
 		.fast p {
 			font-size: 14px;
 			line-height: 16px;
 			margin: 0;
 			padding-bottom: 3px;
 		}
-		
+
 		.company {
 			border-top: 1px solid @seperatorHorizontal;
 			color: @textSubtle;
 			font-size: 10px;
 			margin-bottom: 30px;
 			margin-top: 10px;
-			
+
 			ul {
 				list-style: none;
 				margin: 0;
 				padding: 10px 0 0;
-				
+
 				li {
 					padding-top:5px;
 				}
@@ -1476,7 +1476,7 @@ body > iframe {
 	}
 	.contact-form {
 		margin-top:10px;
-		
+
 		form {
 			margin-top:23px;
 		}
@@ -1502,7 +1502,7 @@ body > iframe {
 	.spacing-top {
 		margin-top:50px;
 	}
-	
+
 	@media only screen and (max-width: @xs-max) {
 		.title {
 			h1 {
@@ -1520,13 +1520,13 @@ body > iframe {
 .article {
 	margin-bottom:10px;
 	position:relative;
-	
+
 	&:hover {
 		.info-inner-box .bottom {
 			.opacity(1);
 		}
 	}
-	
+
 	/* offer box with image and basic data */
 	.image-outer-box {
 		left:-50px;
@@ -1542,10 +1542,10 @@ body > iframe {
 	}
 	.info-inner-box {
 		color:@offerText;
-		
+
 		header {
 			margin-bottom:25px;
-			
+
 			h1 {
 				color:@offerTitle;
 				font-size:36px;
@@ -1576,7 +1576,7 @@ body > iframe {
 				.opacity(0);
 			}
 			transition: opacity 0.2s linear;
-			
+
 			.pickup-line {
 				color: @textImportant;
 				font-size:14px;
@@ -1595,7 +1595,7 @@ body > iframe {
 				margin-right:-50px;
 				padding:28px 42px;
 				transition: background 0.5s ease;
-				
+
 				&:hover,
 				&:focus {
 					background: @offerButtonHoverBackground;
@@ -1610,14 +1610,14 @@ body > iframe {
 			padding:22px 30px;
 			position:absolute;
 			top:-35px;
-			
+
 			strong {
 				font-size:30px;
 				font-weight:bold;
 			}
 		}
 	}
-	
+
 	/* ----- MIXIN FOR MEDIUM SIZED OFFER ----- */
 	.mediumOffer() {
 		&.even {
@@ -1631,7 +1631,7 @@ body > iframe {
 		.info-inner-box {
 			header {
 				margin-bottom:20px;
-				
+
 				h1 {
 					font-size:24px;
 					line-height:26px;
@@ -1664,7 +1664,7 @@ body > iframe {
 				left:-40px;
 				padding:15px 20px;
 				top:-25px;
-				
+
 				strong {
 					font-size:20px;
 				}
@@ -1674,7 +1674,7 @@ body > iframe {
 			.smallScreenVertical();
 		}
 	}
-	
+
 	/* ----- MIXIN FOR OFFERS WHERE PICTURE IS ON TOP OF THE INFO ----- */
 	.verticalOffer() {
 		.image-outer-box {
@@ -1683,7 +1683,7 @@ body > iframe {
 		}
 		.info-outer-box {
 			margin-top:0;
-			
+
 			.info-inner-box {
 				.price-tag {
 					left:-20px !important;
@@ -1692,7 +1692,7 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	/* ----- MIXIN FOR BIG AND MEDIUM OFFERS TO TAKE CARE OF FONTS AND SPACING ON SMALL DEVICES ----- */
 	.smallScreenVertical() {
 		.info-outer-box {
@@ -1711,26 +1711,26 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	/* ----- MIXIN FOR SMALL OFFER - PARENT = MEDIUM OFFER ----- */
 	.smallOffer {
 		.mediumOffer();
-		
+
 		margin-bottom:20px;
 		padding-bottom:20px;
 		padding-top:20px;
-		
+
 		&:hover,
 		&:focus {
 			background:@offerBackground;
-			
+
 			.move {
 				padding-left:30px;
 			}
 			a {
 				.info-inner-box {
 					color: @offerText;
-					
+
 					h1,
 					h2 {
 						color:@offerTitle;
@@ -1741,10 +1741,10 @@ body > iframe {
 		a {
 			.info-inner-box {
 				color:@text;
-				
+
 				header {
 					margin-bottom:15px;
-					
+
 					h1 {
 						color: @title;
 						margin-top:0;
@@ -1753,7 +1753,7 @@ body > iframe {
 						color: @title;
 					}
 				}
-				
+
 				.time {
 					margin-bottom:0;
 				}
@@ -1761,12 +1761,12 @@ body > iframe {
 					.inline-block();
 
 					position:static;
-		
+
 					@media only screen and (max-width: @xs-max) {
 						font-size:12px;
 						line-height:16px;
 						padding:10px;
-						
+
 						strong {
 							font-size:14px;
 						}
@@ -1782,7 +1782,7 @@ body > iframe {
 				.bottom {
 					.button {
 						margin-right:0;
-						
+
 						@media only screen and (max-width: @xs-max) {
 							float:none;
 							margin-left:0;
@@ -1793,7 +1793,7 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	/* if offer is medium one and smaller devices*/
 	&.medium {
 		.mediumOffer();
@@ -1832,7 +1832,7 @@ body > iframe {
 			.item {
 				a {
 					display:block;
-					
+
 					@media only screen and (max-width: @xs-max) {
 						margin-bottom:10px;
 					}
@@ -1844,7 +1844,7 @@ body > iframe {
 			color:@galleryControls;
 			text-shadow:none;
 			width:53px;
-			
+
 			&:hover {
 				color:@galleryControlsHover;
 
@@ -1855,7 +1855,7 @@ body > iframe {
 	.open-gallery {
 		margin-top:25px;
 		text-align:center;
-		
+
 		a {
 			.inline-block();
 		}
@@ -1874,12 +1874,12 @@ body > iframe {
 		.info-inner-box {
 			header {
 				margin-bottom:30px;
-				
+
 				h1 {
 					font-size:36px;
 					line-height:48px;
 					margin-top:0;
-				
+
 					@media only screen and (max-width: @xs-max) {
 						font-size:20px;
 						line-height:26px;
@@ -1888,14 +1888,14 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	@media only screen and (max-width: @xs-max) {
 		margin-bottom:60px;
-		
+
 		.info-outer-box {
 			top:-5px;
-				
-			.info-inner-box {	
+
+			.info-inner-box {
 				h1 {
 					font-size:18px;
 					line-height:24px;
@@ -1912,7 +1912,7 @@ body > iframe {
 .article.medium {
 	.info-outer-box {
 		top:-60px;
-		
+
 		.info-inner-box {
 			.bottom {
 				left: -10px;
@@ -1921,7 +1921,7 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	@media only screen and (max-width: @xs-max) {
 		.info-outer-box {
 			top:-10px;
@@ -1936,10 +1936,10 @@ body > iframe {
 /* ----- SINGLE ARTICLE ----- */
 .single-article {
 	margin-top:-20px;
-	
+
 	header {
 		margin-top:50px;
-		
+
 		h1 {
 			margin-bottom:10px;
 		}
@@ -1958,7 +1958,7 @@ body > iframe {
 		line-height:42px;
 		margin-top:0;
 		position:absolute;
-		
+
 		@media only screen and (max-width: @xs-max) {
 			text-align:center;
 		}
@@ -1973,13 +1973,13 @@ body > iframe {
 	}
 	&.seperator-line {
 		padding-top:18px;
-		
+
 		div {
 			background:@seperatorHorizontal;
 			height:1px;
 		}
 	}
-	
+
 	/* mobile*/
 	@media only screen and (max-width: @xs-max) {
 		h3 {
@@ -1999,7 +1999,7 @@ body > iframe {
 /* SINGLE OFFER page with all info */
 .single-offer {
 	margin-top:-20px;
-	
+
 	.short_content,
 	.packages-lists,
 	.lineup,
@@ -2010,7 +2010,7 @@ body > iframe {
 		a {
 			position: relative;
 			text-decoration:none;
-			
+
 			&:before {
 				display: block;
 				position: absolute;
@@ -2053,23 +2053,23 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	.offer {
 		margin-bottom:50px;
 	}
-	
+
 	.info-title {
 		h1 {
 			margin-bottom:30px;
 		}
 	}
-	
+
 	.image-outer-box {
 		@media only screen and (max-width:@xs-max) {
 			padding:0;
 		}
 	}
-	
+
 	.info-outer-box {
 		.info-inner-box {
 			.bottom {
@@ -2077,11 +2077,11 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	.packages {
 		margin-bottom:110px;
 		position:relative;
-		
+
 		.absolute-background {
 			background:#FFF;
 			height:106%;
@@ -2089,7 +2089,7 @@ body > iframe {
 			position:absolute;
 			top:-3%;
 			width:112%;
-			
+
 			@media only screen and (max-width: @xs-max) {
 				height:102%;
 				left:0;
@@ -2097,26 +2097,26 @@ body > iframe {
 				width:100%;
 			}
 		}
-		
+
 		& > header {
 			p {
 				color: @textSubtle;
 				font-size: 12px;
 				line-height: 14px;
-				
+
 				&:last-child {
 					padding-bottom:13px;
 				}
 			}
 		}
-		
+
 		h3 {
 			margin-bottom:15px;
 		}
-		
+
 		.order-box {
 			padding:20px 0;
-			
+
 			.type-bundle-order {
 				margin-top:35px;
 			}
@@ -2125,11 +2125,11 @@ body > iframe {
 			}
 			.body-select {
 				font-weight:bold;
-				
+
 				.animated-indicator {
 					position:absolute;
 					top:-17px;
-					
+
 					&.step-2 {
 						right:10px;
 					}
@@ -2145,13 +2145,13 @@ body > iframe {
 								a {
 									font-size:16px;
 									line-height:18px;
-				
+
 									.price {
 										float:right;
 										margin-bottom:3px;
 										margin-left:20px;
 									}
-									
+
 									@media only screen and (max-width: @xs-max) {
 										font-size:14px;
 										line-height:16px;
@@ -2169,12 +2169,12 @@ body > iframe {
 				}
 				.num-select {
 					text-align:right;
-					
+
 					@media only screen and (max-width: @xs-max) {
 						font-size:16px;
 						margin-top:25px;
 					}
-					
+
 					.text {
 						@media 	only screen and (max-width: @xs-max),
 										only screen and (min-width: @md-min) {
@@ -2190,35 +2190,35 @@ body > iframe {
 			}
 			.body-data {
 				margin-top:10px;
-				
+
 				.subtle {
 					color:@textSubtle;
 					font-size:14px;
 					margin-bottom:5px;
 				}
-				
+
 				div.col-sm-4 {
 					margin-top:20px;
-					
+
 					@media only screen and (min-width: @sm-min) {
 						padding-left:30px;
 					}
 				}
-				
+
 				.none-selected {
 				}
 				.offer-data {
 					display:none;
-					
+
 					.package-price {
-						@media only screen and (min-width:@sm-min) {							
+						@media only screen and (min-width:@sm-min) {
 							border-right:1px solid @seperatorHorizontal;
 							padding-bottom:20px;
 						}
-						
+
 						.offer-data-container {
 							font-size:24px;
-							
+
 							span {
 								font-size:14px;
 								vertical-align:text-top;
@@ -2232,24 +2232,24 @@ body > iframe {
 					}
 				}
 			}
-			
+
 			.top {
 				h3 {
 					margin:20px 0 10px;
 				}
 			}
-			
+
 			.bottom {
 				&>div {
 					margin-top:20px;
 				}
 				.add-another {
 					padding-top:12px;
-					
+
 					a {
 						margin-left:20px;
 						position:relative;
-						
+
 						span {
 							color:@text;
 							left:-20px;
@@ -2257,7 +2257,7 @@ body > iframe {
 						}
 					}
 				}
-				.confirm {		
+				.confirm {
 					.button.fixed-bottom {
 						display:none;
 						z-index:10000;
@@ -2272,11 +2272,11 @@ body > iframe {
 					.confirm {
 						margin-top:50px;
 						text-align:center;
-						
+
 						.confirm-wrapper {
 							.inline-block();
 							position:relative;
-							
+
 							.animated-indicator {
 								left: -40px;
 								margin-top: -8px;
@@ -2288,46 +2288,46 @@ body > iframe {
 				}
 			}
 		}
-		
+
 		.packages-lists {
 			background: #FFF;
-			
+
 			.type-bundle {
 				margin-top:50px;
 				padding-top:20px;
-				
+
 				&:first-child {
 					margin-top:20px;
 				}
-				
+
 				.package {
 					position:relative;
 					width:100%;
-				
+
 					.arrow-left {
 						position: absolute;
 						right: -28px;
 						top: 2px;
-						
+
 						&:before {
 							content:"\e091";
 							font-family: @fontIcons;
 							font-size:24px;
 						}
 					}
-					
+
 					.package-header {
 						font-size:12px;
 						line-height:14px;
-						
+
 						& > div {
 							color:@textSubtle;
 							font-weight:normal;
-							
+
 							&.important {
 								color:#FFF;
 								text-align:center;
-								
+
 								.inline-container {
 									background: @seperatorHorizontal;
 									padding: 6px 0;
@@ -2343,12 +2343,12 @@ body > iframe {
 					}
 					.package-body {
 						margin-bottom:20px;
-						
+
 						& > div {
 							padding-bottom:6px;
 							padding-top:6px;
 							vertical-align:top;
-							
+
 							&.package-title {
 								h3 {
 									font-size:18px;
@@ -2362,13 +2362,13 @@ body > iframe {
 								.package-price {
 									font-family:@fontSecondary;
 									font-size:18px;
-									
+
 									span {
 										font-size:14px;
 										vertical-align:text-top;
 									}
 								}
-									
+
 								@media only screen and (max-width: @xs-max) {
 									.package-price {
 										span {
@@ -2384,11 +2384,11 @@ body > iframe {
 							&.includes-and-additions {
 								font-size:13px;
 								line-height:14px;
-								
+
 								ul {
 									li {
 										padding-bottom:4px;
-										
+
 										&.mobile-title {
 											color:@textSubtle;
 											padding-bottom:10px;
@@ -2408,7 +2408,7 @@ body > iframe {
 							}
 							&.package-number {
 								text-align:center;
-								
+
 								select {
 									border-color: #fdd752;
 									border-width: 5px;
@@ -2422,10 +2422,10 @@ body > iframe {
 								}
 							}
 						}
-						
+
 						@media only screen and (max-width: @xs-max) {
 							margin-bottom:10px;
-							
+
 							.seperator {
 								margin-bottom:8px;
 							}
@@ -2433,13 +2433,13 @@ body > iframe {
 					}
 					.package-footer {
 						text-align:right;
-					
+
 						input {
 							font-weight:normal;
 							margin:30px 0;
 							text-transform:uppercase;
 						}
-						
+
 						.seperator {
 							background:@seperatorHorizontal;
 							height:1px;
@@ -2454,7 +2454,7 @@ body > iframe {
 	}
 	.information-box {
 		margin-bottom:80px;
-		
+
 		&.lineup,
 		&.moreinfo {
 			table {
@@ -2465,7 +2465,7 @@ body > iframe {
 		img {
 			max-width:100%;
 		}
-		
+
 		strong {
 			font-weight:bold;
 		}
@@ -2478,27 +2478,27 @@ body > iframe {
 /* ORDER FORM */
 .container.order {
 	min-height:200px;
-	
+
 	.instructions {
 		color:@textSubtle;
 		font-size:12px;
 		line-height:14px;
 	}
-	
+
 	form {
 		margin-top:50px;
-		
+
 		&>h3 {
 			margin:0;
 		}
-		
+
 		h3 {
 			margin-top:23px;
 		}
-		
+
 		.customer {
 			margin-bottom:40px;
-			
+
 			.packet-info {
 				select {
 					display:none;
@@ -2519,7 +2519,7 @@ body > iframe {
 				input {
 					margin-bottom:5px;
 				}
-				.field-note {					
+				.field-note {
 					font-size: 12px;
 					color: #666;
 					margin-top: -3px;
@@ -2535,10 +2535,10 @@ body > iframe {
 				ul {
 					li {
 						margin-bottom:10px;
-						
+
 						nobr {
 							float:right;
-							
+
 							span.price {
 								font-weight:bold;
 								margin:0 0 10px 10px;
@@ -2558,7 +2558,7 @@ body > iframe {
 				font-style:italic;
 				line-height:24px;
 				text-align:right;
-				
+
 				span {
 					padding-left:5px;
 				}
@@ -2572,7 +2572,7 @@ body > iframe {
 			border-top: 1px solid @seperatorHorizontal;
 			padding: 15px 0 10px;
 			text-align:right;
-			
+
 			label {
 				margin-right:15px;
 			}
@@ -2581,7 +2581,7 @@ body > iframe {
 				line-height:16px;
 				max-width:200px;
 				position:relative;
-				
+
 				input {
 					margin-bottom:0;
 				}
@@ -2600,15 +2600,15 @@ body > iframe {
 			a {
 				font-size:16px;
 				margin-left:15px;
-				
+
 				&.disabled {
 					color:@textSubtle;
 				}
 			}
-			
+
 			@media only screen and (max-width: @xs-max) {
 				text-align:left;
-				
+
 				label {
 					margin-bottom:4px;
 				}
@@ -2625,22 +2625,22 @@ body > iframe {
 			line-height:30px;
 			margin: 10px 0 50px;
 			text-align: right;
-			
+
 			span {
 				font-weight:bold;
 			}
-			
+
 			.portions {
 				font-size:16px;
 			}
 		}
 		.submit-button {
 			text-align:right;
-			
+
 			.button {
 				font-weight:bold;
 			}
-			
+
 			@media only screen and (max-width: @xs-max) {
 				text-align:center;
 			}
@@ -2652,28 +2652,28 @@ body > iframe {
 .container.profile {
 	.about {
 		margin-bottom:80px;
-		
+
 		.sign-out {
 			line-height:48px;
 			margin-top:6px;
-			
+
 			i {
 				margin-left:7px;
 			}
 		}
 		ul.list-group {
 			margin-bottom:45px;
-			
+
 			li.list-group-item {
 				border:0;
 				background:transparent;
 				margin:6px 0;
 				padding:0;
-				
+
 				&.head {
 					border-bottom:1px solid @seperatorHorizontal;
 					margin-bottom:18px;
-					
+
 					h3 {
 						margin-bottom:5px;
 					}
@@ -2704,12 +2704,12 @@ body > iframe {
 		.info-row {
 			font-size:14px;
 			margin-top:18px;
-			
+
 			h4 {
 				font-size:16px;
 				margin:0;
 			}
-			
+
 			span {
 				color:@textSubtle;
 				font-size:12px;
@@ -2721,18 +2721,18 @@ body > iframe {
 			font-size:12px;
 			margin-bottom:18px;
 			padding-bottom:10px;
-			
+
 			a {
 				.inline-block();
 				padding:4px 7px 4px 10px;
-				
+
 				&:first-child {
 					padding-left:0;
 				}
 				&:last-child {
 					padding-right:0;
 				}
-				
+
 				span {
 					color:@text;
 					font-size:16px;
@@ -2740,12 +2740,12 @@ body > iframe {
 					vertical-align:sub;
 				}
 			}
-				
+
 			@media only screen and (max-width: @xs-max) {
 				margin-bottom:22px;
 				margin-top:12px;
 				padding-bottom:22px;
-				
+
 				a {
 					padding:5px 0 7px;
 				}
@@ -2769,7 +2769,7 @@ body > iframe {
 		font-size:14px;
 		line-height:14px;
 		margin-top:60px;
-		
+
 		h4 {
 			color:@textSubtle;
 			font-size:12px;
@@ -2784,19 +2784,19 @@ body > iframe {
 	.calculation {
 		margin-bottom:40px;
 		margin-top:50px;
-		
+
 		h3 {
 			margin-bottom:15px;
 		}
-		
+
 		table {
 			width:100%;
-			
+
 			tr {
 				td,
 				th {
 					padding-right:15px;
-					
+
 					&:last-child {
 						padding-right:0;
 					}
@@ -2819,7 +2819,7 @@ body > iframe {
 						line-height:18px;
 						padding-bottom:10px;
 						padding-top:10px;
-						
+
 						@media only screen and (max-width: @xs-max) {
 							font-size:12px;
 							line-height:15px;
@@ -2839,7 +2839,7 @@ body > iframe {
 			}
 			tfoot {
 				border-top:1px solid @seperatorHorizontal;
-				
+
 				tr {
 					&.price-line {
 						td {
@@ -2848,7 +2848,7 @@ body > iframe {
 							padding-top:5px;
 							text-transform:uppercase;
 							vertical-align:baseline;
-							
+
 							@media only screen and (max-width: @xs-max) {
 								font-size:14px;
 							}
@@ -2863,7 +2863,7 @@ body > iframe {
 	}
 	.reservation {
 		margin-top:65px;
-		
+
 		h3 {
 			margin-bottom:27px;
 		}
@@ -2882,7 +2882,7 @@ body > iframe {
 	}
 	.rest-of-payment {
 		margin-top:60px;
-		
+
 		h3 {
 			margin-bottom:20px;
 		}
@@ -2895,7 +2895,7 @@ body > iframe {
 			margin-bottom:13px;
 			padding-bottom:25px;
 			padding-top:25px;
-			
+
 			select {
 				margin-bottom:0;
 			}
@@ -2905,29 +2905,29 @@ body > iframe {
 		font-size:16px;
 		font-weight:bold;
 		line-height:18px;
-		
+
 		.portion {
 			margin-bottom:10px;
 		}
 	}
 	.last {
 		margin-top:70px;
-		
+
 		@media only screen and (min-width: @sm-min) {
 			text-align:right;
 		}
 		@media only screen and (max-width: @xs-max) {
 			text-align:center;
-			
+
 			.terms-and-conditions {
 				text-align:left;
 			}
 		}
-		
+
 		.terms-and-conditions {
 			.inline-block();
 			margin:15px 30px 15px 0;
-			
+
 			input {
 				margin-right:5px;
 				vertical-align:text-top;
@@ -2952,7 +2952,7 @@ body > iframe {
 	}
 	.instalments {
 		margin-bottom:35px;
-		
+
 		.total-amount {
 			margin-bottom:10px;
 		}
@@ -2961,7 +2961,7 @@ body > iframe {
 			font-size:18px;
 			padding:30px;
 			margin-top:15px;
-			
+
 			label {
 				color:@textImportant;
 				font-size:18px;
@@ -2973,7 +2973,7 @@ body > iframe {
 				color:@rcDisabled;
 			}
 			.title,
-			.price, {
+			.price {
 				padding-top:6px;
 				text-transform:uppercase;
 			}
@@ -3011,35 +3011,35 @@ body > iframe {
 		line-height:20px;
 		margin-top:20px;
 		padding-top:15px;
-		
+
 		.selected-amount {
 			font-size:36px;
 			line-height:36px;
 		}
 	}
-	
+
 	.payment-methods {
 		background:#FFF;
 		margin-top:35px;
 		padding:50px 35px 45px;
-		
+
 		.ml {
 			margin-top:15px;
 		}
 		.methods {
 			text-align:center;
-			
+
 			&>div {
 				.inline-block();
 				padding:5px 11px 30px;
-				
+
 				&:first-child {
 					padding-left:0;
 				}
 				&:last-child {
 					padding-right:0;
 				}
-				
+
 				label {
 					display:block;
 					margin-bottom:5px;
@@ -3055,22 +3055,22 @@ body > iframe {
 			}
 		}
 	}
-	
+
 	.payment-methods-info {
 		border-left: 12px solid @textImportant;
 		display:none;
 		padding:40px;
-		
+
 		.payment-info {
 			display:none;
 			.opacity(0);
-			
+
 			h3 {
 				font-weight:bold;
 			}
 		}
 	}
-	
+
 	&.confirmform {
 		form {
 			margin-top:20px;
@@ -3079,7 +3079,7 @@ body > iframe {
 			margin-bottom:15px;
 		}
 	}
-	
+
 	@media only screen and (max-width:@xs-max) {
 		.instalments {
 			.total-amount {
@@ -3087,7 +3087,7 @@ body > iframe {
 			}
 			.instalment {
 				padding:15px 3px;
-				
+
 				.seperator {
 					margin:10px 0;
 				}
@@ -3101,7 +3101,7 @@ body > iframe {
 				}
 				.select-instalment {
 					padding-top:4px;
-					
+
 					label {
 						font-size:16px;
 						padding-left:26px;
@@ -3122,7 +3122,7 @@ body > iframe {
 		}
 		.remaining-and-all {
 			margin-bottom:15px;
-			
+
 			.pay-all {
 				label {
 					font-size:16px;
@@ -3140,7 +3140,7 @@ body > iframe {
 			line-height:16px;
 			margin-top:0;
 			padding-bottom:15px;
-			
+
 			.select-title {
 				padding-top:2px;
 			}
@@ -3156,7 +3156,7 @@ body > iframe {
 		.payment-methods {
 			background:none;
 			padding:0;
-			
+
 			.ml {
 				margin-bottom:15px;
 				text-align:center;
@@ -3164,7 +3164,7 @@ body > iframe {
 			.methods {
 				&>div {
 					padding:5px 8px;
-					
+
 					img {
 						height:29px;
 					}
@@ -3172,7 +3172,7 @@ body > iframe {
 			}
 			.final-button {
 				text-align:center;
-				
+
 				input[type=submit] {
 					margin-top:45px;
 					padding-left:50px;
@@ -3188,7 +3188,7 @@ body > iframe {
 	}
 	.error-message {
 		margin-top:25px;
-		
+
 		.button {
 			margin-top:10px;
 		}
@@ -3201,11 +3201,11 @@ body > iframe {
 		.modal-content {
 			background:@modalBackground;
 			.rounded(0);
-			
+
 			.modal-header {
 				border-bottom:0;
 				text-align: center;
-				
+
 				h4 {
 					color:@modalText;
 				}
@@ -3217,7 +3217,7 @@ body > iframe {
 				}
 				input {
 					margin-bottom:8px;
-					
+
 					&#password {
 						margin-bottom:3px;
 					}
@@ -3476,9 +3476,17 @@ body.rtl .formError .formErrorArrow {
 .loader.back {
 	position:absolute;
 	z-index:0;
-	
+
 	&.center {
 		left:50%;
 		margin-left:-5em;
+	}
+}
+/**
+Derive
+*/
+#js-checkout {
+	> div {
+      display: none;
 	}
 }

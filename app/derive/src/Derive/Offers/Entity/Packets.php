@@ -47,6 +47,11 @@ class Packets extends Entity
                         function(HasMany $includes) {
                             $includes->published();
                         }
+                    )
+                    ->withDeductions(
+                        function(HasMany $deductions) {
+                            $deductions->published();
+                        }
                     );
     }
 
@@ -81,7 +86,15 @@ class Packets extends Entity
         return $this->hasAndBelongsTo(Additions::class)
                     ->over(PacketsIncludes::class)
                     ->leftForeignKey('packet_id')
-                    ->rightForeignKey('include_id');
+                    ->rightForeignKey('addition_id');
+    }
+
+    public function deductions()
+    {
+        return $this->hasAndBelongsTo(Additions::class)
+                    ->over(PacketsDeductions::class)
+                    ->leftForeignKey('packet_id')
+                    ->rightForeignKey('deduction_id');
     }
 
 }

@@ -1,5 +1,6 @@
 <?php
 
+use Derive\Offers\Migration\CreatePacketDeductionsTable;
 use Derive\Orders\Migration\OrdersTags;
 use Derive\Platform\Migration\CreatePlatformTables;
 use Pckg\Auth\Migration\CreateAuthTables;
@@ -15,4 +16,5 @@ return [
     //InstallDynamicTables::class,
     CreatePlatformTables::class,
     CreateFursTable::class,
+    CreatePacketDeductionsTable::class,
 ];

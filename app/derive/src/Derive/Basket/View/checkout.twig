@@ -1,0 +1,188 @@
+<div id="js-checkout">
+    <div class="step-order">
+        {% include 'basket/orderForm.twig' %}
+    </div>
+    <div class="step-estimate">
+        {% include 'basket/estimateForm.twig' %}
+    </div>
+    <div class="step-validating">
+        <p>Order is being validated, please wait a moment please. =)</p>
+    </div>
+</div>
+
+<script>
+    data.customers = {{ customers.toJSON() | raw }};
+    data.orderType = '{{ orderType }}';
+    data.offer = {{ offer.toJSON() | raw }};
+    data.step = 'order';
+
+    Vue.filter('price', function (price, decimals) {
+        return locale.price(price, decimals);
+    });
+
+    var orderForm = new Vue({
+        el: '#js-checkout',
+        data: function () {
+            return {
+                customers: data.customers,
+                orderType: data.orderType,
+                offer: data.offer,
+                packets: data.packets,
+                step: data.step,
+                order: {},
+                installments: [],
+                portions: [],
+                summary: {}
+            };
+        },
+        ready: function () {
+            $('.step-order').slideDown(500);
+
+            history.replaceState({
+                step: this.step,
+                next: 'estimate'
+            }, null);
+
+            window.onpopstate = function (event) {
+                this.step = event.state.step;
+                this.navigateSteps(event.state.next, event.state.step);
+            }.bind(this);
+        },
+        computed: {
+            payee: function () {
+                return this.customers[0];
+            }
+        },
+        methods: {
+            sumCheckedValues: function (items) {
+                var sum = 0.0;
+
+                $.each(items, function (i, item) {
+                    if (item.checked && item.value > 0) {
+                        sum += parseFloat(item.value);
+                    }
+                });
+
+                return sum;
+            },
+            getDepartmentCost: function (customer) {
+                var sum = 0.0;
+
+                $.each(customer.departments, function (i, department) {
+                    if (customer.department_id == department.id && department.pivot.fee > 0) {
+                        sum += parseFloat(department.pivot.fee);
+                    }
+                });
+
+                return sum;
+            },
+            getCustomerSummary: function (customer) {
+                var sum = 0.0;
+
+                /**
+                 * Add packet.
+                 */
+                sum += parseFloat(customer.packet.price);
+
+                /**
+                 * Add additions.
+                 */
+                sum += this.sumCheckedValues(customer.additions);
+
+                /**
+                 * Add departments.
+                 */
+                sum += this.getDepartmentCost(customer);
+
+                /**
+                 * Remove deductions.
+                 */
+                sum -= this.sumCheckedValues(customer.deductions);
+
+                return sum;
+            },
+            getSummary: function () {
+                var sum = 0.0;
+
+                /**
+                 * Summarize each customer.
+                 */
+                $.each(this.customers, function (hash, customer) {
+                    sum += this.getCustomerSummary(customer);
+                }.bind(this));
+
+                return sum;
+            },
+            submitOrderForm: function () {
+                var customers = [];
+                /**
+                 * We want to send only speciffic info.
+                 */
+                $.each(this.customers, function (i, customer) {
+                    customers.push({
+                        email: customer.email,
+                        name: customer.name,
+                        surname: customer.surname,
+                        phone: customer.phone,
+                        packet_id: customer.packet.id,
+                        department: null,
+                        additions: [],
+                        deductions: []
+                    });
+                });
+
+                /**
+                 * Make request and handle result.
+                 */
+                http.post('{{ url('derive.basket.order') }}', function () {
+                    return {
+                        offer_id: this.offer.id,
+                        customers: customers,
+                        promocode: this.promocode
+                    };
+                }.bind(this), function (data) {
+                    this.step = 'estimate';
+                    this.order = data.order;
+                    this.installments = data.installments;
+                    this.summary = data.summary;
+
+                    this.navigateSteps('order', 'estimate');
+
+                    history.pushState({
+                        step: 'order',
+                        next: 'estimate'
+                    }, 'Estimate', '/estimate');
+                }.bind(this), function () {
+                    // error
+                });
+            },
+            submitEstimateForm: function () {
+                this.navigateSteps('estimate', 'validating');
+
+                /**
+                 * Make request and handle result.
+                 */
+                http.post('{{ url('derive.basket.estimate') }}', function () {
+                    return {
+                        installments: this.installment,
+                        order_id: this.order.id
+                    };
+                }.bind(this), function (data) {
+                    this.step = 'validating';
+
+                    history.pushState({
+                        step: 'estimate',
+                        next: 'validating'
+                    }, 'Validating order', '/validating-order');
+                });
+            },
+            navigateSteps: function (prev, next) {
+                $('.step-' + prev).slideUp(500, function () {
+                    $("html, body").animate({scrollTop: 0}, function () {
+                        $('.step-' + next).slideDown(500);
+                    });
+                });
+            }
+        }
+    });
+</script>

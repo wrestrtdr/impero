@@ -1,15 +1,17 @@
 <?php namespace Derive\Basket\Service;
 
 use Derive\Basket\Service\Summary\Item;
+use JsonSerializable;
+use Pckg\Collection;
 
-class Summary
+class Summary implements JsonSerializable
 {
 
     protected $items = [];
 
     public function addItem(Item $item)
     {
-        $this->items = $item;
+        $this->items[] = $item;
 
         return $this;
     }
@@ -17,7 +19,7 @@ class Summary
     public function getSum()
     {
         $sum = 0.0;
-        $this->items->each(
+        (new Collection($this->items))->each(
             function(Item $item) use (&$sum) {
                 $sum += $item->getTotal();
             }
@@ -47,4 +49,10 @@ class Summary
         }
     }
 
+    function jsonSerialize()
+    {
+        return [
+            'items' => $this->items,
+        ];
+    }
 }

@@ -2,10 +2,13 @@
 
 use Derive\Orders\Record\OrdersTag;
 use Pckg\Database\Entity;
+use Pckg\Database\Entity\Extension\Timeable;
 use Pckg\Database\Repository;
 
 class OrdersTags extends Entity
 {
+
+    use Timeable;
 
     protected $record = OrdersTag::class;
 

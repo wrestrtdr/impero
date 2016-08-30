@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 	$(document).delegate("select#bills", "change", function(){
 		$.post("/estimate/json/portions", { offer: $("input[name='offer_id']").val(), order: $("input[name='order_hash']").val(), portions: $(this).val() }, function(data){
 			data = fromJSON(data);
@@ -93,3 +93,4 @@ $(document).ready(function(){
 		return false;
 	});
 });
+*/

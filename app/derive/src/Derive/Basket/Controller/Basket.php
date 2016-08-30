@@ -11,6 +11,7 @@ use Derive\Orders\Record\OrdersUser;
 use Derive\Orders\Record\OrdersUsersAddition;
 use Pckg\Auth\Entity\Users;
 use Pckg\Auth\Record\User;
+use Pckg\Collection;
 use Pckg\Framework\Controller;
 use Pckg\Framework\View\Twig;
 use Pckg\Manager\Asset;
@@ -35,75 +36,46 @@ class Basket extends Controller
     {
         $packets = $this->get('packets', []);
 
-        $arrData = [];
-        $customers = 1;
-        $total = 0;
-        $payment = 0;
+        $customers = new Collection();
         $orderType = null;
-        $totalQuantity = $arrData['total_quantity'] = array_sum($packets);
-
-        foreach ($packets AS $packet => $quantity) {
-            $rPacket = $packetsEntity->forSecondStep()
-                                     ->where('id', $packet)
-                                     ->oneOrFail();
-            $arrPackets = $packetsEntity->forSecondStep()
-                                        ->where('offer_id', $rPacket->offer_id)
-                                        ->where('ticket', $rPacket->ticket)
-                                        ->allOrFail();
+        $ticket = null;
+        foreach ($packets AS $packetId => $quantity) {
+            $packet = $packetsEntity->forSecondStep()
+                                    ->where('id', $packetId)
+                                    ->oneOrFail();
 
             /**
              * Set view data.
              */
             for ($i = 0; $i < $quantity; $i++) {
                 $hash = sha1(microtime());
-                $type = $total == 0
-                    ? "payee"
-                    : "customers";
-                $arrData[$type][$hash]["packet"] = $rPacket;
-                $arrData[$type][$hash]["packets"] = $arrPackets;
-                $arrData[$type][$hash]["hash"] = $hash;
-                $arrData[$type][$hash]["payment"] = cutAndMakePrice($rPacket->price);
-
-                /**
-                 * Count customers.
-                 */
-                if ($total) {
-                    $customers++;
-                }
-
-                $total++;
+                $customers->push(
+                    [
+                        "hash"        => $hash,
+                        "packet"      => $packet,
+                        'additions'   => $packet->additions,
+                        'departments' => $packet->departments,
+                        'includes'    => $packet->includes,
+                        'deductions'  => $packet->deductions,
+                    ],
+                    $hash
+                );
             }
 
             /**
              * Set form type.
              */
-            if ($rPacket->ticket) {
+            if ($packet->ticket) {
                 $orderType = 'simple';
             } else {
                 $orderType = 'complex';
             }
-
-            /**
-             * @T00D00 - move this to view
-             */
-            if ($rPacket->ticket) {
-                $rPacket->includes->each(
-                    function($include) use ($totalQuantity) {
-                        $include->title = $totalQuantity . "x " . $include->title;
-                    }
-                );
-            }
-
-            /**
-             * Add packet price to payment.
-             */
-            $payment += $rPacket->price;
         }
 
-        /**
-         * Payee is only one.
-         */
-        $arrData['payee'] = end($arrData['payee']);
+        $packets = $packetsEntity->forSecondStep()
+                                 ->where('offer_id', $offer->id)
+                                 ->where('ticket', $orderType == 'simple' ? 1 : null)
+                                 ->allOrFail();
 
         $this->assetManager()->addAssets(
             [
@@ -114,18 +86,15 @@ class Basket extends Controller
             path('www')
         );
 
-        Twig::addStaticData('cssPage', 'order');
+        Twig::addStaticData('cssPage', 'order estimateform');
 
         return view(
-            'Derive\Basket:basket\orderForm',
+            'Derive\Basket:checkout',
             [
-                'cssPage'    => 'order',
-                'offer'      => $offer,
-                "form"       => $arrData,
-                'orderType'  => $orderType,
-                'totalUsers' => $totalQuantity,
-                'payment'    => $payment,
-                'action'     => url('predracun'),
+                'offer'     => $offer,
+                "customers" => $customers,
+                'packets'   => $packets,
+                'orderType' => $orderType,
             ]
         );
     }
@@ -174,7 +143,7 @@ class Basket extends Controller
      * Accepts customer data and promo code.
      * Returns estimate data.
      */
-    public function postOrderFormAction(Offer $offer, Users $users)
+    public function postOrderAction(Offer $offer, Users $users)
     {
         /**
          * Expected data:
@@ -210,15 +179,14 @@ class Basket extends Controller
         $order = $this->post()->toArray();
         $hash = sha1(microtime());
 
-        if (!$this->post('order')) {
+        if (!$this->post('customers')) {
             return [
                 "success" => false,
                 "text"    => __("order_data_missing"),
             ];
         }
 
-        $this->session()->last_order = $order;
-        $this->session()->last_order->hash = $hash;
+        $this->session()->set('last_order', $order);
 
         $showPortions = $offer->getMaxPortions();
 
@@ -239,9 +207,9 @@ class Basket extends Controller
          * Save each orders_user.
          */
         $payeeRegistered = false;
-        foreach ($this->post('order') as $tempHash => $orderUser) {
+        foreach ($this->post('customers') as $tempHash => $customer) {
             $pass = substr(sha1(microtime()), 0, 10);
-            $user = $users->where('email', $orderUser['email'])->one();
+            $user = $users->where('email', $customer['email'])->one();
 
             if (!$order->user_id && $user) {
                 $payeeRegistered = true;
@@ -253,14 +221,22 @@ class Basket extends Controller
             if (!$user) {
                 $user = User::create(
                     [
-                        'email'   => $orderUser['email'],
-                        'name'    => $orderUser['name'] ?? null,
-                        'surname' => $orderUser['surname'] ?? null,
-                        'phone'   => $orderUser['phone'] ?? null,
-                        'address' => $orderUser['address'] ?? null,
+                        'email'   => $customer['email'],
+                        'name'    => $customer['name'] ?? null,
+                        'surname' => $customer['surname'] ?? null,
+                        'phone'   => $customer['phone'] ?? null,
+                        'address' => $customer['address'] ?? null,
                         'pass'    => $pass,
                     ]
                 );
+            }
+
+            /**
+             * Set order data.
+             */
+            if (!$order->user_id) {
+                $order->user_id = $user->id;
+                $order->save();
             }
 
             /**
@@ -293,8 +269,10 @@ class Basket extends Controller
                 [
                     'order_id'  => $order->id,
                     'user_id'   => $user->id,
-                    'packet_id' => $orderUser['packet_id'],
-                    'notes'     => $orderUser['notes'],
+                    'packet_id' => $customer['packet_id'],
+                    'notes'     => $customer['notes'] ?? null,
+                    'dt_added'  => date('Y-m-d H:i:s'),
+                    'city_id'   => $customer['department_id'] ?? null,
                 ]
             );
             $ordersUser->save();
@@ -302,7 +280,7 @@ class Basket extends Controller
             /**
              * Save additions.
              */
-            foreach ($orderUser['additions'] as $addition) {
+            foreach ($customer['additions'] ?? [] as $addition) {
                 $ordersUserAddition = new OrdersUsersAddition(
                     [
                         'order_user_id' => $ordersUser->id,
@@ -315,7 +293,7 @@ class Basket extends Controller
             /**
              * Save deductions.
              */
-            foreach ($orderUser['deductions'] as $deduction) {
+            foreach ($customer['deductions'] ?? [] as $deduction) {
                 $ordersUserAddition = new OrdersUsersAddition(
                     [
                         'order_user_id' => $ordersUser->id,
@@ -332,14 +310,7 @@ class Basket extends Controller
         $arrSumPackets = [];
         $arrSumAdditions = [];
         $arrSumDeductions = [];
-        foreach ($order['order'] AS $userOrder) {
-            if (!isset($userOrder['packet_id'])) {
-                return [
-                    "success" => false,
-                    "text"    => __("cannot_find_packet"),
-                ];
-            }
-
+        foreach ($this->post('customers') as $userOrder) {
             /**
              * Summarize packets.
              */
@@ -352,26 +323,22 @@ class Basket extends Controller
             /**
              * Summarize additions.
              */
-            if (isset($userOrder['additions'])) {
-                foreach ($userOrder['additions'] AS $userAddition) {
-                    if (isset($arrSumAdditions[$userAddition])) {
-                        $arrSumAdditions[$userAddition]++;
-                    } else {
-                        $arrSumAdditions[$userAddition] = 1;
-                    }
+            foreach ($userOrder['additions'] ?? [] AS $userAddition) {
+                if (isset($arrSumAdditions[$userAddition])) {
+                    $arrSumAdditions[$userAddition]++;
+                } else {
+                    $arrSumAdditions[$userAddition] = 1;
                 }
             }
 
             /**
              * Summarize deductions.
              */
-            if (isset($userOrder['deductions'])) {
-                foreach ($userOrder['deductions'] AS $userDeduction) {
-                    if (isset($arrSumDeductions[$userDeduction])) {
-                        $arrSumDeductions[$userDeduction]++;
-                    } else {
-                        $arrSumDeductions[$userDeduction] = 1;
-                    }
+            foreach ($userOrder['deductions'] ?? [] AS $userDeduction) {
+                if (isset($arrSumDeductions[$userDeduction])) {
+                    $arrSumDeductions[$userDeduction]++;
+                } else {
+                    $arrSumDeductions[$userDeduction] = 1;
                 }
             }
         }
@@ -402,50 +369,8 @@ class Basket extends Controller
          * Get max portions.
          */
         $maxPortions = $offer->getMaxPortions();
-        $arrPortions = range(1, $maxPortions);
 
-        /**
-         * @T00D00 - previous system re-saved orders_users and additions?
-         */
-
-        $tplData = [
-            "payee"            => $order->user,
-            "order"            => $order,
-            "paymentDate"      => date("d.m.Y", strtotime($offer->dt_closed)),
-            "offer"            => $offer,
-            "sumTotal"         => $sum,
-            /**
-             * @T00D00 - remove and refactor?
-             */
-            "sumRemaining"     => $sum - RESERVATION,
-            "paymentsList"     => /*HTML::select(
-                [
-                    "id"      => "bills",
-                    "name"    => "bills",
-                    "options" => $arrPortions,
-                ]
-            ),*/
-                null,
-            "portion"          => /*$this->portions(
-                [
-                    "portions"     => 1,
-                    "max"          => $offer->dt_closed,
-                    "price"        => $sum - RESERVATION,
-                    'max_portions' => $maxPortions,
-                ]
-            ),*/
-                null,
-            "reservationPrice" => /*makePrice(RESERVATION)*/
-                null,
-            "action"           => url("placilna sredstva"),
-            "showPortions"     => $showPortions,
-            "mode"             => /*MODE*/
-                'full',
-            'bills'            => $arrBills,
-            'summary'          => $summary,
-        ];
-
-        $return = [
+        return [
             'order'        => $order,
             'summary'      => [
                 'bills '    => [
@@ -489,9 +414,8 @@ class Basket extends Controller
                     'price'    => 339.5,
                 ],
             ],
+            'summary'      => $summary,
         ];
-
-        return view('Pckg\Derive:basket\estimate', $return);
     }
 
     public function oldPostOrderFormAction()

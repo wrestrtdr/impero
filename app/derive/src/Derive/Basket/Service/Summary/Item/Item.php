@@ -1,7 +1,9 @@
 <?php namespace Derive\Basket\Service\Summary\Item;
 
-class Item implements \Derive\Basket\Service\Summary\Item
+class Item implements \Derive\Basket\Service\Summary\Item, \JsonSerializable
 {
+
+    use Shared;
 
     protected $title;
 

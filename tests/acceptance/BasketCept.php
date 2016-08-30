@@ -1,4 +1,5 @@
 <?php
+return;
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Check that basket order works');
 $I->amOnPage('/order');

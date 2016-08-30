@@ -56,7 +56,7 @@ class InitPlatformDatabase
             throw new Exception('Platform is missing (InitPlatformDatabase)');
         }
 
-        $platform = $this->platforms->where('id', $platformId)->one();
+        $platform = $this->platforms->where('id', $platformId)->oneOrFail();
 
         $this->context->bind(
             Repository::class . '.gnp',

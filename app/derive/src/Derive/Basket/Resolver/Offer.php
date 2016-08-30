@@ -21,7 +21,7 @@ class Offer implements RouteResolver
     public function resolve($value)
     {
         return (new Offers())
-            ->forSecondStep()
+            //->forSecondStep()
             ->where('id', $this->get->get('offer_id') ?? $this->post->get('offer_id'))
             ->oneOrFail(
                 function() {

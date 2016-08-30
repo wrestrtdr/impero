@@ -226,8 +226,12 @@ class Orders extends Entity implements MaestroEntity
             $realMaxNum = (int)ltrim(end($tempArr), "0");
         }
 
-        $order->num = date('Y') . '-' . numToString($realMaxNum + 1);
-        $order->save();
+        $order->set(
+            [
+                'num'      => date('Y') . '-' . numToString($realMaxNum + 1),
+                'dt_added' => date('Y-m-d H:i:s'),
+            ]
+        );
 
         return $order;
     }

@@ -3,9 +3,12 @@
 use Derive\Basket\Service\Summary\Item;
 use Derive\Offers\Record\Addition as AdditionRecord;
 use Derive\Offers\Record\Packet as PacketRecord;
+use JsonSerializable;
 
-class Addition implements Item
+class Addition implements Item, JsonSerializable
 {
+
+    use Shared;
 
     /**
      * @var PacketRecord

@@ -3,7 +3,7 @@
 use Pckg\Database\Repository;
 use Pckg\Migration\Migration;
 
-class CreatePacketDeducts extends Migration
+class CreatePacketDeductionsTable extends Migration
 {
 
     protected $repository = Repository::class . '.gnp';
@@ -11,9 +11,9 @@ class CreatePacketDeducts extends Migration
     public function up()
     {
         /**
-         * Create packets_deducts table.
+         * Create packets_deductions table.
          */
-        $packetsDeducts = $this->table('packet_deducts');
+        $packetsDeducts = $this->table('packet_deductions');
         $packetsDeducts->integer('packet_id')->references('packets');
         $packetsDeducts->integer('addition_id')->references('additions');
         $packetsDeducts->decimal('value');

@@ -79,9 +79,9 @@
 
 <div class="alert alert-success logout" data-dismiss="alert">{{ __('logout_successful') }}</div>
 
-{% if config('defaults.mode') == 'full' %}
+{% if false and config('defaults.mode') == 'full' %}
     <!-- HEADER -->
-    <header class="header {% if true or homepage %}homepage{% endif %}">
+    <header class="header {% if homepage %}homepage{% endif %}">
         {% if true or homepage %}
             <video autoplay loop poster="//bob.pckg.derive/app/derive/src/Derive/Layout/public/img/homepage-header-background.jpg" id="homepage_video">
                 <source src="//bob.pckg.derive/app/derive/src/Derive/Layout/public/img/header.mp4" type="video/mp4">

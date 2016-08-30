@@ -492,9 +492,11 @@ class Order extends Record
          */
         $ordersUsersAdditions = (new OrdersUsersAdditions())
             ->addSelect(['quantity' => 'COUNT(id)'])
-            ->withAdditions()
+            ->withAddition()
             ->where('orders_user_id', $this->ordersUsers->map('id'))
+            ->groupBy('addition_id')
             ->all();
+
         $ordersUsersAdditions->each(
             function(OrdersUsersAddition $ordersUsersAddition) use ($summary) {
                 $summary->addItem(new Addition($ordersUsersAddition->addition, $ordersUsersAddition->quantity));
@@ -506,8 +508,9 @@ class Order extends Record
          */
         $ordersUsersAdditions = (new OrdersUsersDeductions())
             ->addSelect(['quantity' => 'COUNT(id)'])
-            ->withAdditions()
+            ->withAddition()
             ->where('orders_user_id', $this->ordersUsers->map('id'))
+            ->groupBy('addition_id')
             ->all();
         $ordersUsersAdditions->each(
             function(OrdersUsersDeduction $ordersUsersDeduction) use ($summary) {

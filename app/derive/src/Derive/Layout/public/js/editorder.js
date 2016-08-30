@@ -1,4 +1,4 @@
-function recalculateNumbers() {
+/*function recalculateNumbers() {
 	var num = 1;
 	$(".ordersUserNum").each(function(){
 		$(this).html(num);
@@ -182,3 +182,4 @@ $(document).ready(function(){
 		}
 	});
 });
+*/

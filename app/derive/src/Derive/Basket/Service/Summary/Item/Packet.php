@@ -2,9 +2,12 @@
 
 use Derive\Basket\Service\Summary\Item;
 use Derive\Offers\Record\Packet as PacketRecord;
+use JsonSerializable;
 
-class Packet implements Item
+class Packet implements Item, JsonSerializable
 {
+
+    use Shared;
 
     /**
      * @var PacketRecord

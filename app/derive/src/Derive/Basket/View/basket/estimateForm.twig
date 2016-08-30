@@ -1,0 +1,160 @@
+<script>
+    $(document).ready(function () {
+        $('#estimateform').validationEngine('attach');
+    });
+</script>
+<form method="POST" action="{{ action }}" id="estimateform">
+    <h1>{{ offer.title }}</h1>
+
+    <h2 class="border-b">
+        {{ __('estimate_instructions_heading') }}
+        <span class="step">{{ __('step_three') }}</span>
+
+        <div class="clearfix"></div>
+    </h2>
+
+    <div class="instructions">{{ __('estimate_form_intro') }}</div>
+
+    <!-- USER INFOMATION -->
+    <div class="subscriber">
+        <h3 class="font-secondary square-left border-b">{{ __('heading_payee_info') }}</h3>
+
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <h4>{{ __('buyer') }}</h4>
+
+                {% verbatim %}
+                <p>{{ payee.name }} {{ payee.surname }}</p>
+
+                <p>{{ payee.address }}</p>
+
+                <p>{{ payee.post }}</p>
+                {% endverbatim %}
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <h4>{{ __('estimate_number') }}</h4>
+
+                {% verbatim %}
+                <p>{{ order.num }}</p>
+                {% endverbatim %}
+            </div>
+        </div>
+    </div>
+
+    <!-- BILL SUMMARY -->
+    <div class="calculation">
+        <h3 class="font-secondary square-left">{{ __('heading_order_review_and_bills') }}</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>{{ __('table_description') }}</th>
+                <th>{{ __('table_quantity') }}</th>
+                <th>{{ __('table_price') }}</th>
+                <th>{{ __('table_sum') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% verbatim %}
+            <tr v-for="item in summary.items">
+                <td>{{ item.title | raw }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>
+                    <nobr>{{ item.price }}</nobr>
+                </td>
+                <td>
+                    <nobr>{{ item.total }}</nobr>
+                </td>
+            </tr>
+            {% endverbatim %}
+            </tbody>
+            <tfoot>
+            <tr class="price-line">
+                <td colspan="3">{{ __('your_orders_sum') }}</td>
+                <td>
+                    <span>{{ '{{ summary.total }}' }} €</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- RESERVATION PAYMENT -->
+    <!--
+    <div class="reservation" {% if not showReservations %}style="display: none;"{% endif %}>
+        <h3 class="font-secondary square-left border-b">{{ __('heading_reservation') }}</h3>
+
+        <div class="important-box">
+            <div class="row">
+                <div class="text col-sm-8">
+                    {{ __('text_reservation') }}
+                </div>
+                <div class="price col-sm-4">
+                    {{ reservationPrice }}
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <!-- REST OF THE PAYMENT -->
+    <div class="rest-of-payment" {% if not showPortions %}style="display: none;"{% endif %}>
+        <h3 class="font-secondary square-left">{{ __('heading_payment_and_bills') }}</h3>
+
+        <div class="row top">
+            <div class="col-sm-9">
+                {{ __('remaining') }}
+            </div>
+            <div class="col-sm-3">
+                <!-- {{ sumRemaining }}€ -->
+                {{ '{{ summary.total }}' }}
+            </div>
+        </div>
+        <div class="row selection">
+            <div class="col-sm-9">
+                {{ __('select_bill_number') }}
+            </div>
+            <div class="col-sm-3">
+                {% verbatim %}
+                <select v-model="installment">
+                    <option v-for="installment in installments" v-bind:value="installment.num">{{ installment.title }}</option>
+                </select>
+                {% endverbatim %}
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTIONS -->
+    <div class="portions" {{ showPortions }}>
+        {% verbatim %}
+            <div class="row portion" v-for="portion in portions">
+                <div class="col-sm-5 portion-number">
+                    {{ portion.num }}. {{ __('bill') }}
+                </div>
+                <div class="col-sm-4 payment-date">
+                    {{ __('payment_date') }}: <span>{{ portion.dueDate }}</span>
+                </div>
+                <div class="col-sm-3 portion-sum">
+                    {{ portion.price }} €
+                </div>
+            </div>
+                {% endverbatim %}
+    </div>
+
+    <div class="last row">
+        <div class="col-xs-12">
+            <div class="terms-and-conditions">
+                <input id="terms-and-conditions" name="terms-and-conditions" type="checkbox" required
+                       data-validation-engine="validate[required]"> <label
+                        for="terms-and-conditions">{{ __('confirm_terms_and_conditions') }}</label>
+            </div>
+            <input class="button negative medium" type="button" id="btnSubmitEstimate"
+                   value="{{ __('btn_send_order') }}" v-on:click.prevent="submitEstimateForm"/>
+        </div>
+    </div>
+</form>
