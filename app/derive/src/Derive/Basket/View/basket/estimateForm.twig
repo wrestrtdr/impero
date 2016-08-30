@@ -25,10 +25,6 @@
 
                 {% verbatim %}
                 <p>{{ payee.name }} {{ payee.surname }}</p>
-
-                <p>{{ payee.address }}</p>
-
-                <p>{{ payee.post }}</p>
                 {% endverbatim %}
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
@@ -59,10 +55,10 @@
                 <td>{{ item.title | raw }}</td>
                 <td>{{ item.quantity }}</td>
                 <td>
-                    <nobr>{{ item.price }}</nobr>
+                    <nobr>{{ item.price | price }}</nobr>
                 </td>
                 <td>
-                    <nobr>{{ item.total }}</nobr>
+                    <nobr>{{ item.total | price }}</nobr>
                 </td>
             </tr>
             {% endverbatim %}
@@ -71,7 +67,7 @@
             <tr class="price-line">
                 <td colspan="3">{{ __('your_orders_sum') }}</td>
                 <td>
-                    <span>{{ '{{ summary.total }}' }} €</span>
+                    <span>{{ '{{ summary.sum | price }}' }}</span>
                 </td>
             </tr>
             <tr>
@@ -83,27 +79,8 @@
         </table>
     </div>
 
-    <!-- RESERVATION PAYMENT -->
-    <!--
-    <div class="reservation" {% if not showReservations %}style="display: none;"{% endif %}>
-        <h3 class="font-secondary square-left border-b">{{ __('heading_reservation') }}</h3>
-
-        <div class="important-box">
-            <div class="row">
-                <div class="text col-sm-8">
-                    {{ __('text_reservation') }}
-                </div>
-                <div class="price col-sm-4">
-                    {{ reservationPrice }}
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-    -->
-
     <!-- REST OF THE PAYMENT -->
-    <div class="rest-of-payment" {% if not showPortions %}style="display: none;"{% endif %}>
+    <div v-show="portions.length > 1" class="rest-of-payment">
         <h3 class="font-secondary square-left">{{ __('heading_payment_and_bills') }}</h3>
 
         <div class="row top">
@@ -111,8 +88,7 @@
                 {{ __('remaining') }}
             </div>
             <div class="col-sm-3">
-                <!-- {{ sumRemaining }}€ -->
-                {{ '{{ summary.total }}' }}
+                {{ '{{ summary.sum | price }}' }}
             </div>
         </div>
         <div class="row selection">
@@ -121,8 +97,8 @@
             </div>
             <div class="col-sm-3">
                 {% verbatim %}
-                <select v-model="installment">
-                    <option v-for="installment in installments" v-bind:value="installment.num">{{ installment.title }}</option>
+                <select v-model="installment" v-on:change="updateInstallments">
+                    <option v-for="portion in portions" v-bind:value="portion">{{ portion }}</option>
                 </select>
                 {% endverbatim %}
             </div>
@@ -130,20 +106,18 @@
     </div>
 
     <!-- PORTIONS -->
-    <div class="portions" {{ showPortions }}>
-        {% verbatim %}
-            <div class="row portion" v-for="portion in portions">
-                <div class="col-sm-5 portion-number">
-                    {{ portion.num }}. {{ __('bill') }}
-                </div>
-                <div class="col-sm-4 payment-date">
-                    {{ __('payment_date') }}: <span>{{ portion.dueDate }}</span>
-                </div>
-                <div class="col-sm-3 portion-sum">
-                    {{ portion.price }} €
-                </div>
+    <div class="portions">
+        <div class="row portion" v-for="installment in installments">
+            <div class="col-sm-5 portion-number">
+                {{ '{{ installment.num }}' }}. {{ __('bill') }}
             </div>
-                {% endverbatim %}
+            <div class="col-sm-4 payment-date">
+                {{ __('payment_date') }}: <span>{{ '{{ installment.dueDate }}' }}</span>
+            </div>
+            <div class="col-sm-3 portion-sum">
+                {{ '{{ installment.price | price }}' }}
+            </div>
+        </div>
     </div>
 
     <div class="last row">

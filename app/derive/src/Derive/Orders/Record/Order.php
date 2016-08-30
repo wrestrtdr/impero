@@ -28,7 +28,22 @@ class Order extends Record
 
     protected $entity = Orders::class;
 
-    protected $toArray = ['user', 'packetsSummary'];
+    protected $toArray = ['user', 'packetsSummary', 'estimateUrl'];
+
+    public function getPaymentUrlAttribute()
+    {
+        return url('derive.basket.payment', ['order' => $this]);
+    }
+
+    public function getEstimateUrlAttribute()
+    {
+        return url(
+            'derive.basket.estimate.order',
+            [
+                'order' => $this,
+            ]
+        );
+    }
 
     public function getDownloadVoucherUrl()
     {
@@ -387,11 +402,7 @@ class Order extends Record
         $this->save();
     }
 
-    /**
-     * @return $this
-     * @T00D00
-     */
-    public function setInstallments($number)
+    public function getInstallments($number)
     {
         /**
          * Rules:
@@ -408,7 +419,7 @@ class Order extends Record
         /**
          * First payment is always today.
          */
-        $dueDates = [$today];
+        $dueDates = [$today->format('Y-m-d')];
 
         if ($diffInDays <= 15) {
             /**
@@ -432,33 +443,49 @@ class Order extends Record
                 break;
             }
 
-            $dueDates[] = $dueDate->copy();
+            $dueDates[] = $dueDate->copy()->format('Y-m-d');
         }
+
+        return $dueDates;
+    }
+
+    /**
+     * @return $this
+     * @T00D00
+     */
+    public function setInstallments($number)
+    {
+        $dueDates = $this->getInstallments($number);
 
         /**
          * We have due dates. Now we should make prices.
          */
         $payed = 0.0;
-        foreach ($this->ordersBills as $bill) {
-            if ($bill->payed) {
-                $payed += $bill->payed;
+        $this->ordersBills->each(
+            function(OrdersBill $bill) use (&$payed) {
+                if ($bill->payed) {
+                    $payed += $bill->payed;
+                }
             }
-            $bill->delete();
-        }
+        );
 
         $sum = 0.0;
         foreach ($dueDates as $i => $dueDate) {
             if ($i + 1 < count($dueDates)) {
-                $price = round($this->total / count($dueDates), 2);
+                $price = round($this->price / count($dueDates), 2);
             } else {
-                $price = round($this->total - $sum, 2);
+                $price = round($this->price - $sum, 2);
             }
             $ordersBill = new OrdersBill(
                 [
                     'order_id' => $this->id,
+                    'dt_added' => date('Y-m-d H:i:s'),
+                    'bill_id'  => '',
+                    'url'      => '',
                     'valid_at' => $dueDate,
                     'price'    => $price,
                     'payed'    => $payed,
+                    'type'     => 2,
                 ]
             );
             $ordersBill->save();
@@ -528,7 +555,7 @@ class Order extends Record
          * Summarize promo code.
          */
         if ($this->promo_code_id) {
-            $discount = $this->promoCode->getMinusByPrice($summary->getSum());
+            $discount = $this->promocode->getPriceDiff($summary->getSum());
             session()->promoDiscount = $discount;
 
             $summary->addItem(new Item(__('promo_code_title'), -$discount, 1));
@@ -537,6 +564,45 @@ class Order extends Record
         }
 
         return $summary;
+    }
+
+    public function getType()
+    {
+        if (!$this->ordersUsers->count()) {
+            return null;
+        }
+
+        return $this->ordersUsers->first()->packet->ticket ? 'simple' : 'complex';
+    }
+
+    public function getCustomers()
+    {
+        return new Collection(
+            [
+                [
+                    'packet_id' => 198,
+                    'email'     => 'schtr4jh@schtr4jh.net',
+                    'name'      => 'BOjan',
+                    'surname'   => 'Rajh',
+                    'phone'     => '070553244',
+                    'notes'     => 'test',
+                    'additions' => [
+                        621,
+                    ],
+                ],
+                [
+                    'packet_id' => 198,
+                    'email'     => 'schtr4jh@schtr4jh.net',
+                    'name'      => 'BOjan2',
+                    'surname'   => 'Rajh2',
+                    'phone'     => '070553244',
+                    'notes'     => 'test',
+                    'additions' => [
+                        620,
+                    ],
+                ],
+            ]
+        );
     }
 
 }

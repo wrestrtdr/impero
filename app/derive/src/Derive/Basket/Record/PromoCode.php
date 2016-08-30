@@ -47,15 +47,15 @@ class PromoCode extends Record
 
     public function applyToPrice($price)
     {
-        return makePrice($price - $this->getPriceDiff($price));
+        return $price - $this->getPriceDiff($price);
     }
 
     public function getPriceDiff($price)
     {
-        if ($this->promo_code_type_id == 2) {
+        if ($this->promo_code_type_id == 2) { // percentage
             return round($price * ($this->value) / 100, 2);
 
-        } else {
+        } else { // value
             return round($this->value, 2);
 
         }

@@ -14,7 +14,7 @@ class Basket extends Provider
     {
         return [
             'url' => [
-                '/order'                     => [
+                '/order'                              => [
                     'controller' => BasketController::class,
                     'view'       => 'order',
                     'name'       => 'derive.basket.order',
@@ -30,7 +30,7 @@ class Basket extends Provider
                         ],
                     ],
                 ],
-                '/order/[order]'             => [
+                '/order/[order]'                      => [
                     'controller' => BasketController::class,
                     'view'       => 'order',
                     'name'       => 'derive.basket.order.rebuy',
@@ -46,7 +46,7 @@ class Basket extends Provider
                         ],
                     ],
                 ],
-                '/order/json/applypromocode' => [
+                '/order/json/applypromocode'          => [
                     'controller' => BasketController::class,
                     'view'       => 'applyPromoCode',
                     'name'       => 'derive.basket.applyPromoCode',
@@ -55,15 +55,44 @@ class Basket extends Provider
                         'offer'     => Offer::class,
                     ],
                 ],
-                '/estimate'                  => [
+                '/order/json/getinstallments/[order]' => [
+                    'controller' => BasketController::class,
+                    'view'       => 'installments',
+                    'name'       => 'derive.basket.installments',
+                    'resolvers'  => [
+                        'order' => Order::class,
+                    ],
+                ],
+                '/estimate'                           => [
                     'controller' => BasketController::class,
                     'view'       => 'estimate',
                     'name'       => 'derive.basket.estimate',
                 ],
-                '/select-payment-method'     => [
+                '/estimate/[order]'                   => [
+                    'controller' => BasketController::class,
+                    'view'       => 'estimate',
+                    'name'       => 'derive.basket.estimate.order',
+                    'resolvers'  => [
+                        'order' => Order::class,
+                    ],
+                    'pckg'       => [
+                        'generic' => [
+                            'template' => 'Pckg\Generic:gonparty',
+                        ],
+                    ],
+                ],
+                '/pay/[order]'                        => [
                     'controller' => BasketController::class,
                     'view'       => 'paymentMethod',
-                    'name'       => 'derive.basket.paymentMethod',
+                    'name'       => 'derive.basket.payment',
+                    'resolvers'  => [
+                        'order' => Order::class,
+                    ],
+                    'pckg'       => [
+                        'generic' => [
+                            'template' => 'Pckg\Generic:gonparty',
+                        ],
+                    ],
                 ],
             ],
         ];

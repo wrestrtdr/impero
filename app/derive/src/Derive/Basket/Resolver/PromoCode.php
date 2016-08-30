@@ -12,7 +12,7 @@ class PromoCode implements RouteResolver
     public function resolve($value)
     {
         return (new PromoCodes())
-            ->where('id', $this->get('promocode') ?? $this->post('promocode'))
+            ->where('code', $this->get('promocode') ?? $this->post('promocode'))
             ->oneOrFail(
                 function() {
                     return response()->notFound('Promo code not found.');

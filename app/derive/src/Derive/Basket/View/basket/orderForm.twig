@@ -219,11 +219,12 @@
                 v-model="promocode" />
         </div>
         <a class="promocode-submit" v-on:click.prevent="applyPromoCode">{{ __('btn_apply_promo_code') }}</a>
-        <div class="promo-code-notice"></div>
+        <div class="promo-code-notice">{{ '{{ promoCodeNotice }}' }}</div>
     </div>
 
     <div class="sum-all">
         {{ __('sum_packets_additions') }} <span id="payment">{{ '{{ getSummary() | price }}' }}</span>
+    <div v-if="getSummary() != getFinalSummary()">{{ __('final_sum_to_pay') }} <span id="payment2">{{ '{{ getFinalSummary() | price }}' }}</span></div>
         {% if offer.getMaxPortions() > 1 %}
             <p class="portions">{{ offer.getMaxPortions() ~ ' ' ~ __('order_form_max_portions') }}</p>
         {% endif %}

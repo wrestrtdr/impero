@@ -1,5 +1,6 @@
 <?php namespace Derive\Orders\Entity;
 
+use Derive\Basket\Entity\PromoCodes;
 use Derive\Offers\Entity\Offers;
 use Derive\Offers\Entity\Packets;
 use Derive\Orders\Record\Order;
@@ -26,8 +27,7 @@ class Orders extends Entity implements MaestroEntity
     public function offer()
     {
         return $this->belongsTo(Offers::class)
-                    ->foreignKey('offer_id')
-                    ->fill('offer');
+                    ->foreignKey('offer_id');
     }
 
     public function activeOffer()
@@ -234,6 +234,12 @@ class Orders extends Entity implements MaestroEntity
         );
 
         return $order;
+    }
+
+    public function promocode()
+    {
+        return $this->belongsTo(PromoCodes::class)
+                    ->foreignKey('promo_code_id');
     }
 
 }

@@ -10,7 +10,7 @@ class Order implements RouteResolver
     {
         return (new Orders())
             ->where('dt_confirmed', null)
-            ->where('id', $value)
+            ->where('hash', $value)
             ->oneOrFail(
                 function() {
                     return response()->notFound('Order not found.');
@@ -20,7 +20,7 @@ class Order implements RouteResolver
 
     public function parametrize($record)
     {
-        return $record->id;
+        return $record->hash;
     }
 
 }
