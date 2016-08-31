@@ -110,7 +110,18 @@ class Basket extends Controller
      */
     public function getOrderFormAction(Order $order)
     {
+        Twig::addStaticData('cssPage', 'order estimateform');
 
+        return view(
+            'Derive\Basket:checkout',
+            [
+                'offer'     => $order->offer,
+                "customers" => $order->getCustomers(),
+                'packets'   => $order->offer->packets,
+                'orderType' => $order->getType(),
+                'step'      => 'order',
+            ]
+        );
     }
 
     /**
@@ -421,7 +432,7 @@ class Basket extends Controller
         $order->setInstallments($this->post('installments'));
 
         return [
-            'redirect' => $order->getPaymentUrlAttribute(),
+            'redirect' => '/select-payment-method/' . $order->hash, // $order->getPaymentUrlAttribute(),
         ];
     }
 
