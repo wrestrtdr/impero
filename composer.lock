@@ -735,12 +735,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "3b45e7675e8997ac96142b0265d158343958f708"
+                "reference": "100271120bbfd299b70e2067da56a6bc9f12268d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3b45e7675e8997ac96142b0265d158343958f708",
-                "reference": "3b45e7675e8997ac96142b0265d158343958f708",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/100271120bbfd299b70e2067da56a6bc9f12268d",
+                "reference": "100271120bbfd299b70e2067da56a6bc9f12268d",
                 "shasum": ""
             },
             "require": {
@@ -789,7 +789,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-08-04 00:05:49"
+            "time": "2016-08-31 01:08:05"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1473,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/backend.git",
-                "reference": "6bb0c2f40aa8bfc261bb36453bddabe2079f8b78"
+                "reference": "aafca2a781e5b5a003ce5037c30d464a3e33bdcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/backend/zipball/6bb0c2f40aa8bfc261bb36453bddabe2079f8b78",
-                "reference": "6bb0c2f40aa8bfc261bb36453bddabe2079f8b78",
+                "url": "https://api.github.com/repos/pckg/backend/zipball/aafca2a781e5b5a003ce5037c30d464a3e33bdcc",
+                "reference": "aafca2a781e5b5a003ce5037c30d464a3e33bdcc",
                 "shasum": ""
             },
             "require": {
@@ -1495,7 +1495,8 @@
                 "pckg/mail": "dev-master",
                 "pckg/migrator": "dev-master",
                 "pckg/payment": "dev-master",
-                "pckg/queue": "dev-master"
+                "pckg/queue": "dev-master",
+                "pckg/translator": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -1517,7 +1518,7 @@
             ],
             "description": "Useful backend libraries",
             "homepage": "https://github.com/pckg/backend",
-            "time": "2016-07-13 12:16:36"
+            "time": "2016-08-31 08:51:44"
         },
         {
             "name": "pckg/collection",
@@ -1674,12 +1675,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "ded353ddfb73409e03bff28c96334b1c7f07e62e"
+                "reference": "25d66e96d80ab8f04376c455ffe73551b014267e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/ded353ddfb73409e03bff28c96334b1c7f07e62e",
-                "reference": "ded353ddfb73409e03bff28c96334b1c7f07e62e",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/25d66e96d80ab8f04376c455ffe73551b014267e",
+                "reference": "25d66e96d80ab8f04376c455ffe73551b014267e",
                 "shasum": ""
             },
             "require": {
@@ -1713,7 +1714,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-08-30 22:41:47"
+            "time": "2016-08-31 08:52:13"
         },
         {
             "name": "pckg/frontend",
@@ -2203,6 +2204,42 @@
             "description": "Tempus",
             "homepage": "https://github.com/pckg-app/tempus",
             "time": "2016-07-23 08:36:22"
+        },
+        {
+            "name": "pckg/translator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/translator.git",
+                "reference": "06c4c036458245fd5893c2e4ead95947b77ecb48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/translator/zipball/06c4c036458245fd5893c2e4ead95947b77ecb48",
+                "reference": "06c4c036458245fd5893c2e4ead95947b77ecb48",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Translator",
+            "homepage": "https://github.com/pckg/translator",
+            "time": "2016-08-31 08:50:35"
         },
         {
             "name": "pclzip/pclzip",
@@ -3903,12 +3940,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "6663cec7637aa059625ac38b48e46afc2ab44dfe"
+                "reference": "4566822889207f4b3dd5acbeb2be0ee063c1f59d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/6663cec7637aa059625ac38b48e46afc2ab44dfe",
-                "reference": "6663cec7637aa059625ac38b48e46afc2ab44dfe",
+                "url": "https://api.github.com/repos/symfony/config/zipball/4566822889207f4b3dd5acbeb2be0ee063c1f59d",
+                "reference": "4566822889207f4b3dd5acbeb2be0ee063c1f59d",
                 "shasum": ""
             },
             "require": {
@@ -3948,7 +3985,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-16 16:09:30"
+            "time": "2016-08-31 08:09:20"
         },
         {
             "name": "symfony/console",
@@ -4520,12 +4557,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "4fd727bb86607787af67fb498e7196d0324baa50"
+                "reference": "4cdfae57289f8a0319218827787def6608e1ede4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/4fd727bb86607787af67fb498e7196d0324baa50",
-                "reference": "4fd727bb86607787af67fb498e7196d0324baa50",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/4cdfae57289f8a0319218827787def6608e1ede4",
+                "reference": "4cdfae57289f8a0319218827787def6608e1ede4",
                 "shasum": ""
             },
             "require": {
@@ -4575,7 +4612,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-08-27 06:12:35"
+            "time": "2016-08-31 09:05:56"
         },
         {
             "name": "symfony/yaml",
@@ -4965,12 +5002,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zurb/foundation-sites.git",
-                "reference": "b08bd38cc22ff62ed2b1a31095966725e49fdd3a"
+                "reference": "7da19a4eebb035d421854471e0f0c883aeff79cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zurb/foundation-sites/zipball/b08bd38cc22ff62ed2b1a31095966725e49fdd3a",
-                "reference": "b08bd38cc22ff62ed2b1a31095966725e49fdd3a",
+                "url": "https://api.github.com/repos/zurb/foundation-sites/zipball/7da19a4eebb035d421854471e0f0c883aeff79cb",
+                "reference": "7da19a4eebb035d421854471e0f0c883aeff79cb",
                 "shasum": ""
             },
             "type": "library",
@@ -4996,7 +5033,7 @@
                 "sass",
                 "scss"
             ],
-            "time": "2016-07-12 21:54:09"
+            "time": "2016-08-12 00:21:36"
         }
     ],
     "packages-dev": [],
