@@ -2,6 +2,7 @@
 
 use Impero\Apache\Console\ApacheGraceful;
 use Impero\Apache\Console\DumpVirtualhosts;
+use Impero\Apache\Console\LetsEncryptRenew;
 use Impero\Apache\Console\RestartApache;
 use Impero\Apache\Controller\Apache as ApacheController;
 use Impero\Apache\Record\Site;
@@ -25,6 +26,7 @@ class Apache extends Provider
             DumpVirtualhosts::class,
             RestartApache::class,
             ApacheGraceful::class,
+            LetsEncryptRenew::class,
         ];
     }
 
