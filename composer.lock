@@ -637,12 +637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "abb4a83c4386d0f552209a3b6fa18e46b93404da"
+                "reference": "48a7d9db28d450571a0882810d1591a2fadc39c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/abb4a83c4386d0f552209a3b6fa18e46b93404da",
-                "reference": "abb4a83c4386d0f552209a3b6fa18e46b93404da",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/48a7d9db28d450571a0882810d1591a2fadc39c6",
+                "reference": "48a7d9db28d450571a0882810d1591a2fadc39c6",
                 "shasum": ""
             },
             "require-dev": {
@@ -677,7 +677,7 @@
                 "font",
                 "icon"
             ],
-            "time": "2016-09-12 18:58:21"
+            "time": "2016-09-18 14:27:31"
         },
         {
             "name": "fzaninotto/faker",
@@ -735,12 +735,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f314080006142bc05a8a92ee0863751acaa7238f"
+                "reference": "a0d75173c8553b4281c8319333d9ee90e4656ed1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f314080006142bc05a8a92ee0863751acaa7238f",
-                "reference": "f314080006142bc05a8a92ee0863751acaa7238f",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a0d75173c8553b4281c8319333d9ee90e4656ed1",
+                "reference": "a0d75173c8553b4281c8319333d9ee90e4656ed1",
                 "shasum": ""
             },
             "require": {
@@ -789,7 +789,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-09-19 09:50:28"
+            "time": "2016-09-22 14:23:55"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1676,12 +1676,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "b0a25f227cb8fdb1837a8ca2bf94aea3c5461740"
+                "reference": "d1d8f4d221f765df30ad75724aa96723408d43ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/b0a25f227cb8fdb1837a8ca2bf94aea3c5461740",
-                "reference": "b0a25f227cb8fdb1837a8ca2bf94aea3c5461740",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/d1d8f4d221f765df30ad75724aa96723408d43ab",
+                "reference": "d1d8f4d221f765df30ad75724aa96723408d43ab",
                 "shasum": ""
             },
             "require": {
@@ -1715,7 +1715,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-09-22 11:59:46"
+            "time": "2016-09-23 08:30:35"
         },
         {
             "name": "pckg/frontend",
@@ -2949,12 +2949,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fefa287ae9c12474c3c162dfa8e57eb161ff45b3"
+                "reference": "e72a44bfb5eca0254fc124b08ae1ebf67e4aff02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fefa287ae9c12474c3c162dfa8e57eb161ff45b3",
-                "reference": "fefa287ae9c12474c3c162dfa8e57eb161ff45b3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e72a44bfb5eca0254fc124b08ae1ebf67e4aff02",
+                "reference": "e72a44bfb5eca0254fc124b08ae1ebf67e4aff02",
                 "shasum": ""
             },
             "require": {
@@ -3023,7 +3023,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-09-21 16:04:31"
+            "time": "2016-09-22 17:38:29"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4783,12 +4783,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "c9aac2403c5d9e7249cb4954ea11b7f893eaa9b7"
+                "reference": "bba5e1a1b322d35ab9ca8615205de64d7d64eae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c9aac2403c5d9e7249cb4954ea11b7f893eaa9b7",
-                "reference": "c9aac2403c5d9e7249cb4954ea11b7f893eaa9b7",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/bba5e1a1b322d35ab9ca8615205de64d7d64eae5",
+                "reference": "bba5e1a1b322d35ab9ca8615205de64d7d64eae5",
                 "shasum": ""
             },
             "require": {
@@ -4836,7 +4836,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-21 23:20:10"
+            "time": "2016-09-22 15:15:13"
         },
         {
             "name": "webmozart/assert",
