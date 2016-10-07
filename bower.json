@@ -1,0 +1,28 @@
+{
+  "name": "test",
+  "homepage": "https://github.com/pckg-app/derive",
+  "authors": [
+    "Bojan Rajh <schtr4jh@schtr4jh.net>"
+  ],
+  "description": "",
+  "main": "",
+  "keywords": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.15.1",
+    "vue": "1",
+    "less": "^2.7.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.42",
+    "dropzone": "^4.3.0",
+    "summernote": "^0.8.2",
+    "chart.js": "^2.3.0"
+  }
+}
