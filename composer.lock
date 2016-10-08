@@ -1583,12 +1583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/framework.git",
-                "reference": "b47a70da7003544a4ffc4f5ef6a015f5c440bcce"
+                "reference": "fdbba7f0fc0d1147857e4f66caae10719d6deda6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/framework/zipball/b47a70da7003544a4ffc4f5ef6a015f5c440bcce",
-                "reference": "b47a70da7003544a4ffc4f5ef6a015f5c440bcce",
+                "url": "https://api.github.com/repos/pckg/framework/zipball/fdbba7f0fc0d1147857e4f66caae10719d6deda6",
+                "reference": "fdbba7f0fc0d1147857e4f66caae10719d6deda6",
                 "shasum": ""
             },
             "require": {
@@ -1622,7 +1622,7 @@
             ],
             "description": "LightWeight PHP MVC Framework with TWIG templating engine, YAML configuration and tons of features",
             "homepage": "https://github.com/pckg/framework",
-            "time": "2016-10-08 13:51:13"
+            "time": "2016-10-08 14:33:45"
         },
         {
             "name": "pckg/generic",
@@ -1966,12 +1966,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "fadd4e979492ef8400d637c4591bb4abd1c57a39"
+                "reference": "840bfce8a2fc5a8cc52a2892c2b6a6185ec0ebf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/fadd4e979492ef8400d637c4591bb4abd1c57a39",
-                "reference": "fadd4e979492ef8400d637c4591bb4abd1c57a39",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/840bfce8a2fc5a8cc52a2892c2b6a6185ec0ebf5",
+                "reference": "840bfce8a2fc5a8cc52a2892c2b6a6185ec0ebf5",
                 "shasum": ""
             },
             "type": "library",
@@ -1994,7 +1994,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-10-08 11:51:03"
+            "time": "2016-10-08 14:34:06"
         },
         {
             "name": "pckg/tempus",
