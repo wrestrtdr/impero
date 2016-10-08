@@ -1845,12 +1845,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/manager.git",
-                "reference": "c8ef5b8164273e4c2ffd84accebb4c1cafc6ba07"
+                "reference": "1a07a42476a6a7ce0c583de0259e9f4c6c379d2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/manager/zipball/c8ef5b8164273e4c2ffd84accebb4c1cafc6ba07",
-                "reference": "c8ef5b8164273e4c2ffd84accebb4c1cafc6ba07",
+                "url": "https://api.github.com/repos/pckg/manager/zipball/1a07a42476a6a7ce0c583de0259e9f4c6c379d2d",
+                "reference": "1a07a42476a6a7ce0c583de0259e9f4c6c379d2d",
                 "shasum": ""
             },
             "require": {
@@ -1874,7 +1874,7 @@
             ],
             "description": "SEO, meta and asset manager",
             "homepage": "https://github.com/pckg/manager",
-            "time": "2016-10-07 18:17:13"
+            "time": "2016-10-08 11:56:42"
         },
         {
             "name": "pckg/migrator",
@@ -1966,12 +1966,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/queue.git",
-                "reference": "3c2fe778ba1adc3a0cc206668f9c2f9276d07413"
+                "reference": "fadd4e979492ef8400d637c4591bb4abd1c57a39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/queue/zipball/3c2fe778ba1adc3a0cc206668f9c2f9276d07413",
-                "reference": "3c2fe778ba1adc3a0cc206668f9c2f9276d07413",
+                "url": "https://api.github.com/repos/pckg/queue/zipball/fadd4e979492ef8400d637c4591bb4abd1c57a39",
+                "reference": "fadd4e979492ef8400d637c4591bb4abd1c57a39",
                 "shasum": ""
             },
             "type": "library",
@@ -1994,7 +1994,7 @@
             ],
             "description": "Queue",
             "homepage": "https://github.com/pckg/queue",
-            "time": "2016-10-07 16:04:55"
+            "time": "2016-10-08 11:51:03"
         },
         {
             "name": "pckg/tempus",
