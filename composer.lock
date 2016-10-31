@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "349622680d1c930b0107054c0db1e35c",
-    "content-hash": "ae5cf9b2c4a658e24ce0b192615020f1",
+    "hash": "b092dcbba88f3355610c65dc397d77f9",
+    "content-hash": "ca85d4a049443068e2edcf6e43df4866",
     "packages": [
         {
             "name": "aferrandini/phpqrcode",
@@ -1559,6 +1559,40 @@
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
             "time": "2016-10-06 19:58:41"
+        },
+        {
+            "name": "pckg/charts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pckg/charts.git",
+                "reference": "de9759df305fa7190634832ab126a269fb5b8203"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pckg/charts/zipball/de9759df305fa7190634832ab126a269fb5b8203",
+                "reference": "de9759df305fa7190634832ab126a269fb5b8203",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pckg": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Rajh",
+                    "email": "schtr4jh@schtr4jh.net"
+                }
+            ],
+            "description": "Pckg Chart.js implementation",
+            "homepage": "https://github.com/pckg/charts",
+            "time": "2016-10-14 16:03:25"
         },
         {
             "name": "pckg/collection",
@@ -5000,6 +5034,7 @@
         "pckg/import": 20,
         "pckg/payment": 20,
         "pckg/tempus": 20,
+        "pckg/charts": 20,
         "codeception/codeception": 20,
         "dimsemenov/magnific-popup": 20
     },
