@@ -1418,12 +1418,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "9a3c4122248f3bc291f83317dc8dd59ec3b665b3"
+                "reference": "4a1d918128c529b2a964a9466d5529a970c695c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/9a3c4122248f3bc291f83317dc8dd59ec3b665b3",
-                "reference": "9a3c4122248f3bc291f83317dc8dd59ec3b665b3",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/4a1d918128c529b2a964a9466d5529a970c695c1",
+                "reference": "4a1d918128c529b2a964a9466d5529a970c695c1",
                 "shasum": ""
             },
             "require": {
@@ -1448,7 +1448,7 @@
             ],
             "description": "Database, Twitter, Facebook and Google+ authentication",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2017-01-03 21:17:24"
+            "time": "2017-01-05 12:01:16"
         },
         {
             "name": "pckg/charts",
