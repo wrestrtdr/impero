@@ -23,7 +23,7 @@ return [
             'providers' => [
                 'frontend' => [
                     'type'           => \Pckg\Auth\Service\Provider\Database::class,
-                    'entity'         => \Derive\Orders\Entity\Users::class,
+                    'entity'         => \Pckg\Auth\Entity\Users::class,
                     'hash'           => '', // @T00D00 - how to warn users that their passwords are "not secure"?
                     'forgotPassword' => true,
                     'userGroup'      => 'status_id',
