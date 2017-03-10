@@ -20,9 +20,7 @@ class Apache extends Controller
      */
     public function getIndexAction(Sites $sites)
     {
-        return $this->tabelize($sites, ['server_name', 'server_alias'], 'Sites')
-            ->setTable(['title' => 'Sites'])
-            ->setRecords($sites->all());
+        return $this->tabelize($sites, ['server_name', 'server_alias'], 'Sites');
     }
 
     /**

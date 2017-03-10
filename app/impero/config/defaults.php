@@ -5,26 +5,22 @@ return [
         'auth' => [
             'gates'     => [
                 [
-                    'status'   => 'logged-out',
-                    'exclude'  => [
-                        'login',
-                        'impero.git.webhook',
-                    ],
+                    'provider' => 'frontend',
+                    'tags'     => ['auth:in'],
                     'redirect' => 'login',
                 ],
-                [
-                    'status'   => 'logged-in',
-                    'include'  => [
-                        'login',
-                    ],
-                    'redirect' => 'home',
-                ],
+            ],
+            'tags'      => [
+                'auth:in' => function() {
+                    return auth()->isLoggedIn();
+                },
             ],
             'providers' => [
                 'frontend' => [
                     'type'           => \Pckg\Auth\Service\Provider\Database::class,
                     'entity'         => \Pckg\Auth\Entity\Users::class,
-                    'hash'           => '', // @T00D00 - how to warn users that their passwords are "not secure"?
+                    'hash'           => '', // fill this in env.php on each server
+                    'version'        => 'secure',
                     'forgotPassword' => true,
                     'userGroup'      => 'status_id',
                 ],

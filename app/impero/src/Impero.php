@@ -1,9 +1,7 @@
 <?php
 
 use Impero\Impero\Provider\Impero as ImperoProvider;
-use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
-use Pckg\Framework\View\Event\RenderingView;
 use Pckg\Generic\Middleware\EncapsulateResponse;
 
 class Impero extends Provider
@@ -40,10 +38,12 @@ function maestro_urls($class, $slug, $record, $resolver, $alterslug = null)
             '/' . $alterslug                               => [
                 'name' => $slug . '.list',
                 'view' => 'index',
+                'tags' => ['auth:in'],
             ],
             '/' . $alterslug . '/add'                      => [
                 'name' => $slug . '.add',
                 'view' => 'add',
+                'tags' => ['auth:in'],
             ],
             '/' . $alterslug . '/edit/[' . $record . ']'   => [
                 'name'      => $slug . '.edit',
@@ -51,6 +51,7 @@ function maestro_urls($class, $slug, $record, $resolver, $alterslug = null)
                 'resolvers' => [
                     $record => $resolver,
                 ],
+                'tags'      => ['auth:in'],
             ],
             '/' . $alterslug . '/delete/[' . $record . ']' => [
                 'name'      => $slug . '.delete',
@@ -58,6 +59,7 @@ function maestro_urls($class, $slug, $record, $resolver, $alterslug = null)
                 'resolvers' => [
                     $record => $resolver,
                 ],
+                'tags'      => ['auth:in'],
             ],
         ]
     );
