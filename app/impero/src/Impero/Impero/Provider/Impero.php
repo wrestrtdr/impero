@@ -14,6 +14,12 @@ use Pckg\Manager\Provider\Manager as ManagerProvider;
 class Impero extends Provider
 {
 
+    public function registered(\Pckg\Manager\Asset $assetManager)
+    {
+        path('src_derive', path('apps') . 'derive' . path('ds') . 'src' . path('ds'));
+        $assetManager->executeCore();
+    }
+
     public function providers()
     {
         return [
@@ -25,6 +31,7 @@ class Impero extends Provider
             DynamicProvider::class,
             AuthProvider::class,
             GenericProvider::class,
+            Provider\Framework::class,
         ];
     }
 

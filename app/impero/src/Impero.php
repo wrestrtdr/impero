@@ -3,6 +3,7 @@
 use Impero\Impero\Provider\Impero as ImperoProvider;
 use Pckg\Framework\Application;
 use Pckg\Framework\Provider;
+use Pckg\Framework\View\Event\RenderingView;
 use Pckg\Generic\Middleware\EncapsulateResponse;
 
 class Impero extends Provider
