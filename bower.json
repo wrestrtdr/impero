@@ -1,6 +1,6 @@
 {
   "name": "test",
-  "homepage": "https://github.com/pckg-app/derive",
+  "homepage": "https://bitbucket.org/gnp/derive",
   "authors": [
     "Bojan Rajh <schtr4jh@schtr4jh.net>"
   ],
@@ -18,11 +18,11 @@
   ],
   "dependencies": {
     "moment": "^2.15.1",
-    "vue": "1",
+    "vue": "^2.2.1",
     "less": "^2.7.1",
     "eonasdan-bootstrap-datetimepicker": "^4.17.42",
     "dropzone": "^4.3.0",
-    "summernote": "^0.8.2",
-    "chart.js": "^2.3.0"
+    "chart.js": "^2.3.0",
+    "tinymce": "^4.5.4"
   }
 }
