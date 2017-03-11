@@ -1,0 +1,65 @@
+<script type="text/x-template" id="pckg-loader-table-template">
+    <span v-if="loading" class="pckg-loader-table-component">Loading data ...</span>
+</script>
+
+<script type="text/x-template" id="impero-servers-template">
+    <div class="impero-servers-component">
+        <pckg-loader-table :loading="loading"></pckg-loader-table>
+        <table v-if="!loading" class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Host</th>
+                <th>OS</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="server in servers">
+                <td><a :href="server.url">${ server.name }</a></td>
+                <td>${ server.host }</td>
+                <td>${ server.os }</td>
+                <td>${ server.status }</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script>
+    Vue.component('pckg-loader-table', {
+        mixins: [pckgDelimiters],
+        template: '#pckg-loader-table-template',
+        props: {
+            loading: Boolean
+        }
+    });
+
+    Vue.component('impero-servers', {
+        mixins: [pckgDelimiters],
+        template: '#impero-servers-template',
+        props: {
+            servers: Array
+        },
+        data: function () {
+            return {
+                fetchingServers: false,
+                loading: false
+            };
+        },
+        methods: {
+            fetchServers: function () {
+                this.loading = true;
+                this.fetchingServers = true;
+                http.getJSON('{{ url('api.impero.servers') }}', function (data) {
+                    this.fetchingServers = false;
+                    this.loading = false;
+                    this.servers = data.servers;
+                }.bind(this));
+            }
+        },
+        created: function () {
+            this.fetchServers();
+        }
+    });
+</script>

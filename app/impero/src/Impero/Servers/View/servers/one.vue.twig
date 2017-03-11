@@ -1,0 +1,344 @@
+<script type="text/x-template" id="impero-servers-one-template">
+    <div class="impero-servers-one-component">
+        <h1>${ server.name } - ${ server.host } / ${ server.ip } / ${ server.status }</h1>
+        <span v-for="tag in server.tags">#${ tag } </span>
+
+        <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation">
+                    <a href="#services" aria-controls="services" role="tab" data-toggle="tab">Services</a>
+                </li>
+                <li role="presentation">
+                    <a href="#dependencies" aria-controls="dependencies" role="tab" data-toggle="tab">Dependencies</a>
+                </li>
+                <li role="presentation">
+                    <a href="#applications" aria-controls="applications" role="tab" data-toggle="tab">Apps and
+                        websites</a>
+                </li>
+                <li role="presentation">
+                    <a href="#deployments" aria-controls="deployments" role="tab" data-toggle="tab">Deployments</a>
+                </li>
+                <li role="presentation">
+                    <a href="#jobs" aria-controls="jobs" role="tab" data-toggle="tab">Jobs</a>
+                </li>
+                <li role="presentation">
+                    <a href="#logs" aria-controls="logs" role="tab" data-toggle="tab">Logs</a>
+                </li>
+                <li role="presentation">
+                    <a href="#network" aria-controls="network" role="tab" data-toggle="tab">Network and firewall</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" id="services">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Installed services</h3>
+                            <input type="button" value="Refresh services" @click="server.fetchServices.call(server)"/>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="service in installedServices">
+                                    <td>${ service.name }</td>
+                                    <td>${ service.installed == 'yes' ? service.version : '' }</td>
+                                    <td>${ service.installed == 'yes' ? service.status : 'not installed' }</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Available services</h3>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="service in availableServices">
+                                    <td>${ service.name }</td>
+                                    <td>${ service.installed == 'yes' ? service.version : '' }</td>
+                                    <td>${ service.installed == 'yes' ? service.status : 'not installed' }</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="dependencies">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Installed dependencies</h3>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Dependency</th>
+                                    <th>Version</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="dependency in server.dependencies">
+                                    <td>${ dependency.name }</td>
+                                    <td>${ dependency.version }</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Available dependencies</h3>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Dependency</th>
+                                    <th>Version</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="dependency in server.dependencies">
+                                    <td>${ dependency.name }</td>
+                                    <td>${ dependency.version }</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="applications">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Applications</h3>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Application</th>
+                                    <th>Type</th>
+                                    <th>Source</th>
+                                    <th>Version</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="application in server.applications">
+                                    <td>${ application.name }</td>
+                                    <td>${ application.type }</td>
+                                    <td>${ application.source }</td>
+                                    <td>${ application.version }</td>
+                                    <td>${ application.status }</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Websites</h3>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Website</th>
+                                    <th>Application</th>
+                                    <th>Url</th>
+                                    <th>Https</th>
+                                    <th>Version</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="website in server.websites">
+                                    <td>${ website.name }</td>
+                                    <td>${ website.application.name }</td>
+                                    <td>
+                                        ${ website.url }<br/>
+                                        <template v-for="url in website.urls">${ url }</template>
+                                    </td>
+                                    <td>${ website.https }</td>
+                                    <td>${ website.version }</td>
+                                    <td>${ website.status }</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="deployments">
+                    <table class="table table-condensed table-striped">
+                        <thead>
+                        <tr>
+                            <th>Application</th>
+                            <th>Started at</th>
+                            <th>Ended at</th>
+                            <th>Version</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="deployment in server.deployments">
+                            <td>${ deployment.application.name }</td>
+                            <td>${ deployment.started_at | datetime }</td>
+                            <td>${ deployment.ended_at | datetime }</td>
+                            <td>${ deployment.version }</td>
+                            <td>${ deployment.status }</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="jobs">
+                    <table class="table table-condensed table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Command</th>
+                            <th>Frequency</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="job in server.jobs">
+                            <td>${ job.name }</td>
+                            <td>${ job.command }</td>
+                            <td>${ job.frequency }</td>
+                            <td>${ job.status }</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="logs">
+                    <table class="table table-condensed table-striped">
+                        <thead>
+                        <tr>
+                            <th>Log</th>
+                            <th>Datetime</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="log in server.logs">
+                            <td>${ log.name }</td>
+                            <td>${ log.created_at | datetime }</td>
+                            <td>${ log.description }</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="network">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Network interfaces</h3>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Interface</th>
+                                    <th>IP</th>
+                                    <th>DNS</th>
+                                    <th>Gateway</th>
+                                    <th>Network</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>eth0</td>
+                                    <td>8.8.8.8</td>
+                                    <td>8.8.8.8<br/>8.8.4.4</td>
+                                    <td>192.168.1.1</td>
+                                    <td>255.255.255.0</td>
+                                </tr>
+                                <tr>
+                                    <td>eth1</td>
+                                    <td>8.8.8.8</td>
+                                    <td>8.8.8.8<br/>8.8.4.4</td>
+                                    <td>192.168.1.1</td>
+                                    <td>255.255.255.0</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Firewall settings</h3>
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Rule</th>
+                                    <th>From</th>
+                                    <th>Service / Port</th>
+                                    <th>Direction</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>allow</td>
+                                    <td>*</td>
+                                    <td>80</td>
+                                    <td>in</td>
+                                </tr>
+                                <tr>
+                                    <td>allow</td>
+                                    <td>*</td>
+                                    <td>443</td>
+                                    <td>in</td>
+                                </tr>
+                                <tr>
+                                    <td>allow</td>
+                                    <td>1.2.3.4</td>
+                                    <td>22</td>
+                                    <td>in</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</script>
+
+<script>
+    var ImperoServersOneComponent = Vue.component('impero-servers-one', {
+        mixins: [pckgDelimiters],
+        template: '#impero-servers-one-template',
+        props: {
+            id: Number
+        },
+        data: function () {
+            return {
+                server: {}
+            };
+        },
+        methods: {
+            fetchServer: function () {
+                Impero.Servers.Entity.Servers.id(this.id, function (server) {
+                    this.server = server;
+                }.bind(this));
+            }
+        },
+        computed: {
+            services: function () {
+                return this.server.services
+                    ? this.server.services
+                    : [];
+            },
+            installedServices: function () {
+                return this.services.filter(function (service) {
+                    return service.installed == 'yes';
+                });
+            },
+            availableServices: function () {
+                return this.services.filter(function (service) {
+                    return service.installed == 'no';
+                });
+            }
+        },
+        created: function () {
+            this.fetchServer();
+        }
+    });
+</script>

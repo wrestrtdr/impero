@@ -5,9 +5,10 @@ use Impero\Ftp\Provider\Ftp as FtpProvider;
 use Impero\Git\Provider\Git as GitProvider;
 use Impero\Impero\Controller\Impero as ImperoController;
 use Impero\Mysql\Provider\Mysql as MysqlProvider;
+use Impero\Servers\Provider\Servers;
 use Pckg\Auth\Provider\Auth as AuthProvider;
-use Pckg\Dynamic\Provider\Dynamic as DynamicProvider;
 use Pckg\Framework\Provider;
+use Pckg\Framework\Provider\Frontend;
 use Pckg\Generic\Provider\Generic as GenericProvider;
 use Pckg\Manager\Provider\Manager as ManagerProvider;
 
@@ -28,10 +29,13 @@ class Impero extends Provider
             FtpProvider::class,
             MysqlProvider::class,
             GitProvider::class,
-            DynamicProvider::class,
+            //DynamicProvider::class,
             AuthProvider::class,
             GenericProvider::class,
             Provider\Framework::class,
+            // new generation
+            Servers::class,
+            Frontend::class,
         ];
     }
 

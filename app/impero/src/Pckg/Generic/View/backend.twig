@@ -2,6 +2,43 @@
 <html>
 <head>
     {% include '_head.twig' %}
+    <script>
+        var Impero = Impero || {};
+        Impero.Servers = Impero.Servers || {};
+        Impero.Servers.Record = Impero.Servers.Record || {};
+        Impero.Servers.Entity = Impero.Servers.Entity || {};
+        Impero.Servers.Entity.Servers = class extends Pckg.Database.Entity {
+            static id(id, callback) {
+                return http.getJSON(utils.url('{{ url('api.impero.servers.server') }}', {server: id}), function (data) {
+                    callback(new Impero.Servers.Record.Server(data.server));
+                });
+            }
+        };
+        Impero.Servers.Entity.Services = class extends Pckg.Database.Entity {
+            static id(id, callback) {
+                return this.by('id', id, callback);
+            }
+
+            static by(key, value, callback) {
+                return http.getJSON(utils.url('{{ url('api.impero.servers.server.services') }}', {server: value}), function (data) {
+                    callback(Pckg.Collection.collect(data.services, Impero.Servers.Record.Service));
+                });
+            }
+        };
+
+        Impero.Servers.Record.Server = class Server extends Pckg.Database.Record {
+
+            fetchServices() {
+                Impero.Servers.Entity.Services.by('server_id', this.id, function (services) {
+                    this.services = services;
+                }.bind(this));
+            }
+
+        };
+
+        Impero.Servers.Record.Service = class Service extends Pckg.Database.Record {
+        };
+    </script>
 </head>
 <body>
 
