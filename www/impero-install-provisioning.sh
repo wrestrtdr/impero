@@ -25,8 +25,12 @@ ssh-keygen -b 4096 -t rsa -C 'impero@remote' -f /tmp/impero_remote -N ""
 # transfer it to remote
 echo 'Transfering rsa key'
 echo 'Checking connection'
-sshpass -p 0123456789012345678901234567890123456789 ssh-copy-id impero@remote -p
+sshpass -p 0123456789012345678901234567890123456789 ssh-copy-id -p 8129 impero@remote
 
 # try to connect
 echo 'Checking connection'
 ssh impero@remote
+
+# @REMOTE
+# change ssh config
+# PermitRootLogin no / without-password
