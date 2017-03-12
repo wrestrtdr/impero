@@ -1,0 +1,19 @@
+{% embed 'Pckg/Generic/View/panel.twig' %}
+    {% block title %}
+        <h4>Add new server</h4>
+    {% endblock %}
+    {% block content %}
+        <p>Great, you've decided to take control of your server! Please, enter few details so we will be able to
+            estamblish connection to it.</p>
+        <p><b>Name:</b> can be anything alphanumeric with spaces, / and -</p>
+        <p><b>IP:</b> IPv4 or IPv6 so we can establish connection</p>
+        <p><b>PTR:</b> (optional)</p>
+        <p><b>OS:</b> select exact or closest alternative</p>
+        <br/>
+        <p>
+            <small><i>Note:</i> you can also execute script in server's terminal and follow instructions:
+                http://impero.foobar.si/add-new-server.sh?hash=12312312312312.
+            </small>
+        </p>
+    {% endblock %}
+{% endembed %}

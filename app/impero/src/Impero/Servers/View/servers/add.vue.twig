@@ -1,0 +1,22 @@
+<script type="text/x-template" id="impero-servers-add-template">
+    <div class="impero-servers-add-component">
+        {{ serverForm | raw }}
+    </div>
+</script>
+
+<script>
+    Vue.component('impero-servers-add', {
+        mixins: [pckgDelimiters],
+        template: '#impero-servers-add-template',
+        data: function () {
+            return {
+                server: new Impero.Servers.Record.Server()
+            };
+        }
+    });
+</script>
+
+{#
+@T00D00 - This template could be simplified to {{ serverForm.toVueComponent('impero-servers-add') }}
+Maybe with another parameter Impero.Servers.Record.Server (which could be determined from php class Impero\Servers\Record\Server?
+#}

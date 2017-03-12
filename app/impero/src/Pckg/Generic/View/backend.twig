@@ -13,6 +13,11 @@
                     callback(new Impero.Servers.Record.Server(data.server));
                 });
             }
+
+            getFields() {
+                return ['id', 'system_id', 'name', 'ip', 'ptr'];
+            }
+
         };
         Impero.Servers.Entity.Services = class extends Pckg.Database.Entity {
             static id(id, callback) {
@@ -26,12 +31,24 @@
             }
         };
 
-        Impero.Servers.Record.Server = class Server extends Pckg.Database.Record {
+        Impero.Servers.Record.Server = class extends Pckg.Database.Record {
 
             fetchServices() {
                 Impero.Servers.Entity.Services.by('server_id', this.id, function (services) {
                     this.services = services;
                 }.bind(this));
+            }
+
+            getEntity() {
+                return new Impero.Servers.Entity.Servers();
+            }
+
+            getUrl(type) {
+                if (type == 'insert') {
+                    return utils.url('{{ url('impero.servers.addServer') }}', {server: this.id});
+                }
+
+                console.log('unknown url type');
             }
 
         };
@@ -43,10 +60,11 @@
 <body>
 
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -56,17 +74,40 @@
         </div>
 
         {% if _auth.isLoggedIn() %}
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            {{ _menuService.build('admin') | raw }}
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                {{ _menuService.build('admin') | raw }}
 
-            {{ _pluginService.make('Pckg\\Auth\\Controller\\Auth', 'getUserHeader') | raw }}
-        </div>
+                {{ _pluginService.make('Pckg\\Auth\\Controller\\Auth', 'getUserHeader') | raw }}
+            </div>
         {% endif %}
     </div>
 </nav>
 
-<div class="container-fluid" id="vue-app">
-    {% block content %}{{ content | raw }}{% endblock %}
+<div class="container" id="vue-app">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="/">Impero</a></li>
+                <li><a href="/impero/servers">Servers</a></li>
+                <li class="active">Add</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        {% if left %}
+            <div class="col-md-3">
+                {% block left %}{{ left | raw }}{% endblock %}
+            </div>
+        {% endif %}
+        <div class="{% if left and right %}col-md-6{% elseif left or right %}col-md-9{% else %}col-md-12{% endif %}">
+            {% block content %}{{ content | raw }}{% endblock %}
+        </div>
+        {% if right %}
+            <div class="col-md-3">
+                {% block right %}{{ right | raw }}{% endblock %}
+            </div>
+        {% endif %}
+    </div>
 </div>
 
 {% include '_foot.twig' %}

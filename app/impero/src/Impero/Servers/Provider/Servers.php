@@ -16,8 +16,9 @@ class Servers extends Provider
                            'urlPrefix'  => '/impero/servers',
                            'namePrefix' => 'impero.servers',
                        ]))->routes([
-                                       ''        => new Route('', 'index'),
-                                       '.server' => new Route('/server/[server]', 'viewServer'),
+                                       ''           => new Route('', 'index'),
+                                       '.server'    => new Route('/server/[server]', 'viewServer'),
+                                       '.addServer' => new Route('/add', 'addServer'),
                                    ]),
             (new Group([
                            'controller' => ServersController::class,

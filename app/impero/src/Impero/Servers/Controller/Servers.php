@@ -1,6 +1,10 @@
 <?php namespace Impero\Servers\Controller;
 
 use Impero\Servers\Dataset\Servers as ServersDataset;
+use Impero\Servers\Form\Server as ServerForm;
+use Impero\Servers\Record\Server;
+use Pckg\Generic\Service\Generic;
+use Pckg\Generic\Service\Generic\CallableAction;
 
 class Servers
 {
@@ -38,6 +42,25 @@ class Servers
         return [
             'services' => $serversDataset->getServerServices(),
         ];
+    }
+
+    public function getAddServerAction(ServerForm $serverForm, Generic $genericService)
+    {
+        vueManager()->addView('Impero/Servers:servers/add.vue', ['serverForm' => $serverForm]);
+
+        $genericService->touchBlock('left')
+                       ->addAction(new CallableAction(function() {
+                           return view('servers/add_sidebar');
+                       }));
+
+        return view('servers/add');
+    }
+
+    public function postAddServerAction(Server $server, ServerForm $serverForm)
+    {
+        $serverForm->populateToRecord($server);
+
+        return response()->respondWithSuccess();
     }
 
 }
