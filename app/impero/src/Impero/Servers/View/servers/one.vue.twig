@@ -1,16 +1,14 @@
 <script type="text/x-template" id="impero-servers-one-template">
     <div class="impero-servers-one-component">
-        <h1>${ server.name } - ${ server.host } / ${ server.ip } / ${ server.status }</h1>
-        <span v-for="tag in server.tags">#${ tag } </span>
+        <h1>${ server.name } / ${ server.ip } / ${ server.status }</h1>
+        <span v-for="tag in server.tags">#${ tag.tag } </span>
 
         <div>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation">
-                    <a href="#services" aria-controls="services" role="tab" data-toggle="tab">Services</a>
-                </li>
-                <li role="presentation">
-                    <a href="#dependencies" aria-controls="dependencies" role="tab" data-toggle="tab">Dependencies</a>
+                    <a href="#services" aria-controls="services" role="tab" data-toggle="tab">Services and
+                        dependencies</a>
                 </li>
                 <li role="presentation">
                     <a href="#applications" aria-controls="applications" role="tab" data-toggle="tab">Apps and
@@ -35,8 +33,7 @@
                 <div role="tabpanel" class="tab-pane" id="services">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Installed services</h3>
-                            <input type="button" value="Refresh services" @click="server.fetchServices.call(server)"/>
+                            <h3>Services</h3>
                             <table class="table table-condensed table-striped">
                                 <thead>
                                 <tr>
@@ -46,67 +43,39 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="service in installedServices">
+                                <tr v-for="service in server.services">
                                     <td>${ service.name }</td>
-                                    <td>${ service.installed == 'yes' ? service.version : '' }</td>
-                                    <td>${ service.installed == 'yes' ? service.status : 'not installed' }</td>
+                                    <td>${ service.pivot.version }</td>
+                                    <td>
+                                        ${ service.pivot.status.value }
+                                        <button class="btn btn-success btn-md"
+                                                @click="service.refreshStatus.call(service)">Refresh
+                                        </button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-md-6">
-                            <h3>Available services</h3>
+                            <h3>Dependencies</h3>
                             <table class="table table-condensed table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Service</th>
+                                    <th>Dependency</th>
                                     <th>Version</th>
                                     <th>Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="service in availableServices">
-                                    <td>${ service.name }</td>
-                                    <td>${ service.installed == 'yes' ? service.version : '' }</td>
-                                    <td>${ service.installed == 'yes' ? service.status : 'not installed' }</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="dependencies">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>Installed dependencies</h3>
-                            <table class="table table-condensed table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Dependency</th>
-                                    <th>Version</th>
-                                </tr>
-                                </thead>
-                                <tbody>
                                 <tr v-for="dependency in server.dependencies">
                                     <td>${ dependency.name }</td>
-                                    <td>${ dependency.version }</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>Available dependencies</h3>
-                            <table class="table table-condensed table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Dependency</th>
-                                    <th>Version</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="dependency in server.dependencies">
-                                    <td>${ dependency.name }</td>
-                                    <td>${ dependency.version }</td>
+                                    <td>${ dependency.pivot.version }</td>
+                                    <td>
+                                        ${ dependency.pivot.status.value }
+                                        <button class="btn btn-success btn-md"
+                                                @click="dependency.refreshStatus.call(dependency)">Refresh
+                                        </button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -157,7 +126,7 @@
                                     <td>${ website.application.name }</td>
                                     <td>
                                         ${ website.url }<br/>
-                                        <template v-for="url in website.urls">${ url }</template>
+                                        <span v-for="url in website.urls">${ url } </span>
                                     </td>
                                     <td>${ website.https }</td>
                                     <td>${ website.version }</td>

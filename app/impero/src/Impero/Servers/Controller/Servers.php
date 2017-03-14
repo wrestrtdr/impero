@@ -1,6 +1,8 @@
 <?php namespace Impero\Servers\Controller;
 
 use Impero\Servers\Dataset\Servers as ServersDataset;
+use Impero\Servers\Entity\ServersDependencies;
+use Impero\Servers\Entity\ServersServices;
 use Impero\Servers\Form\Server as ServerForm;
 use Impero\Servers\Record\Server;
 use Pckg\Generic\Service\Generic;
@@ -61,6 +63,28 @@ class Servers
         $serverForm->populateToRecord($server);
 
         return response()->respondWithSuccess();
+    }
+
+    public function getRefreshServersServiceStatusAction($serversService)
+    {
+        $serversService = (new ServersServices())->where('id', $serversService)->oneOrFail();
+
+        $serversService->refreshStatus();
+
+        $serversService->withStatus();
+
+        return response()->respondWithSuccess(['serversService' => $serversService]);
+    }
+
+    public function getRefreshServersDependencyStatusAction($serversDependency)
+    {
+        $serversDependency = (new ServersDependencies())->where('id', $serversDependency)->oneOrFail();
+
+        $serversDependency->refreshStatus();
+
+        $serversDependency->withStatus();
+
+        return response()->respondWithSuccess(['serversDependency' => $serversDependency]);
     }
 
 }

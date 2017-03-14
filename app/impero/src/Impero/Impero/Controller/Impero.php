@@ -10,4 +10,9 @@ class Impero extends Controller
         return view('index');
     }
 
+    public function getIntroAction()
+    {
+        return view('intro');
+    }
+
 }

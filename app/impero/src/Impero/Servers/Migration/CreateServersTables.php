@@ -40,8 +40,8 @@ class CreateServersTables extends Migration
         $serversDependencies = $this->table('servers_dependencies');
         $serversDependencies->integer('server_id')->references('servers');
         $serversDependencies->integer('dependency_id')->references('dependencies');
-        $serversServices->varchar('status')->references('list_items', 'slug');
-        $serversServices->varchar('version');
+        $serversDependencies->varchar('status')->references('list_items', 'slug');
+        $serversDependencies->varchar('version');
 
         /**
          * Websites - sites?
@@ -81,6 +81,15 @@ class CreateServersTables extends Migration
         $systems = $this->table('systems');
         $systems->slug();
         $systems->varchar('name');
+
+        /**
+         * Tags
+         */
+        $tags = $this->table('tags');
+        $tags->integer('server_id')->references('servers');
+        $tags->varchar('tag');
+
+        $this->save();
     }
 
 }

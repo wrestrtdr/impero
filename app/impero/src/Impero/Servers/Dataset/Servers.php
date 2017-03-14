@@ -1,5 +1,7 @@
 <?php namespace Impero\Servers\Dataset;
 
+use Impero\Servers\Entity\Servers as ServersEntity;
+use Impero\Servers\Record\Server;
 use Impero\Services\Service\Apache;
 use Impero\Services\Service\Cron;
 use Impero\Services\Service\Mysql;
@@ -12,82 +14,37 @@ use Impero\Services\Service\Sendmail;
 use Impero\Services\Service\Ssh;
 use Impero\Services\Service\SshConnection;
 use Impero\Services\Service\Ufw;
-use Pckg\Collection;
+use Pckg\Database\Relation\HasAndBelongsTo;
 
 class Servers
 {
 
     public function getServersForUser()
     {
-        return (new Collection([
-                                   [
-                                       'id'           => 1,
-                                       'name'         => 'bob',
-                                       'host'         => 'localhost',
-                                       'ip'           => '127.0.0.1',
-                                       'url'          => url('impero.servers.server', ['server' => 1]),
-                                       'status'       => 'online',
-                                       'os'           => 'Ubuntu 16.04LTS',
-                                       'services'     => [],
-                                       'dependencies' => $this->getServerDependencies(),
-                                       'applications' => $this->getServerApplications(),
-                                       'websites'     => $this->getServerWebsites(),
-                                       'deployments'  => $this->getServerDeployments(),
-                                       'logs'         => $this->getServerLogs(),
-                                       'jobs'         => $this->getServerJobs(),
-                                       'tags'         => $this->getServerTags(),
-                                   ],
-                                   [
-                                       'id'           => 2,
-                                       'name'         => 'zero',
-                                       'host'         => 'zero.gonparty.eu',
-                                       'ip'           => '139.59.154.42',
-                                       'url'          => url('impero.servers.server', ['server' => 2]),
-                                       'status'       => 'offline',
-                                       'os'           => 'Ubuntu 16.04LTS',
-                                       'services'     => [],
-                                       'dependencies' => $this->getServerDependencies(),
-                                       'applications' => $this->getServerApplications(),
-                                       'websites'     => $this->getServerWebsites(),
-                                       'deployments'  => $this->getServerDeployments(),
-                                       'logs'         => $this->getServerLogs(),
-                                       'jobs'         => $this->getServerJobs(),
-                                       'tags'         => $this->getServerTags(),
-                                   ],
-                                   [
-                                       'id'           => 3,
-                                       'name'         => 'foobar',
-                                       'host'         => 'schtr4jh.net',
-                                       'ip'           => '46.101.174.157',
-                                       'url'          => url('impero.servers.server', ['server' => 3]),
-                                       'status'       => 'rebooting',
-                                       'os'           => 'Ubuntu 14.04',
-                                       'services'     => [],
-                                       'dependencies' => $this->getServerDependencies(),
-                                       'applications' => $this->getServerApplications(),
-                                       'websites'     => $this->getServerWebsites(),
-                                       'deployments'  => $this->getServerDeployments(),
-                                       'logs'         => $this->getServerLogs(),
-                                       'jobs'         => $this->getServerJobs(),
-                                       'tags'         => $this->getServerTags(),
-                                   ],
-                                   [
-                                       'id'           => 4,
-                                       'name'         => 'www.schtr4jh.net',
-                                       'host'         => '46.101.174.157',
-                                       'url'          => url('impero.servers.server', ['server' => 4]),
-                                       'status'       => 'checking',
-                                       'os'           => 'Ubuntu 16.10',
-                                       'services'     => [],
-                                       'dependencies' => $this->getServerDependencies(),
-                                       'applications' => $this->getServerApplications(),
-                                       'websites'     => $this->getServerWebsites(),
-                                       'deployments'  => $this->getServerDeployments(),
-                                       'logs'         => $this->getServerLogs(),
-                                       'jobs'         => $this->getServerJobs(),
-                                       'tags'         => $this->getServerTags(),
-                                   ],
-                               ]));
+        return (new ServersEntity())->withTags()
+                                    ->withSystem()
+                                    ->withServices(function(HasAndBelongsTo $services) {
+                                        $services->getMiddleEntity()->withStatus();
+                                    })
+                                    ->withDependencies(function(HasAndBelongsTo $dependencies) {
+                                        $dependencies->getMiddleEntity()->withStatus();
+                                    })
+                                    ->all()
+                                    ->map(function(Server $server) {
+                                        $data = $server->toArray();
+
+                                        $data['tags'] = $server->tags->toArray();
+                                        $data['os'] = $server->system->toArray();
+
+                                        $data['url'] = url('impero.servers.server', ['server' => $server->id]);
+                                        $data['applications'] = $this->getServerApplications();
+                                        $data['websites'] = $this->getServerWebsites();
+                                        $data['deployments'] = $this->getServerDeployments();
+                                        $data['logs'] = $this->getServerLogs();
+                                        $data['jobs'] = $this->getServerJobs();
+
+                                        return $data;
+                                    });
     }
 
     public function getServerServices()

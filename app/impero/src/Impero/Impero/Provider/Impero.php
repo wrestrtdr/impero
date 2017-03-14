@@ -43,9 +43,13 @@ class Impero extends Provider
     {
         return [
             'url' => [
-                '/' => [
+                '/'      => [
                     'controller' => ImperoController::class,
                     'view'       => 'index',
+                ],
+                '/intro' => [
+                    'controller' => ImperoController::class,
+                    'view'       => 'intro',
                 ],
             ],
         ];

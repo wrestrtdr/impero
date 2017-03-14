@@ -13,6 +13,7 @@ class SshConnection
     public function __construct()
     {
         $this->connection = ssh2_connect('zero.gonparty.eu', 22222);
+
         $auth = ssh2_auth_pubkey_file(
             $this->connection,
             'impero',
@@ -26,7 +27,7 @@ class SshConnection
         }
     }
 
-    public function exec($command)
+    public function exec($command, &$errorStreamContent = null)
     {
         $stream = ssh2_exec($this->connection, $command);
 

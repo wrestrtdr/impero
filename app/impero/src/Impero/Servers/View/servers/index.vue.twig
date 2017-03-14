@@ -9,7 +9,8 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Host</th>
+                <th>IP</th>
+                <th>Host / PTR</th>
                 <th>OS</th>
                 <th>Status</th>
             </tr>
@@ -17,7 +18,8 @@
             <tbody>
             <tr v-for="server in servers">
                 <td><a :href="server.url">${ server.name }</a></td>
-                <td>${ server.host }</td>
+                <td>${ server.ip }</td>
+                <td>${ server.ptr }</td>
                 <td>${ server.os }</td>
                 <td>${ server.status }</td>
             </tr>
