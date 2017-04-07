@@ -16,6 +16,8 @@ class CreateServersTables extends Migration
         $servers->varchar('name');
         $servers->varchar('ip');
         $servers->varchar('ptr');
+        $servers->varchar('port', 5);
+        $servers->varchar('user');
 
         /**
          * Services
@@ -88,6 +90,14 @@ class CreateServersTables extends Migration
         $tags = $this->table('tags');
         $tags->integer('server_id')->references('servers');
         $tags->varchar('tag');
+
+        /**
+         * Notifications
+         */
+        $notifications = $this->table('notifications');
+        $notifications->integer('user_id');
+        $notifications->datetime('created_at');
+        $notifications->text('content');
 
         $this->save();
     }

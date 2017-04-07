@@ -1,6 +1,7 @@
 <?php namespace Impero\Servers\Entity;
 
 use Impero\Dependencies\Entity\Dependencies;
+use Impero\Jobs\Entity\Jobs;
 use Impero\Servers\Record\Server;
 use Impero\Services\Entity\Services;
 use Pckg\Database\Entity;
@@ -45,6 +46,12 @@ class Servers extends Entity
                     ->over(ServersDependencies::class)
                     ->leftForeignKey('server_id')
                     ->rightForeignKey('dependency_id');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Jobs::class)
+                    ->foreignKey('server_id');
     }
 
 }

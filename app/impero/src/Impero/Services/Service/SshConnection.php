@@ -10,18 +10,21 @@ class SshConnection
      */
     protected $connection;
 
-    public function __construct()
+    public function __construct($host, $user, $port, $key)
     {
-        $this->connection = ssh2_connect('zero.gonparty.eu', 22222);
+        /**
+         * Create connection.
+         */
+        $this->connection = ssh2_connect($host, $port);
 
-        $auth = ssh2_auth_pubkey_file(
-            $this->connection,
-            'impero',
-            path('storage') . 'private/keys/id_rsa_impero.pub',
-            path('storage') . 'private/keys/id_rsa_impero',
-            ''
-        );
+        /**
+         * Authenticate with public and private key.
+         */
+        $auth = ssh2_auth_pubkey_file($this->connection, $user, $key . '.pub', $key, '');
 
+        /**
+         * Throw exception on misconfiguration.
+         */
         if (!$auth) {
             throw new Exception("Cannot authenticate with key");
         }

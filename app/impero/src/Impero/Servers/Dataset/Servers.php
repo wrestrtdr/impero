@@ -19,6 +19,21 @@ use Pckg\Database\Relation\HasAndBelongsTo;
 class Servers
 {
 
+    public function getServerForUser($serverId)
+    {
+        return (new ServersEntity())->withTags()
+                                    ->withSystem()
+                                    ->withServices(function(HasAndBelongsTo $services) {
+                                        $services->getMiddleEntity()->withStatus();
+                                    })
+                                    ->withDependencies(function(HasAndBelongsTo $dependencies) {
+                                        $dependencies->getMiddleEntity()->withStatus();
+                                    })
+                                    ->withJobs()
+                                    ->where('id', $serverId)
+                                    ->oneOrFail();
+    }
+
     public function getServersForUser()
     {
         return (new ServersEntity())->withTags()
@@ -29,9 +44,15 @@ class Servers
                                     ->withDependencies(function(HasAndBelongsTo $dependencies) {
                                         $dependencies->getMiddleEntity()->withStatus();
                                     })
+                                    ->withJobs()
                                     ->all()
                                     ->map(function(Server $server) {
                                         $data = $server->toArray();
+                                        try {
+                                            $connection = $server->getConnection();
+                                        } catch (\Throwable $e) {
+                                            $data['status'] = $e->getMessage();
+                                        }
 
                                         $data['tags'] = $server->tags->toArray();
                                         $data['os'] = $server->system->toArray();
@@ -41,7 +62,6 @@ class Servers
                                         $data['websites'] = $this->getServerWebsites();
                                         $data['deployments'] = $this->getServerDeployments();
                                         $data['logs'] = $this->getServerLogs();
-                                        $data['jobs'] = $this->getServerJobs();
 
                                         return $data;
                                     });
@@ -274,36 +294,6 @@ class Servers
                 'https'       => 'on',
                 'version'     => $this->getGitVersion(),
                 'status'      => 'online',
-            ],
-        ];
-    }
-
-    public function getServerJobs()
-    {
-        return [
-            [
-                'name'      => 'GoNParty worker',
-                'status'    => 'idle',
-                'command'   => $this->getCommand(),
-                'frequency' => $this->getFrequency(),
-            ],
-            [
-                'name'      => 'HardIsland worker',
-                'status'    => 'running',
-                'command'   => $this->getCommand(),
-                'frequency' => $this->getFrequency(),
-            ],
-            [
-                'name'      => 'Impero worker',
-                'status'    => 'idle',
-                'command'   => $this->getCommand(),
-                'frequency' => $this->getFrequency(),
-            ],
-            [
-                'name'      => 'Backup',
-                'status'    => 'idle',
-                'command'   => $this->getCommand(),
-                'frequency' => $this->getFrequency(),
             ],
         ];
     }

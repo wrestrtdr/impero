@@ -33,6 +33,10 @@
                     dependencies: {
                         type: Array,
                         of: Impero.Servers.Record.Dependency
+                    },
+                    jobs: {
+                        type: Array,
+                        of: Impero.Servers.Record.Job
                     }
                 };
             }
@@ -96,6 +100,21 @@
                     id: Number,
                     name: String
                 };
+            }
+        };
+        Impero.Servers.Entity.Jobs = class extends Pckg.Database.Entity {
+
+            getRelations() {
+                return {
+                    server: {
+                        type: Object,
+                        of: Impero.Servers.Record.Server
+                    }
+                };
+            }
+
+            getFields() {
+                return {};
             }
         };
 
@@ -177,6 +196,14 @@
 
             getEntity() {
                 return new Impero.Servers.Entity.Dependencies();
+            }
+
+        };
+
+        Impero.Servers.Record.Job = class extends Pckg.Database.Record {
+
+            getEntity() {
+                return new Impero.Servers.Entity.Jobs();
             }
 
         };

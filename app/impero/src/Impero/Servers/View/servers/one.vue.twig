@@ -11,8 +11,7 @@
                         dependencies</a>
                 </li>
                 <li role="presentation">
-                    <a href="#applications" aria-controls="applications" role="tab" data-toggle="tab">Apps and
-                        websites</a>
+                    <a href="#applications" aria-controls="applications" role="tab" data-toggle="tab">Applications</a>
                 </li>
                 <li role="presentation">
                     <a href="#deployments" aria-controls="deployments" role="tab" data-toggle="tab">Deployments</a>
@@ -22,6 +21,9 @@
                 </li>
                 <li role="presentation">
                     <a href="#logs" aria-controls="logs" role="tab" data-toggle="tab">Logs</a>
+                </li>
+                <li role="presentation">
+                    <a href="#notifications" aria-controls="logs" role="tab" data-toggle="tab">Notifications</a>
                 </li>
                 <li role="presentation">
                     <a href="#network" aria-controls="network" role="tab" data-toggle="tab">Network and firewall</a>
@@ -47,10 +49,10 @@
                                     <td>${ service.name }</td>
                                     <td>${ service.pivot.version }</td>
                                     <td>
+                                        <button class="btn btn-success btn-xs"
+                                                @click="service.refreshStatus.call(service)"><i
+                                                    class="fa fa-refresh"></i></button>
                                         ${ service.pivot.status.value }
-                                        <button class="btn btn-success btn-md"
-                                                @click="service.refreshStatus.call(service)">Refresh
-                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -71,10 +73,10 @@
                                     <td>${ dependency.name }</td>
                                     <td>${ dependency.pivot.version }</td>
                                     <td>
+                                        <button class="btn btn-success btn-xs"
+                                                @click="dependency.refreshStatus.call(dependency)"><i
+                                                    class="fa fa-refresh"></i></button>
                                         ${ dependency.pivot.status.value }
-                                        <button class="btn btn-success btn-md"
-                                                @click="dependency.refreshStatus.call(dependency)">Refresh
-                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -84,57 +86,33 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="applications">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h3>Applications</h3>
-                            <table class="table table-condensed table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Application</th>
-                                    <th>Type</th>
-                                    <th>Source</th>
-                                    <th>Version</th>
-                                    <th>Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="application in server.applications">
-                                    <td>${ application.name }</td>
-                                    <td>${ application.type }</td>
-                                    <td>${ application.source }</td>
-                                    <td>${ application.version }</td>
-                                    <td>${ application.status }</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>Websites</h3>
-                            <table class="table table-condensed table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Website</th>
-                                    <th>Application</th>
-                                    <th>Url</th>
-                                    <th>Https</th>
-                                    <th>Version</th>
-                                    <th>Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="website in server.websites">
-                                    <td>${ website.name }</td>
-                                    <td>${ website.application.name }</td>
-                                    <td>
-                                        ${ website.url }<br/>
-                                        <span v-for="url in website.urls">${ url } </span>
-                                    </td>
-                                    <td>${ website.https }</td>
-                                    <td>${ website.version }</td>
-                                    <td>${ website.status }</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <table class="table table-condensed table-striped">
+                            <thead>
+                            <tr>
+                                <th>Website</th>
+                                <th>Application</th>
+                                <th>Url</th>
+                                <th>Https</th>
+                                <th>Source</th>
+                                <th>Version</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="website in server.websites">
+                                <td>${ website.name }</td>
+                                <td>${ website.application.name }</td>
+                                <td>
+                                    ${ website.url }<br/>
+                                    <span v-for="url in website.urls">${ url } </span>
+                                </td>
+                                <td>${ website.https }</td>
+                                <td>${ website.source }</td>
+                                <td>${ website.version }</td>
+                                <td>${ website.status }</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="deployments">
@@ -163,6 +141,7 @@
                     <table class="table table-condensed table-striped">
                         <thead>
                         <tr>
+                            <th>User</th>
                             <th>Name</th>
                             <th>Command</th>
                             <th>Frequency</th>
@@ -171,6 +150,7 @@
                         </thead>
                         <tbody>
                         <tr v-for="job in server.jobs">
+                            <td>${ job.user }</td>
                             <td>${ job.name }</td>
                             <td>${ job.command }</td>
                             <td>${ job.frequency }</td>
@@ -193,6 +173,22 @@
                             <td>${ log.name }</td>
                             <td>${ log.created_at | datetime }</td>
                             <td>${ log.description }</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="notifications">
+                    <table class="table table-condensed table-striped">
+                        <thead>
+                        <tr>
+                            <th>Notification</th>
+                            <th>Datetime</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="log in server.logs">
+                            <td>${ log.name }</td>
+                            <td>${ log.created_at | datetime }</td>
                         </tr>
                         </tbody>
                     </table>

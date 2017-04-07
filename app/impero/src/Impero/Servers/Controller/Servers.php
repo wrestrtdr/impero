@@ -32,10 +32,10 @@ class Servers
         return view('servers/one');
     }
 
-    public function getServerAction(ServersDataset $serversDataset)
+    public function getServerAction(Server $server)
     {
         return [
-            'server' => $serversDataset->getServersForUser()->first(),
+            'server' => $server,
         ];
     }
 
@@ -85,6 +85,13 @@ class Servers
         $serversDependency->withStatus();
 
         return response()->respondWithSuccess(['serversDependency' => $serversDependency]);
+    }
+
+    public function getRefreshServerJobsAction(Server $server)
+    {
+        $server->refreshJobs();
+
+        return response()->respondWithSuccess(['jobs' => $server->jobs]);
     }
 
 }

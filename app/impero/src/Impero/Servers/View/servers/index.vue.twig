@@ -9,7 +9,7 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>IP</th>
+                <th>IP:port</th>
                 <th>Host / PTR</th>
                 <th>OS</th>
                 <th>Status</th>
@@ -18,9 +18,9 @@
             <tbody>
             <tr v-for="server in servers">
                 <td><a :href="server.url">${ server.name }</a></td>
-                <td>${ server.ip }</td>
+                <td>${ server.ip + ':' + server.port }</td>
                 <td>${ server.ptr }</td>
-                <td>${ server.os }</td>
+                <td>${ server.os.name }</td>
                 <td>${ server.status }</td>
             </tr>
             </tbody>
