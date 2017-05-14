@@ -105,4 +105,9 @@ class Servers
         return 'ok';
     }
 
+    public function postWebhookAction()
+    {
+        return $this->getWebhookAction();
+    }
+
 }

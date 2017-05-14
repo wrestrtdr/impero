@@ -42,7 +42,7 @@ class CreateServersTables extends Migration
         $serversDependencies = $this->table('servers_dependencies');
         $serversDependencies->integer('server_id')->references('servers');
         $serversDependencies->integer('dependency_id')->references('dependencies');
-        $serversDependencies->varchar('status')->references('list_items', 'slug');
+        $serversDependencies->varchar('status_id')->references('list_items', 'slug');
         $serversDependencies->varchar('version');
 
         /**

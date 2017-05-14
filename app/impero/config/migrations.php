@@ -9,6 +9,7 @@ use Impero\Servers\Migration\CreateServersTables;
 use Pckg\Auth\Migration\CreateAuthTables;
 use Pckg\Dynamic\Migration\CreateDynamicTables;
 use Pckg\Generic\Migration\CreateGenericTables;
+use Pckg\Generic\Migration\CreateListTables;
 
 return [
     CreateAuthTables::class,
@@ -20,4 +21,5 @@ return [
     CreateGenericTables::class,
     AlterUserTable::class,
     CreateServersTables::class,
+    CreateListTables::class,
 ];
