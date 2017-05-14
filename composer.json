@@ -33,7 +33,8 @@
     "kraksoft/colorbox": "1.*",
     "dimsemenov/magnific-popup": "dev-master",
     "robrichards/xmlseclibs": "^2.0",
-    "aferrandini/phpqrcode": "^1.0"
+    "aferrandini/phpqrcode": "^1.0",
+    "mattzuba/php-trello": "^1.1"
   },
   "minimum-stability": "dev",
   "autoload": {

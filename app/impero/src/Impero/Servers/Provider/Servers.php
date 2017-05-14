@@ -32,6 +32,14 @@ class Servers extends Provider
                                                                                       'refreshServersDependencyStatus'),
                                    ]),
             /**
+             * Webhook
+             */
+            (new Group([
+                           'controller' => ServersController::class,
+                       ]))->routes([
+                                       'webhook' => new Route('/webhook', 'webhook'),
+                                   ]),
+            /**
              * API routes.
              */
             (new Group([

@@ -94,4 +94,15 @@ class Servers
         return response()->respondWithSuccess(['jobs' => $server->jobs]);
     }
 
+    public function getWebhookAction()
+    {
+        /**
+         * Hardcoded, currently used for gnpdev.
+         */
+        $server = (new \Impero\Servers\Entity\Servers())->where('id', 2)->one();
+        $server->getConnection()->exec('cd /www/gnpdev/gnpdev.gonparty.eu/htdocs/ && php console project:pull');
+
+        return 'ok';
+    }
+
 }
