@@ -53,6 +53,13 @@ class Servers extends Provider
                                                                                                            ]),
                                        '.server.services' => new Route('/[server]/services', 'serverServices'),
                                    ]),
+            (new Group([
+                           'controller' => ServersController::class,
+                           'urlPrefix'  => '/api/site',
+                           'namePrefix' => 'api.impero.site',
+                       ]))->routes([
+                                       '.deploy' => (new Route('/[site]/deploy', 'deploy')),
+                                   ]),
         ];
     }
 }
