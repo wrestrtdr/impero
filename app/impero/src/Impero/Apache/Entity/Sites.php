@@ -4,13 +4,10 @@ use Impero\Apache\Record\Site;
 use Pckg\Auth\Entity\Users;
 use Pckg\Auth\Service\Auth;
 use Pckg\Database\Entity;
-use Pckg\Dynamic\Entity\Snippet\EntityActions;
 use Pckg\Maestro\Service\Contract\Entity as MaestroEntity;
 
 class Sites extends Entity implements MaestroEntity
 {
-
-    use EntityActions;
 
     protected $record = Site::class;
 
@@ -40,7 +37,6 @@ class Sites extends Entity implements MaestroEntity
              * User has access to it's domains
              */
             return $this->where('user_id', $auth->getUser()->id);
-
         } else if ($auth->hasFlag('reseller')) {
             /**
              * Reseller has access to it's and sub-user domains
@@ -53,19 +49,16 @@ class Sites extends Entity implements MaestroEntity
                     $query->orWhere('user_id', $auth->getUser()->subusers->all()->map('id'));
                 }
             );
-
         } else if ($auth->hasFlag('admin')) {
             /**
              * Admin has access to all domains
              */
             return $this->where('user_id', $auth->getUser()->id, '=');
-
         } else if ($auth->hasFlag('superadmin')) {
             /**
              * Admin has access to all domains
              */
             return $this;
-
         }
 
         return $this->where('1 = 0');
