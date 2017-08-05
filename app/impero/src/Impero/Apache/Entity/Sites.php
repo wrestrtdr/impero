@@ -1,6 +1,7 @@
 <?php namespace Impero\Apache\Entity;
 
 use Impero\Apache\Record\Site;
+use Impero\Servers\Entity\Servers;
 use Pckg\Auth\Entity\Users;
 use Pckg\Auth\Service\Auth;
 use Pckg\Database\Entity;
@@ -62,6 +63,12 @@ class Sites extends Entity implements MaestroEntity
         }
 
         return $this->where('1 = 0');
+    }
+
+    protected function server()
+    {
+        return $this->belongsTo(Servers::class)
+                    ->foreignKey('server_id');
     }
 
 }
