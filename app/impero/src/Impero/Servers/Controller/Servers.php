@@ -94,6 +94,11 @@ class Servers
         return response()->respondWithSuccess(['jobs' => $server->jobs]);
     }
 
+    public function postDeployAction()
+    {
+        return 'deploying';
+    }
+
     public function getWebhookAction()
     {
         /**
