@@ -2,13 +2,9 @@
 
 use Impero\Apache\Entity\Sites;
 use Pckg\Database\Record;
-use Pckg\Dynamic\Record\Snippet\RecordActions;
-use Pckg\Maestro\Service\Contract\Record as MaestroRecord;
 
-class Site extends Record implements MaestroRecord
+class Site extends Record
 {
-
-    use RecordActions;
 
     protected $entity = Sites::class;
 

@@ -7,6 +7,7 @@ class Sites
 
     public function postDeployAction(Site $site)
     {
+        dd('ok');
         $site->server->getConnection()->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
 
         return 'deploying';
