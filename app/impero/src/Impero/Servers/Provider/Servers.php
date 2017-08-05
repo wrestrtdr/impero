@@ -2,6 +2,7 @@
 
 use Impero\Servers\Controller\Servers as ServersController;
 use Impero\Servers\Resolver\Server;
+use Impero\Sites\Resolver\Site;
 use Pckg\Framework\Provider;
 use Pckg\Framework\Router\Route\Group;
 use Pckg\Framework\Router\Route\Route;
@@ -58,7 +59,10 @@ class Servers extends Provider
                            'urlPrefix'  => '/api/site',
                            'namePrefix' => 'api.impero.site',
                        ]))->routes([
-                                       '.deploy' => (new Route('/[site]/deploy', 'deploy')),
+                                       '.deploy' => (new Route('/[site]/deploy', 'deploy'))
+                                           ->resolvers([
+                                                           'site' => Site::class,
+                                                       ]),
                                    ]),
         ];
     }
