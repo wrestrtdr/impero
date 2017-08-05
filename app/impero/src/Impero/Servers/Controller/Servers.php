@@ -1,5 +1,6 @@
 <?php namespace Impero\Servers\Controller;
 
+use Impero\Apache\Record\Site;
 use Impero\Servers\Dataset\Servers as ServersDataset;
 use Impero\Servers\Entity\ServersDependencies;
 use Impero\Servers\Entity\ServersServices;
@@ -94,8 +95,10 @@ class Servers
         return response()->respondWithSuccess(['jobs' => $server->jobs]);
     }
 
-    public function postDeployAction()
+    public function postDeployAction(Site $site)
     {
+        $site->server->getConnection()->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
+
         return 'deploying';
     }
 
@@ -104,8 +107,8 @@ class Servers
         /**
          * Hardcoded, currently used for gnpdev.
          */
-        $server = (new \Impero\Servers\Entity\Servers())->where('id', 2)->one();
-        $server->getConnection()->exec('cd /www/gnpdev/gnpdev.gonparty.eu/htdocs/ && php console project:pull');
+        //$server = (new \Impero\Servers\Entity\Servers())->where('id', 2)->one();
+        //$server->getConnection()->exec('cd /www/gnpdev/gnpdev.gonparty.eu/htdocs/ && php console project:pull');
 
         return 'ok';
     }
