@@ -1427,12 +1427,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/auth.git",
-                "reference": "6cf6dc5ed42e275c1a6ae6cba66f9ca89cb068dd"
+                "reference": "dbd11f5066eaa26b40d0bb644fa081ea86571c9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/auth/zipball/6cf6dc5ed42e275c1a6ae6cba66f9ca89cb068dd",
-                "reference": "6cf6dc5ed42e275c1a6ae6cba66f9ca89cb068dd",
+                "url": "https://api.github.com/repos/pckg/auth/zipball/dbd11f5066eaa26b40d0bb644fa081ea86571c9c",
+                "reference": "dbd11f5066eaa26b40d0bb644fa081ea86571c9c",
                 "shasum": ""
             },
             "require": {
@@ -1457,7 +1457,7 @@
             ],
             "description": "Provides basic functionality for authentication and authorization users in database, on Twitter, Facebook and with OAuth2 standard",
             "homepage": "https://github.com/pckg/auth",
-            "time": "2017-07-25 12:08:44"
+            "time": "2017-08-05 21:54:07"
         },
         {
             "name": "pckg/charts",
