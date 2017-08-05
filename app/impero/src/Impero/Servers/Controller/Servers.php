@@ -95,13 +95,6 @@ class Servers
         return response()->respondWithSuccess(['jobs' => $server->jobs]);
     }
 
-    public function postDeployAction(Site $site)
-    {
-        $site->server->getConnection()->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
-
-        return 'deploying';
-    }
-
     public function getWebhookAction()
     {
         /**
