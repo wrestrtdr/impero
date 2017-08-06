@@ -15,9 +15,10 @@ class Sites
          *  - sh deploy.sh
          *  - ...
          */
-        $site->server->getConnection()->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
+        $site->server->getConnection()
+                     ->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
 
-        return 'deploying';
+        return 'cd ' . $site->getHtdocsPath() . ' && php console project:pull';
     }
 
 }
