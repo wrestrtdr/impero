@@ -11,6 +11,7 @@ use Impero\Servers\Record\Server;
 use Impero\Services\Service\SshConnection;
 use Pckg\Generic\Service\Generic;
 use Pckg\Generic\Service\Generic\CallableAction;
+use Throwable;
 
 class Servers
 {
@@ -121,7 +122,7 @@ class Servers
          */
         $password = Crypto::encrypt(post('password'), Key::loadFromAsciiSafeString(config('security.key')));
         $hostname = post('hostname');
-        $ip = server('REMOTE_ADDRESS', null);
+        $ip = server('REMOTE_ADDR', null);
         $port = 22;
         $user = 'impero';
 
@@ -154,7 +155,13 @@ class Servers
          * If successful, disable login with password and change ssh config
          * # PermitRootLogin no / without-password
          */
-        $connection = new SshConnection($ip, $user, $port, $privateKey);
+        try {
+            $connection = new SshConnection($ip, $user, $port, $privateKey);
+        } catch (Throwable $e) {
+            return response()->respondWithError([
+                                                    'error' => exception($e),
+                                                ]);
+        }
 
         return response()->respondWithSuccess();
     }
