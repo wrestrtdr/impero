@@ -18,6 +18,8 @@ class Sites
         $output = $site->server->getConnection()
                      ->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
 
+        dd($output);
+
         return 'cd ' . $site->getHtdocsPath() . ' && php console project:pull' . "<br/>\n" . $output;
     }
 
