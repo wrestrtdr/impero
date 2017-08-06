@@ -116,6 +116,7 @@ class Servers
 
     public function postInstallNewServerAction()
     {
+        d(post()->all());
         /**
          * Get encrypted password and decrypt it.
          */
