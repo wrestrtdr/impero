@@ -120,7 +120,11 @@ class Servers
         /**
          * Get encrypted password and decrypt it.
          */
-        $password = Crypto::encrypt(post('password'), Key::loadFromAsciiSafeString(config('security.key')));
+        $encryptedPassword = post('password', null);
+        if (!$encryptedPassword) {
+            dd('no pass');
+        }
+        $password = Crypto::encrypt($encryptedPassword, Key::loadFromAsciiSafeString(config('security.key')));
         $hostname = post('hostname');
         $ip = server('REMOTE_ADDR', null);
         $port = 22;
@@ -143,15 +147,16 @@ class Servers
          * We will generate ssh key for local www-data user to connect to server with impero username.
          */
         $privateKey = path('storage') . 'private' . path('ds') . 'keys' . path('ds') . 'id_rsa_' . $server->id;
+        $output = $return_var = null;
         exec('ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N "" 2>&1', $output, $return_var);
-        d($output, $return_var);
 
         /**
          * Then we will transfer key to remote.
-         * If this fails,
+         * If this fails (firewall), notify user.
          */
+        $output = $return_var = null;
         exec('sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . ' ' . $user . '@' . $ip . ' 2>&1', $output, $return_var);
-        dd($output, $return_var);
+        d($output, $return_var);
 
         /**
          * Check if transfer was successful.
@@ -167,6 +172,9 @@ class Servers
         }
 
         return response()->respondWithSuccess();
+        /**
+         * chmod -R g+w
+         */
     }
 
     public function getInstallShAction()

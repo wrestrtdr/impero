@@ -9,8 +9,9 @@ useradd impero -p $(cat /tmp/impero.hashed.password)
 echo 'Removing password from filesystem, we will not need it anymore'
 rm /tmp/impero.hashed.password
 
-echo 'Adding user to sudo and www-data group'
+echo 'Adding user to sudo and www-data group, www-data to impero group'
 usermod -aG sudo,www-data impero
+usermod -a -G impero www-data
 
 echo 'Adding user to sudoers'
 echo '# User rules for impero' >> /etc/sudoers.d/100-impero
