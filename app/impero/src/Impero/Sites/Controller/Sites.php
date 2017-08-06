@@ -16,9 +16,9 @@ class Sites
          *  - ...
          */
         $output = $site->server->getConnection()
-                     ->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
+                     ->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull', $error);
 
-        d($output);
+        d($output, $error);
 
         return 'cd ' . $site->getHtdocsPath() . ' && php console project:pull';
     }
