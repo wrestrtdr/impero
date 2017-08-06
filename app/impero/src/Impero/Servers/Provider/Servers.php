@@ -48,12 +48,13 @@ class Servers extends Provider
             (new Group([
                            'controller' => ServersController::class,
                        ]))->routes([
-                                       'installer' => (new Route('/install.sh', 'installSh'))->data([
-                                                                                                        'tags' => [
-                                                                                                            EncapsulateResponse::class .
-                                                                                                            '.disable',
-                                                                                                        ],
-                                                                                                    ]),
+                                                   'installer' => (new Route('/install.sh', 'installSh'))->data([
+                                                                                                                    'tags' => [
+                                                                                                                        EncapsulateResponse::class .
+                                                                                                                        '.disable',
+                                                                                                                    ],
+                                                                                                                ]),
+                                                   'postInstall' => (new Route('/postinstall', 'installNewServer')),
                                    ]),
             /**
              * API routes.
