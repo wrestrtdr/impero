@@ -19,6 +19,6 @@ echo 'impero ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/100-impero
 echo 'Notifying supervisor about new server, this can take a moment ...'
 IMPEROHOSTNAME=$(cat /etc/hostname)
 POSTPARAMS='hostname='$IMPEROHOSTNAME'password={{ secret }}'
-curl -v -X -d $POSTPARAMS POST http://impero.foobar.si/postinstall/{{ userhash }}
+curl -v -X -d "$POSTPARAMS" POST http://impero.foobar.si/postinstall/{{ userhash }}
 
 echo "Connection successfully estamblished. You can check status in impero panel: http://impero.foobar.si"
