@@ -7,6 +7,7 @@ use Impero\Sites\Resolver\Site;
 use Pckg\Framework\Provider;
 use Pckg\Framework\Router\Route\Group;
 use Pckg\Framework\Router\Route\Route;
+use Pckg\Generic\Middleware\EncapsulateResponse;
 
 class Servers extends Provider
 {
@@ -40,6 +41,19 @@ class Servers extends Provider
                            'controller' => ServersController::class,
                        ]))->routes([
                                        'webhook' => new Route('/webhook', 'webhook'),
+                                   ]),
+            /**
+             * Installer
+             */
+            (new Group([
+                           'controller' => ServersController::class,
+                       ]))->routes([
+                                       'installer' => (new Route('/install.sh', 'installSh'))->data([
+                                                                                                        'tags' => [
+                                                                                                            EncapsulateResponse::class .
+                                                                                                            '.disable',
+                                                                                                        ],
+                                                                                                    ]),
                                    ]),
             /**
              * API routes.

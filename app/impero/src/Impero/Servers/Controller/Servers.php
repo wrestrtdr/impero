@@ -1,11 +1,14 @@
 <?php namespace Impero\Servers\Controller;
 
-use Impero\Apache\Record\Site;
+use Defuse\Crypto\Crypto;
+use Defuse\Crypto\Key;
 use Impero\Servers\Dataset\Servers as ServersDataset;
 use Impero\Servers\Entity\ServersDependencies;
 use Impero\Servers\Entity\ServersServices;
+use Impero\Servers\Entity\Systems;
 use Impero\Servers\Form\Server as ServerForm;
 use Impero\Servers\Record\Server;
+use Impero\Services\Service\SshConnection;
 use Pckg\Generic\Service\Generic;
 use Pckg\Generic\Service\Generic\CallableAction;
 
@@ -109,6 +112,75 @@ class Servers
     public function postWebhookAction()
     {
         return $this->getWebhookAction();
+    }
+
+    public function postInstallNewServerAction()
+    {
+        /**
+         * Get encrypted password and decrypt it.
+         */
+        $password = Crypto::encrypt(post('password'), Key::loadFromAsciiSafeString(config('security.key')));
+        $hostname = post('hostname');
+        $ip = server('REMOTE_ADDRESS', null);
+        $port = 22;
+        $user = 'impero';
+
+        /**
+         * Create new server.
+         */
+        $server = Server::create([
+                                     'system_id' => Systems::OS_UBUNTU_1604_LTS_X64,
+                                     'status'    => 'new',
+                                     'name'      => $hostname,
+                                     'ip'        => $ip,
+                                     'ptr'       => $hostname,
+                                     'port'      => $port,
+                                     'user'      => $user,
+                                 ]);
+
+        /**
+         * We will generate ssh key for local www-data user to connect to server with impero username.
+         */
+        $privateKey = path('app_private') . 'keys' . path('ds') . 'id_rsa_' . $server->id;
+        exec('ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N ""');
+
+        /**
+         * Then we will transfer key to remote.
+         */
+        exec('sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' ' . $user . '@' . $ip);
+
+        /**
+         * Check if transfer was successful.
+         * If successful, disable login with password and change ssh config
+         * # PermitRootLogin no / without-password
+         */
+        $connection = new SshConnection($ip, $user, $port, $privateKey);
+
+        return response()->respondWithSuccess();
+    }
+
+    public function getInstallShAction()
+    {
+        /**
+         * Generate password.
+         */
+        $password = auth()->createPassword(40);
+
+        /**
+         * Encrypt it for useradd action.
+         */
+        $cryptedPassword = crypt($password);
+
+        /**
+         * Encrypt it so we can decrypt it later and connect to server.
+         */
+        $secret = Crypto::encrypt($password, Key::loadFromAsciiSafeString(config('security.key')));
+
+        return view('servers/install.sh', [
+            'password'        => $password,
+            'cryptedPassword' => $cryptedPassword,
+            'secret'          => $secret,
+        ]);
     }
 
 }
