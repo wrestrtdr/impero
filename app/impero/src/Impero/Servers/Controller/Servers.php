@@ -143,6 +143,7 @@ class Servers
          * We will generate ssh key for local www-data user to connect to server with impero username.
          */
         $privateKey = path('app_private') . 'keys' . path('ds') . 'id_rsa_' . $server->id;
+        dd($privateKey);
         exec('ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N ""');
 
         /**
