@@ -44,4 +44,10 @@ class SshConnection
         return stream_get_contents($stream);
     }
 
+    public function close()
+    {
+        ssh2_exec($this->conneciton, 'exit');
+        unset($this->conneciton);
+    }
+
 }

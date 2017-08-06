@@ -15,8 +15,9 @@ class Sites
          *  - sh deploy.sh
          *  - ...
          */
-        $output = $site->server->getConnection()
-                     ->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull', $error);
+        $connection = $site->server->getConnection();
+        $output = $connection->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull', $error);
+        $connection->close();
 
         d($output, $error);
 
