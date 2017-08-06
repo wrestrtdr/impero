@@ -15,8 +15,11 @@ class Sites
          *  - sh deploy.sh
          *  - ...
          */
+        d('connecting');
         $connection = $site->server->getConnection();
+        d('executing');
         $output = $connection->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull', $error);
+        d('closing');
         $connection->close();
 
         d($output, $error);
