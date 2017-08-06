@@ -7,6 +7,14 @@ class Sites
 
     public function postDeployAction(Site $site)
     {
+        /**
+         * Each site currently has same deploy procedure.
+         * Future examples:
+         *  - php console project:pull
+         *  - git pull --ff && php some cache:clear
+         *  - sh deploy.sh
+         *  - ...
+         */
         $site->server->getConnection()->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull');
 
         return 'deploying';
