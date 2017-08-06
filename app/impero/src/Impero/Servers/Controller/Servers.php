@@ -147,8 +147,10 @@ class Servers
 
         /**
          * Then we will transfer key to remote.
+         * If this fails,
          */
-        exec('sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' ' . $user . '@' . $ip);
+        exec('sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' ' . $user . '@' . $ip, $output, $return_var);
+        dd($output, $return_var);
 
         /**
          * Check if transfer was successful.
