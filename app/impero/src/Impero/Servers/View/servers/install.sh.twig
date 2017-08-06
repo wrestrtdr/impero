@@ -1,60 +1,24 @@
 #!/usr/bin/env bash
-# static user hash
-USERHASH='userhash'
 
-# randomly generated password
-IMPEROPASSWORD="{{ password }}"
+echo 'Writing hashed password to filesystem so it will not be visible in processlist.'
+echo "{{ cryptedPassword }}" > /tmp/impero.hashed.password
 
-# encrypted password
-ENCRYPTEDPASSWORD="{{ secret }}"
-
-# hash and store password
-echo 'Writing hashed password to filesystem'
-HASHEDPASSWORD="{{ cryptedPassword }}"
-echo $HASHEDPASSWORD > /tmp/impero.hashed.password
-
-# add impero user, create home directory (for .ssh), set password, do not request name, room and phone
-echo 'Creating user'
+echo 'Creating local impero user with home directory for .ssh keys'
 useradd impero -p $(cat /tmp/impero.hashed.password)
 
-# remove hashed password from filesystem
-echo 'Removing password from filesystem'
+echo 'Removing password from filesystem, we will not need it anymore'
 rm /tmp/impero.hashed.password
 
-# add user to sudo and www-data group
 echo 'Adding user to sudo and www-data group'
-usermod -aG sudo impero
-usermod -aG www-data impero
+usermod -aG sudo,www-data impero
 
-# change sudoers file
 echo 'Adding user to sudoers'
 echo '# User rules for impero' >> /etc/sudoers.d/100-impero
 echo 'impero ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/100-impero
 
-# save plain password
-echo 'Saving password to filesystem'
-echo $IMPEROPASSWORD > /tmp/impero.password
-
-# delete encrypted and hashed password
-echo 'Deleting plain and encrypted password'
-rm /tmp/impero.password /tmp/impero.encrypted.password
-
-# notify supervisor and create server
 echo 'Notifying supervisor about new server, this can take a moment ...'
 IMPEROHOSTNAME=$(cat /etc/hostname)
-POSTPARAMS='hostname='$IMPEROHOSTNAME'password='$ENCRYPTEDPASSWORD
-IMPEROURL='http://impero.foobar.si/api/installer/new-server/'$USERHASH
-curl -v -X -d $POSTPARAMS POST $IMPEROURL
+POSTPARAMS='hostname='$IMPEROHOSTNAME'password={{ secret }}'
+curl -v -X -d $POSTPARAMS POST http://impero.foobar.si/postinstall/{{ userhash }}
 
-# during supervisor actions, we need to wait on remote.
-# @T00D00 - wait for info, make request each 5 seconds
-echo 'Waiting for supervisor to estamblish connection ...'
-curl -X POST https://impero.foobar.si/api/installer/check-init/[userhash]/$REMOTEID/$IMPEROHASH
-
-exit
-return
-
-# @T00D00 - set $REMOTEID variable
-
-# notify user
-echo "Connection successfully estamblished. You can check status in impero panel."
+echo "Connection successfully estamblished. You can check status in impero panel: http://impero.foobar.si"

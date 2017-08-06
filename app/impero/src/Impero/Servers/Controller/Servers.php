@@ -169,7 +169,9 @@ class Servers
         /**
          * Encrypt it for useradd action.
          */
-        $cryptedPassword = crypt($password);
+        $allowed = "abcdefghiklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
+        $salt = substr($allowed, rand(0, strlen($allowed) - 1), 1) . substr($allowed, rand(0, strlen($allowed) - 1), 1);
+        $cryptedPassword = crypt($password, $salt);
 
         /**
          * Encrypt it so we can decrypt it later and connect to server.
@@ -180,6 +182,7 @@ class Servers
             'password'        => $password,
             'cryptedPassword' => $cryptedPassword,
             'secret'          => $secret,
+            'userhash'        => sha1(1),
         ]);
     }
 
