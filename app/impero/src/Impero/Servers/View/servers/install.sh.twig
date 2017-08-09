@@ -4,7 +4,7 @@ echo 'Writing hashed password to filesystem so it will not be visible in process
 echo "{{ cryptedPassword }}" > /tmp/impero.hashed.password
 
 echo 'Creating local impero user with home directory for .ssh keys'
-useradd impero -p $(cat /tmp/impero.hashed.password)
+useradd impero -m -p $(cat /tmp/impero.hashed.password)
 
 echo 'Removing password from filesystem, we will not need it anymore'
 rm /tmp/impero.hashed.password
