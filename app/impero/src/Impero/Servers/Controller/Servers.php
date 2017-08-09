@@ -3,6 +3,7 @@
 use Defuse\Crypto\Crypto;
 use Defuse\Crypto\Key;
 use Impero\Servers\Dataset\Servers as ServersDataset;
+use Impero\Servers\Entity\Servers as ServersEntity;
 use Impero\Servers\Entity\ServersDependencies;
 use Impero\Servers\Entity\ServersServices;
 use Impero\Servers\Entity\Systems;
@@ -131,7 +132,7 @@ class Servers
         /**
          * Create new server.
          */
-        $server = (new Servers())->where('ip', $ip)->oneOr(function() use ($hostname, $ip, $port, $user) {
+        $server = (new ServersEntity())->where('ip', $ip)->oneOr(function() use ($hostname, $ip, $port, $user) {
             return Server::create([
                                       'system_id' => Systems::OS_UBUNTU_1604_LTS_X64,
                                       'status'    => 'new',
