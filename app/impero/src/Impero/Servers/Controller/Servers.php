@@ -146,16 +146,18 @@ class Servers
          */
         $privateKey = path('storage') . 'private' . path('ds') . 'keys' . path('ds') . 'id_rsa_' . $server->id;
         $output = $return_var = null;
-        exec('ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N "" 2>&1', $output, $return_var);
-        d("generated", $output, $return_var);
+        $command = 'ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N "" 2>&1';
+        exec($command, $output, $return_var);
+        d("generated", $command, $output, $return_var);
 
         /**
          * Then we will transfer key to remote.
          * If this fails (firewall), notify user.
          */
         $output = $return_var = null;
-        exec('sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . ' ' . $user . '@' . $ip . ' 2>&1', $output, $return_var);
-        d("copied", $output, $return_var);
+        $command = 'sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . ' ' . $user . '@' . $ip . ' 2>&1';
+        exec($command, $output, $return_var);
+        d("copied", $command, $output, $return_var);
 
         /**
          * Check if transfer was successful.
