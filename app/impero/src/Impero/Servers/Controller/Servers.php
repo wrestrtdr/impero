@@ -151,6 +151,11 @@ class Servers
         d("generated", $command, $output, $return_var);
 
         /**
+         * Change permissions.
+         */
+        chgrp($privateKey, $user);
+
+        /**
          * Then we will transfer key to remote.
          * If this fails (firewall), notify user.
          */
