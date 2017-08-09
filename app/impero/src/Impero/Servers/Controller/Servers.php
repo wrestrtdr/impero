@@ -126,6 +126,7 @@ class Servers
         $ip = server('REMOTE_ADDR', null);
         $port = post('port', 22);
         $user = 'impero';
+        d("pass", $password);
 
         /**
          * Create new server.
