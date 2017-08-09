@@ -153,14 +153,18 @@ class Servers
         /**
          * Change permissions.
          */
-        chown($privateKey, $user);
+        d("chown", chown($privateKey, $user));
+        d("chown", chown($privateKey . '.pub', $user));
+        d("chmod", chmod($privateKey, 0775));
+        d("chmod", chmod($privateKey . '.pub', 0775));
 
         /**
          * Then we will transfer key to remote.
          * If this fails (firewall), notify user.
          */
         $output = $return_var = null;
-        $command = 'sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . '.pub ' . $user . '@' . $ip . ' 2>&1';
+        $command = 'sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . '.pub ' . $user .
+                   '@' . $ip . ' 2>&1';
         exec($command, $output, $return_var);
         d("copied", $command, $output, $return_var);
 
@@ -173,6 +177,7 @@ class Servers
             $connection = new SshConnection($ip, $user, $port, $privateKey);
         } catch (Throwable $e) {
             dd('error', exception($e));
+
             return response()->respondWithError([
                                                     'error' => exception($e),
                                                 ]);
