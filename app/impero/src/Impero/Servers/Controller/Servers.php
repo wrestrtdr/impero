@@ -131,24 +131,28 @@ class Servers
         /**
          * Create new server.
          */
-        $server = Server::create([
-                                     'system_id' => Systems::OS_UBUNTU_1604_LTS_X64,
-                                     'status'    => 'new',
-                                     'name'      => $hostname,
-                                     'ip'        => $ip,
-                                     'ptr'       => $hostname,
-                                     'port'      => $port,
-                                     'user'      => $user,
-                                 ]);
+        $server = (new Servers())->where('ip', $ip)->oneOr(function() use ($hostname, $ip, $port, $user) {
+            return Server::create([
+                                      'system_id' => Systems::OS_UBUNTU_1604_LTS_X64,
+                                      'status'    => 'new',
+                                      'name'      => $hostname,
+                                      'ip'        => $ip,
+                                      'ptr'       => $hostname,
+                                      'port'      => $port,
+                                      'user'      => $user,
+                                  ]);
+        });
 
         /**
          * We will generate ssh key for local www-data user to connect to server with impero username.
          */
         $privateKey = path('storage') . 'private' . path('ds') . 'keys' . path('ds') . 'id_rsa_' . $server->id;
-        $output = $return_var = null;
-        $command = 'ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N "" 2>&1';
-        exec($command, $output, $return_var);
-        d("generated", $command, $output, $return_var);
+        if (!is_file($privateKey)) {
+            $output = $return_var = null;
+            $command = 'ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N "" 2>&1';
+            exec($command, $output, $return_var);
+            d("generated", $command, $output, $return_var);
+        }
 
         /**
          * Change permissions.
