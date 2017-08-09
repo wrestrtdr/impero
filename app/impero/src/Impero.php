@@ -4,6 +4,9 @@ use Impero\Impero\Provider\Impero as ImperoProvider;
 use Pckg\Framework\Provider;
 use Pckg\Generic\Middleware\EncapsulateResponse;
 
+/**
+ * Class Impero
+ */
 class Impero extends Provider
 {
 
