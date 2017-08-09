@@ -158,10 +158,10 @@ class Servers
         /**
          * Change permissions.
          */
-        d("chown", chown($privateKey, $user));
+        /*d("chown", chown($privateKey, $user));
         d("chown", chown($privateKey . '.pub', $user));
         d("chmod", chmod($privateKey, 0775));
-        d("chmod", chmod($privateKey . '.pub', 0775));
+        d("chmod", chmod($privateKey . '.pub', 0775));*/
 
         /**
          * Then we will transfer key to remote.
@@ -181,6 +181,10 @@ class Servers
         try {
             $connection = new SshConnection($ip, $user, $port, $privateKey);
         } catch (Throwable $e) {
+            echo "Add keys manually:";
+
+            echo "echo " . file_get_contents($privateKey) . '.pub' . " >> /home/impero/.ssh/authorized_hosts";
+
             dd('error', exception($e));
 
             return response()->respondWithError([
