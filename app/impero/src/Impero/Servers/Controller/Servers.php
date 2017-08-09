@@ -163,10 +163,13 @@ class Servers
         try {
             $connection = new SshConnection($ip, $user, $port, $privateKey);
         } catch (Throwable $e) {
+            dd('error', exception($e));
             return response()->respondWithError([
                                                     'error' => exception($e),
                                                 ]);
         }
+
+        dd('success');
 
         return response()->respondWithSuccess();
         /**
