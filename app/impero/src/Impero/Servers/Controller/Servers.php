@@ -155,7 +155,7 @@ class Servers
          * If this fails (firewall), notify user.
          */
         $output = $return_var = null;
-        $command = 'sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . ' ' . $user . '@' . $ip . ' 2>&1';
+        $command = 'sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . '.pub ' . $user . '@' . $ip . ' 2>&1';
         exec($command, $output, $return_var);
         d("copied", $command, $output, $return_var);
 
