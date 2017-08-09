@@ -183,7 +183,7 @@ class Servers
         } catch (Throwable $e) {
             echo "Add keys manually:";
 
-            echo "echo " . file_get_contents($privateKey) . '.pub' . " >> /home/impero/.ssh/authorized_hosts";
+            echo "echo " . file_get_contents($privateKey . '.pub') . " >> /home/impero/.ssh/authorized_hosts";
 
             dd('error', exception($e));
 
