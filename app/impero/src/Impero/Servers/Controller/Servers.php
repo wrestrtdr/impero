@@ -153,7 +153,7 @@ class Servers
         /**
          * Change permissions.
          */
-        chgrp($privateKey, $user);
+        chown($privateKey, $user);
 
         /**
          * Then we will transfer key to remote.
