@@ -146,6 +146,7 @@ class Servers
         $privateKey = path('storage') . 'private' . path('ds') . 'keys' . path('ds') . 'id_rsa_' . $server->id;
         $output = $return_var = null;
         exec('ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N "" 2>&1', $output, $return_var);
+        d("generated", $output, $return_var);
 
         /**
          * Then we will transfer key to remote.
@@ -153,7 +154,7 @@ class Servers
          */
         $output = $return_var = null;
         exec('sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . ' ' . $user . '@' . $ip . ' 2>&1', $output, $return_var);
-        d($output, $return_var);
+        d("copied", $output, $return_var);
 
         /**
          * Check if transfer was successful.
