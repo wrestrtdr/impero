@@ -99,6 +99,16 @@ class CreateServersTables extends Migration
         $notifications->datetime('created_at');
         $notifications->text('content');
 
+        /**
+         * Api requests
+         */
+
+        $apiRequests = $this->table('api_requests');
+        $apiRequests->datetime('created_at');
+        $apiRequests->text('data');
+        $apiRequests->varchar('ip');
+        $apiRequests->varchar('url');
+
         $this->save();
     }
 
