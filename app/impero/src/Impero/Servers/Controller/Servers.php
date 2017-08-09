@@ -181,9 +181,8 @@ class Servers
         try {
             $connection = new SshConnection($ip, $user, $port, $privateKey);
         } catch (Throwable $e) {
-            echo "Add keys manually:";
-
-            echo "echo " . file_get_contents($privateKey . '.pub') . " >> /home/impero/.ssh/authorized_hosts";
+            echo "Add keys manually:\n";
+            echo "echo " . file_get_contents($privateKey . '.pub') . " >> /home/impero/.ssh/authorized_keys\n";
 
             dd('error', exception($e));
 
