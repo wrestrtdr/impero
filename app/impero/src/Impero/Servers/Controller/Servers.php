@@ -121,7 +121,7 @@ class Servers
          * Get encrypted password and decrypt it.
          */
         $encryptedPassword = post('password', null);
-        $password = Crypto::encrypt($encryptedPassword, Key::loadFromAsciiSafeString(config('security.key')));
+        $password = Crypto::decrypt($encryptedPassword, Key::loadFromAsciiSafeString(config('security.key')));
         $hostname = post('hostname');
         $ip = server('REMOTE_ADDR', null);
         $port = post('port', 22);
