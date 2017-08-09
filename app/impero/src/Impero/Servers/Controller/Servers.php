@@ -124,7 +124,7 @@ class Servers
         $password = Crypto::encrypt($encryptedPassword, Key::loadFromAsciiSafeString(config('security.key')));
         $hostname = post('hostname');
         $ip = server('REMOTE_ADDR', null);
-        $port = 22;
+        $port = post('port', 22);
         $user = 'impero';
 
         /**
