@@ -192,6 +192,7 @@ class Servers
             /**
              * Copy public identity.
              */
+            throw new \Exception("ok");
             $error = null;
             d('creating .ssh dir', $connection->exec('mkdir /home/impero/.ssh/', $error));
             d($error);
