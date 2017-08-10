@@ -10,7 +10,7 @@ class SshConnection
      */
     protected $connection;
 
-    public function __construct($host, $user, $port, $key)
+    public function __construct($host, $user, $port, $key, $type = 'key')
     {
         /**
          * Create connection.
@@ -44,7 +44,12 @@ class SshConnection
          * Authenticate with public and private key.
          */
         d('authenticating ' . $user . ' with ' . $key);
-        $auth = ssh2_auth_pubkey_file($this->connection, $user, $key . '.pub', $key, '');
+
+        if ($type == 'key') {
+            $auth = ssh2_auth_pubkey_file($this->connection, $user, $key . '.pub', $key, '');
+        } else {
+            $auth = ssh2_auth_password($this->connection, $user, $key);
+        }
 
         /**
          * Throw exception on misconfiguration.
@@ -75,6 +80,11 @@ class SshConnection
         }
 
         return $this;
+    }
+
+    public function scpSend($local, $remote, $mode = null)
+    {
+        return ssh2_scp_send($this->connection, $local, $remote, $mode);
     }
 
 }

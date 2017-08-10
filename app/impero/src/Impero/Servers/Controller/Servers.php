@@ -169,10 +169,40 @@ class Servers
          * If this fails (firewall), notify user.
          */
         $output = $return_var = null;
-        $command = 'sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . '.pub ' . $user .
+        /*$command = 'sshpass -p ' . $password . ' ssh-copy-id -p ' . $port . ' -i ' . $privateKey . '.pub ' . $user .
                    '@' . $ip . ' 2>&1';
+        $passfile = '/tmp/pass.tmp.' . sha1(microtime());
+        file_put_contents($passfile, $password);
+        $command = 'sshpass -f "' . $passfile . '" scp -r ' . $user . '@' . $hostname .
+                   ':/some/remote/path /some/local/path';
         exec($command, $output, $return_var);
-        d("copied", $command, $output, $return_var);
+        d("copied", $command, $output, $return_var);*/
+
+        $connection = null;
+        try {
+            /**
+             * Connect with password.
+             */
+            $connection = new SshConnection($ip, $user, $port, $password, 'password');
+        } catch (Throwable $e) {
+            die("wrong password, port not opened, user not created or copy error: " . exception($e));
+        }
+
+        try {
+            /**
+             * Copy public identity.
+             */
+            $connection->scpSend($privateKey . '.pub', '/tmp/impero.pub');
+            $connection->exec('mkdir /home/impero/.ssh/');
+            $connection->exec('chown impero:impero /home/impero/.ssh');
+            $connection->exec('chmod 700 /home/impero/.ssh');
+            $connection->exec('cat /tmp/impero.pub >> /home/impero/.ssh/authorized_keys');
+            $connection->exec('rm /tmp/impero.pub');
+        } catch (Throwable $e) {
+            die("error copying key : " . exception($e));
+        }
+
+        $connection->close();
 
         /**
          * Check if transfer was successful.
@@ -181,6 +211,7 @@ class Servers
          */
         try {
             $connection = new SshConnection($ip, $user, $port, $privateKey);
+            $connection->close();
         } catch (Throwable $e) {
             echo "Add keys manually:\n";
             echo "echo " . file_get_contents($privateKey . '.pub') . " >> /home/impero/.ssh/authorized_keys\n";
