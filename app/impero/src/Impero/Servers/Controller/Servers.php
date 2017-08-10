@@ -192,17 +192,12 @@ class Servers
             /**
              * Copy public identity.
              */
-            $error = null;
-            d('creating .ssh dir', $connection->exec('mkdir /home/impero/.ssh/', $error));
-            d($error);
-            d('chowning and chmoding', $connection->exec('chown impero:impero /home/impero/.ssh', $e1), $connection->exec('chmod 700 /home/impero/.ssh', $e2));
-            d($e1, $e2);
-            d('transfering key', $connection->sftpSend($privateKey . '.pub', '/home/impero/.ssh/impero.key.pub'));
-            d('copying key', $connection->exec('cat /home/impero/.ssh/impero.key.pub >> /home/impero/.ssh/authorized_keys', $error));
-            d($error);
-            d('removing key', $connection->exec('rm /home/impero/.ssh/impero.key.pub', $error));
-            d($error);
-
+            $connection->exec('mkdir /home/impero/.ssh/');
+            $connection->exec('chown impero:impero /home/impero/.ssh');
+            $connection->exec('chmod 700 /home/impero/.ssh');
+            $connection->sftpSend($privateKey . '.pub', '/home/impero/.ssh/impero.key.pub');
+            $connection->exec('cat /home/impero/.ssh/impero.key.pub >> /home/impero/.ssh/authorized_keys');
+            $connection->exec('rm /home/impero/.ssh/impero.key.pub');
         } catch (Throwable $e) {
             die("error copying key : " . exception($e));
         }
