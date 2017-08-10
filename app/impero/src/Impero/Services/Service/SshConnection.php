@@ -88,7 +88,7 @@ class SshConnection
 
         $stream = fopen("ssh2.sftp://$sftp" . $remote, 'rw');
 
-        return @fwrite($stream, file_get_contents($local));
+        return !!@fwrite($stream, file_get_contents($local));
     }
 
 }
