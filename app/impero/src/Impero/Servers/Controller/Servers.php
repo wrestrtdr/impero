@@ -185,7 +185,7 @@ class Servers
              */
             $connection = new SshConnection($ip, $user, $port, $password, 'password');
         } catch (Throwable $e) {
-            die("wrong password, port not opened, user not created or copy error: " . exception($e));
+            die("wrong password, port not opened, user not created or copy error : " . exception($e));
         }
 
         try {
