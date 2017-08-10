@@ -25,14 +25,11 @@ class SshConnection
         d("command", $command);
         exec($command, $keygen);
         d("keygen", $keygen);
-        $raw = explode(' ', $keygen[0])[1];
         $fingerprint = ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
-        d("fingerprint", $fingerprint);
-
-        $content = explode(' ', file_get_contents($key . '.pub'), 3);
-        d("content", $content);
+        $publicKeyContent = file_get_contents($key . '.pub');
+        $content = explode(' ', $publicKeyContent, 3);
         $calculated = join(':', str_split(md5(base64_decode($content[1])), 2));
-        d("calculated", $calculated);
+        d($calculated, $keygen, $fingerprint);
 
         if ($fingerprint != $content) {
             d("Wrong server fingerprint");
