@@ -192,17 +192,11 @@ class Servers
             /**
              * Copy public identity.
              */
-            d('transfering key');
-            $connection->scpSend($privateKey . '.pub', '/tmp/impero.pub');
-            d('creating .ssh dir');
-            $connection->exec('mkdir /home/impero/.ssh/');
-            d('chowning and chmoding');
-            $connection->exec('chown impero:impero /home/impero/.ssh');
-            $connection->exec('chmod 700 /home/impero/.ssh');
-            d('copying key');
-            $connection->exec('cat /tmp/impero.pub >> /home/impero/.ssh/authorized_keys');
-            d('removing key');
-            $connection->exec('rm /tmp/impero.pub');
+            d('transfering key', $connection->scpSend($privateKey . '.pub', '/tmp/impero.pub'));
+            d('creating .ssh dir', $connection->exec('mkdir /home/impero/.ssh/'));
+            d('chowning and chmoding', $connection->exec('chown impero:impero /home/impero/.ssh'), $connection->exec('chmod 700 /home/impero/.ssh'));
+            d('copying key', $connection->exec('cat /tmp/impero.pub >> /home/impero/.ssh/authorized_keys'));
+            d('removing key', $connection->exec('rm /tmp/impero.pub'));
         } catch (Throwable $e) {
             die("error copying key : " . exception($e));
         }
