@@ -35,7 +35,7 @@ class SshConnection
         $calculated = join(':', str_split(md5(base64_decode($content[1])), 2));
         //d($calculated, $keygen, $fingerprint);
 
-        if (!strpos($keygen, $calculated)) {
+        if (!strpos($keygen, $calculated) || $fingerprint != $keygen) {
             d("Wrong server fingerprint");
         }
 
