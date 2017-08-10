@@ -30,7 +30,8 @@ class SshConnection
         d("fingerprint", $fingerprint);
 
         $content = explode(' ', $raw, 3);
-        d("content", $content, join(':', str_split(md5(base64_decode($content[1])), 2)));
+        d("content", $content);
+        d("calculated", join(':', str_split(md5(base64_decode($content[1])), 2)));
 
         if ($fingerprint != $content) {
             d("Wrong server fingerprint");
