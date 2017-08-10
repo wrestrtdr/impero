@@ -202,6 +202,7 @@ class Servers
             d($error);
             d('removing key', $connection->exec('rm /home/impero/.ssh/impero.key.pub', $error));
             d($error);
+            
         } catch (Throwable $e) {
             die("error copying key : " . exception($e));
         }
