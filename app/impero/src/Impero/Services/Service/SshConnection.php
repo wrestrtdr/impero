@@ -31,7 +31,8 @@ class SshConnection
 
         $content = explode(' ', file_get_contents($key . '.pub'), 3);
         d("content", $content);
-        d("calculated", join(':', str_split(md5(base64_decode($content[1])), 2)));
+        $calculated = join(':', str_split(md5(base64_decode($content[1])), 2));
+        d("calculated", $calculated);
 
         if ($fingerprint != $content) {
             d("Wrong server fingerprint");
