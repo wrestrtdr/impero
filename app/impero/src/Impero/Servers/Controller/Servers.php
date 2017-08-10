@@ -196,7 +196,7 @@ class Servers
             $connection->scpSend($privateKey . '.pub', '/tmp/impero.pub');
             d('creating .ssh dir');
             $connection->exec('mkdir /home/impero/.ssh/');
-            d('chowning and chmoding')M
+            d('chowning and chmoding');
             $connection->exec('chown impero:impero /home/impero/.ssh');
             $connection->exec('chmod 700 /home/impero/.ssh');
             d('copying key');
