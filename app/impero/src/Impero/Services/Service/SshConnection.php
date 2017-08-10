@@ -29,7 +29,7 @@ class SshConnection
         $fingerprint = ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
         d("fingerprint", $fingerprint);
 
-        $content = explode(' ', $raw, 3);
+        $content = explode(' ', file_get_contents($key . '.pub'), 3);
         d("content", $content);
         d("calculated", join(':', str_split(md5(base64_decode($content[1])), 2)));
 
