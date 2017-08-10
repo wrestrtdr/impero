@@ -17,19 +17,23 @@ class SshConnection
          */
         $this->connection = ssh2_connect($host, $port);
 
+        if (!$this->connection) {
+            throw new Exception('Cannot estamblish SSH connection');
+        }
+
         /**
          * Fingerprint check.
          */
         $keygen = null;
         $command = 'ssh-keygen -lf ' . $key . '.pub -E MD5';
-        d("command", $command);
+        //d("command", $command);
         exec($command, $keygen);
         $keygen = $keygen[0];
         $fingerprint = ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
         $publicKeyContent = file_get_contents($key . '.pub');
         $content = explode(' ', $publicKeyContent, 3);
         $calculated = join(':', str_split(md5(base64_decode($content[1])), 2));
-        d($calculated, $keygen, $fingerprint);
+        //d($calculated, $keygen, $fingerprint);
 
         if (!strpos($keygen, $calculated)) {
             d("Wrong server fingerprint");
