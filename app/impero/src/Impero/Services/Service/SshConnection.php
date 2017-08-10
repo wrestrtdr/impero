@@ -92,6 +92,8 @@ class SshConnection
 
         $ok = @fwrite($stream, file_get_contents($local));
 
+        @fclose($stream);
+
         return !!$ok;
     }
 
