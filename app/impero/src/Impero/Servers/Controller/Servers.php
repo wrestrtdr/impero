@@ -146,11 +146,12 @@ class Servers
 
         /**
          * We will generate ssh key for local www-data user to connect to server with impero username.
+         * This is done with seperate cronjob for security (./install-key.sh), we wait for details.
          */
         $privateKey = path('storage') . 'private' . path('ds') . 'keys' . path('ds') . 'id_rsa_' . $server->id;
         if (!is_file($privateKey)) {
             $output = $return_var = null;
-            $command = 'ssh-keygen -b 4096 -t rsa -C \'' . $user . '@' . $ip . '\' -f ' . $privateKey . ' -N "" 2>&1';
+            $command = 'ssh-keygen -b 4096 -t rsa -C \'www-data@impero.foobar.si\' -f ' . $privateKey . ' -N "" 2>&1';
             exec($command, $output, $return_var);
             d("generated", $command, $output, $return_var);
         }
@@ -183,6 +184,9 @@ class Servers
         } catch (Throwable $e) {
             echo "Add keys manually:\n";
             echo "echo " . file_get_contents($privateKey . '.pub') . " >> /home/impero/.ssh/authorized_keys\n";
+
+            echo "Add known hosts manually:\n";
+            echo "ssh-keyscan -t rsa impero.foobar.si >> /home/impero/.ssh/known_hosts";
 
             dd('error', exception($e));
 

@@ -15,6 +15,7 @@ class SshConnection
         /**
          * Create connection.
          */
+        d('connecting to ' . $host . ' : ' . $port);
         $this->connection = ssh2_connect($host, $port);
 
         if (!$this->connection) {
@@ -42,6 +43,7 @@ class SshConnection
         /**
          * Authenticate with public and private key.
          */
+        d('authenticating ' . $user . ' with ' . $key);
         $auth = ssh2_auth_pubkey_file($this->connection, $user, $key . '.pub', $key, '');
 
         /**
