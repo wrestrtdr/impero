@@ -23,8 +23,8 @@ class SshConnection
         $keygen = null;
         exec('ssh-keygen -lf ' . $key . '.pub', $keygen);
         d($keygen);
-        $keygen = explode(' ', $keygen)[1];
-        $fingerprint = ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_MD5);
+        $keygen = explode(' ', $keygen[0])[1];
+        $fingerprint = ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
         d($fingerprint);
         if ($fingerprint != $keygen) {
             throw new Exception("Wrong server fingerprint");
