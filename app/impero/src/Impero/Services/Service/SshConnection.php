@@ -22,6 +22,7 @@ class SshConnection
          */
         $keygen = null;
         $command = 'ssh-keygen -lf ' . $key . '.pub';
+        d($command);
         exec($command, $keygen);
         d($keygen);
         $keygen = explode(' ', $keygen[0])[1];
