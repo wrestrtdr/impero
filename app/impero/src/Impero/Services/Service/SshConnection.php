@@ -82,9 +82,13 @@ class SshConnection
         return $this;
     }
 
-    public function scpSend($local, $remote, $mode = null)
+    public function sftpSend($local, $remote, $mode = null)
     {
-        return ssh2_scp_send($this->connection, $local, $remote, $mode);
+        $sftp = ssh2_sftp($this->connection);
+
+        $stream = fopen("ssh2.sftp://$sftp" . $remote, 'rw');
+
+        return @fwrite($stream, file_get_contents($local));
     }
 
 }
