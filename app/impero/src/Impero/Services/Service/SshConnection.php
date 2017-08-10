@@ -21,7 +21,8 @@ class SshConnection
          * Fingerprint check.
          */
         $keygen = null;
-        exec('ssh-keygen -lf ' . $key . '.pub', $keygen);
+        $command = 'ssh-keygen -lf ' . $key . '.pub';
+        exec($command, $keygen);
         d($keygen);
         $keygen = explode(' ', $keygen[0])[1];
         $fingerprint = ssh2_fingerprint($this->connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
