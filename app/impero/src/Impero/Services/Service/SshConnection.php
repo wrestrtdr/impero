@@ -18,6 +18,18 @@ class SshConnection
         $this->connection = ssh2_connect($host, $port);
 
         /**
+         * Fingerprint check.
+         */
+        $keygen = null;
+        exec('ssh-keygen -lf ' . $key . '.pub', $keygen);
+        d($keygen);
+        $keygen = explode(' ', $keygen)[1];
+        $fingerprint = ssh2_fingerprint($this->connection);
+        if ($fingerprint != $keygen) {
+            throw new Exception("Wrong server fingerprint");
+        }
+
+        /**
          * Authenticate with public and private key.
          */
         $auth = ssh2_auth_pubkey_file($this->connection, $user, $key . '.pub', $key, '');
