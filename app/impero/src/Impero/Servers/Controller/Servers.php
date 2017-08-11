@@ -261,4 +261,11 @@ class Servers
         ]);
     }
 
+    public function postConnectAction(Server $server)
+    {
+        return response()->respondWithSuccess([
+                                                  'connection' => !!$server->getConnection(),
+                                              ]);
+    }
+
 }

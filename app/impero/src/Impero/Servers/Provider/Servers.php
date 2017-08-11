@@ -48,13 +48,13 @@ class Servers extends Provider
             (new Group([
                            'controller' => ServersController::class,
                        ]))->routes([
-                                                   'installer' => (new Route('/install.sh', 'installSh'))->data([
-                                                                                                                    'tags' => [
-                                                                                                                        EncapsulateResponse::class .
-                                                                                                                        '.disable',
-                                                                                                                    ],
-                                                                                                                ]),
-                                                   'postInstall' => (new Route('/postinstall', 'installNewServer')),
+                                       'installer'   => (new Route('/install.sh', 'installSh'))->data([
+                                                                                                          'tags' => [
+                                                                                                              EncapsulateResponse::class .
+                                                                                                              '.disable',
+                                                                                                          ],
+                                                                                                      ]),
+                                       'postInstall' => (new Route('/postinstall', 'installNewServer')),
                                    ]),
             /**
              * API routes.
@@ -69,6 +69,7 @@ class Servers extends Provider
                                                                                                                'server' => Server::class,
                                                                                                            ]),
                                        '.server.services' => new Route('/[server]/services', 'serverServices'),
+                                       '.server.connect'  => new Route('/[server]/connect', 'connect'),
                                    ]),
             (new Group([
                            'controller' => Sites::class,
