@@ -198,6 +198,7 @@ class Servers
             $connection->sftpSend($privateKey . '.pub', '/home/impero/.ssh/impero.key.pub');
             $connection->exec('cat /home/impero/.ssh/impero.key.pub >> /home/impero/.ssh/authorized_keys');
             $connection->exec('rm /home/impero/.ssh/impero.key.pub');
+            $connection->exec('chmod 600 /home/impero/.ssh/authorized_keys');
         } catch (Throwable $e) {
             die("error copying key : " . exception($e));
         }
