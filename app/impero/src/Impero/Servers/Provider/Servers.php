@@ -69,7 +69,9 @@ class Servers extends Provider
                                                                                                                'server' => Server::class,
                                                                                                            ]),
                                        '.server.services' => new Route('/[server]/services', 'serverServices'),
-                                       '.server.connect'  => new Route('/[server]/connect', 'connect'),
+                                       '.server.connect'  => (new Route('/[server]/connect', 'connect'))->resolvers([
+                                                                                                                        'server' => Server::class,
+                                                                                                                    ]),
                                    ]),
             (new Group([
                            'controller' => Sites::class,
