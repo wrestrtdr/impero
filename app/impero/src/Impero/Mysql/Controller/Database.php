@@ -106,8 +106,6 @@ class Database extends Controller
      *
      * @param DatabaseForm   $databaseForm
      * @param DatabaseRecord $databaseRecord
-     *
-     * @return $this
      */
     public function postEditAction(DatabaseForm $databaseForm, DatabaseRecord $databaseRecord)
     {
@@ -127,8 +125,6 @@ class Database extends Controller
      * Delete record.
      *
      * @param DatabaseRecord $databaseRecord
-     *
-     * @return $this
      */
     public function getDeleteAction(DatabaseRecord $databaseRecord)
     {

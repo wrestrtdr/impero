@@ -20,7 +20,7 @@ class CreateSiteTable extends Migration
         $siteTable->varchar('ssl_certificate_file', 128)->nullable();
         $siteTable->varchar('ssl_certificate_key_file', 128)->nullable();
         $siteTable->varchar('ssl_certificate_chain_file', 128)->nullable();
-        $siteTable->datetime('ssl_letsencrypt_autorenew')->nullable();
+        $siteTable->boolean('ssl_letsencrypt_autorenew');
 
         $siteTable->boolean('error_log')->setDefault(1);
         $siteTable->boolean('access_log')->setDefault(1);
