@@ -5,26 +5,25 @@ use Impero\Apache\Record\Site;
 class Sites
 {
 
-    public function postDeployAction(Site $site)
+    public function postExecAction(Site $site)
     {
         /**
-         * Each site currently has same deploy procedure.
-         * Future examples:
-         *  - php console project:pull
-         *  - git pull --ff && php some cache:clear
-         *  - sh deploy.sh
-         *  - ...
+         * Commands are sent in action post.
          */
+        $commands = post('commands', []);
         d('connecting');
         $connection = $site->server->getConnection();
         d('executing');
-        $output = $connection->exec('cd ' . $site->getHtdocsPath() . ' && php console project:pull', $error);
+        foreach ($commands as $command) {
+            $output = null;
+            $error = null;
+            $output = $connection->exec('cd ' . $site->getHtdocsPath() . ' && ' . $command, $error);
+            d($output, $error);
+        }
         d('closing');
         $connection->close();
 
-        d($output, $error);
-
-        return 'cd ' . $site->getHtdocsPath() . ' && php console project:pull';
+        return implode(' ; ', $commands);
     }
 
 }
