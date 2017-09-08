@@ -90,7 +90,7 @@ class SshConnection
 
         $stream = fopen("ssh2.sftp://" . intval($sftp) . $remote, 'w');
 
-        $ok = @fwrite($stream, file_get_contents($local));
+        $ok = @fwrite($stream, $isFile ? file_get_contents($local) : $local);
 
         @fclose($stream);
 
