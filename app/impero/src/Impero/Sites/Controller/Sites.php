@@ -10,8 +10,6 @@ class Sites
     {
         $data = only(post()->all(), ['user_id', 'server_id', 'name', 'aliases', 'ssl']);
 
-        throw new Exception(\GuzzleHttp\json_encode($data));
-
         $site = Site::create([
                                  'server_name'   => $data['name'],
                                  'server_alias'  => $data['aliases'],
