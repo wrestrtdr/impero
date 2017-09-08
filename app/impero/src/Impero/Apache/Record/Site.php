@@ -41,8 +41,7 @@ class Site extends Record
     {
         $connection = $this->server->getConnection();
 
-        d('creating ', $this->getHtdocsPath());
-        $output = $connection->exec('mkdir -p ' . $this->getHtdocsPath(), $error);
+        $connection->exec('mkdir -p ' . $this->getHtdocsPath());
         $connection->exec('mkdir -p ' . $this->getLogPath());
         $connection->exec('mkdir -p ' . $this->getSslPath());
     }
