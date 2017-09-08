@@ -5,6 +5,7 @@ use Impero\Ftp\Provider\Ftp as FtpProvider;
 use Impero\Git\Provider\Git as GitProvider;
 use Impero\Impero\Controller\Impero as ImperoController;
 use Impero\Impero\Middleware\LogApiRequests;
+use Impero\Impero\Middleware\LogApiResponses;
 use Impero\Mysql\Provider\Mysql as MysqlProvider;
 use Impero\Servers\Provider\Servers;
 use Impero\User\Provider\Users;
@@ -62,6 +63,13 @@ class Impero extends Provider
     {
         return [
             LogApiRequests::class,
+        ];
+    }
+
+    public function afterwares()
+    {
+        return [
+            LogApiResponses::class,
         ];
     }
 
