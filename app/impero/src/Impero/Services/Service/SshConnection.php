@@ -84,7 +84,7 @@ class SshConnection
         return $this;
     }
 
-    public function sftpSend($local, $remote, $mode = null)
+    public function sftpSend($local, $remote, $mode = null, $isFile = true)
     {
         $sftp = ssh2_sftp($this->connection);
 

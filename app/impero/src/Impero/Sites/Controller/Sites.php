@@ -46,4 +46,16 @@ class Sites
         return implode(' ; ', $commands);
     }
 
+    public function postCreateFileAction(Site $site)
+    {
+        $file = post('file');
+        $content = post('content');
+        $connection = $site->server->getConnection();
+        $connection->sftpSend($connection, $site->getHtdocsPath() . $file, null, false);
+
+        return [
+            'created' => 'ok',
+        ];
+    }
+
 }
