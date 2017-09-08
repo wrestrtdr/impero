@@ -1,6 +1,5 @@
 <?php namespace Impero\Sites\Controller;
 
-use Exception;
 use Impero\Apache\Record\Site;
 
 class Sites
@@ -18,6 +17,7 @@ class Sites
                                  'access_log'    => 1,
                                  'created_at'    => date('Y-m-d H:i:s'),
                                  'document_root' => $data['name'],
+                                 'server_id'     => $data['server_id'],
                              ]);
 
         $site->createOnFilesystem();
