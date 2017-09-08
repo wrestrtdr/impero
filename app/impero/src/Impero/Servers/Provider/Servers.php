@@ -83,7 +83,7 @@ class Servers extends Provider
                                            ->resolvers([
                                                            'site' => Site::class,
                                                        ]),
-                                       '.createFIle' => (new Route('/[site]/createFile', 'createFile'))
+                                       '.createFile' => (new Route('/[site]/createFile', 'createFile'))
                                            ->resolvers([
                                                            'site' => Site::class,
                                                        ]),
