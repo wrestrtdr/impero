@@ -78,8 +78,12 @@ class Servers extends Provider
                            'urlPrefix'  => '/api/site',
                            'namePrefix' => 'api.impero.site',
                        ]))->routes([
-                                       ''      => (new Route('', 'site')),
-                                       '.exec' => (new Route('/[site]/exec', 'exec'))
+                                       ''            => (new Route('', 'site')),
+                                       '.exec'       => (new Route('/[site]/exec', 'exec'))
+                                           ->resolvers([
+                                                           'site' => Site::class,
+                                                       ]),
+                                       '.createFIle' => (new Route('/[site]/createFile', 'createFile'))
                                            ->resolvers([
                                                            'site' => Site::class,
                                                        ]),

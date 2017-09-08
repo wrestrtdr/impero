@@ -51,7 +51,7 @@ class Sites
         $file = post('file');
         $content = post('content');
         $connection = $site->server->getConnection();
-        $connection->sftpSend($connection, $site->getHtdocsPath() . $file, null, false);
+        $connection->sftpSend($content, $site->getHtdocsPath() . $file, null, false);
 
         return [
             'created' => 'ok',
