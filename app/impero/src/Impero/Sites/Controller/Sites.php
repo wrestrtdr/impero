@@ -22,9 +22,9 @@ class Sites
 
         $site->createOnFilesystem();
 
-        return response()->respondWithSuccess([
-                                                  'site' => $site,
-                                              ]);
+        return [
+            'site' => $site,
+        ];
     }
 
     public function postExecAction(Site $site)
