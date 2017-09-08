@@ -127,7 +127,7 @@ class Servers
         $ip = server('REMOTE_ADDR', null);
         $port = post('port', 22);
         $user = 'impero';
-        d("pass", $password);
+        //d("pass", $password);
 
         /**
          * Create new server.
@@ -153,7 +153,7 @@ class Servers
             $output = $return_var = null;
             $command = 'ssh-keygen -b 4096 -t rsa -C \'www-data@impero.foobar.si\' -f ' . $privateKey . ' -N "" 2>&1';
             exec($command, $output, $return_var);
-            d("generated", $command, $output, $return_var);
+            //d("generated", $command, $output, $return_var);
         }
 
         /**
