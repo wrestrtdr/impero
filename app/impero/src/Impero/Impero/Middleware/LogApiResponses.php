@@ -11,7 +11,7 @@ class LogApiResponses
         if (strpos($url, '/api/') === 0) {
             ApiRequest::create([
                                    'created_at' => date('Y-m-d H:i:s'),
-                                   'data'       => json_encode(post()->all()),
+                                   'data'       => json_encode(response()->getOutput()),
                                    'ip'         => server('REMOTE_ADDR'),
                                    'url'        => $url . ':response',
                                ]);
