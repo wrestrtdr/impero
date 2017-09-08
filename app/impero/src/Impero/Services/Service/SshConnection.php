@@ -15,7 +15,7 @@ class SshConnection
         /**
          * Create connection.
          */
-        d('connecting to ' . $host . ' : ' . $port);
+        //d('connecting to ' . $host . ' : ' . $port);
         $this->connection = ssh2_connect($host, $port);
 
         if (!$this->connection) {
@@ -38,14 +38,14 @@ class SshConnection
             //d($calculated, $keygen, $fingerprint);
 
             if (!strpos($keygen, $calculated) || $fingerprint != $keygen) {
-                d("Wrong server fingerprint");
+                //d("Wrong server fingerprint");
             }
         }
 
         /**
          * Authenticate with public and private key.
          */
-        d('authenticating ' . $user . ' with ' . $key);
+        //d('authenticating ' . $user . ' with ' . $key);
 
         if ($type == 'key') {
             $auth = ssh2_auth_pubkey_file($this->connection, $user, $key . '.pub', $key, '');
