@@ -5,6 +5,27 @@ use Impero\Apache\Record\Site;
 class Sites
 {
 
+    public function postSiteAction()
+    {
+        $data = only(post()->all(), ['user_id', 'server_id', 'name', 'aliases', 'ssl']);
+
+        $site = Site::create([
+                                 'server_name'   => $data['name'],
+                                 'server_alias'  => $data['aliases'],
+                                 'user_id'       => $data['user_id'],
+                                 'error_log'     => 1,
+                                 'access_log'    => 1,
+                                 'created_at'    => date('Y-m-d H:i:s'),
+                                 'document_root' => $data['name'],
+                             ]);
+
+        $site->createOnFilesystem();
+
+        return response()->respondWithSuccess([
+                                                  'site' => $site,
+                                              ]);
+    }
+
     public function postExecAction(Site $site)
     {
         /**

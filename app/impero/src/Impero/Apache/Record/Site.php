@@ -37,6 +37,17 @@ class Site extends Record
         return $this;
     }
 
+    public function createOnFilesystem()
+    {
+        $connection = $this->server->getConnection();
+
+        $output = $connection->exec('mkdir -p ' . $this->getHtdocsPath(), $error);
+        d($output, $error);
+
+        $connection->exec('mkdir -p ' . $this->getLogPath());
+        $connection->exec('mkdir -p ' . $this->getSslPath());
+    }
+
     public function getUserPath()
     {
         return '/www/' . $this->user->username . '/';
