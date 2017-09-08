@@ -4229,12 +4229,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "604b8cb9f694b05292bf3b580b298d50c1974e7e"
+                "reference": "bb89acb86c4079c8628b406cb1f7ae47ee4406bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/604b8cb9f694b05292bf3b580b298d50c1974e7e",
-                "reference": "604b8cb9f694b05292bf3b580b298d50c1974e7e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/bb89acb86c4079c8628b406cb1f7ae47ee4406bd",
+                "reference": "bb89acb86c4079c8628b406cb1f7ae47ee4406bd",
                 "shasum": ""
             },
             "require": {
@@ -4290,7 +4290,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-09-06 19:47:44"
+            "time": "2017-09-07 15:50:16"
         },
         {
             "name": "symfony/css-selector",
@@ -4407,12 +4407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "6dcc0cb8e0f54ff395f7cdcfcaa371390f8c360a"
+                "reference": "7632d84d663032714aaef9d150b1d3762d2c93fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/6dcc0cb8e0f54ff395f7cdcfcaa371390f8c360a",
-                "reference": "6dcc0cb8e0f54ff395f7cdcfcaa371390f8c360a",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/7632d84d663032714aaef9d150b1d3762d2c93fa",
+                "reference": "7632d84d663032714aaef9d150b1d3762d2c93fa",
                 "shasum": ""
             },
             "require": {
@@ -4470,7 +4470,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-09-06 19:03:12"
+            "time": "2017-09-07 14:45:15"
         },
         {
             "name": "symfony/dom-crawler",
