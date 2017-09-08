@@ -1679,12 +1679,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/database.git",
-                "reference": "79e5971a399d0d4ed99a6361344db55b45028394"
+                "reference": "593c94c2e389bdba9ff5e0a90b3b3e4c38958947"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/database/zipball/79e5971a399d0d4ed99a6361344db55b45028394",
-                "reference": "79e5971a399d0d4ed99a6361344db55b45028394",
+                "url": "https://api.github.com/repos/pckg/database/zipball/593c94c2e389bdba9ff5e0a90b3b3e4c38958947",
+                "reference": "593c94c2e389bdba9ff5e0a90b3b3e4c38958947",
                 "shasum": ""
             },
             "require": {
@@ -1713,7 +1713,7 @@
             ],
             "description": "Just another php / orm / pdo implementation for simple and advanced data management",
             "homepage": "https://github.com/pckg/database",
-            "time": "2017-09-08 09:33:05"
+            "time": "2017-09-08 10:06:11"
         },
         {
             "name": "pckg/framework",
