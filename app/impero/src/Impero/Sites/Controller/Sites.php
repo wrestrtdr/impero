@@ -1,5 +1,6 @@
 <?php namespace Impero\Sites\Controller;
 
+use Exception;
 use Impero\Apache\Record\Site;
 
 class Sites
@@ -8,6 +9,8 @@ class Sites
     public function postSiteAction()
     {
         $data = only(post()->all(), ['user_id', 'server_id', 'name', 'aliases', 'ssl']);
+
+        throw new Exception(\GuzzleHttp\json_encode($data));
 
         $site = Site::create([
                                  'server_name'   => $data['name'],
