@@ -29,6 +29,7 @@ class Sites
 
     public function postExecAction(Site $site)
     {
+        set_time_limit(60 * 5);
         /**
          * Commands are sent in action post.
          */
