@@ -11,9 +11,9 @@ class Users
 
         $user = User::create($data);
 
-        return response()->respondWithSuccess([
-                                                  'user' => $user,
-                                              ]);
+        return [
+            'user' => $user,
+        ];
     }
 
     public function getUserAction()
