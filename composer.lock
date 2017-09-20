@@ -1769,12 +1769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/generic.git",
-                "reference": "69c710b61fba9b477a1479aff6113aecdd262f34"
+                "reference": "87821f7f7d50cf0da053107c68f6d5509026926f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/generic/zipball/69c710b61fba9b477a1479aff6113aecdd262f34",
-                "reference": "69c710b61fba9b477a1479aff6113aecdd262f34",
+                "url": "https://api.github.com/repos/pckg/generic/zipball/87821f7f7d50cf0da053107c68f6d5509026926f",
+                "reference": "87821f7f7d50cf0da053107c68f6d5509026926f",
                 "shasum": ""
             },
             "require": {
@@ -1800,7 +1800,7 @@
             ],
             "description": "Building admin interface and generic frontend made simple",
             "homepage": "https://github.com/pckg/generic",
-            "time": "2017-09-20 09:20:07"
+            "time": "2017-09-20 12:48:49"
         },
         {
             "name": "pckg/helpers-js",
@@ -1945,12 +1945,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pckg/mail.git",
-                "reference": "a570a931017b8851e2d90e03fd46b0149a7253b9"
+                "reference": "2f99cded751a5f0d2cce6cf42bfa49382d308963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pckg/mail/zipball/a570a931017b8851e2d90e03fd46b0149a7253b9",
-                "reference": "a570a931017b8851e2d90e03fd46b0149a7253b9",
+                "url": "https://api.github.com/repos/pckg/mail/zipball/2f99cded751a5f0d2cce6cf42bfa49382d308963",
+                "reference": "2f99cded751a5f0d2cce6cf42bfa49382d308963",
                 "shasum": ""
             },
             "require": {
@@ -1976,7 +1976,7 @@
             ],
             "description": "Sending mail via local mail server, smtp or api; global implementation of recipients and senders; subscriptions for mailchimp; made simple :)",
             "homepage": "https://github.com/pckg/mail",
-            "time": "2017-09-20 12:20:20"
+            "time": "2017-09-20 13:23:04"
         },
         {
             "name": "pckg/manager",
@@ -4408,12 +4408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "38cb9d085e34d4000d0e62c05064b5374d6ba2d3"
+                "reference": "a7afe6b264c623800f00b74464a49c5333f2f082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/38cb9d085e34d4000d0e62c05064b5374d6ba2d3",
-                "reference": "38cb9d085e34d4000d0e62c05064b5374d6ba2d3",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/a7afe6b264c623800f00b74464a49c5333f2f082",
+                "reference": "a7afe6b264c623800f00b74464a49c5333f2f082",
                 "shasum": ""
             },
             "require": {
@@ -4471,7 +4471,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-09-19 21:28:23"
+            "time": "2017-09-20 13:13:22"
         },
         {
             "name": "symfony/dom-crawler",
